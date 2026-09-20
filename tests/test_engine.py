@@ -1,0 +1,57 @@
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+
+from sqx_engine.config import EngineConfig
+from sqx_engine.engine import StrategyFactory
+from sqx_engine.strategy import Predicate, StrategyDefinition
+from sqx_engine.store import StrategyStore
+
+
+def test_strategy_canonical_hash_is_stable():
+    a = StrategyDefinition("EURUSD", "H1", "LONG", (Predicate("rsi_14", "<", 40),))
+    b = StrategyDefinition("EURUSD", "H1", "LONG", (Predicate("rsi_14", "<", 40),))
+    assert a.canonical_hash == b.canonical_hash
+
+
+def test_store_reopen_and_query(tmp_path: Path):
+    path = tmp_path / "store.sqlite"
+    store = StrategyStore(path)
+    store.start_run(("run", None, None, "EURUSD", "H1", "random", 1, 1, 0, 0, 0, 0.0, "hash", "RUNNING"))
+    assert store.count("runs") == 1
+    store.close()
+
+    reopened = StrategyStore(path)
+    assert reopened.count("runs") == 1
+    assert reopened.top_strategies("EURUSD", "H1") == []
+    reopened.close()
+
+
+def test_factory_end_to_end_on_bounded_data(tmp_path: Path):
+    n = 180
+    close = 1.10 + np.linspace(0, 0.01, n) + 0.001 * np.sin(np.arange(n) / 3)
+    frame = pd.DataFrame({
+        "timestamp": pd.date_range("2020-01-01", periods=n, freq="h", tz="UTC"),
+        "open": close,
+        "high": close + 0.0005,
+        "low": close - 0.0005,
+        "close": close,
+        "volume": 1,
+    })
+    data_path = tmp_path / "sample.csv"
+    frame.to_csv(data_path, index=False)
+    config = EngineConfig({
+        "market": "EURUSD", "timeframe": "H1", "data_path": str(data_path),
+        "generator": {"type": "random", "evaluations": 5, "seed": 7},
+        "strategy": {"max_predicates": 1},
+        "backtest": {"initial_capital": 10000, "spread": 0.0, "slippage": 0.0},
+        "funnel": {"basic": {"min_trades": 0, "min_pf": 0.0, "max_drawdown": 1.0}},
+        "portfolio": {"max_strategies": 2, "max_correlation": 0.99},
+        "store": {"path": str(tmp_path / "run.sqlite")},
+    })
+    result = StrategyFactory(config).run()
+    assert result["generated"] == 5
+    assert result["backtested"] == 5
+    assert result["database"]["strategies"] == 5
+    assert result["portfolio_selected"] >= 0

@@ -1,0 +1,16 @@
+market: EURUSD
+timeframe: H1
+data_path: /home/jpm/FOREX_H1/EURUSD_1H.csv
+generator: {type: random, evaluations: 100, seed: 101}
+backtest: {initial_capital: 10000, spread: 0.0, slippage: 0.0}
+strategy: {max_predicates: 2}
+funnel:
+  basic: {min_trades: 20, min_pf: 0.95, max_drawdown: 0.50}
+  stability: {enabled: true, segments: 3}
+  plateau: {enabled: true}
+  cost_stress: {enabled: true}
+  execution_stress: {enabled: true}
+  diversity: {enabled: true, max_correlation: 0.85}
+portfolio: {max_strategies: 10, max_correlation: 0.70}
+store: {path: runs/eurusd_h1.sqlite}
+
