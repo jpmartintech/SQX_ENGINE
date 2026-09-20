@@ -5,6 +5,7 @@ import pandas as pd
 
 from sqx_engine.config import EngineConfig
 from sqx_engine.engine import StrategyFactory
+from sqx_engine.generators import GeneticGenerator
 from sqx_engine.strategy import Predicate, StrategyDefinition
 from sqx_engine.store import StrategyStore
 
@@ -55,3 +56,19 @@ def test_factory_end_to_end_on_bounded_data(tmp_path: Path):
     assert result["backtested"] == 5
     assert result["database"]["strategies"] == 5
     assert result["portfolio_selected"] >= 0
+
+
+def test_genetic_generator_evolves_and_tracks_generations():
+    generator = GeneticGenerator("EURUSD", "H1", seed=3, max_predicates=2, population_size=4)
+    seen = []
+    for _ in range(12):
+        strategy = generator.ask()
+        seen.append(strategy.canonical_hash)
+        class Result:
+            expectancy_r = 1.0
+            sharpe = 1.0
+            max_drawdown = 0.1
+        generator.tell(strategy, Result())
+    assert len(set(seen)) > 4
+    assert generator.generation >= 1
+    assert len(generator.elite) <= 4

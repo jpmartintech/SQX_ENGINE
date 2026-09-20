@@ -1,8 +1,8 @@
 # SQX_ENGINE
 
-Standalone practical strategy-generation engine. The first vertical slice
-supports EURUSD H1 data, portable strategy definitions, causal evaluation,
-random generation, a basic quality funnel, persistent storage and simple
+Standalone practical strategy-generation engine. V1.1 supports EURUSD H1
+data, portable strategy definitions, causal array evaluation, Random and
+Genetic generation, a staged quality funnel, persistent storage and simple
 portfolio construction.
 
 ## Run
@@ -14,18 +14,17 @@ PYTHONPATH=src python -m sqx_engine.cli run configs/eurusd_h1.yaml
 The configured V1 flow is:
 
 ```text
-data → features → generator → fast backtest → basic filter
+data → cached features → Genetic/Random → aggregate backtest → basic filter
+     → stability → plateau → cost → execution → behavioral diversity
      → SQLite strategy store → correlation-aware portfolio → report
 ```
 
 The storage abstraction is designed for DuckDB/Parquet, but uses SQLite in
-the current environment because DuckDB is not installed. The later funnel
-stages are represented and persisted as configurable stages; their full
-robustness implementations are planned after the P0 end-to-end milestone.
+the current environment because DuckDB is not installed. Monte Carlo,
+negative controls, regime analysis and cross-market validation are deferred
+to later milestones.
 
-The 100-strategy acceptance run is an engineering test, not evidence of a
-trading edge. The current P0 run uses the Random generator; the generator
-interface and a minimal Genetic-compatible façade are available for the next
-milestone.
+Historical backtest metrics are engineering outputs, not evidence of a
+trading edge. The 1K factory run is a product/infrastructure milestone.
 
 See [docs/REUSE_MAP.md](docs/REUSE_MAP.md) for reuse decisions.
