@@ -61,4 +61,11 @@ class GeneticGenerator(RandomGenerator):
             self.generation += 1
 
     def state(self):
-        return {"generated": self.generated, "generation": self.generation, "elite": [(s.to_json(), score) for s, score in self.elite]}
+        return {"generated": self.generated, "generation": self.generation, "rng_state": self.rng.bit_generator.state, "elite": [(s.to_json(), score) for s, score in self.elite]}
+
+    def set_state(self, state):
+        super().set_state(state)
+        self.generation = int(state.get("generation", 0))
+        self.elite = []
+        for raw, score in state.get("elite", []):
+            self.elite.append((StrategyDefinition.from_json(raw), float(score)))

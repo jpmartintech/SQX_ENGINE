@@ -39,6 +39,9 @@ class FastEvaluator:
         self.slippage = float(slippage)
         self._predicate_cache = {}
         self._signal_cache = {}
+        self._evaluation_cache = {}
+        self.cache_hits = 0
+        self.evaluations = 0
         self._arrays = {k: self.data[k].to_numpy(float) for k in ("open", "high", "low", "close")}
         self._arrays["timestamp"] = self.data.timestamp.to_numpy()
 
@@ -68,6 +71,11 @@ class FastEvaluator:
         return signal
 
     def evaluate(self, strategy, *, start=0, end=None, cost_multiplier=1.0, entry_delay=0, rich=True):
+        cache_key = (strategy.canonical_hash, int(start), None if end is None else int(end), float(cost_multiplier), int(entry_delay), bool(rich))
+        if cache_key in self._evaluation_cache:
+            self.cache_hits += 1
+            return self._evaluation_cache[cache_key]
+        self.evaluations += 1
         started = time.perf_counter()
         a = self._arrays
         end = len(a["close"]) if end is None else min(int(end), len(a["close"]))
@@ -118,4 +126,6 @@ class FastEvaluator:
         peaks = np.maximum.accumulate(equity) if len(equity) else np.array([self.initial_capital])
         maxdd = float(np.max(peaks - equity) / self.initial_capital) if len(equity) else 0.0
         sharpe = float(rs.mean() / rs.std() * np.sqrt(252)) if len(rs) > 1 and rs.std() > 0 else 0.0
-        return EvaluationResult(strategy.readable_id, strategy.canonical_hash, len(trades), float(pn.sum()), float(balance / self.initial_capital - 1), pf, float(pn.mean()) if len(pn) else 0.0, float(rs.mean()) if len(rs) else 0.0, sharpe, maxdd, float((pn > 0).mean()) if len(pn) else 0.0, float(pn.mean()) if len(pn) else 0.0, sum(t["direction"] == "LONG" for t in trades), sum(t["direction"] == "SHORT" for t in trades), pn.tolist() if rich else [], equity.tolist() if rich else [], trades if rich else [], time.perf_counter() - started)
+        result = EvaluationResult(strategy.readable_id, strategy.canonical_hash, len(trades), float(pn.sum()), float(balance / self.initial_capital - 1), pf, float(pn.mean()) if len(pn) else 0.0, float(rs.mean()) if len(rs) else 0.0, sharpe, maxdd, float((pn > 0).mean()) if len(pn) else 0.0, float(pn.mean()) if len(pn) else 0.0, sum(t["direction"] == "LONG" for t in trades), sum(t["direction"] == "SHORT" for t in trades), pn.tolist() if rich else [], equity.tolist() if rich else [], trades if rich else [], time.perf_counter() - started)
+        self._evaluation_cache[cache_key] = result
+        return result

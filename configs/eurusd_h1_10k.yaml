@@ -3,8 +3,8 @@ timeframe: H1
 data_path: /home/jpm/FOREX_H1/EURUSD_1H.csv
 generator:
   type: genetic
-  evaluations: 1000
-  seed: 1101
+  evaluations: 10000
+  seed: 1201
   population_size: 40
   mutation_rate: 0.35
   crossover_rate: 0.70
@@ -12,10 +12,10 @@ strategy:
   max_predicates: 2
 backtest:
   initial_capital: 10000
-  spread: 0.0
-  slippage: 0.0
+  spread: 0.00008
+  slippage: 0.00002
 candidate_pool:
-  size: 250
+  size: 1000
 funnel:
   basic:
     min_trades: 100
@@ -30,14 +30,16 @@ funnel:
     min_trades_per_segment: 20
   plateau:
     enabled: true
-    min_pass_ratio: 0.35
+    min_pass_ratio: 0.50
   cost_stress:
     enabled: true
     multipliers: [1.25, 1.50, 2.00]
+    min_pf: 0.95
     min_pass_ratio: 0.67
   execution_stress:
     enabled: true
     delays: [1, 2]
+    min_expectancy: 0.0
     min_pass_ratio: 0.50
   diversity:
     enabled: true
@@ -47,8 +49,8 @@ portfolio:
   max_strategies: 10
   max_correlation: 0.70
 store:
-  path: runs/eurusd_h1_1k.sqlite
+  path: runs/eurusd_h1_10k.sqlite
 checkpoint:
-  path: runs/checkpoints/eurusd_h1_1k.json
+  path: runs/checkpoints/eurusd_h1_10k.json
 runtime:
   checkpoint_every_evaluations: 500

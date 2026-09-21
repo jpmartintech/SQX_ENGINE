@@ -15,6 +15,17 @@ from .backtest import FastEvaluator
 from .funnel import QualityFunnel
 from .store import StrategyStore
 from .portfolio import PortfolioBuilder
+from .runtime import CheckpointManager
+from .backtest import EvaluationResult
+from .strategy import StrategyDefinition
+
+
+def _result_state(result):
+    return {"strategy_id": result.strategy_id, "canonical_hash": result.canonical_hash, "trade_count": result.trade_count, "net_profit": result.net_profit, "return_pct": result.return_pct, "profit_factor": result.profit_factor, "expectancy": result.expectancy, "expectancy_r": result.expectancy_r, "sharpe": result.sharpe, "max_drawdown": result.max_drawdown, "win_rate": result.win_rate, "average_trade": result.average_trade, "long_trades": result.long_trades, "short_trades": result.short_trades}
+
+
+def _result_from_state(raw):
+    return EvaluationResult(**raw, trade_returns=[], equity_curve=[], trades=[])
 
 
 class StrategyFactory:
@@ -29,12 +40,16 @@ class StrategyFactory:
         else:
             x, y = np.pad(x, (0, n - len(x))), np.pad(y, (0, n - len(y)))
             corr = 0.0 if not np.std(x) or not np.std(y) else abs(float(np.corrcoef(x, y)[0, 1]))
+        if corr >= max_corr: return True
+        # Correlation below this level is already behaviorally different; only
+        # compute the more expensive timestamp overlap in the ambiguous band.
+        if corr < max_corr * .60: return False
         ea = {str(t["entry_time"]) for t in a["result"].trades}
         eb = {str(t["entry_time"]) for t in b["result"].trades}
         overlap = len(ea & eb) / max(1, min(len(ea), len(eb)))
-        return corr >= max_corr or overlap >= max_overlap
+        return overlap >= max_overlap
 
-    def run(self):
+    def run(self, resume=False):
         started = time.perf_counter()
         run_id = str(uuid.uuid4())
         timings = {}
@@ -46,12 +61,22 @@ class StrategyFactory:
         funnel = QualityFunnel(self.config, evaluator)
         store = StrategyStore(self.config.get("store.path", "runs/sqx_engine.sqlite"))
         requested = int(self.config.get("generator.evaluations", 100))
-        store.start_run((run_id, None, None, self.config.get("market"), self.config.get("timeframe"), self.config.get("generator.type", "random"), self.config.get("generator.seed"), requested, 0, 0, 0, 0.0, self.config.config_hash, "RUNNING"))
-        seen, records, basic_records, rejected = set(), [], [], 0
-        rejection_counts = {}
-        counters = {"generated": 0, "unique": 0, "backtested": 0, "basic_pass": 0, "stability_pass": 0, "plateau_pass": 0, "cost_pass": 0, "execution_pass": 0, "before_diversity": 0, "diversity_pass": 0}
+        checkpoint_path = Path(self.config.get("checkpoint.path", f"runs/checkpoints/{run_id}.json")); checkpoint = CheckpointManager(checkpoint_path)
+        resume_state = checkpoint.load() if (resume or self.config.get("runtime.resume", False)) else None
+        if resume_state and resume_state.get("status") in {"RUNNING", "INTERRUPTED", "COMPLETE"}:
+            run_id = resume_state["run_id"]
+            if hasattr(gen, "set_state"): gen.set_state(resume_state.get("generator", {}))
+            seen = set(resume_state.get("canonical_hashes", [])); basic_records = [(StrategyDefinition.from_json(x["strategy"]), _result_from_state(x["result"])) for x in resume_state.get("basic_records", [])]
+            counters = resume_state.get("counters", {"generated": 0, "unique": len(seen), "backtested": len(seen), "basic_pass": len(basic_records), "stability_pass": 0, "plateau_pass": 0, "cost_pass": 0, "execution_pass": 0, "before_diversity": 0, "diversity_pass": 0})
+            rejected = int(resume_state.get("rejected", 0)); rejection_counts = resume_state.get("rejection_counts", {})
+        else:
+            store.start_run((run_id, None, None, self.config.get("market"), self.config.get("timeframe"), self.config.get("generator.type", "random"), self.config.get("generator.seed"), requested, 0, 0, 0, 0.0, self.config.config_hash, "RUNNING"))
+            seen, basic_records, rejected, counters, rejection_counts = set(), [], 0, {"generated": 0, "unique": 0, "backtested": 0, "basic_pass": 0, "stability_pass": 0, "plateau_pass": 0, "cost_pass": 0, "execution_pass": 0, "before_diversity": 0, "diversity_pass": 0}, {}
+        records = []
         t_search = time.perf_counter()
         attempts = 0
+        checkpoint_every = int(self.config.get("runtime.checkpoint_every_evaluations", 500))
+        next_checkpoint = ((len(seen) // checkpoint_every) + 1) * checkpoint_every if checkpoint_every else 0
         while len(seen) < requested and attempts < requested * 20:
             attempts += 1; strategy = gen.ask(); counters["generated"] += 1
             if strategy.canonical_hash in seen: continue
@@ -64,6 +89,9 @@ class StrategyFactory:
                 for reason in basic_reasons: rejection_counts[reason] = rejection_counts.get(reason, 0) + 1
                 gen.tell(strategy, result); continue
             counters["basic_pass"] += 1; basic_records.append((strategy, result)); gen.tell(strategy, result)
+            if checkpoint_every and len(seen) >= next_checkpoint:
+                store.commit(); checkpoint.save({"run_id": run_id, "status": "RUNNING", "evaluations": len(seen), "canonical_hashes": sorted(seen), "generator": getattr(gen, "state", lambda: {})(), "counters": counters, "rejected": rejected, "rejection_counts": rejection_counts, "basic_records": [{"strategy": s.to_json(), "result": _result_state(r)} for s, r in basic_records]})
+                next_checkpoint = ((len(seen) // checkpoint_every) + 1) * checkpoint_every
         timings["generation_and_basic"] = time.perf_counter() - t_search
         candidate_limit = int(self.config.get("candidate_pool.size", requested))
         basic_records.sort(key=lambda x: (x[1].expectancy_r, x[1].sharpe, -x[1].max_drawdown, x[0].canonical_hash), reverse=True)
@@ -101,8 +129,7 @@ class StrategyFactory:
         timings["portfolio"] = time.perf_counter() - t_div - timings["diversity"]
         elapsed = time.perf_counter() - started
         store.finish_run(run_id, (None, counters["generated"], counters["backtested"], len(final), elapsed, "COMPLETE"))
-        checkpoint = {"run_id": run_id, "status": "COMPLETE", "evaluations": counters["unique"], "canonical_hashes": sorted(seen), "generator": getattr(gen, "state", lambda: {})(), "counters": counters}
-        checkpoint_path = Path(self.config.get("checkpoint.path", f"runs/checkpoints/{run_id}.json")); checkpoint_path.parent.mkdir(parents=True, exist_ok=True); checkpoint_path.write_text(json.dumps(checkpoint, default=str, indent=2))
+        checkpoint.save({"run_id": run_id, "status": "COMPLETE", "evaluations": counters["unique"], "canonical_hashes": sorted(seen), "generator": getattr(gen, "state", lambda: {})(), "counters": counters, "rejected": rejected, "rejection_counts": rejection_counts, "basic_records": [{"strategy": s.to_json(), "result": _result_state(r)} for s, r in basic_records]})
         top = store.top_strategies(self.config.get("market"), self.config.get("timeframe"), 10)
         database = {"runs": store.count("runs"), "strategies": store.count("strategies"), "funnel": store.count("funnel"), "candidates": len(final)}
         result = {"run_id": run_id, "market": self.config.get("market"), "timeframe": self.config.get("timeframe"), "requested": requested, "generated": counters["generated"], "unique": counters["unique"], "backtested": counters["backtested"], "basic_pass": counters["basic_pass"], "rejected": rejected, "rejection_reasons": rejection_counts, "counters": counters, "candidate_pool": len(advanced), "candidates": len(final), "portfolio_eligible": len(final), "portfolio_selected": len(portfolio["strategies"]), "runtime": elapsed, "strategies_per_sec": counters["backtested"] / elapsed, "strategies_per_hour": counters["backtested"] / elapsed * 3600, "final_candidates_per_hour": len(final) / elapsed * 3600, "timings": timings, "database": database, "portfolio": {"strategy_ids": [x["result"].strategy_id for x in portfolio["strategies"]], "weights": portfolio["weights"], "average_correlation": portfolio["average_correlation"], "max_correlation": portfolio["max_correlation"], "combined_return": portfolio["combined_return"], "combined_sharpe": portfolio["combined_sharpe"], "combined_max_drawdown": portfolio["combined_max_drawdown"]}, "top_candidates": top, "checkpoint": str(checkpoint_path)}

@@ -19,6 +19,10 @@ class StrategyDefinition:
     @property
     def canonical_hash(self): return hashlib.sha256(self.canonical_json.encode()).hexdigest()
     @property
-    def readable_id(self): return self.strategy_id or f"SQX-{self.market}-{self.timeframe}-{self.canonical_hash[:8]}"
+    def readable_id(self): return self.strategy_id or f"SQX-{self.market}-{self.timeframe}-{self.canonical_hash[:12]}"
     def to_json(self): return self.canonical_json
 
+    @classmethod
+    def from_json(cls, raw):
+        p = json.loads(raw)
+        return cls(p["market"], p["timeframe"], p["direction"], tuple(Predicate(x["feature"], x["operator"], x["value"]) for x in p["predicates"]), p.get("logic", "AND"), p.get("atr_period", 14), p.get("stop_atr", 1.5), p.get("target_atr", 2.0), p.get("time_exit", 48))

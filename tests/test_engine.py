@@ -8,6 +8,9 @@ from sqx_engine.engine import StrategyFactory
 from sqx_engine.generators import GeneticGenerator
 from sqx_engine.strategy import Predicate, StrategyDefinition
 from sqx_engine.store import StrategyStore
+from sqx_engine.portfolio import PortfolioBuilder
+from sqx_engine.backtest import EvaluationResult
+from sqx_engine.runtime import CheckpointManager
 
 
 def test_strategy_canonical_hash_is_stable():
@@ -72,3 +75,19 @@ def test_genetic_generator_evolves_and_tracks_generations():
     assert len(set(seen)) > 4
     assert generator.generation >= 1
     assert len(generator.elite) <= 4
+
+
+def test_portfolio_return_normalization_known_answer():
+    def result(sid, curve):
+        return EvaluationResult(sid, sid, 3, 0, curve[-1] - 1, 1, 0, 0, 0, 0, .5, 0, 1, 1, [0.01, -0.01], curve, [])
+    items = [{"result": result("a", [1.0, 1.01, 1.02])}, {"result": result("b", [1.0, .99, 1.00])}]
+    portfolio = PortfolioBuilder(2, 1.0).build(items)
+    assert np.isclose(portfolio["combined_return"], 0.01)
+    assert np.isclose(portfolio["combined_max_drawdown"], 0.0)
+
+
+def test_checkpoint_save_load_roundtrip(tmp_path: Path):
+    manager = CheckpointManager(tmp_path / "checkpoint.json")
+    state = {"status": "RUNNING", "evaluations": 4, "rng": {"state": [1, 2, 3]}, "pool": ["a", "b"]}
+    manager.save(state)
+    assert manager.load() == state

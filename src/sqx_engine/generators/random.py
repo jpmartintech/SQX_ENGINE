@@ -20,3 +20,10 @@ class RandomGenerator(StrategyGenerator):
         self.generated+=1
         return StrategyDefinition(self.market,self.timeframe,str(self.rng.choice(["LONG","SHORT"])),tuple(ps),str(self.rng.choice(["AND","OR"] if n==2 else ["AND"])),14,float(self.rng.choice([1.0,1.5,2.0])),float(self.rng.choice([1.5,2.0,3.0])),int(self.rng.choice([24,48,72])))
 
+    def state(self):
+        return {"generated": self.generated, "rng_state": self.rng.bit_generator.state}
+
+    def set_state(self, state):
+        self.generated = int(state.get("generated", 0))
+        if state.get("rng_state"):
+            self.rng.bit_generator.state = state["rng_state"]
