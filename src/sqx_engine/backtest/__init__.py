@@ -1,4 +1,4 @@
 from .fast import FastEvaluator, EvaluationResult
 from .reference import ReferenceEvaluator
-__all__ = ["FastEvaluator", "ReferenceEvaluator", "EvaluationResult"]
-
+from .parallel import ParallelEvaluator, resolve_workers
+__all__ = ["FastEvaluator", "ParallelEvaluator", "resolve_workers", "ReferenceEvaluator", "EvaluationResult"]

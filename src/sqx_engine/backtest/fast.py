@@ -31,12 +31,13 @@ class EvaluationResult:
 class FastEvaluator:
     """Array-based causal evaluator with dataset-level predicate caching."""
 
-    def __init__(self, data, features, initial_capital=10000, spread=0.0, slippage=0.0):
+    def __init__(self, data, features, initial_capital=10000, spread=0.0, slippage=0.0, cache_size=4096):
         self.data = data.reset_index(drop=True)
         self.features = features
         self.initial_capital = float(initial_capital)
         self.spread = float(spread)
         self.slippage = float(slippage)
+        self.cache_size = max(0, int(cache_size))
         self._predicate_cache = {}
         self._signal_cache = {}
         self._evaluation_cache = {}
@@ -44,6 +45,22 @@ class FastEvaluator:
         self.evaluations = 0
         self._arrays = {k: self.data[k].to_numpy(float) for k in ("open", "high", "low", "close")}
         self._arrays["timestamp"] = self.data.timestamp.to_numpy()
+
+    def cache_stats(self):
+        requests = self.evaluations + self.cache_hits
+        return {"hits": self.cache_hits, "misses": self.evaluations,
+                "hit_ratio": self.cache_hits / requests if requests else 0.0,
+                "predicate_entries": len(self._predicate_cache),
+                "signal_entries": len(self._signal_cache),
+                "evaluation_entries": len(self._evaluation_cache)}
+
+    def _bounded_put(self, mapping, key, value):
+        if self.cache_size == 0:
+            return value
+        if len(mapping) >= self.cache_size:
+            mapping.pop(next(iter(mapping)))
+        mapping[key] = value
+        return value
 
     def _predicate(self, p):
         key = (p.feature, p.operator, float(p.value), len(self.data))
@@ -55,8 +72,7 @@ class FastEvaluator:
         valid = np.isfinite(x)
         mask = x > p.value if p.operator == ">" else x < p.value
         out = np.asarray(mask & valid, dtype=bool)
-        self._predicate_cache[key] = out
-        return out
+        return self._bounded_put(self._predicate_cache, key, out)
 
     def _signal(self, strategy):
         key = strategy.canonical_hash
@@ -67,8 +83,7 @@ class FastEvaluator:
         for mask in masks[1:]:
             signal = signal & mask if strategy.logic == "AND" else signal | mask
         signal &= np.isfinite(np.asarray(self.features["atr_14"], dtype=float))
-        self._signal_cache[key] = signal
-        return signal
+        return self._bounded_put(self._signal_cache, key, signal)
 
     def evaluate(self, strategy, *, start=0, end=None, cost_multiplier=1.0, entry_delay=0, rich=True):
         cache_key = (strategy.canonical_hash, int(start), None if end is None else int(end), float(cost_multiplier), int(entry_delay), bool(rich))
@@ -127,5 +142,7 @@ class FastEvaluator:
         maxdd = float(np.max(peaks - equity) / self.initial_capital) if len(equity) else 0.0
         sharpe = float(rs.mean() / rs.std() * np.sqrt(252)) if len(rs) > 1 and rs.std() > 0 else 0.0
         result = EvaluationResult(strategy.readable_id, strategy.canonical_hash, len(trades), float(pn.sum()), float(balance / self.initial_capital - 1), pf, float(pn.mean()) if len(pn) else 0.0, float(rs.mean()) if len(rs) else 0.0, sharpe, maxdd, float((pn > 0).mean()) if len(pn) else 0.0, float(pn.mean()) if len(pn) else 0.0, sum(t["direction"] == "LONG" for t in trades), sum(t["direction"] == "SHORT" for t in trades), pn.tolist() if rich else [], equity.tolist() if rich else [], trades if rich else [], time.perf_counter() - started)
-        self._evaluation_cache[cache_key] = result
-        return result
+        return self._bounded_put(self._evaluation_cache, cache_key, result)
+
+    def evaluate_batch(self, strategies, **kwargs):
+        return [self.evaluate(strategy, **kwargs) for strategy in strategies]

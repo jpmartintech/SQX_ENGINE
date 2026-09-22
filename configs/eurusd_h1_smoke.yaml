@@ -1,0 +1,19 @@
+market: EURUSD
+timeframe: H1
+data_path: data/cloud/EURUSD_1H.csv
+generator: {type: genetic, evaluations: 100, seed: 1300, population_size: 40, mutation_rate: 0.35, crossover_rate: 0.70}
+strategy: {max_predicates: 2}
+backtest: {initial_capital: 10000, spread: 0.00008, slippage: 0.00002}
+candidate_pool: {size: 100}
+funnel:
+  basic: {min_trades: 100, min_pf: 1.00, min_expectancy: 0.0, min_sharpe: 0.0, max_drawdown: 0.30}
+  stability: {enabled: true, segments: 4, min_positive_segments: 3, min_trades_per_segment: 20}
+  plateau: {enabled: true, min_pass_ratio: 0.50}
+  cost_stress: {enabled: true, multipliers: [1.25, 1.50, 2.00], min_pf: 0.95, min_pass_ratio: 0.67}
+  execution_stress: {enabled: true, delays: [1, 2], min_expectancy: 0.0, min_pass_ratio: 0.50}
+  diversity: {enabled: true, max_pnl_correlation: 0.85, max_entry_overlap: 0.80}
+portfolio: {max_strategies: 10, max_correlation: 0.70}
+store: {path: runs/eurusd_h1_smoke.sqlite}
+checkpoint: {path: runs/checkpoints/eurusd_h1_smoke.json}
+runtime: {checkpoint_every_evaluations: 50}
+execution: {workers: 1, batch_size: 8, cache_size: 2048}

@@ -1,6 +1,6 @@
 market: EURUSD
 timeframe: H1
-data_path: /home/jpm/FOREX_H1/EURUSD_1H.csv
+data_path: data/cloud/EURUSD_1H.csv
 generator:
   type: genetic
   evaluations: 10000
@@ -54,3 +54,7 @@ checkpoint:
   path: runs/checkpoints/eurusd_h1_10k.json
 runtime:
   checkpoint_every_evaluations: 500
+execution:
+  workers: 1
+  batch_size: 16
+  cache_size: 4096

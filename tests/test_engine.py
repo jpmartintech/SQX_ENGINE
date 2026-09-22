@@ -10,6 +10,7 @@ from sqx_engine.strategy import Predicate, StrategyDefinition
 from sqx_engine.store import StrategyStore
 from sqx_engine.portfolio import PortfolioBuilder
 from sqx_engine.backtest import EvaluationResult
+from sqx_engine.backtest import FastEvaluator, ParallelEvaluator
 from sqx_engine.runtime import CheckpointManager
 
 
@@ -77,6 +78,21 @@ def test_genetic_generator_evolves_and_tracks_generations():
     assert len(generator.elite) <= 4
 
 
+def test_genetic_state_restores_population_for_resume():
+    a = GeneticGenerator("EURUSD", "H1", seed=17, max_predicates=2, population_size=4)
+    class Result:
+        expectancy_r = 1.0
+        sharpe = 1.0
+        max_drawdown = 0.1
+    for _ in range(12):
+        s = a.ask(); a.tell(s, Result())
+    state = a.state()
+    b = GeneticGenerator("EURUSD", "H1", seed=17, max_predicates=2, population_size=4)
+    b.set_state(state)
+    assert [(s.canonical_hash, score) for s, score in a.population] == [(s.canonical_hash, score) for s, score in b.population]
+    assert a.ask().canonical_hash == b.ask().canonical_hash
+
+
 def test_portfolio_return_normalization_known_answer():
     def result(sid, curve):
         return EvaluationResult(sid, sid, 3, 0, curve[-1] - 1, 1, 0, 0, 0, 0, .5, 0, 1, 1, [0.01, -0.01], curve, [])
@@ -91,3 +107,29 @@ def test_checkpoint_save_load_roundtrip(tmp_path: Path):
     state = {"status": "RUNNING", "evaluations": 4, "rng": {"state": [1, 2, 3]}, "pool": ["a", "b"]}
     manager.save(state)
     assert manager.load() == state
+
+
+def test_relative_config_path_resolves_from_project_root(tmp_path: Path):
+    config_path = tmp_path / "configs" / "x.yaml"
+    config_path.parent.mkdir()
+    config_path.write_text("data_path: data/cloud/EURUSD_1H.csv\n")
+    config = EngineConfig.from_yaml(config_path)
+    assert config.resolve_path("data_path") == tmp_path / "data/cloud/EURUSD_1H.csv"
+
+
+def test_fast_batch_matches_serial(tmp_path: Path):
+    n = 100
+    close = 1.10 + np.linspace(0, 0.01, n) + 0.001 * np.sin(np.arange(n) / 3)
+    frame = pd.DataFrame({
+        "timestamp": pd.date_range("2020-01-01", periods=n, freq="h", tz="UTC"),
+        "open": close, "high": close + .0005, "low": close - .0005,
+        "close": close, "volume": 1,
+    })
+    from sqx_engine.features import prepare_features
+    from sqx_engine.generators import RandomGenerator
+    strategies = [RandomGenerator("EURUSD", "H1", seed=19, max_predicates=1).ask() for _ in range(3)]
+    serial = FastEvaluator(frame, prepare_features(frame), cache_size=32)
+    expected = serial.evaluate_batch(strategies, rich=False)
+    with ParallelEvaluator(frame, prepare_features(frame), 10000, 0.0, 0.0, 2, cache_size=32) as parallel:
+        actual = parallel.evaluate_batch(strategies, rich=False)
+    assert [(x.canonical_hash, x.trade_count, x.net_profit) for x in actual] == [(x.canonical_hash, x.trade_count, x.net_profit) for x in expected]

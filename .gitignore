@@ -3,7 +3,8 @@ __pycache__/
 *.pyc
 runs/*
 !runs/.gitkeep
+data/cloud/EURUSD_1H.csv
+data/cloud/*.parquet
 *.db
 *.sqlite
 .venv/
-

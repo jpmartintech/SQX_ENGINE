@@ -11,7 +11,7 @@ from .config import EngineConfig
 from .data import load_ohlcv
 from .features import prepare_features
 from .generators import GeneticGenerator, RandomGenerator
-from .backtest import FastEvaluator
+from .backtest import FastEvaluator, ParallelEvaluator, resolve_workers
 from .funnel import QualityFunnel
 from .store import StrategyStore
 from .portfolio import PortfolioBuilder
@@ -49,19 +49,27 @@ class StrategyFactory:
         overlap = len(ea & eb) / max(1, min(len(ea), len(eb)))
         return overlap >= max_overlap
 
-    def run(self, resume=False):
+    def run(self, resume=False, workers=None):
         started = time.perf_counter()
         run_id = str(uuid.uuid4())
         timings = {}
-        t = time.perf_counter(); data = load_ohlcv(self.config.get("data_path")); timings["data_loading"] = time.perf_counter() - t
+        t = time.perf_counter(); data = load_ohlcv(self.config.resolve_path("data_path")); timings["data_loading"] = time.perf_counter() - t
         t = time.perf_counter(); features = prepare_features(data); timings["feature_calculation"] = time.perf_counter() - t
-        evaluator = FastEvaluator(data, features, self.config.get("backtest.initial_capital", 10000), self.config.get("backtest.spread", 0.0), self.config.get("backtest.slippage", 0.0))
+        cache_size = int(self.config.get("execution.cache_size", 4096))
+        initial_capital = self.config.get("backtest.initial_capital", 10000)
+        spread = self.config.get("backtest.spread", 0.0)
+        slippage = self.config.get("backtest.slippage", 0.0)
+        evaluator = FastEvaluator(data, features, initial_capital, spread, slippage, cache_size=cache_size)
+        requested_workers = workers if workers is not None else self.config.get("execution.workers", 1)
+        workers_used = resolve_workers(requested_workers, self.config.get("execution.reserved_cores", 1))
+        batch_size = max(1, int(self.config.get("execution.batch_size", max(8, workers_used * 4))))
+        parallel = ParallelEvaluator(data, features, initial_capital, spread, slippage, workers_used, cache_size=cache_size) if workers_used > 1 else None
         generator_cls = GeneticGenerator if self.config.get("generator.type", "random") == "genetic" else RandomGenerator
         gen = generator_cls(self.config.get("market", "EURUSD"), self.config.get("timeframe", "H1"), self.config.get("generator.seed", 101), self.config.get("strategy.max_predicates", 2), population_size=self.config.get("generator.population_size", 40), mutation_rate=self.config.get("generator.mutation_rate", .35), crossover_rate=self.config.get("generator.crossover_rate", .70)) if generator_cls is GeneticGenerator else generator_cls(self.config.get("market", "EURUSD"), self.config.get("timeframe", "H1"), self.config.get("generator.seed", 101), self.config.get("strategy.max_predicates", 2))
         funnel = QualityFunnel(self.config, evaluator)
-        store = StrategyStore(self.config.get("store.path", "runs/sqx_engine.sqlite"))
+        store = StrategyStore(self.config.resolve_path("store.path", "runs/sqx_engine.sqlite"))
         requested = int(self.config.get("generator.evaluations", 100))
-        checkpoint_path = Path(self.config.get("checkpoint.path", f"runs/checkpoints/{run_id}.json")); checkpoint = CheckpointManager(checkpoint_path)
+        checkpoint_path = self.config.resolve_path("checkpoint.path", f"runs/checkpoints/{run_id}.json"); checkpoint = CheckpointManager(checkpoint_path)
         resume_state = checkpoint.load() if (resume or self.config.get("runtime.resume", False)) else None
         if resume_state and resume_state.get("status") in {"RUNNING", "INTERRUPTED", "COMPLETE"}:
             run_id = resume_state["run_id"]
@@ -79,16 +87,24 @@ class StrategyFactory:
         next_checkpoint = ((len(seen) // checkpoint_every) + 1) * checkpoint_every if checkpoint_every else 0
         while len(seen) < requested and attempts < requested * 20:
             attempts += 1; strategy = gen.ask(); counters["generated"] += 1
-            if strategy.canonical_hash in seen: continue
+            if strategy.canonical_hash in seen:
+                continue
             seen.add(strategy.canonical_hash); counters["unique"] += 1
-            t_eval = time.perf_counter(); result = evaluator.evaluate(strategy, rich=False); timings["fast_backtesting"] = timings.get("fast_backtesting", 0.0) + time.perf_counter() - t_eval; counters["backtested"] += 1
+            t_eval = time.perf_counter()
+            # Genetic feedback remains ask -> evaluate -> tell. This preserves
+            # V1.2 semantics; parallel workers are used for independent later
+            # evaluations rather than changing the evolutionary trajectory.
+            result = evaluator.evaluate(strategy, rich=False)
+            timings["fast_backtesting"] = timings.get("fast_backtesting", 0.0) + time.perf_counter() - t_eval
+            counters["backtested"] += 1
             basic_ok, basic_reasons = funnel.basic_check(result)
             if not basic_ok:
                 f = {"passed": False, "reasons": basic_reasons, "stages": {"basic": False, "stability": False, "plateau": False, "cost_stress": False, "execution_stress": False, "diversity": False}, "quality_score": 0.0}
                 store.add_strategy(strategy, result, f, self.config.get("generator.seed"), "REJECTED", run_id); rejected += 1
                 for reason in basic_reasons: rejection_counts[reason] = rejection_counts.get(reason, 0) + 1
-                gen.tell(strategy, result); continue
-            counters["basic_pass"] += 1; basic_records.append((strategy, result)); gen.tell(strategy, result)
+            else:
+                counters["basic_pass"] += 1; basic_records.append((strategy, result))
+            gen.tell(strategy, result)
             if checkpoint_every and len(seen) >= next_checkpoint:
                 store.commit(); checkpoint.save({"run_id": run_id, "status": "RUNNING", "evaluations": len(seen), "canonical_hashes": sorted(seen), "generator": getattr(gen, "state", lambda: {})(), "counters": counters, "rejected": rejected, "rejection_counts": rejection_counts, "basic_records": [{"strategy": s.to_json(), "result": _result_state(r)} for s, r in basic_records]})
                 next_checkpoint = ((len(seen) // checkpoint_every) + 1) * checkpoint_every
@@ -103,9 +119,11 @@ class StrategyFactory:
             rejection_counts["CANDIDATE_POOL_LIMIT"] = rejection_counts.get("CANDIDATE_POOL_LIMIT", 0) + 1
             rejected += 1
         t_funnel = time.perf_counter()
-        for strategy, aggregate_result in advanced:
-            result = evaluator.evaluate(strategy, rich=True)
-            f = funnel.evaluate(strategy, result)
+        advanced_results = (evaluator.evaluate_batch([s for s, _ in advanced], rich=False)
+                           if parallel is None else parallel.evaluate_batch([s for s, _ in advanced], rich=False))
+        for (strategy, aggregate_result), aggregate in zip(advanced, advanced_results):
+            f = funnel.evaluate(strategy, aggregate)
+            result = evaluator.evaluate(strategy, rich=True) if f["passed"] else aggregate
             counters["stability_pass"] += int(f["stages"].get("stability", False)); counters["plateau_pass"] += int(f["stages"].get("plateau", False)); counters["cost_pass"] += int(f["stages"].get("cost_stress", False)); counters["execution_pass"] += int(f["stages"].get("execution_stress", False))
             if f["passed"]: records.append({"strategy": strategy, "result": result, "funnel": f}); counters["before_diversity"] += 1
             else:
@@ -133,4 +151,10 @@ class StrategyFactory:
         top = store.top_strategies(self.config.get("market"), self.config.get("timeframe"), 10)
         database = {"runs": store.count("runs"), "strategies": store.count("strategies"), "funnel": store.count("funnel"), "candidates": len(final)}
         result = {"run_id": run_id, "market": self.config.get("market"), "timeframe": self.config.get("timeframe"), "requested": requested, "generated": counters["generated"], "unique": counters["unique"], "backtested": counters["backtested"], "basic_pass": counters["basic_pass"], "rejected": rejected, "rejection_reasons": rejection_counts, "counters": counters, "candidate_pool": len(advanced), "candidates": len(final), "portfolio_eligible": len(final), "portfolio_selected": len(portfolio["strategies"]), "runtime": elapsed, "strategies_per_sec": counters["backtested"] / elapsed, "strategies_per_hour": counters["backtested"] / elapsed * 3600, "final_candidates_per_hour": len(final) / elapsed * 3600, "timings": timings, "database": database, "portfolio": {"strategy_ids": [x["result"].strategy_id for x in portfolio["strategies"]], "weights": portfolio["weights"], "average_correlation": portfolio["average_correlation"], "max_correlation": portfolio["max_correlation"], "combined_return": portfolio["combined_return"], "combined_sharpe": portfolio["combined_sharpe"], "combined_max_drawdown": portfolio["combined_max_drawdown"]}, "top_candidates": top, "checkpoint": str(checkpoint_path)}
+        timings["cache"] = evaluator.cache_stats()
+        result["workers_requested"] = requested_workers
+        result["workers_used"] = workers_used
+        result["batch_size"] = batch_size
+        if parallel is not None:
+            parallel.shutdown()
         store.close(); return result

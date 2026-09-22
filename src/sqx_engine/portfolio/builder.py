@@ -17,7 +17,13 @@ class PortfolioBuilder:
             for new in selected[i+1:]:
                 x=np.asarray(old["result"].trade_returns,float); y=np.asarray(new["result"].trade_returns,float); n=max(len(x),len(y)); x=np.pad(x,(0,n-len(x))); y=np.pad(y,(0,n-len(y)))
                 if n > 1 and np.std(x) and np.std(y): correlations.append(abs(float(np.corrcoef(x,y)[0,1])))
-        combined = np.mean([np.asarray(x["result"].equity_curve, float) / x["result"].equity_curve[0] - 1 for x in selected], axis=0) if selected and all(x["result"].equity_curve for x in selected) else np.array([])
+        curves = [np.asarray(x["result"].equity_curve, float) for x in selected]
+        if curves and all(len(c) and c[0] != 0 for c in curves):
+            length = max(len(c) for c in curves)
+            normalized = [np.pad(c / c[0] - 1.0, (0, length - len(c)), mode="edge") for c in curves]
+            combined = np.mean(normalized, axis=0)
+        else:
+            combined = np.array([])
         if len(combined):
             peak = np.maximum.accumulate(combined); combined_dd = float(np.max(peak - combined)); combined_return = float(combined[-1]);
             changes = np.diff(combined, prepend=0.0); combined_sharpe = float(changes.mean() / changes.std() * np.sqrt(252)) if changes.std() else 0.0

@@ -20,3 +20,16 @@ class EngineConfig:
             value = value[part]
         return value
 
+    @property
+    def project_root(self):
+        if self.source != "inline":
+            source = Path(self.source).resolve()
+            return source.parent.parent if source.parent.name == "configs" else source.parent
+        return Path(__file__).resolve().parents[2]
+
+    def resolve_path(self, key, default=None):
+        value = self.get(key, default)
+        if value is None:
+            return None
+        path = Path(value).expanduser()
+        return path if path.is_absolute() else self.project_root / path

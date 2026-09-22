@@ -1,6 +1,6 @@
 market: EURUSD
 timeframe: H1
-data_path: /home/jpm/FOREX_H1/EURUSD_1H.csv
+data_path: data/cloud/EURUSD_1H.csv
 generator:
   type: random
   evaluations: 100
@@ -23,4 +23,4 @@ funnel:
   diversity: {enabled: true, max_correlation: 0.85}
 portfolio: {max_strategies: 10, max_correlation: 0.70}
 store: {path: runs/sqx_engine.sqlite}
-
+execution: {workers: 1, batch_size: 8, cache_size: 4096}
