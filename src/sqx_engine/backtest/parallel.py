@@ -10,10 +10,10 @@ from .fast import FastEvaluator
 _WORKER_EVALUATOR = None
 
 
-def _init_worker(data, features, initial_capital, spread, slippage, cache_size):
+def _init_worker(data, features, initial_capital, spread, slippage, cache_size, engine):
     global _WORKER_EVALUATOR
     _WORKER_EVALUATOR = FastEvaluator(
-        data, features, initial_capital, spread, slippage, cache_size=cache_size
+        data, features, initial_capital, spread, slippage, cache_size=cache_size, engine=engine
     )
 
 
@@ -23,7 +23,7 @@ def _evaluate_worker(payload):
 
 
 class ParallelEvaluator:
-    def __init__(self, data, features, initial_capital, spread, slippage, workers, cache_size=4096):
+    def __init__(self, data, features, initial_capital, spread, slippage, workers, cache_size=4096, engine="auto"):
         self.workers = max(1, int(workers))
         methods = mp.get_all_start_methods()
         # Linux/WSL fork avoids a forkserver socket and shares read-only market
@@ -33,7 +33,7 @@ class ParallelEvaluator:
             max_workers=self.workers,
             mp_context=context,
             initializer=_init_worker,
-            initargs=(data, dict(features), initial_capital, spread, slippage, cache_size),
+            initargs=(data, dict(features), initial_capital, spread, slippage, cache_size, engine),
         )
 
     def evaluate_batch(self, strategies, **kwargs):

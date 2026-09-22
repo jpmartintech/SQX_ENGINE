@@ -7,11 +7,10 @@ name = "sqx-engine"
 version = "0.1.0"
 description = "Practical strategy generation and quality-funnel engine"
 requires-python = ">=3.11"
-dependencies = ["numpy", "pandas", "PyYAML", "pyarrow"]
+dependencies = ["numpy", "pandas", "PyYAML", "pyarrow", "numba>=0.67"]
 
 [project.scripts]
 sqx = "sqx_engine.cli:main"
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]
-

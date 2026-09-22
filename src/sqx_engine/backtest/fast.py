@@ -3,6 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 import time
 import numpy as np
+from .numba_core import NUMBA_AVAILABLE, simulate_aggregate, simulate_rich
 
 
 @dataclass
@@ -31,13 +32,17 @@ class EvaluationResult:
 class FastEvaluator:
     """Array-based causal evaluator with dataset-level predicate caching."""
 
-    def __init__(self, data, features, initial_capital=10000, spread=0.0, slippage=0.0, cache_size=4096):
+    def __init__(self, data, features, initial_capital=10000, spread=0.0, slippage=0.0, cache_size=4096, engine="auto"):
         self.data = data.reset_index(drop=True)
         self.features = features
         self.initial_capital = float(initial_capital)
         self.spread = float(spread)
         self.slippage = float(slippage)
         self.cache_size = max(0, int(cache_size))
+        requested_engine = str(engine).lower()
+        self.engine = "numba" if requested_engine in {"auto", "numba"} and NUMBA_AVAILABLE else "python"
+        if requested_engine == "python":
+            self.engine = "python"
         self._predicate_cache = {}
         self._signal_cache = {}
         self._evaluation_cache = {}
@@ -97,6 +102,9 @@ class FastEvaluator:
         start = max(0, int(start))
         signal = self._signal(strategy)
         atr = np.asarray(self.features["atr_14"], dtype=float)
+        if self.engine == "numba":
+            result = self._evaluate_numba(strategy, signal, atr, start, end, cost_multiplier, entry_delay, rich, started)
+            return self._bounded_put(self._evaluation_cache, cache_key, result)
         trades, equity = [], np.full(max(0, end - start), self.initial_capital, dtype=float)
         balance, position, entry_i, entry_price, risk = self.initial_capital, None, None, None, None
         for i in range(start, max(start, end - 1)):
@@ -143,6 +151,46 @@ class FastEvaluator:
         sharpe = float(rs.mean() / rs.std() * np.sqrt(252)) if len(rs) > 1 and rs.std() > 0 else 0.0
         result = EvaluationResult(strategy.readable_id, strategy.canonical_hash, len(trades), float(pn.sum()), float(balance / self.initial_capital - 1), pf, float(pn.mean()) if len(pn) else 0.0, float(rs.mean()) if len(rs) else 0.0, sharpe, maxdd, float((pn > 0).mean()) if len(pn) else 0.0, float(pn.mean()) if len(pn) else 0.0, sum(t["direction"] == "LONG" for t in trades), sum(t["direction"] == "SHORT" for t in trades), pn.tolist() if rich else [], equity.tolist() if rich else [], trades if rich else [], time.perf_counter() - started)
         return self._bounded_put(self._evaluation_cache, cache_key, result)
+
+    def _evaluate_numba(self, strategy, signal, atr, start, end, cost_multiplier, entry_delay, rich, started):
+        direction = 1 if strategy.direction == "LONG" else -1
+        args = (self._arrays["open"], self._arrays["high"], self._arrays["low"], self._arrays["close"], atr, signal,
+                start, end, self.initial_capital, direction, float(strategy.stop_atr), float(strategy.target_atr),
+                int(strategy.time_exit), self.spread, self.slippage, float(cost_multiplier), int(entry_delay))
+        if rich:
+            count, balance, entry_idx, exit_idx, directions, pnls, rs, held, reasons, equity = simulate_rich(*args)
+            pn = np.asarray(pnls, dtype=float); r_values = np.asarray(rs, dtype=float)
+            wins, losses = pn[pn > 0], pn[pn < 0]
+            pf = float(wins.sum() / abs(losses.sum())) if len(losses) and losses.sum() != 0 else (float("inf") if len(wins) else 0.0)
+            peaks = np.maximum.accumulate(equity) if len(equity) else np.array([self.initial_capital])
+            maxdd = float(np.max(peaks - equity) / self.initial_capital) if len(equity) else 0.0
+            sharpe = float(r_values.mean() / r_values.std() * np.sqrt(252)) if len(r_values) > 1 and r_values.std() > 0 else 0.0
+            trades = []
+            reason_names = ("", "STOP", "TARGET", "TIME", "END")
+            for i in range(int(count)):
+                trades.append({"entry_time": self._arrays["timestamp"][int(entry_idx[i])], "exit_time": self._arrays["timestamp"][int(exit_idx[i])],
+                               "direction": "LONG" if directions[i] == 1 else "SHORT", "pnl": float(pnls[i]), "r": float(rs[i]),
+                               "bars_held": int(held[i]), "reason": reason_names[int(reasons[i])]})
+            return EvaluationResult(strategy.readable_id, strategy.canonical_hash, int(count), float(pn.sum()), float(balance / self.initial_capital - 1), pf,
+                                    float(pn.mean()) if len(pn) else 0.0, float(r_values.mean()) if len(r_values) else 0.0, sharpe, maxdd,
+                                    float((pn > 0).mean()) if len(pn) else 0.0, float(pn.mean()) if len(pn) else 0.0,
+                                    int(np.sum(directions == 1)), int(np.sum(directions == -1)), pn.tolist(), equity.tolist(), trades, time.perf_counter() - started)
+        # Use the same numeric trade/equity arrays as the rich path even for
+        # aggregate-only calls.  The old incremental Numba reductions are
+        # mathematically equivalent but can differ by a few ulps from the
+        # NumPy reductions used by the V1.3 Python evaluator.  Those tiny
+        # differences can otherwise alter Genetic ranking after many steps.
+        count, balance, entry_idx, exit_idx, directions, pnls, rs, held, reasons, equity = simulate_rich(*args)
+        pn = np.asarray(pnls, dtype=float)
+        r_values = np.asarray(rs, dtype=float)
+        wins_array, losses = pn[pn > 0], pn[pn < 0]
+        pf = float(wins_array.sum() / abs(losses.sum())) if len(losses) and losses.sum() != 0 else (float("inf") if len(wins_array) else 0.0)
+        maxdd_abs = float(np.max(np.maximum.accumulate(equity) - equity)) if len(equity) else 0.0
+        sharpe = float(r_values.mean() / r_values.std() * np.sqrt(252)) if len(r_values) > 1 and r_values.std() > 0 else 0.0
+        return EvaluationResult(strategy.readable_id, strategy.canonical_hash, int(count), float(pn.sum()), float(balance / self.initial_capital - 1), float(pf),
+                                float(pn.mean()) if len(pn) else 0.0, float(r_values.mean()) if len(r_values) else 0.0, float(sharpe), float(maxdd_abs / self.initial_capital),
+                                float((pn > 0).mean()) if len(pn) else 0.0, float(pn.mean()) if len(pn) else 0.0,
+                                int(np.sum(directions == 1)), int(np.sum(directions == -1)), [], [], [], time.perf_counter() - started)
 
     def evaluate_batch(self, strategies, **kwargs):
         return [self.evaluate(strategy, **kwargs) for strategy in strategies]

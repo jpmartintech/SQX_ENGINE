@@ -1,6 +1,7 @@
 market: EURUSD
 timeframe: H1
 data_path: data/cloud/EURUSD_1H.csv
+engine: auto
 generator: {type: genetic, evaluations: 250000, seed: 1301, population_size: 40, mutation_rate: 0.35, crossover_rate: 0.70}
 strategy: {max_predicates: 2}
 backtest: {initial_capital: 10000, spread: 0.00008, slippage: 0.00002}

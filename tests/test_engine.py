@@ -2,6 +2,7 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
+import pytest
 
 from sqx_engine.config import EngineConfig
 from sqx_engine.engine import StrategyFactory
@@ -11,6 +12,7 @@ from sqx_engine.store import StrategyStore
 from sqx_engine.portfolio import PortfolioBuilder
 from sqx_engine.backtest import EvaluationResult
 from sqx_engine.backtest import FastEvaluator, ParallelEvaluator
+from sqx_engine.backtest.numba_core import NUMBA_AVAILABLE
 from sqx_engine.runtime import CheckpointManager
 
 
@@ -133,3 +135,28 @@ def test_fast_batch_matches_serial(tmp_path: Path):
     with ParallelEvaluator(frame, prepare_features(frame), 10000, 0.0, 0.0, 2, cache_size=32) as parallel:
         actual = parallel.evaluate_batch(strategies, rich=False)
     assert [(x.canonical_hash, x.trade_count, x.net_profit) for x in actual] == [(x.canonical_hash, x.trade_count, x.net_profit) for x in expected]
+
+
+@pytest.mark.skipif(not NUMBA_AVAILABLE, reason="Numba optional fallback environment")
+def test_numba_matches_python_for_rich_and_stress_paths():
+    n = 700
+    close = 1.10 + np.linspace(0, 0.02, n) + 0.002 * np.sin(np.arange(n) / 4)
+    frame = pd.DataFrame({
+        "timestamp": pd.date_range("2020-01-01", periods=n, freq="h", tz="UTC"),
+        "open": close, "high": close + .0008, "low": close - .0008,
+        "close": close, "volume": 1,
+    })
+    from sqx_engine.features import prepare_features
+    generator = __import__("sqx_engine.generators", fromlist=["RandomGenerator"]).RandomGenerator("EURUSD", "H1", seed=9, max_predicates=2)
+    py = FastEvaluator(frame, prepare_features(frame), 10000, .00008, .00002, engine="python")
+    nb = FastEvaluator(frame, prepare_features(frame), 10000, .00008, .00002, engine="numba")
+    fields = ("trade_count", "net_profit", "return_pct", "profit_factor", "expectancy", "expectancy_r", "sharpe", "max_drawdown", "win_rate", "average_trade", "long_trades", "short_trades")
+    for _ in range(8):
+        strategy = generator.ask()
+        for kwargs in ({"rich": False}, {"rich": True}, {"rich": False, "entry_delay": 1}, {"rich": False, "cost_multiplier": 2.0}):
+            left, right = py.evaluate(strategy, **kwargs), nb.evaluate(strategy, **kwargs)
+            for field in fields:
+                assert np.isclose(getattr(left, field), getattr(right, field), rtol=1e-9, atol=1e-10, equal_nan=True)
+            if kwargs["rich"]:
+                assert left.trades == right.trades
+                assert np.allclose(left.equity_curve, right.equity_curve, rtol=1e-9, atol=1e-10)

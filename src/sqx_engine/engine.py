@@ -56,14 +56,15 @@ class StrategyFactory:
         t = time.perf_counter(); data = load_ohlcv(self.config.resolve_path("data_path")); timings["data_loading"] = time.perf_counter() - t
         t = time.perf_counter(); features = prepare_features(data); timings["feature_calculation"] = time.perf_counter() - t
         cache_size = int(self.config.get("execution.cache_size", 4096))
+        engine_name = self.config.get("engine", "auto")
         initial_capital = self.config.get("backtest.initial_capital", 10000)
         spread = self.config.get("backtest.spread", 0.0)
         slippage = self.config.get("backtest.slippage", 0.0)
-        evaluator = FastEvaluator(data, features, initial_capital, spread, slippage, cache_size=cache_size)
+        evaluator = FastEvaluator(data, features, initial_capital, spread, slippage, cache_size=cache_size, engine=engine_name)
         requested_workers = workers if workers is not None else self.config.get("execution.workers", 1)
         workers_used = resolve_workers(requested_workers, self.config.get("execution.reserved_cores", 1))
         batch_size = max(1, int(self.config.get("execution.batch_size", max(8, workers_used * 4))))
-        parallel = ParallelEvaluator(data, features, initial_capital, spread, slippage, workers_used, cache_size=cache_size) if workers_used > 1 else None
+        parallel = ParallelEvaluator(data, features, initial_capital, spread, slippage, workers_used, cache_size=cache_size, engine=engine_name) if workers_used > 1 else None
         generator_cls = GeneticGenerator if self.config.get("generator.type", "random") == "genetic" else RandomGenerator
         gen = generator_cls(self.config.get("market", "EURUSD"), self.config.get("timeframe", "H1"), self.config.get("generator.seed", 101), self.config.get("strategy.max_predicates", 2), population_size=self.config.get("generator.population_size", 40), mutation_rate=self.config.get("generator.mutation_rate", .35), crossover_rate=self.config.get("generator.crossover_rate", .70)) if generator_cls is GeneticGenerator else generator_cls(self.config.get("market", "EURUSD"), self.config.get("timeframe", "H1"), self.config.get("generator.seed", 101), self.config.get("strategy.max_predicates", 2))
         funnel = QualityFunnel(self.config, evaluator)
@@ -71,6 +72,14 @@ class StrategyFactory:
         requested = int(self.config.get("generator.evaluations", 100))
         checkpoint_path = self.config.resolve_path("checkpoint.path", f"runs/checkpoints/{run_id}.json"); checkpoint = CheckpointManager(checkpoint_path)
         resume_state = checkpoint.load() if (resume or self.config.get("runtime.resume", False)) else None
+        if resume_state and resume_state.get("status") == "COMPLETE" and resume_state.get("result") is not None:
+            # A completed checkpoint is an immutable run result, not a second
+            # request to replay the funnel (which would duplicate rejection
+            # counts and store rows).  This makes --resume idempotent.
+            if parallel is not None:
+                parallel.shutdown()
+            store.close()
+            return resume_state["result"]
         if resume_state and resume_state.get("status") in {"RUNNING", "INTERRUPTED", "COMPLETE"}:
             run_id = resume_state["run_id"]
             if hasattr(gen, "set_state"): gen.set_state(resume_state.get("generator", {}))
@@ -147,7 +156,6 @@ class StrategyFactory:
         timings["portfolio"] = time.perf_counter() - t_div - timings["diversity"]
         elapsed = time.perf_counter() - started
         store.finish_run(run_id, (None, counters["generated"], counters["backtested"], len(final), elapsed, "COMPLETE"))
-        checkpoint.save({"run_id": run_id, "status": "COMPLETE", "evaluations": counters["unique"], "canonical_hashes": sorted(seen), "generator": getattr(gen, "state", lambda: {})(), "counters": counters, "rejected": rejected, "rejection_counts": rejection_counts, "basic_records": [{"strategy": s.to_json(), "result": _result_state(r)} for s, r in basic_records]})
         top = store.top_strategies(self.config.get("market"), self.config.get("timeframe"), 10)
         database = {"runs": store.count("runs"), "strategies": store.count("strategies"), "funnel": store.count("funnel"), "candidates": len(final)}
         result = {"run_id": run_id, "market": self.config.get("market"), "timeframe": self.config.get("timeframe"), "requested": requested, "generated": counters["generated"], "unique": counters["unique"], "backtested": counters["backtested"], "basic_pass": counters["basic_pass"], "rejected": rejected, "rejection_reasons": rejection_counts, "counters": counters, "candidate_pool": len(advanced), "candidates": len(final), "portfolio_eligible": len(final), "portfolio_selected": len(portfolio["strategies"]), "runtime": elapsed, "strategies_per_sec": counters["backtested"] / elapsed, "strategies_per_hour": counters["backtested"] / elapsed * 3600, "final_candidates_per_hour": len(final) / elapsed * 3600, "timings": timings, "database": database, "portfolio": {"strategy_ids": [x["result"].strategy_id for x in portfolio["strategies"]], "weights": portfolio["weights"], "average_correlation": portfolio["average_correlation"], "max_correlation": portfolio["max_correlation"], "combined_return": portfolio["combined_return"], "combined_sharpe": portfolio["combined_sharpe"], "combined_max_drawdown": portfolio["combined_max_drawdown"]}, "top_candidates": top, "checkpoint": str(checkpoint_path)}
@@ -157,4 +165,5 @@ class StrategyFactory:
         result["batch_size"] = batch_size
         if parallel is not None:
             parallel.shutdown()
+        checkpoint.save({"run_id": run_id, "status": "COMPLETE", "evaluations": counters["unique"], "canonical_hashes": sorted(seen), "generator": getattr(gen, "state", lambda: {})(), "counters": counters, "rejected": rejected, "rejection_counts": rejection_counts, "basic_records": [{"strategy": s.to_json(), "result": _result_state(r)} for s, r in basic_records], "result": result})
         store.close(); return result

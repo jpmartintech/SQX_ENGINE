@@ -1,6 +1,7 @@
 market: EURUSD
 timeframe: H1
 data_path: data/cloud/EURUSD_1H.csv
+engine: auto
 generator:
   type: genetic
   evaluations: 1000
