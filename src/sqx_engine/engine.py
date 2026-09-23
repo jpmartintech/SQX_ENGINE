@@ -10,7 +10,7 @@ from pathlib import Path
 import numpy as np
 
 from .config import EngineConfig
-from .data import load_ohlcv
+from .data.split import discovery_data
 from .features import prepare_features
 from .generators import GeneticGenerator, RandomGenerator
 from .backtest import FastEvaluator, ParallelEvaluator, resolve_workers
@@ -61,7 +61,7 @@ class StrategyFactory:
         started = time.perf_counter()
         run_id = str(uuid.uuid4())
         timings = {}
-        t = time.perf_counter(); data = load_ohlcv(self.config.resolve_path("data_path")); timings["data_loading"] = time.perf_counter() - t
+        t = time.perf_counter(); data, discovery_provenance = discovery_data(self.config); timings["data_loading"] = time.perf_counter() - t
         t = time.perf_counter(); features = prepare_features(data); timings["feature_calculation"] = time.perf_counter() - t
         cache_size = int(self.config.get("execution.cache_size", 4096))
         engine_name = self.config.get("engine", "auto")
@@ -78,7 +78,7 @@ class StrategyFactory:
         funnel = QualityFunnel(self.config, evaluator)
         store = StrategyStore(self.config.resolve_path("store.path", "runs/sqx_engine.sqlite"))
         requested = int(self.config.get("generator.evaluations", 100))
-        checkpoint_path = self.config.resolve_path("checkpoint.path", f"runs/checkpoints/{run_id}.json"); checkpoint = CheckpointManager(checkpoint_path)
+        checkpoint_path = self.config.resolve_path("checkpoint.path", f"runs/checkpoints/{run_id}.json"); checkpoint = CheckpointManager(checkpoint_path, context=discovery_provenance)
         resume_state = checkpoint.load() if (resume or self.config.get("runtime.resume", False)) else None
         if resume_state and resume_state.get("status") == "COMPLETE" and resume_state.get("result") is not None:
             # A completed checkpoint is an immutable run result, not a second
@@ -95,8 +95,19 @@ class StrategyFactory:
             counters = resume_state.get("counters", {"generated": 0, "attempts": 0, "duplicates": 0, "unique": len(seen), "backtested": len(seen), "basic_pass": len(basic_records), "stability_pass": 0, "plateau_pass": 0, "cost_pass": 0, "execution_pass": 0, "before_diversity": 0, "diversity_pass": 0})
             rejected = int(resume_state.get("rejected", 0)); rejection_counts = resume_state.get("rejection_counts", {})
         else:
+            if discovery_provenance is not None and store.count("runs"):
+                if parallel is not None: parallel.shutdown()
+                store.close()
+                raise ValueError("Clean discovery requires an empty database or a matching checkpoint resume")
             store.start_run((run_id, None, None, self.config.get("market"), self.config.get("timeframe"), self.config.get("generator.type", "random"), self.config.get("generator.seed"), requested, 0, 0, 0, 0.0, self.config.config_hash, "RUNNING"))
             seen, basic_records, rejected, counters, rejection_counts = set(), [], 0, {"generated": 0, "attempts": 0, "duplicates": 0, "unique": 0, "backtested": 0, "basic_pass": 0, "stability_pass": 0, "plateau_pass": 0, "cost_pass": 0, "execution_pass": 0, "before_diversity": 0, "diversity_pass": 0}, {}
+        if discovery_provenance is not None:
+            store.db.execute('CREATE TABLE IF NOT EXISTS discovery_provenance (run_id TEXT PRIMARY KEY, manifest TEXT NOT NULL)')
+            other_runs = store.db.execute('SELECT COUNT(*) FROM runs WHERE run_id != ?', (run_id,)).fetchone()[0]
+            if other_runs:
+                raise ValueError('Clean discovery requires a dedicated database per run')
+            store.db.execute('INSERT OR REPLACE INTO discovery_provenance VALUES (?,?)', (run_id, json.dumps(discovery_provenance, sort_keys=True)))
+            store.commit()
         records = []
         t_search = time.perf_counter()
         attempts = int(counters.get("attempts", counters.get("generated", 0)))

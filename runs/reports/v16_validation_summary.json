@@ -1,0 +1,261 @@
+{
+  "validation_run_id": "3286fd8f-2168-41f6-b164-38251fbeebfa",
+  "data_audit": {
+    "rows": 143197,
+    "start": "2003-05-05 03:00:00+00:00",
+    "end": "2026-04-14 02:00:00+00:00",
+    "sha256": "7afd8f9af21360ee01deeef78aeba3ff8fcd62c3764c2b6f01244f84ee1c212c",
+    "chronological": true,
+    "duplicates": 0,
+    "NaN": {
+      "timestamp": 0,
+      "open": 0,
+      "high": 0,
+      "low": 0,
+      "close": 0,
+      "volume": 0
+    },
+    "columns": [
+      "timestamp",
+      "open",
+      "high",
+      "low",
+      "close",
+      "volume"
+    ],
+    "anomalies": []
+  },
+  "source": {
+    "source_run_id": "45249c61-25c7-434a-97ed-73c6dcb3ccff",
+    "strategies": 250000,
+    "candidates": 231,
+    "portfolio": 10,
+    "integrity_check": "ok",
+    "tables": [
+      "runs",
+      "strategies",
+      "funnel"
+    ],
+    "sha256": "73fb7fa0a732103a18ad368342acb768ccb7b3ac38a62811c9e5b4af2bb61a8b",
+    "clean": false
+  },
+  "splits": {
+    "development": {
+      "start": "2003-05-05 03:00:00+00:00",
+      "end": "2019-05-22 16:00:00+00:00",
+      "bars": 100237
+    },
+    "validation": {
+      "start": "2019-05-22 17:00:00+00:00",
+      "end": "2022-10-31 21:00:00+00:00",
+      "bars": 21479
+    },
+    "oos": {
+      "start": "2022-10-31 22:00:00+00:00",
+      "end": "2026-04-14 02:00:00+00:00",
+      "bars": 21481
+    }
+  },
+  "data_exposure": {
+    "historical_250k_used_full_dataset": "YES",
+    "true_unseen_oos_possible_for_historical_run": "NO",
+    "test_type": "RETROSPECTIVE_SPLIT_TEST"
+  },
+  "execution": {
+    "engine": "numba",
+    "backtest": {
+      "initial_capital": 10000,
+      "spread": 8e-05,
+      "slippage": 2e-05
+    },
+    "feature_warmup": "independent per split",
+    "entry": "next bar",
+    "degradation_baseline": "recomputed Development"
+  },
+  "config": {
+    "source_run": "45249c61-25c7-434a-97ed-73c6dcb3ccff",
+    "source_database": "runs/eurusd_h1_250k_scale_v15.sqlite",
+    "source_config": "configs/eurusd_h1_250k_scale_v15.yaml",
+    "source_checkpoint": "runs/checkpoints/eurusd_h1_250k_scale_v15.json",
+    "source_engine_override": "numba",
+    "candidate_status": "CANDIDATE",
+    "expected_candidates": 231,
+    "data_path": "data/cloud/EURUSD_1H.csv",
+    "expected_sha256": "7afd8f9af21360ee01deeef78aeba3ff8fcd62c3764c2b6f01244f84ee1c212c",
+    "test_type": "RETROSPECTIVE_SPLIT_TEST",
+    "data_split": {
+      "method": "chronological",
+      "development": 0.7,
+      "validation": 0.15,
+      "oos": 0.15
+    },
+    "validation": {
+      "min_trades": 20,
+      "min_profit_factor": 1.0,
+      "min_expectancy": 0.0,
+      "min_sharpe": 0.0
+    },
+    "oos": {
+      "min_trades": 20,
+      "min_profit_factor": 1.0,
+      "min_expectancy": 0.0,
+      "min_sharpe": 0.0
+    },
+    "diversity": {
+      "max_correlation": 0.85,
+      "max_entry_overlap": 0.8
+    },
+    "portfolio": {
+      "max_strategies": 10,
+      "max_correlation": 0.7
+    },
+    "cache_size": 512,
+    "results_database": "runs/eurusd_h1_250k_v16_validation.sqlite",
+    "summary_path": "runs/reports/v16_validation_summary.json",
+    "csv_path": "runs/reports/v16_final_candidates.csv"
+  },
+  "validation": {
+    "tested": 231,
+    "passed": 167,
+    "failed": 64,
+    "pass_rate": 0.7229437229437229,
+    "rejection_reasons": {
+      "LOW_VALIDATION_PF": 35,
+      "NEGATIVE_VALIDATION_EXPECTANCY": 35,
+      "LOW_VALIDATION_SHARPE": 56,
+      "LOW_VALIDATION_TRADES": 7
+    },
+    "distribution": {
+      "profit_factor": {
+        "P25": 1.034348520396358,
+        "P50": 1.0804790606858043,
+        "P75": 1.1900462224873964,
+        "P95": 1.5458432447944526,
+        "non_finite_count": 0
+      },
+      "expectancy": {
+        "P25": 5.500250361969152e-05,
+        "P50": 0.00010854213907784896,
+        "P75": 0.00035071418323427494,
+        "P95": 0.0008848750410509021,
+        "non_finite_count": 0
+      },
+      "sharpe": {
+        "P25": 0.029420982656525436,
+        "P50": 0.47341577786432504,
+        "P75": 2.0015323122489073,
+        "P95": 3.476022862428075,
+        "non_finite_count": 0
+      }
+    }
+  },
+  "oos": {
+    "tested": 167,
+    "passed": 8,
+    "failed": 159,
+    "pass_rate": 0.04790419161676647,
+    "rejection_reasons": {
+      "LOW_OOS_PF": 150,
+      "NEGATIVE_OOS_EXPECTANCY": 150,
+      "LOW_OOS_SHARPE": 151,
+      "LOW_OOS_TRADES": 6
+    },
+    "distribution": {
+      "profit_factor": {
+        "P25": 0.7485910690167024,
+        "P50": 0.8155151459073668,
+        "P75": 0.8835000255505905,
+        "P95": 1.0668584974838875,
+        "non_finite_count": 0
+      },
+      "expectancy": {
+        "P25": -0.0005481082120348077,
+        "P50": -0.0003033873114463227,
+        "P75": -0.00015641593611719445,
+        "P95": 0.00016813677536233802,
+        "non_finite_count": 0
+      },
+      "sharpe": {
+        "P25": -2.0727459482453057,
+        "P50": -1.334395839873777,
+        "P75": -0.7932241265074556,
+        "P95": 0.9260639890782775,
+        "non_finite_count": 0
+      }
+    }
+  },
+  "degradation": {
+    "validation": {
+      "profit_factor": {
+        "median_ratio": 0.9834646265706409,
+        "median_delta": -0.019347539311734607,
+        "valid_ratios": 231
+      },
+      "expectancy": {
+        "median_ratio": 0.5297815296313358,
+        "median_delta": -0.00011595956612395969,
+        "valid_ratios": 231
+      },
+      "sharpe": {
+        "median_ratio": 0.8738229150572452,
+        "median_delta": -0.057518170255655365,
+        "valid_ratios": 231
+      }
+    },
+    "oos": {
+      "profit_factor": {
+        "median_ratio": 0.7514785424381449,
+        "median_delta": -0.28632987198213256,
+        "valid_ratios": 167
+      },
+      "expectancy": {
+        "median_ratio": -1.31552596824481,
+        "median_delta": -0.0006601435142829317,
+        "valid_ratios": 167
+      },
+      "sharpe": {
+        "median_ratio": -2.103704280279263,
+        "median_delta": -2.175890525164914,
+        "valid_ratios": 167
+      }
+    }
+  },
+  "final_candidates": 8,
+  "portfolio": {
+    "eligible": 8,
+    "after_diversity": 5,
+    "selected": 5,
+    "strategy_ids": [
+      "SQX-EURUSD-H1-30c3863f1b35",
+      "SQX-EURUSD-H1-a6ffffde8c66",
+      "SQX-EURUSD-H1-f7d0f78ba651",
+      "SQX-EURUSD-H1-0d7fa0e74aa7",
+      "SQX-EURUSD-H1-7461ddacaeec"
+    ],
+    "weights": {
+      "SQX-EURUSD-H1-30c3863f1b35": 0.2,
+      "SQX-EURUSD-H1-a6ffffde8c66": 0.2,
+      "SQX-EURUSD-H1-f7d0f78ba651": 0.2,
+      "SQX-EURUSD-H1-0d7fa0e74aa7": 0.2,
+      "SQX-EURUSD-H1-7461ddacaeec": 0.2
+    },
+    "average_correlation": 0.03380579675315223,
+    "max_correlation": 0.09808597903807402,
+    "combined_return": 3.7436857142857795e-06,
+    "combined_sharpe": 1.1396648894361572,
+    "combined_max_drawdown": 1.5047714285714144e-06,
+    "status": "FINAL_PORTFOLIO_READY",
+    "measurement_period": "OOS",
+    "selection_basis": "Development rank; OOS gates and timestamp-aligned diversity",
+    "performance_is_post_selection": true
+  },
+  "timings": {
+    "load_time": 3.7009459709952353,
+    "development_time": 0.7251127939962316,
+    "validation_time": 0.07387721199484076,
+    "oos_time": 0.2717255959942122,
+    "diversity_time": 0.032688792001863476,
+    "portfolio_time": 0.019930039001337718,
+    "total_time": 5.136384038996766
+  }
+}

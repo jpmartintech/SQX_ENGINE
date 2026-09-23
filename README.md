@@ -80,3 +80,17 @@ Historical backtest metrics are engineering outputs, not evidence of a
 trading edge. The 1K factory run is a product/infrastructure milestone.
 
 See [docs/REUSE_MAP.md](docs/REUSE_MAP.md) for reuse decisions.
+
+## V1.6 Validation / OOS
+
+Evaluate existing candidates without generating or changing strategies:
+
+```bash
+sqx validate configs/eurusd_h1_v16_validation.yaml
+```
+
+The historical 250K run is explicitly a retrospective split test because discovery
+used the full dataset. The pipeline applies fixed Validation and OOS gates and
+builds a portfolio only from final survivors. Future Development-only discovery is
+configured in `configs/eurusd_h1_250k_clean_v16.yaml`.
+See [V1.6 methodology and outputs](docs/V1.6_VALIDATION.md).

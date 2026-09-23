@@ -1,0 +1,13 @@
+{
+  "full_dataset_reproduction_candidates": 231,
+  "metrics_per_candidate": 7,
+  "mismatches": [],
+  "historical_artifacts_unchanged": {
+    "runs/eurusd_h1_250k_scale_v15.sqlite": true,
+    "runs/checkpoints/eurusd_h1_250k_scale_v15.json": true
+  },
+  "historical_sha256": {
+    "runs/eurusd_h1_250k_scale_v15.sqlite": "73fb7fa0a732103a18ad368342acb768ccb7b3ac38a62811c9e5b4af2bb61a8b",
+    "runs/checkpoints/eurusd_h1_250k_scale_v15.json": "383558f9e4c33257fa132e5b31e9740fb9e19cfc267cae89dec3ab688ab0d3d5"
+  }
+}

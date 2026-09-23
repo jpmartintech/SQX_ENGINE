@@ -8,3 +8,4 @@ data/cloud/*.parquet
 *.db
 *.sqlite
 .venv/
+*.egg-info/

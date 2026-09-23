@@ -4,10 +4,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "sqx-engine"
-version = "0.1.0"
+version = "1.6.0"
 description = "Practical strategy generation and quality-funnel engine"
 requires-python = ">=3.11"
 dependencies = ["numpy", "pandas", "PyYAML", "pyarrow", "numba>=0.67"]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
 
 [project.scripts]
 sqx = "sqx_engine.cli:main"
