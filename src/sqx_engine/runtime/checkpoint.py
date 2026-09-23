@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 
 
@@ -13,7 +14,10 @@ class CheckpointManager:
 
     def save(self, state):
         temp = self.path.with_suffix(self.path.suffix + ".tmp")
-        temp.write_text(json.dumps(state, default=str, indent=2))
+        with temp.open("w") as handle:
+            json.dump(state, handle, default=str, separators=(",", ":"))
+            handle.flush()
+            os.fsync(handle.fileno())
         temp.replace(self.path)
 
     def load(self):

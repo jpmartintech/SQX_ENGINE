@@ -1,0 +1,33 @@
+{
+  "version": "v1.5",
+  "evidence": {
+    "115k_checkpoint": "missing in checkout; no values inferred",
+    "source_dataset": "missing in checkout; end_to_end_scale_not_run"
+  },
+  "legacy": {
+    "generator_only_1k": {"attempts": 1062, "unique": 1000, "duplicates": 62, "duplicate_rate": 0.0583804143, "attempts_per_unique": 1.062, "runtime_sec": 0.5577, "unique_per_sec": 1793.18},
+    "generator_only_10k": {"attempts": 13570, "unique": 10000, "duplicates": 3570, "duplicate_rate": 0.2630803242, "attempts_per_unique": 1.357, "runtime_sec": 61.9772, "unique_per_sec": 161.35},
+    "existing_end_to_end_10k_v14": {"runtime_sec": 1955.1645, "unique": 10000, "generated": 17627, "basic_pass": 515, "timings": {"fast_backtesting": 868.7468, "generation_and_basic": 1779.6491, "quality_funnel": 173.6809}}
+  },
+  "scale": {
+    "generator_only_1k": {"attempts": 1000, "unique": 1000, "duplicates": 0, "duplicate_rate": 0.0, "attempts_per_unique": 1.0, "runtime_sec": 0.2520, "unique_per_sec": 3969.0},
+    "generator_only_10k": {"attempts": 10000, "unique": 10000, "duplicates": 0, "duplicate_rate": 0.0, "attempts_per_unique": 1.0, "runtime_sec": 2.6000, "unique_per_sec": 3846.22},
+    "generator_only_50k": {"attempts": 50002, "unique": 50000, "duplicates": 2, "duplicate_rate": 0.0000399984, "attempts_per_unique": 1.00004, "runtime_sec": 17.5285, "unique_per_sec": 2852.50},
+    "windows_50k": [
+      {"range": "0-10K", "attempts": 10000, "unique_sec": 4188.27},
+      {"range": "10-20K", "attempts": 10000, "unique_sec": 3229.29},
+      {"range": "20-30K", "attempts": 10000, "unique_sec": 2990.21},
+      {"range": "30-40K", "attempts": 10000, "unique_sec": 2560.87},
+      {"range": "40-50K", "attempts": 10002, "unique_sec": 2085.49}
+    ]
+  },
+  "generator_profile": {
+    "before": "Legacy 10K tell cost grew with full population history; no novelty telemetry.",
+    "after": "Scale population bounded at population_size; canonical JSON/SHA cached; bounded retries and immigrants measured.",
+    "scale_50k": {"mutation_attempts": 62677, "mutation_effective": 62677, "crossover_attempts": 62799, "crossover_effective": 52490, "crossover_noop": 10309, "novelty_retries": 57592, "immigrant_attempts": 26111, "immigrant_unique": 18023}
+  },
+  "10k": {"status": "generator_only_pass; end_to_end_blocked_by_missing_dataset"},
+  "50k": {"status": "generator_only_scale_gate_pass; end_to_end_blocked_by_missing_dataset"},
+  "memory": {"scale_population": "bounded", "115k_rss": "unavailable_without_checkpoint/process"},
+  "checkpoint": {"atomic": true, "fsync": true, "sigint_status": "INTERRUPTED", "resume": true, "determinism": true, "serialization": "compact JSON"}
+}

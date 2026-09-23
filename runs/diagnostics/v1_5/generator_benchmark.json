@@ -1,0 +1,152 @@
+{
+  "1000": {
+    "requested": 1000,
+    "mode": "scale",
+    "attempts": 1000,
+    "unique": 1000,
+    "duplicates": 0,
+    "duplicate_rate": 0.0,
+    "attempts_per_unique": 1.0,
+    "runtime": 0.25195244792848825,
+    "unique_per_sec": 3969.002913930133,
+    "windows": [
+      {
+        "unique": 200,
+        "attempts": 200,
+        "unique_per_sec": 3845.7279680909774
+      },
+      {
+        "unique": 400,
+        "attempts": 400,
+        "unique_per_sec": 4473.286264213233
+      },
+      {
+        "unique": 600,
+        "attempts": 600,
+        "unique_per_sec": 3937.1172015839525
+      },
+      {
+        "unique": 800,
+        "attempts": 800,
+        "unique_per_sec": 3944.941040730949
+      },
+      {
+        "unique": 1000,
+        "attempts": 1000,
+        "unique_per_sec": 3721.8762198011423
+      }
+    ],
+    "telemetry": {
+      "mutation_attempts": 845,
+      "mutation_effective": 845,
+      "mutation_noop": 3,
+      "crossover_attempts": 853,
+      "crossover_effective": 676,
+      "crossover_noop": 177,
+      "novelty_retries": 365,
+      "global_duplicate": 365,
+      "immigrant_attempts": 84,
+      "immigrant_unique": 84
+    }
+  },
+  "10000": {
+    "requested": 10000,
+    "mode": "scale",
+    "attempts": 10000,
+    "unique": 10000,
+    "duplicates": 0,
+    "duplicate_rate": 0.0,
+    "attempts_per_unique": 1.0,
+    "runtime": 2.599957350641489,
+    "unique_per_sec": 3846.2169379558068,
+    "windows": [
+      {
+        "unique": 2000,
+        "attempts": 2000,
+        "unique_per_sec": 4009.3159176359895
+      },
+      {
+        "unique": 4000,
+        "attempts": 4000,
+        "unique_per_sec": 3472.205186818794
+      },
+      {
+        "unique": 6000,
+        "attempts": 6000,
+        "unique_per_sec": 4097.407241124864
+      },
+      {
+        "unique": 8000,
+        "attempts": 8000,
+        "unique_per_sec": 3886.389518129853
+      },
+      {
+        "unique": 10000,
+        "attempts": 10000,
+        "unique_per_sec": 3828.612192159764
+      }
+    ],
+    "telemetry": {
+      "mutation_attempts": 10302,
+      "mutation_effective": 10302,
+      "mutation_noop": 17,
+      "crossover_attempts": 10333,
+      "crossover_effective": 8481,
+      "crossover_noop": 1852,
+      "novelty_retries": 7070,
+      "global_duplicate": 7069,
+      "immigrant_attempts": 2373,
+      "immigrant_unique": 2243
+    }
+  },
+  "50000": {
+    "requested": 50000,
+    "mode": "scale",
+    "attempts": 50002,
+    "unique": 50000,
+    "duplicates": 2,
+    "duplicate_rate": 3.999840006399744e-05,
+    "attempts_per_unique": 1.00004,
+    "runtime": 17.52848908212036,
+    "unique_per_sec": 2852.4991381602686,
+    "windows": [
+      {
+        "unique": 10000,
+        "attempts": 10000,
+        "unique_per_sec": 4188.27238059833
+      },
+      {
+        "unique": 20000,
+        "attempts": 20000,
+        "unique_per_sec": 3229.290339152768
+      },
+      {
+        "unique": 30000,
+        "attempts": 30000,
+        "unique_per_sec": 2990.2059342617636
+      },
+      {
+        "unique": 40000,
+        "attempts": 40000,
+        "unique_per_sec": 2560.8665700936
+      },
+      {
+        "unique": 50000,
+        "attempts": 50002,
+        "unique_per_sec": 2085.492073692418
+      }
+    ],
+    "telemetry": {
+      "mutation_attempts": 62677,
+      "mutation_effective": 62677,
+      "mutation_noop": 80,
+      "crossover_attempts": 62799,
+      "crossover_effective": 52490,
+      "crossover_noop": 10309,
+      "novelty_retries": 57592,
+      "global_duplicate": 57564,
+      "immigrant_attempts": 26111,
+      "immigrant_unique": 18023
+    }
+  }
+}

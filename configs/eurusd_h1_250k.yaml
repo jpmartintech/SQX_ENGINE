@@ -2,7 +2,15 @@ market: EURUSD
 timeframe: H1
 data_path: data/cloud/EURUSD_1H.csv
 engine: auto
-generator: {type: genetic, evaluations: 250000, seed: 1301, population_size: 40, mutation_rate: 0.35, crossover_rate: 0.70}
+generator:
+  type: genetic
+  mode: scale
+  evaluations: 250000
+  seed: 1301
+  population_size: 40
+  mutation_rate: 0.35
+  crossover_rate: 0.70
+  novelty: {retry_limit: 8}
 strategy: {max_predicates: 2}
 backtest: {initial_capital: 10000, spread: 0.00008, slippage: 0.00002}
 # Sized for a future Ryzen run; the funnel remains bounded independently of search.
@@ -17,5 +25,5 @@ funnel:
 portfolio: {max_strategies: 10, max_correlation: 0.70}
 store: {path: runs/eurusd_h1_250k.sqlite}
 checkpoint: {path: runs/checkpoints/eurusd_h1_250k.json}
-runtime: {checkpoint_every_evaluations: 1000}
+runtime: {checkpoint_every_evaluations: 1000, heartbeat_seconds: 60}
 execution: {workers: auto, batch_size: 32, reserved_cores: 1, cache_size: 8192}

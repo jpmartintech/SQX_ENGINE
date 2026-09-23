@@ -95,6 +95,39 @@ def test_genetic_state_restores_population_for_resume():
     assert a.ask().canonical_hash == b.ask().canonical_hash
 
 
+def test_scale_mutation_is_effective_and_population_is_bounded():
+    generator = GeneticGenerator("EURUSD", "H1", seed=21, max_predicates=2,
+                                 population_size=4, mode="scale", novelty_retry_limit=3)
+    seen = set()
+    class Result:
+        expectancy_r = 1.0
+        sharpe = 1.0
+        max_drawdown = 0.1
+    for _ in range(100):
+        strategy = generator.ask(known_hashes=seen)
+        seen.add(strategy.canonical_hash)
+        generator.tell(strategy, Result())
+    assert len(generator.population) <= 4
+    assert generator.telemetry["mutation_attempts"] > 0
+    assert generator.telemetry["mutation_effective"] > 0
+    assert generator.telemetry["novelty_retries"] >= 0
+
+
+def test_scale_generator_is_deterministic():
+    def sample():
+        g = GeneticGenerator("EURUSD", "H1", seed=31, max_predicates=2,
+                             population_size=8, mode="scale")
+        seen, values = set(), []
+        class Result:
+            expectancy_r = 1.0
+            sharpe = 1.0
+            max_drawdown = 0.1
+        for _ in range(60):
+            s = g.ask(known_hashes=seen); seen.add(s.canonical_hash); values.append(s.canonical_hash); g.tell(s, Result())
+        return values, g.telemetry
+    assert sample() == sample()
+
+
 def test_portfolio_return_normalization_known_answer():
     def result(sid, curve):
         return EvaluationResult(sid, sid, 3, 0, curve[-1] - 1, 1, 0, 0, 0, 0, .5, 0, 1, 1, [0.01, -0.01], curve, [])

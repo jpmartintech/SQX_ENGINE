@@ -7,7 +7,7 @@ class RandomGenerator(StrategyGenerator):
     def __init__(self, market, timeframe, seed=101, max_predicates=2):
         self.market=market; self.timeframe=timeframe; self.rng=np.random.default_rng(seed); self.max_predicates=max_predicates; self.generated=0
         self.features=("ema_10","ema_20","ema_50","ema_100","rsi_14","adx_14","close")
-    def ask(self):
+    def ask(self, known_hashes=None):
         n=int(self.rng.integers(1,self.max_predicates+1)); ps=[]
         for _ in range(n):
             f=str(self.rng.choice(self.features)); op=str(self.rng.choice([">","<"]))
@@ -16,7 +16,7 @@ class RandomGenerator(StrategyGenerator):
             elif f.startswith("adx"): value=float(self.rng.choice([15,20,25,30,35,40]))
             else: value=float(self.rng.choice([0.998,0.999,1.0,1.001,1.002]))
             ps.append(Predicate(f,op,value))
-        if len({p.to_dict().__repr__() for p in ps}) != len(ps): return self.ask()
+        if len({p.to_dict().__repr__() for p in ps}) != len(ps): return self.ask(known_hashes)
         self.generated+=1
         return StrategyDefinition(self.market,self.timeframe,str(self.rng.choice(["LONG","SHORT"])),tuple(ps),str(self.rng.choice(["AND","OR"] if n==2 else ["AND"])),14,float(self.rng.choice([1.0,1.5,2.0])),float(self.rng.choice([1.5,2.0,3.0])),int(self.rng.choice([24,48,72])))
 

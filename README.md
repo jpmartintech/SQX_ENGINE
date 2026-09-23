@@ -56,6 +56,21 @@ time sqx run configs/eurusd_h1_1k.yaml --workers 2 --engine numba
 The 250K configuration is prepared for the Ryzen machine only. It is not
 executed on xauserver in this milestone.
 
+## V1.5 scale mode
+
+`generator.mode: legacy` remains the compatibility default. `mode: scale`
+adds effective mutation, bounded novelty retries, duplicate telemetry and a
+periodic `SQX HEARTBEAT`; it does not change backtest or funnel semantics.
+Runtime counters distinguish `attempts`, `duplicates`, `unique` and
+`backtested`. Checkpoints use flush/fsync plus atomic rename, and SIGINT writes
+an `INTERRUPTED` resumable checkpoint.
+
+Use `python scripts/audit_checkpoint.py PATH` for read-only checkpoint
+forensics and `PYTHONPATH=src python scripts/benchmark_generator.py
+--sizes 1000,10000,50000` for generator-only scale measurements. The 250K
+config is scale mode but remains reserved for the Ryzen run after review; this
+checkout does not contain the source dataset or the reported 115K checkpoint.
+
 The storage abstraction is designed for DuckDB/Parquet, but uses SQLite in
 the current environment because DuckDB is not installed. Monte Carlo,
 negative controls, regime analysis and cross-market validation are deferred
