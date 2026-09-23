@@ -1,0 +1,839 @@
+{
+  "release": "v1.7",
+  "tests": {
+    "passed": 63,
+    "warnings": 4
+  },
+  "baseline_tests": 28,
+  "baseline_v16": {
+    "unique": 250000,
+    "development_candidates": 432,
+    "validation_pass": 193,
+    "true_oos_pass": 2
+  },
+  "search_space": {
+    "predicate_variants": 178,
+    "by_family": {
+      "Trend": 78,
+      "Momentum": 60,
+      "Volatility": 16,
+      "Structure": 24
+    },
+    "exit_variants": 64,
+    "directions": 2,
+    "logic_variants": 2,
+    "predicate_count_variants": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "syntactic_upper_bound": 10591415808,
+    "note": "Unique unordered predicates; single-predicate logic normalized. Includes contradictory/tautological combinations; not a count of distinct behaviors."
+  },
+  "performance_comparison": {
+    "1k": {
+      "v16_runtime": 2.553256398998201,
+      "v17_runtime": 3.6231490169957397,
+      "v16_strategies_per_sec": 391.65670960126107,
+      "v17_strategies_per_sec": 276.00300051395203,
+      "runtime_change_pct": 41.903062239159496
+    },
+    "10k": {
+      "v16_runtime": 20.018952836995595,
+      "v17_runtime": 17.90148509300343,
+      "v16_strategies_per_sec": 499.52662766254764,
+      "v17_strategies_per_sec": 558.6128719515217,
+      "runtime_change_pct": -10.57731521340629
+    },
+    "50k": {
+      "v16_runtime": 112.5486613529938,
+      "v17_runtime": 117.04434232099447,
+      "v16_strategies_per_sec": 444.252285179845,
+      "v17_strategies_per_sec": 427.188525378483,
+      "runtime_change_pct": 3.9944330869476685,
+      "v16_peak_rss_mb": 3480.6640625,
+      "v17_peak_rss_mb": 2705.5625,
+      "peak_rss_change_pct": -22.26878401885416
+    }
+  },
+  "benchmarks": {
+    "smoke": {
+      "unique": 100,
+      "runtime": 1.0884886290004943,
+      "strategies_per_sec": 91.87050496965237,
+      "wall_time_including_checkpoint": 1.1141393779980717,
+      "peak_rss_mb": 382.23828125,
+      "memory_rss_mb": 382.23828125,
+      "duplicates": 0,
+      "attempts_per_unique": 1.0,
+      "counters": {
+        "generated": 100,
+        "attempts": 100,
+        "duplicates": 0,
+        "unique": 100,
+        "backtested": 100,
+        "basic_pass": 11,
+        "stability_pass": 8,
+        "plateau_pass": 8,
+        "cost_pass": 8,
+        "execution_pass": 6,
+        "before_diversity": 6,
+        "diversity_pass": 5
+      },
+      "timings": {
+        "data_loading": 0.23082781300036004,
+        "feature_calculation": 0.28607855399604887,
+        "generation": 0.012198761993204243,
+        "fast_backtesting": 0.24416367002413608,
+        "generation_and_basic": 0.2631505469980766,
+        "quality_funnel": 0.16176082099991618,
+        "diversity": 0.002070551003271248,
+        "portfolio": 0.03440713799500372,
+        "generator_telemetry": {
+          "mutation_attempts": 44,
+          "mutation_effective": 42,
+          "mutation_noop": 0,
+          "crossover_attempts": 49,
+          "crossover_effective": 46,
+          "crossover_noop": 3,
+          "novelty_retries": 12,
+          "global_duplicate": 12,
+          "immigrant_attempts": 2,
+          "immigrant_unique": 2
+        },
+        "cache": {
+          "hits": 11,
+          "misses": 286,
+          "hit_ratio": 0.037037037037037035,
+          "predicate_entries": 79,
+          "signal_entries": 196,
+          "evaluation_entries": 286
+        }
+      },
+      "single_family": 37,
+      "multi_family": 63,
+      "family_telemetry": {
+        "Trend": {
+          "PROPOSED": 10,
+          "GENERATED": 10
+        },
+        "Volatility": {
+          "PROPOSED": 12,
+          "GENERATED": 12,
+          "BASIC": 2,
+          "STABILITY": 1,
+          "PLATEAU": 1,
+          "COST": 1
+        },
+        "Trend+Momentum+Structure": {
+          "PROPOSED": 8,
+          "GENERATED": 8,
+          "BASIC": 1,
+          "STABILITY": 1,
+          "PLATEAU": 1,
+          "COST": 1,
+          "EXECUTION": 1,
+          "DIVERSITY": 1
+        },
+        "Momentum+Volatility": {
+          "PROPOSED": 6,
+          "GENERATED": 6
+        },
+        "Volatility+Structure": {
+          "PROPOSED": 8,
+          "GENERATED": 8
+        },
+        "Momentum+Structure": {
+          "PROPOSED": 4,
+          "GENERATED": 4
+        },
+        "Structure": {
+          "PROPOSED": 5,
+          "GENERATED": 5,
+          "BASIC": 1,
+          "STABILITY": 1,
+          "PLATEAU": 1,
+          "COST": 1,
+          "EXECUTION": 1,
+          "DIVERSITY": 1
+        },
+        "Trend+Structure": {
+          "PROPOSED": 4,
+          "GENERATED": 4,
+          "BASIC": 1,
+          "STABILITY": 1,
+          "PLATEAU": 1,
+          "COST": 1
+        },
+        "Momentum": {
+          "PROPOSED": 10,
+          "GENERATED": 10
+        },
+        "Trend+Momentum+Volatility": {
+          "PROPOSED": 6,
+          "GENERATED": 6,
+          "BASIC": 3,
+          "STABILITY": 2,
+          "PLATEAU": 2,
+          "COST": 2,
+          "EXECUTION": 2,
+          "DIVERSITY": 1
+        },
+        "Trend+Volatility": {
+          "PROPOSED": 5,
+          "GENERATED": 5
+        },
+        "Momentum+Volatility+Structure": {
+          "PROPOSED": 6,
+          "GENERATED": 6
+        },
+        "Trend+Momentum+Volatility+Structure": {
+          "PROPOSED": 4,
+          "GENERATED": 4
+        },
+        "Trend+Momentum": {
+          "PROPOSED": 11,
+          "GENERATED": 11,
+          "BASIC": 3,
+          "STABILITY": 2,
+          "PLATEAU": 2,
+          "COST": 2,
+          "EXECUTION": 2,
+          "DIVERSITY": 2
+        },
+        "Trend+Volatility+Structure": {
+          "PROPOSED": 1,
+          "GENERATED": 1
+        }
+      }
+    },
+    "1k": {
+      "unique": 1000,
+      "runtime": 3.6231490169957397,
+      "strategies_per_sec": 276.00300051395203,
+      "wall_time_including_checkpoint": 3.6925554830013425,
+      "peak_rss_mb": 583.3828125,
+      "memory_rss_mb": 578.08203125,
+      "duplicates": 0,
+      "attempts_per_unique": 1.0,
+      "counters": {
+        "generated": 1000,
+        "attempts": 1000,
+        "duplicates": 0,
+        "unique": 1000,
+        "backtested": 1000,
+        "basic_pass": 139,
+        "stability_pass": 78,
+        "plateau_pass": 76,
+        "cost_pass": 76,
+        "execution_pass": 42,
+        "before_diversity": 42,
+        "diversity_pass": 38
+      },
+      "timings": {
+        "data_loading": 0.22553070499998285,
+        "feature_calculation": 0.2810771609947551,
+        "generation": 0.13405463995877653,
+        "fast_backtesting": 1.0327432989579393,
+        "generation_and_basic": 1.267913994997798,
+        "quality_funnel": 1.5666437309992034,
+        "diversity": 0.11426295599812875,
+        "portfolio": 0.0652376509970054,
+        "generator_telemetry": {
+          "mutation_attempts": 806,
+          "mutation_effective": 791,
+          "mutation_noop": 0,
+          "crossover_attempts": 776,
+          "crossover_effective": 738,
+          "crossover_noop": 38,
+          "novelty_retries": 199,
+          "global_duplicate": 199,
+          "immigrant_attempts": 31,
+          "immigrant_unique": 31
+        },
+        "cache": {
+          "hits": 51,
+          "misses": 3002,
+          "hit_ratio": 0.016704880445463477,
+          "predicate_entries": 156,
+          "signal_entries": 512,
+          "evaluation_entries": 512
+        }
+      },
+      "single_family": 295,
+      "multi_family": 705,
+      "family_telemetry": {
+        "Trend": {
+          "PROPOSED": 58,
+          "GENERATED": 58
+        },
+        "Volatility": {
+          "PROPOSED": 87,
+          "GENERATED": 87,
+          "BASIC": 20,
+          "STABILITY": 8,
+          "PLATEAU": 8,
+          "COST": 8,
+          "EXECUTION": 1,
+          "DIVERSITY": 1
+        },
+        "Trend+Momentum+Structure": {
+          "PROPOSED": 57,
+          "GENERATED": 57,
+          "BASIC": 6,
+          "STABILITY": 4,
+          "PLATEAU": 4,
+          "COST": 4,
+          "EXECUTION": 3,
+          "DIVERSITY": 2
+        },
+        "Momentum+Volatility": {
+          "PROPOSED": 76,
+          "GENERATED": 76,
+          "BASIC": 14,
+          "STABILITY": 8,
+          "PLATEAU": 8,
+          "COST": 8,
+          "EXECUTION": 4,
+          "DIVERSITY": 4
+        },
+        "Volatility+Structure": {
+          "PROPOSED": 49,
+          "GENERATED": 49,
+          "BASIC": 14,
+          "STABILITY": 9,
+          "PLATEAU": 9,
+          "COST": 9,
+          "EXECUTION": 7,
+          "DIVERSITY": 7
+        },
+        "Momentum+Structure": {
+          "PROPOSED": 112,
+          "GENERATED": 112,
+          "BASIC": 5,
+          "STABILITY": 4,
+          "PLATEAU": 4,
+          "COST": 4,
+          "EXECUTION": 2,
+          "DIVERSITY": 2
+        },
+        "Structure": {
+          "PROPOSED": 52,
+          "GENERATED": 52,
+          "BASIC": 4,
+          "STABILITY": 2,
+          "PLATEAU": 2,
+          "COST": 2,
+          "EXECUTION": 1,
+          "DIVERSITY": 1
+        },
+        "Trend+Structure": {
+          "PROPOSED": 32,
+          "GENERATED": 32,
+          "BASIC": 10,
+          "STABILITY": 7,
+          "PLATEAU": 6,
+          "COST": 6
+        },
+        "Momentum": {
+          "PROPOSED": 98,
+          "GENERATED": 98,
+          "BASIC": 7,
+          "STABILITY": 3,
+          "PLATEAU": 3,
+          "COST": 3,
+          "EXECUTION": 1,
+          "DIVERSITY": 1
+        },
+        "Trend+Momentum+Volatility": {
+          "PROPOSED": 104,
+          "GENERATED": 104,
+          "BASIC": 30,
+          "STABILITY": 13,
+          "PLATEAU": 12,
+          "COST": 12,
+          "EXECUTION": 9,
+          "DIVERSITY": 6
+        },
+        "Trend+Volatility": {
+          "PROPOSED": 77,
+          "GENERATED": 77,
+          "BASIC": 7,
+          "STABILITY": 5,
+          "PLATEAU": 5,
+          "COST": 5,
+          "EXECUTION": 3,
+          "DIVERSITY": 3
+        },
+        "Momentum+Volatility+Structure": {
+          "PROPOSED": 61,
+          "GENERATED": 61,
+          "BASIC": 10,
+          "STABILITY": 6,
+          "PLATEAU": 6,
+          "COST": 6,
+          "EXECUTION": 4,
+          "DIVERSITY": 4
+        },
+        "Trend+Momentum+Volatility+Structure": {
+          "PROPOSED": 42,
+          "GENERATED": 42,
+          "BASIC": 1
+        },
+        "Trend+Momentum": {
+          "PROPOSED": 60,
+          "GENERATED": 60,
+          "BASIC": 9,
+          "STABILITY": 7,
+          "PLATEAU": 7,
+          "COST": 7,
+          "EXECUTION": 6,
+          "DIVERSITY": 6
+        },
+        "Trend+Volatility+Structure": {
+          "PROPOSED": 35,
+          "GENERATED": 35,
+          "BASIC": 2,
+          "STABILITY": 2,
+          "PLATEAU": 2,
+          "COST": 2,
+          "EXECUTION": 1,
+          "DIVERSITY": 1
+        }
+      }
+    },
+    "10k": {
+      "unique": 10000,
+      "runtime": 17.90148509300343,
+      "strategies_per_sec": 558.6128719515217,
+      "wall_time_including_checkpoint": 18.060309273998428,
+      "peak_rss_mb": 873.046875,
+      "memory_rss_mb": 867.6484375,
+      "duplicates": 0,
+      "attempts_per_unique": 1.0,
+      "counters": {
+        "generated": 10000,
+        "attempts": 10000,
+        "duplicates": 0,
+        "unique": 10000,
+        "backtested": 10000,
+        "basic_pass": 500,
+        "stability_pass": 243,
+        "plateau_pass": 239,
+        "cost_pass": 238,
+        "execution_pass": 109,
+        "before_diversity": 109,
+        "diversity_pass": 105
+      },
+      "timings": {
+        "data_loading": 0.22924401899945224,
+        "feature_calculation": 0.28256881000561407,
+        "generation": 1.7785163175140042,
+        "fast_backtesting": 8.257853524126403,
+        "generation_and_basic": 11.368987493995519,
+        "quality_funnel": 4.968646362001891,
+        "diversity": 0.8625407530053053,
+        "portfolio": 0.08359972699690843,
+        "generator_telemetry": {
+          "mutation_attempts": 10200,
+          "mutation_effective": 10012,
+          "mutation_noop": 0,
+          "crossover_attempts": 10170,
+          "crossover_effective": 9300,
+          "crossover_noop": 870,
+          "novelty_retries": 6844,
+          "global_duplicate": 6844,
+          "immigrant_attempts": 2282,
+          "immigrant_unique": 2249
+        },
+        "cache": {
+          "hits": 20,
+          "misses": 16698,
+          "hit_ratio": 0.001196315348725924,
+          "predicate_entries": 178,
+          "signal_entries": 512,
+          "evaluation_entries": 512
+        }
+      },
+      "single_family": 2183,
+      "multi_family": 7817,
+      "family_telemetry": {
+        "Trend": {
+          "PROPOSED": 453,
+          "GENERATED": 453,
+          "BASIC": 4,
+          "STABILITY": 1,
+          "PLATEAU": 1,
+          "COST": 1
+        },
+        "Volatility": {
+          "PROPOSED": 526,
+          "GENERATED": 526,
+          "BASIC": 39,
+          "STABILITY": 16,
+          "PLATEAU": 15,
+          "COST": 15,
+          "EXECUTION": 5,
+          "DIVERSITY": 5
+        },
+        "Trend+Momentum+Structure": {
+          "PROPOSED": 699,
+          "GENERATED": 699,
+          "BASIC": 20,
+          "STABILITY": 9,
+          "PLATEAU": 9,
+          "COST": 9,
+          "EXECUTION": 8,
+          "DIVERSITY": 7
+        },
+        "Momentum+Volatility": {
+          "PROPOSED": 1022,
+          "GENERATED": 1022,
+          "BASIC": 60,
+          "STABILITY": 27,
+          "PLATEAU": 26,
+          "COST": 26,
+          "EXECUTION": 13,
+          "DIVERSITY": 13
+        },
+        "Volatility+Structure": {
+          "PROPOSED": 497,
+          "GENERATED": 497,
+          "BASIC": 61,
+          "STABILITY": 34,
+          "PLATEAU": 34,
+          "COST": 34,
+          "EXECUTION": 15,
+          "DIVERSITY": 15
+        },
+        "Momentum+Structure": {
+          "PROPOSED": 961,
+          "GENERATED": 961,
+          "BASIC": 18,
+          "STABILITY": 11,
+          "PLATEAU": 11,
+          "COST": 11,
+          "EXECUTION": 4,
+          "DIVERSITY": 4
+        },
+        "Structure": {
+          "PROPOSED": 445,
+          "GENERATED": 445,
+          "BASIC": 19,
+          "STABILITY": 8,
+          "PLATEAU": 8,
+          "COST": 8,
+          "EXECUTION": 1,
+          "DIVERSITY": 1
+        },
+        "Trend+Structure": {
+          "PROPOSED": 323,
+          "GENERATED": 323,
+          "BASIC": 29,
+          "STABILITY": 15,
+          "PLATEAU": 14,
+          "COST": 14,
+          "EXECUTION": 4,
+          "DIVERSITY": 4
+        },
+        "Momentum": {
+          "PROPOSED": 759,
+          "GENERATED": 759,
+          "BASIC": 25,
+          "STABILITY": 13,
+          "PLATEAU": 13,
+          "COST": 13,
+          "EXECUTION": 6,
+          "DIVERSITY": 6
+        },
+        "Trend+Momentum+Volatility": {
+          "PROPOSED": 723,
+          "GENERATED": 723,
+          "BASIC": 63,
+          "STABILITY": 27,
+          "PLATEAU": 26,
+          "COST": 26,
+          "EXECUTION": 15,
+          "DIVERSITY": 12
+        },
+        "Trend+Volatility": {
+          "PROPOSED": 421,
+          "GENERATED": 421,
+          "BASIC": 23,
+          "STABILITY": 11,
+          "PLATEAU": 11,
+          "COST": 11,
+          "EXECUTION": 7,
+          "DIVERSITY": 7
+        },
+        "Momentum+Volatility+Structure": {
+          "PROPOSED": 1580,
+          "GENERATED": 1580,
+          "BASIC": 46,
+          "STABILITY": 20,
+          "PLATEAU": 20,
+          "COST": 20,
+          "EXECUTION": 6,
+          "DIVERSITY": 6
+        },
+        "Trend+Momentum+Volatility+Structure": {
+          "PROPOSED": 617,
+          "GENERATED": 617,
+          "BASIC": 16,
+          "STABILITY": 9,
+          "PLATEAU": 9,
+          "COST": 9,
+          "EXECUTION": 3,
+          "DIVERSITY": 3
+        },
+        "Trend+Momentum": {
+          "PROPOSED": 499,
+          "GENERATED": 499,
+          "BASIC": 36,
+          "STABILITY": 20,
+          "PLATEAU": 20,
+          "COST": 20,
+          "EXECUTION": 14,
+          "DIVERSITY": 14
+        },
+        "Trend+Volatility+Structure": {
+          "PROPOSED": 475,
+          "GENERATED": 475,
+          "BASIC": 41,
+          "STABILITY": 22,
+          "PLATEAU": 22,
+          "COST": 21,
+          "EXECUTION": 8,
+          "DIVERSITY": 8
+        }
+      }
+    },
+    "50k": {
+      "unique": 50000,
+      "runtime": 117.04434232099447,
+      "strategies_per_sec": 427.188525378483,
+      "wall_time_including_checkpoint": 117.82885035999789,
+      "peak_rss_mb": 2705.5625,
+      "memory_rss_mb": 2700.26171875,
+      "duplicates": 0,
+      "attempts_per_unique": 1.0,
+      "counters": {
+        "generated": 50000,
+        "attempts": 50000,
+        "duplicates": 0,
+        "unique": 50000,
+        "backtested": 50000,
+        "basic_pass": 2705,
+        "stability_pass": 1298,
+        "plateau_pass": 1284,
+        "cost_pass": 1278,
+        "execution_pass": 533,
+        "before_diversity": 533,
+        "diversity_pass": 517
+      },
+      "timings": {
+        "data_loading": 0.22904649100382812,
+        "feature_calculation": 0.28382365200377535,
+        "generation": 10.558178766164929,
+        "fast_backtesting": 44.520086133343284,
+        "generation_and_basic": 65.53804482099804,
+        "quality_funnel": 28.032022728999436,
+        "diversity": 22.694273487002647,
+        "portfolio": 0.15437422700051684,
+        "generator_telemetry": {
+          "mutation_attempts": 55250,
+          "mutation_effective": 54332,
+          "mutation_noop": 0,
+          "crossover_attempts": 55578,
+          "crossover_effective": 50901,
+          "crossover_noop": 4677,
+          "novelty_retries": 45891,
+          "global_duplicate": 45891,
+          "immigrant_attempts": 17382,
+          "immigrant_unique": 16464
+        },
+        "cache": {
+          "hits": 24,
+          "misses": 86018,
+          "hit_ratio": 0.0002789335440831222,
+          "predicate_entries": 178,
+          "signal_entries": 512,
+          "evaluation_entries": 512
+        }
+      },
+      "single_family": 10061,
+      "multi_family": 39939,
+      "family_telemetry": {
+        "Trend": {
+          "PROPOSED": 3389,
+          "GENERATED": 3389,
+          "BASIC": 107,
+          "STABILITY": 47,
+          "PLATEAU": 47,
+          "COST": 47,
+          "EXECUTION": 15,
+          "DIVERSITY": 14
+        },
+        "Volatility": {
+          "PROPOSED": 1769,
+          "GENERATED": 1769,
+          "BASIC": 123,
+          "STABILITY": 46,
+          "PLATEAU": 45,
+          "COST": 45,
+          "EXECUTION": 21,
+          "DIVERSITY": 20
+        },
+        "Trend+Momentum+Structure": {
+          "PROPOSED": 4288,
+          "GENERATED": 4288,
+          "BASIC": 272,
+          "STABILITY": 104,
+          "PLATEAU": 102,
+          "COST": 101,
+          "EXECUTION": 36,
+          "DIVERSITY": 35
+        },
+        "Momentum+Volatility": {
+          "PROPOSED": 4545,
+          "GENERATED": 4545,
+          "BASIC": 166,
+          "STABILITY": 65,
+          "PLATEAU": 64,
+          "COST": 64,
+          "EXECUTION": 36,
+          "DIVERSITY": 35
+        },
+        "Volatility+Structure": {
+          "PROPOSED": 2243,
+          "GENERATED": 2243,
+          "BASIC": 206,
+          "STABILITY": 120,
+          "PLATEAU": 120,
+          "COST": 120,
+          "EXECUTION": 47,
+          "DIVERSITY": 46
+        },
+        "Momentum+Structure": {
+          "PROPOSED": 3891,
+          "GENERATED": 3891,
+          "BASIC": 123,
+          "STABILITY": 63,
+          "PLATEAU": 61,
+          "COST": 61,
+          "EXECUTION": 26,
+          "DIVERSITY": 26
+        },
+        "Structure": {
+          "PROPOSED": 1699,
+          "GENERATED": 1699,
+          "BASIC": 93,
+          "STABILITY": 44,
+          "PLATEAU": 44,
+          "COST": 43,
+          "EXECUTION": 20,
+          "DIVERSITY": 20
+        },
+        "Trend+Structure": {
+          "PROPOSED": 3810,
+          "GENERATED": 3810,
+          "BASIC": 262,
+          "STABILITY": 124,
+          "PLATEAU": 120,
+          "COST": 120,
+          "EXECUTION": 39,
+          "DIVERSITY": 39
+        },
+        "Momentum": {
+          "PROPOSED": 3204,
+          "GENERATED": 3204,
+          "BASIC": 119,
+          "STABILITY": 61,
+          "PLATEAU": 61,
+          "COST": 61,
+          "EXECUTION": 30,
+          "DIVERSITY": 27
+        },
+        "Trend+Momentum+Volatility": {
+          "PROPOSED": 3276,
+          "GENERATED": 3276,
+          "BASIC": 198,
+          "STABILITY": 100,
+          "PLATEAU": 99,
+          "COST": 99,
+          "EXECUTION": 59,
+          "DIVERSITY": 56
+        },
+        "Trend+Volatility": {
+          "PROPOSED": 2636,
+          "GENERATED": 2636,
+          "BASIC": 123,
+          "STABILITY": 66,
+          "PLATEAU": 66,
+          "COST": 66,
+          "EXECUTION": 41,
+          "DIVERSITY": 41
+        },
+        "Momentum+Volatility+Structure": {
+          "PROPOSED": 6155,
+          "GENERATED": 6155,
+          "BASIC": 292,
+          "STABILITY": 156,
+          "PLATEAU": 156,
+          "COST": 155,
+          "EXECUTION": 47,
+          "DIVERSITY": 46
+        },
+        "Trend+Momentum+Volatility+Structure": {
+          "PROPOSED": 2514,
+          "GENERATED": 2514,
+          "BASIC": 142,
+          "STABILITY": 64,
+          "PLATEAU": 62,
+          "COST": 62,
+          "EXECUTION": 22,
+          "DIVERSITY": 21
+        },
+        "Trend+Momentum": {
+          "PROPOSED": 3450,
+          "GENERATED": 3450,
+          "BASIC": 201,
+          "STABILITY": 103,
+          "PLATEAU": 103,
+          "COST": 103,
+          "EXECUTION": 45,
+          "DIVERSITY": 43
+        },
+        "Trend+Volatility+Structure": {
+          "PROPOSED": 3131,
+          "GENERATED": 3131,
+          "BASIC": 278,
+          "STABILITY": 135,
+          "PLATEAU": 134,
+          "COST": 131,
+          "EXECUTION": 49,
+          "DIVERSITY": 48
+        }
+      }
+    }
+  },
+  "acceptance": {
+    "all_tests": "PASS",
+    "legacy_v16_regression": "PASS",
+    "python_numba_equivalence": "PASS",
+    "lookahead": "PASS",
+    "genetic_scale": "PASS",
+    "checkpoint_resume": "PASS",
+    "determinism": "PASS",
+    "development_isolation": "PASS",
+    "validation_oos_isolation": "PASS",
+    "output_path_fix": "PASS",
+    "50k_benchmark": "PASS",
+    "no_severe_performance_regression": "PASS"
+  },
+  "historical_artifacts_unchanged": true,
+  "v17_production_validation_oos_run": false,
+  "v17_250k_run": false,
+  "ready_for_clean_250k_v17": true
+}

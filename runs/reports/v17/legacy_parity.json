@@ -1,0 +1,5 @@
+{
+  "legacy_v16_v17_generated_definitions_and_metrics_identical": true,
+  "strategies": 1000,
+  "tolerance": "exact SQLite equality"
+}

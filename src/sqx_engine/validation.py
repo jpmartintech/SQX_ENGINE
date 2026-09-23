@@ -9,6 +9,8 @@ from pathlib import Path
 import sqlite3
 import time
 import uuid
+import warnings
+from copy import deepcopy
 
 import numpy as np
 import pandas as pd
@@ -19,6 +21,7 @@ from .config import EngineConfig
 from .data.split import TimeSplit, audit_dataset, file_sha256
 from .features import prepare_features
 from .strategy import StrategyDefinition
+from .grammar import family_key
 
 METRICS = ('trade_count', 'profit_factor', 'expectancy', 'expectancy_r', 'sharpe', 'max_drawdown', 'win_rate', 'net_profit', 'return_pct')
 DEFAULT_GATES = dict(min_trades=20, min_profit_factor=1.0, min_expectancy=0.0, min_sharpe=0.0)
@@ -217,8 +220,21 @@ def load_source(config, splits, audit):
                                        'integrity_check': integrity, 'tables': tables, 'sha256': source_hash, 'clean': clean}
 
 
+def canonical_output_config(config):
+    """Canonical output interface, with explicit migration of deprecated aliases."""
+    raw = deepcopy(config.raw)
+    for canonical, alias in [('summary_path', 'summary_json'), ('csv_path', 'final_candidates_csv')]:
+        if alias in raw:
+            if canonical in raw and config.resolve_path(canonical).resolve() != config.resolve_path(alias).resolve():
+                raise ValueError(f'Conflicting output keys: {canonical} and {alias}; use {canonical} only')
+            warnings.warn(f'{alias} is deprecated; use {canonical}', FutureWarning, stacklevel=2)
+            raw[canonical] = raw.pop(alias)
+        if not raw.get(canonical): raise ValueError(f'Missing output path: {canonical}')
+    return EngineConfig(raw, config.source)
+
+
 class ValidationFactory:
-    def __init__(self, config): self.config = config
+    def __init__(self, config): self.config = canonical_output_config(config)
 
     def run(self):
         started = time.perf_counter(); cfg = self.config
@@ -234,8 +250,11 @@ class ValidationFactory:
         strategies, source_config, source = load_source(cfg, splits, audit)
         if not NUMBA_AVAILABLE: raise RuntimeError('V1.6 requires Numba')
         timings = {'load_time': time.perf_counter() - started}
+        grammar_version = source_config.get('strategy.grammar_version', 'legacy')
+        if any(s.grammar_version != grammar_version for s in strategies):
+            raise ValueError('Strategy grammar does not match source configuration')
         def evaluator(data):
-            return FastEvaluator(data, prepare_features(data), source_config.get('backtest.initial_capital', 10000),
+            return FastEvaluator(data, prepare_features(data, grammar_version=grammar_version), source_config.get('backtest.initial_capital', 10000),
                                  source_config.get('backtest.spread', 0.0), source_config.get('backtest.slippage', 0.0),
                                  cache_size=int(cfg.get('cache_size', 512)), engine='numba')
         t = time.perf_counter()
@@ -266,7 +285,15 @@ class ValidationFactory:
                 ratios = [r['degradation'][metric + '_ratio'] for r in rows if r['degradation'][metric + '_ratio'] is not None]
                 deltas = [r['degradation']['delta_' + metric] for r in rows if r['degradation']['delta_' + metric] is not None]
                 deg[name][metric] = {'median_ratio': float(np.median(ratios)) if ratios else None, 'median_delta': float(np.median(deltas)) if deltas else None, 'valid_ratios': len(ratios)}
-        summary = {'validation_run_id': str(uuid.uuid4()), 'data_audit': audit, 'source': source, 'splits': splits.manifest(),
+        family_telemetry = {}
+        for row in development:
+            family = family_key(row['strategy'])
+            counts = family_telemetry.setdefault(family, {'development_candidates': 0, 'validation_pass': 0, 'oos_pass': 0})
+            counts['development_candidates'] += 1
+        for stage, rows in [('validation_pass', validation), ('oos_pass', oos)]:
+            for row in rows:
+                if row['passed']: family_telemetry[family_key(row['strategy'])][stage] += 1
+        summary = {'family_telemetry': family_telemetry,'validation_run_id': str(uuid.uuid4()), 'data_audit': audit, 'source': source, 'splits': splits.manifest(),
                    'data_exposure': {'historical_250k_used_full_dataset': 'NO' if source['clean'] else 'YES',
                                      'true_unseen_oos_possible_for_historical_run': 'YES' if source['clean'] else 'NO',
                                      'test_type': 'TRUE_OOS' if source['clean'] else 'RETROSPECTIVE_SPLIT_TEST'},

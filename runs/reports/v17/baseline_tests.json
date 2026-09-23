@@ -1,0 +1,11 @@
+{
+  "version": "v1.6",
+  "tests_passed": 28,
+  "warnings": 2,
+  "clean_250k": {
+    "unique": 250000,
+    "development_candidates": 432,
+    "validation_pass": 193,
+    "true_oos_pass": 2
+  }
+}

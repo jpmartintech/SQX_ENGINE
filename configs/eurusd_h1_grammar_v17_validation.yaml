@@ -1,0 +1,33 @@
+source_run: REPLACE_WITH_COMPLETED_V17_RUN_ID
+source_database: runs/eurusd_h1_grammar_v17_250k_clean.sqlite
+source_config: configs/eurusd_h1_grammar_v17_250k_clean.yaml
+source_checkpoint: runs/checkpoints/eurusd_h1_grammar_v17_250k_clean.json
+candidate_status: CANDIDATE
+data_path: data/cloud/EURUSD_1H.csv
+expected_sha256: 7afd8f9af21360ee01deeef78aeba3ff8fcd62c3764c2b6f01244f84ee1c212c
+test_type: TRUE_OOS
+data_split:
+  method: chronological
+  development: 0.7
+  validation: 0.15
+  oos: 0.15
+validation:
+  min_trades: 20
+  min_profit_factor: 1.0
+  min_expectancy: 0.0
+  min_sharpe: 0.0
+oos:
+  min_trades: 20
+  min_profit_factor: 1.0
+  min_expectancy: 0.0
+  min_sharpe: 0.0
+diversity:
+  max_correlation: 0.85
+  max_entry_overlap: 0.8
+portfolio:
+  max_strategies: 10
+  max_correlation: 0.7
+cache_size: 512
+results_database: runs/eurusd_h1_grammar_v17_250k_clean_validation.sqlite
+summary_path: runs/reports/v17/clean_validation_summary.json
+csv_path: runs/reports/v17/clean_final_candidates.csv

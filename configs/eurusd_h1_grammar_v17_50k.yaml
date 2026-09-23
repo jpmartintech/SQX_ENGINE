@@ -1,0 +1,87 @@
+market: EURUSD
+timeframe: H1
+data_path: data/cloud/EURUSD_1H.csv
+generator:
+  type: genetic
+  evaluations: 50000
+  seed: 1301
+  population_size: 40
+  mutation_rate: 0.35
+  crossover_rate: 0.7
+  mode: scale
+  novelty:
+    retry_limit: 8
+strategy:
+  grammar_version: v1.7
+  min_predicates: 1
+  max_predicates: 4
+backtest:
+  initial_capital: 10000
+  spread: 8.0e-05
+  slippage: 2.0e-05
+candidate_pool:
+  size: 5000
+funnel:
+  basic:
+    min_trades: 100
+    min_pf: 1.0
+    min_expectancy: 0.0
+    min_sharpe: 0.0
+    max_drawdown: 0.3
+  stability:
+    enabled: true
+    segments: 4
+    min_positive_segments: 3
+    min_trades_per_segment: 20
+  plateau:
+    enabled: true
+    min_pass_ratio: 0.5
+  cost_stress:
+    enabled: true
+    multipliers:
+    - 1.25
+    - 1.5
+    - 2.0
+    min_pf: 0.95
+    min_pass_ratio: 0.67
+  execution_stress:
+    enabled: true
+    delays:
+    - 1
+    - 2
+    min_expectancy: 0.0
+    min_pass_ratio: 0.5
+  diversity:
+    enabled: true
+    max_pnl_correlation: 0.85
+    max_entry_overlap: 0.8
+portfolio:
+  max_strategies: 10
+  max_correlation: 0.7
+store:
+  path: runs/eurusd_h1_grammar_v17_50k.sqlite
+checkpoint:
+  path: runs/checkpoints/eurusd_h1_grammar_v17_50k.json
+runtime:
+  checkpoint_every_evaluations: 1000
+  heartbeat_seconds: 30
+execution:
+  workers: 1
+  batch_size: 32
+  cache_size: 512
+data_split:
+  method: chronological
+  development: 0.7
+  validation: 0.15
+  oos: 0.15
+engine: numba
+validation:
+  min_trades: 20
+  min_profit_factor: 1.0
+  min_expectancy: 0.0
+  min_sharpe: 0.0
+oos:
+  min_trades: 20
+  min_profit_factor: 1.0
+  min_expectancy: 0.0
+  min_sharpe: 0.0

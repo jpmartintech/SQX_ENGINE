@@ -20,6 +20,7 @@ from .portfolio import PortfolioBuilder
 from .runtime import CheckpointManager
 from .backtest import EvaluationResult
 from .strategy import StrategyDefinition
+from .grammar import count_stage, family_totals
 
 def _rss_mb():
     try:
@@ -62,7 +63,7 @@ class StrategyFactory:
         run_id = str(uuid.uuid4())
         timings = {}
         t = time.perf_counter(); data, discovery_provenance = discovery_data(self.config); timings["data_loading"] = time.perf_counter() - t
-        t = time.perf_counter(); features = prepare_features(data); timings["feature_calculation"] = time.perf_counter() - t
+        t = time.perf_counter(); features = prepare_features(data, grammar_version="v1.7") if self.config.get("strategy.grammar_version", "legacy") == "v1.7" else prepare_features(data); timings["feature_calculation"] = time.perf_counter() - t
         cache_size = int(self.config.get("execution.cache_size", 4096))
         engine_name = self.config.get("engine", "auto")
         initial_capital = self.config.get("backtest.initial_capital", 10000)
@@ -74,7 +75,16 @@ class StrategyFactory:
         batch_size = max(1, int(self.config.get("execution.batch_size", max(8, workers_used * 4))))
         parallel = ParallelEvaluator(data, features, initial_capital, spread, slippage, workers_used, cache_size=cache_size, engine=engine_name) if workers_used > 1 else None
         generator_cls = GeneticGenerator if self.config.get("generator.type", "random") == "genetic" else RandomGenerator
-        gen = generator_cls(self.config.get("market", "EURUSD"), self.config.get("timeframe", "H1"), self.config.get("generator.seed", 101), self.config.get("strategy.max_predicates", 2), population_size=self.config.get("generator.population_size", 40), mutation_rate=self.config.get("generator.mutation_rate", .35), crossover_rate=self.config.get("generator.crossover_rate", .70), mode=self.config.get("generator.mode", "legacy"), novelty_retry_limit=self.config.get("generator.novelty.retry_limit", 8)) if generator_cls is GeneticGenerator else generator_cls(self.config.get("market", "EURUSD"), self.config.get("timeframe", "H1"), self.config.get("generator.seed", 101), self.config.get("strategy.max_predicates", 2))
+        generator_options = dict(min_predicates=self.config.get("strategy.min_predicates", 1),
+                                 grammar_version=self.config.get("strategy.grammar_version", "legacy"))
+        if generator_cls is GeneticGenerator:
+            generator_options.update(population_size=self.config.get("generator.population_size", 40),
+                                     mutation_rate=self.config.get("generator.mutation_rate", .35),
+                                     crossover_rate=self.config.get("generator.crossover_rate", .70),
+                                     mode=self.config.get("generator.mode", "legacy"),
+                                     novelty_retry_limit=self.config.get("generator.novelty.retry_limit", 8))
+        gen = generator_cls(self.config.get("market", "EURUSD"), self.config.get("timeframe", "H1"),
+                            self.config.get("generator.seed", 101), self.config.get("strategy.max_predicates", 2), **generator_options)
         funnel = QualityFunnel(self.config, evaluator)
         store = StrategyStore(self.config.resolve_path("store.path", "runs/sqx_engine.sqlite"))
         requested = int(self.config.get("generator.evaluations", 100))
@@ -108,6 +118,7 @@ class StrategyFactory:
                 raise ValueError('Clean discovery requires a dedicated database per run')
             store.db.execute('INSERT OR REPLACE INTO discovery_provenance VALUES (?,?)', (run_id, json.dumps(discovery_provenance, sort_keys=True)))
             store.commit()
+        family_telemetry = resume_state.get("family_telemetry", {}) if resume_state else {}
         records = []
         t_search = time.perf_counter()
         attempts = int(counters.get("attempts", counters.get("generated", 0)))
@@ -124,11 +135,15 @@ class StrategyFactory:
         heartbeat_seconds = float(self.config.get("runtime.heartbeat_seconds", 60.0))
         next_heartbeat = time.perf_counter() + heartbeat_seconds
         while len(seen) < requested and attempts < requested * 20 and not stop_requested:
+            t_gen = time.perf_counter()
             attempts += 1; counters["attempts"] = attempts; strategy = gen.ask(known_hashes=seen); counters["generated"] += 1
+            timings['generation'] = timings.get('generation', 0.) + time.perf_counter() - t_gen
+            count_stage(family_telemetry, 'PROPOSED', strategy)
             if strategy.canonical_hash in seen:
                 duplicates += 1; counters["duplicates"] = duplicates
                 continue
             seen.add(strategy.canonical_hash); counters["unique"] += 1
+            count_stage(family_telemetry, "GENERATED", strategy)
             t_eval = time.perf_counter()
             # Genetic feedback remains ask -> evaluate -> tell. This preserves
             # V1.2 semantics; parallel workers are used for independent later
@@ -143,9 +158,12 @@ class StrategyFactory:
                 for reason in basic_reasons: rejection_counts[reason] = rejection_counts.get(reason, 0) + 1
             else:
                 counters["basic_pass"] += 1; basic_records.append((strategy, result))
+                count_stage(family_telemetry, "BASIC", strategy)
+            t_gen = time.perf_counter()
             gen.tell(strategy, result)
+            timings["generation"] += time.perf_counter() - t_gen
             if checkpoint_every and len(seen) >= next_checkpoint:
-                store.commit(); checkpoint.save({"run_id": run_id, "status": "RUNNING", "evaluations": len(seen), "canonical_hashes": sorted(seen), "generator": getattr(gen, "state", lambda: {})(), "counters": counters, "rejected": rejected, "rejection_counts": rejection_counts, "basic_records": [{"strategy": s.to_json(), "result": _result_state(r)} for s, r in basic_records]})
+                store.commit(); checkpoint.save({"family_telemetry": family_telemetry, "run_id": run_id, "status": "RUNNING", "evaluations": len(seen), "canonical_hashes": sorted(seen), "generator": getattr(gen, "state", lambda: {})(), "counters": counters, "rejected": rejected, "rejection_counts": rejection_counts, "basic_records": [{"strategy": s.to_json(), "result": _result_state(r)} for s, r in basic_records]})
                 next_checkpoint = ((len(seen) // checkpoint_every) + 1) * checkpoint_every
             now = time.perf_counter()
             if now >= next_heartbeat:
@@ -155,7 +173,7 @@ class StrategyFactory:
         if stop_requested:
             interrupted = True
             store.commit()
-            checkpoint.save({"run_id": run_id, "status": "INTERRUPTED", "evaluations": len(seen), "canonical_hashes": sorted(seen), "generator": getattr(gen, "state", lambda: {})(), "counters": counters, "rejected": rejected, "rejection_counts": rejection_counts, "basic_records": [{"strategy": s.to_json(), "result": _result_state(r)} for s, r in basic_records]})
+            checkpoint.save({"family_telemetry": family_telemetry, "run_id": run_id, "status": "INTERRUPTED", "evaluations": len(seen), "canonical_hashes": sorted(seen), "generator": getattr(gen, "state", lambda: {})(), "counters": counters, "rejected": rejected, "rejection_counts": rejection_counts, "basic_records": [{"strategy": s.to_json(), "result": _result_state(r)} for s, r in basic_records]})
             if parallel is not None: parallel.shutdown()
             store.close(); signal.signal(signal.SIGINT, previous_sigint)
             return {"run_id": run_id, "status": "INTERRUPTED", "requested": requested, "attempts": attempts, "duplicates": duplicates, "unique": len(seen), "backtested": counters["backtested"], "checkpoint": str(checkpoint_path)}
@@ -174,6 +192,8 @@ class StrategyFactory:
                            if parallel is None else parallel.evaluate_batch([s for s, _ in advanced], rich=False))
         for (strategy, aggregate_result), aggregate in zip(advanced, advanced_results):
             f = funnel.evaluate(strategy, aggregate)
+            for stage, label in [('stability', 'STABILITY'), ('plateau', 'PLATEAU'), ('cost_stress', 'COST'), ('execution_stress', 'EXECUTION')]:
+                if f['stages'].get(stage): count_stage(family_telemetry, label, strategy)
             result = evaluator.evaluate(strategy, rich=True) if f["passed"] else aggregate
             counters["stability_pass"] += int(f["stages"].get("stability", False)); counters["plateau_pass"] += int(f["stages"].get("plateau", False)); counters["cost_pass"] += int(f["stages"].get("cost_stress", False)); counters["execution_pass"] += int(f["stages"].get("execution_stress", False))
             if f["passed"]: records.append({"strategy": strategy, "result": result, "funnel": f}); counters["before_diversity"] += 1
@@ -190,6 +210,7 @@ class StrategyFactory:
                 store.add_strategy(item["strategy"], item["result"], item["funnel"], self.config.get("generator.seed"), "REJECTED", run_id)
                 continue
             item["funnel"]["stages"]["diversity"] = True; final.append(item)
+            count_stage(family_telemetry, "DIVERSITY", item["strategy"])
         counters["diversity_pass"], timings["diversity"] = len(final), time.perf_counter() - t_div
         for item in final:
             store.add_strategy(item["strategy"], item["result"], item["funnel"], self.config.get("generator.seed"), "CANDIDATE", run_id)
@@ -203,11 +224,13 @@ class StrategyFactory:
         timings["generator_telemetry"] = getattr(gen, "telemetry", {})
         signal.signal(signal.SIGINT, previous_sigint)
         result = {"run_id": run_id, "market": self.config.get("market"), "timeframe": self.config.get("timeframe"), "requested": requested, "generated": counters["generated"], "attempts": counters.get("attempts", counters["generated"]), "duplicates": counters.get("duplicates", 0), "unique": counters["unique"], "backtested": counters["backtested"], "basic_pass": counters["basic_pass"], "rejected": rejected, "rejection_reasons": rejection_counts, "counters": counters, "candidate_pool": len(advanced), "candidates": len(final), "portfolio_eligible": len(final), "portfolio_selected": len(portfolio["strategies"]), "runtime": elapsed, "strategies_per_sec": counters["backtested"] / elapsed, "strategies_per_hour": counters["backtested"] / elapsed * 3600, "final_candidates_per_hour": len(final) / elapsed * 3600, "timings": timings, "memory_rss_mb": _rss_mb(), "database": database, "portfolio": {"strategy_ids": [x["result"].strategy_id for x in portfolio["strategies"]], "weights": portfolio["weights"], "average_correlation": portfolio["average_correlation"], "max_correlation": portfolio["max_correlation"], "combined_return": portfolio["combined_return"], "combined_sharpe": portfolio["combined_sharpe"], "combined_max_drawdown": portfolio["combined_max_drawdown"]}, "top_candidates": top, "checkpoint": str(checkpoint_path)}
+        result["family_telemetry"] = family_telemetry
+        result.update(family_totals(family_telemetry))
         timings["cache"] = evaluator.cache_stats()
         result["workers_requested"] = requested_workers
         result["workers_used"] = workers_used
         result["batch_size"] = batch_size
         if parallel is not None:
             parallel.shutdown()
-        checkpoint.save({"run_id": run_id, "status": "COMPLETE", "evaluations": counters["unique"], "canonical_hashes": sorted(seen), "generator": getattr(gen, "state", lambda: {})(), "counters": counters, "rejected": rejected, "rejection_counts": rejection_counts, "basic_records": [{"strategy": s.to_json(), "result": _result_state(r)} for s, r in basic_records], "result": result})
+        checkpoint.save({"family_telemetry": family_telemetry, "run_id": run_id, "status": "COMPLETE", "evaluations": counters["unique"], "canonical_hashes": sorted(seen), "generator": getattr(gen, "state", lambda: {})(), "counters": counters, "rejected": rejected, "rejection_counts": rejection_counts, "basic_records": [{"strategy": s.to_json(), "result": _result_state(r)} for s, r in basic_records], "result": result})
         store.close(); return result

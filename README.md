@@ -94,3 +94,19 @@ used the full dataset. The pipeline applies fixed Validation and OOS gates and
 builds a portfolio only from final survivors. Future Development-only discovery is
 configured in `configs/eurusd_h1_250k_clean_v16.yaml`.
 See [V1.6 methodology and outputs](docs/V1.6_VALIDATION.md).
+
+
+## V1.7 Grammar expansion
+
+V1.7 adds Trend, Momentum, Volatility and causal Structure families with 1–4
+predicates, versioned canonical hashing, family telemetry and numeric Numba
+predicates. Development/Validation/OOS boundaries and gates remain unchanged.
+
+```bash
+python scripts/benchmark_grammar.py configs/eurusd_h1_grammar_v17_1k.yaml --output runs/reports/v17/1k.json
+```
+
+The benchmark command is capped at 50K. The clean 250K configuration is prepared
+but was not run. See [grammar definitions, causality and compatibility](docs/V1.7_GRAMMAR.md).
+Validation exports use `summary_path` / `csv_path`; conflicting legacy aliases
+now fail before writing outputs.

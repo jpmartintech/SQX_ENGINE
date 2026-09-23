@@ -4,6 +4,8 @@ from dataclasses import dataclass, field
 import time
 import numpy as np
 from .numba_core import NUMBA_AVAILABLE, simulate_aggregate, simulate_rich
+from .predicates import OPERATOR_CODES, python_predicate, numba_predicate
+from ..features.engine import PredicateCache
 
 
 @dataclass
@@ -43,7 +45,9 @@ class FastEvaluator:
         self.engine = "numba" if requested_engine in {"auto", "numba"} and NUMBA_AVAILABLE else "python"
         if requested_engine == "python":
             self.engine = "python"
-        self._predicate_cache = {}
+        self._predicate_cache = PredicateCache()
+        self._feature_indices = {name: i for i, name in enumerate(sorted(features))}
+        self._feature_values = tuple(features[name] for name in sorted(features))
         self._signal_cache = {}
         self._evaluation_cache = {}
         self.cache_hits = 0
@@ -67,23 +71,26 @@ class FastEvaluator:
         mapping[key] = value
         return value
 
-    def _predicate(self, p):
+    def numeric_predicates(self, strategy):
+        return tuple((self._feature_indices[p.feature], OPERATOR_CODES[p.operator], float(p.value)) for p in strategy.predicates)
+
+    def _predicate(self, p, numeric=None):
         key = (p.feature, p.operator, float(p.value), len(self.data))
         if key in self._predicate_cache:
             return self._predicate_cache[key]
-        x = np.asarray(self.features[p.feature], dtype=float)
+        index, code, threshold = numeric if numeric is not None else (self._feature_indices[p.feature], OPERATOR_CODES[p.operator], float(p.value))
+        x = np.asarray(self._feature_values[index], dtype=float)
         if p.feature == "close":
             x = x / np.r_[x[0], x[:-1]]
-        valid = np.isfinite(x)
-        mask = x > p.value if p.operator == ">" else x < p.value
-        out = np.asarray(mask & valid, dtype=bool)
+        kernel = numba_predicate if self.engine == 'numba' else python_predicate
+        out = kernel(x, code, threshold)
         return self._bounded_put(self._predicate_cache, key, out)
 
     def _signal(self, strategy):
         key = strategy.canonical_hash
         if key in self._signal_cache:
             return self._signal_cache[key]
-        masks = [self._predicate(p) for p in strategy.predicates]
+        masks = [self._predicate(p, numeric) for p, numeric in zip(strategy.predicates, self.numeric_predicates(strategy))]
         signal = masks[0].copy()
         for mask in masks[1:]:
             signal = signal & mask if strategy.logic == "AND" else signal | mask

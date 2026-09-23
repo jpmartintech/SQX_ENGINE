@@ -1,0 +1,11 @@
+...............................................................          [100%]
+=============================== warnings summary ===============================
+tests/test_engine.py::test_fast_batch_matches_serial
+tests/test_engine.py::test_fast_batch_matches_serial
+tests/test_grammar.py::test_parallel_grammar_equivalence
+tests/test_grammar.py::test_parallel_grammar_equivalence
+  /usr/lib/python3.12/multiprocessing/popen_fork.py:66: DeprecationWarning: This process (pid=4) is multi-threaded, use of fork() may lead to deadlocks in the child.
+    self.pid = os.fork()
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+63 passed, 4 warnings in 5.04s

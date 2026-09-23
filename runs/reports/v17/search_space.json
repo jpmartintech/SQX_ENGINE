@@ -1,0 +1,20 @@
+{
+  "predicate_variants": 178,
+  "by_family": {
+    "Trend": 78,
+    "Momentum": 60,
+    "Volatility": 16,
+    "Structure": 24
+  },
+  "exit_variants": 64,
+  "directions": 2,
+  "logic_variants": 2,
+  "predicate_count_variants": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "syntactic_upper_bound": 10591415808,
+  "note": "Unique unordered predicates; single-predicate logic normalized. Includes contradictory/tautological combinations; not a count of distinct behaviors."
+}

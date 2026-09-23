@@ -234,3 +234,70 @@ def test_no_data_leakage(tmp_path, frame, monkeypatch):
     validation_cfg.raw['data_split'] = {'development': .6, 'validation': .2, 'oos': .2}
     with pytest.raises(ValueError, match='provenance'):
         ValidationFactory(validation_cfg).run()
+
+
+@pytest.mark.parametrize('aliases', [False, True])
+def test_output_path_regression(tmp_path, frame, aliases):
+    cfg = fixture_source(tmp_path, frame)
+    expected_json = tmp_path / 'custom' / 'exact.json'
+    expected_csv = tmp_path / 'custom' / 'exact.csv'
+    cfg.raw['summary_path'] = str(expected_json)
+    cfg.raw['csv_path'] = str(expected_csv)
+    if aliases:
+        cfg.raw['summary_json'] = cfg.raw.pop('summary_path')
+        cfg.raw['final_candidates_csv'] = cfg.raw.pop('csv_path')
+        with pytest.warns(FutureWarning): factory = ValidationFactory(cfg)
+    else: factory = ValidationFactory(cfg)
+    result = factory.run()
+    assert json.loads(expected_json.read_text())['validation_run_id'] == result['validation_run_id']
+    assert len(pd.read_csv(expected_csv)) == result['final_candidates']
+    assert not (tmp_path / 'summary.json').exists()
+    assert 'summary_json' not in factory.config.raw
+
+
+def test_output_path_conflict(tmp_path, frame):
+    cfg = fixture_source(tmp_path, frame)
+    cfg.raw['summary_json'] = str(tmp_path / 'different.json')
+    with pytest.raises(ValueError, match='Conflicting output keys'):
+        ValidationFactory(cfg)
+    assert not cfg.resolve_path('results_database').exists()
+    cfg.raw['summary_json'] = cfg.raw['summary_path']
+    with pytest.warns(FutureWarning): ValidationFactory(cfg)
+
+
+def test_v17_validation_family_telemetry_and_oos_isolation(tmp_path, frame, monkeypatch):
+    import sqx_engine.validation as module
+    from sqx_engine.grammar import family_key
+    cfg = fixture_source(tmp_path, frame)
+    raw = yaml.safe_load(cfg.resolve_path('source_config').read_text())
+    raw['strategy'] = {'grammar_version': 'v1.7', 'min_predicates': 1, 'max_predicates': 4}
+    cfg.resolve_path('source_config').write_text(yaml.safe_dump(raw))
+    store = StrategyStore(cfg.resolve_path('source_database'))
+    store.db.execute('DELETE FROM strategies')
+    store.db.execute('UPDATE runs SET config_hash=?', (EngineConfig(raw).config_hash,))
+    strategies = [StrategyDefinition('EURUSD', 'H1', 'LONG', (p,), grammar_version='v1.7') for p in
+                  [Predicate('trend.close_ema.10','>',0), Predicate('structure.last.2','==',1)]]
+    for s in strategies:
+        r = replace(known_evaluator().evaluate(strategy()), strategy_id=s.readable_id, canonical_hash=s.canonical_hash)
+        store.add_strategy(s, r, {'passed': True, 'stages': {}}, 1, 'CANDIDATE', 'source')
+    store.commit(); store.close()
+    original = module.evaluate_stage
+    captured = {}
+    def spy(e, ss, stage, gates):
+        captured[stage] = (e.data.copy(), [s.canonical_hash for s in ss])
+        return original(e, ss, stage, gates)
+    monkeypatch.setattr(module, 'evaluate_stage', spy)
+    first = ValidationFactory(cfg).run()
+    assert first['family_telemetry']['Trend']['development_candidates'] == 1
+    assert first['family_telemetry']['Structure']['development_candidates'] == 1
+    assert sum(x['validation_pass'] for x in first['family_telemetry'].values()) == first['validation']['passed']
+    assert sum(x['oos_pass'] for x in first['family_telemetry'].values()) == first['oos']['passed']
+    assert captured['VALIDATION'][0].timestamp.min() == frame.timestamp.iloc[280]
+    assert captured['VALIDATION'][0].timestamp.max() == frame.timestamp.iloc[339]
+    validation_seen = captured['VALIDATION'][1]
+    modified = frame.copy(); modified.loc[340:, ['open','high','low','close']] *= 100
+    modified.to_csv(cfg.resolve_path('data_path'), index=False)
+    cfg.raw['results_database'] = str(tmp_path / 'second.sqlite')
+    second = ValidationFactory(cfg).run()
+    assert second['validation'] == first['validation']
+    assert captured['VALIDATION'][1] == validation_seen

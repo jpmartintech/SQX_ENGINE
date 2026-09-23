@@ -51,6 +51,24 @@ class GeneticGenerator(RandomGenerator):
             if self.mode == "scale":
                 self.telemetry["mutation_attempts"] += 1
                 self.telemetry["mutation_effective"] += int(strategy.canonical_hash != before)
+        if self.grammar_version == 'v1.7':
+            if self.rng.random() < self.mutation_rate:
+                before = strategy.canonical_hash
+                ps = list(strategy.predicates)
+                operation = str(self.rng.choice(['replace', 'add', 'remove']))
+                if operation == 'add' and len(ps) < self.max_predicates:
+                    ps = list(self.complete_predicates(ps, len(ps) + 1))
+                elif operation == 'remove' and len(ps) > self.min_predicates:
+                    ps.pop(int(self.rng.integers(len(ps))))
+                else:
+                    i = int(self.rng.integers(len(ps)))
+                    replacement = self.sample_predicate()
+                    while replacement in ps: replacement = self.sample_predicate()
+                    ps[i] = replacement
+                strategy = replace(strategy, predicates=tuple(ps))
+                self.telemetry['mutation_attempts'] += 1
+                self.telemetry['mutation_effective'] += int(strategy.canonical_hash != before)
+            return strategy
         if self.rng.random() < self.mutation_rate and strategy.predicates:
             before = strategy.canonical_hash
             i = int(self.rng.integers(0, len(strategy.predicates))); p = strategy.predicates[i]
@@ -69,7 +87,12 @@ class GeneticGenerator(RandomGenerator):
     def _crossover(self, a, b):
         if self.mode == "scale": self.telemetry["crossover_attempts"] += 1
         predicates = tuple((list(a.predicates) + list(b.predicates))[: self.max_predicates]) or a.predicates
-        child = StrategyDefinition(self.market, self.timeframe, a.direction if self.rng.random() < .5 else b.direction, predicates, a.logic if self.rng.random() < .5 else b.logic, 14, a.stop_atr if self.rng.random() < .5 else b.stop_atr, a.target_atr if self.rng.random() < .5 else b.target_atr, a.time_exit if self.rng.random() < .5 else b.time_exit)
+        if self.grammar_version == 'v1.7':
+            pool = list(dict.fromkeys(a.predicates + b.predicates))
+            self.rng.shuffle(pool)
+            size = int(self.rng.integers(self.min_predicates, min(self.max_predicates, len(pool)) + 1))
+            predicates = self.complete_predicates(pool, size)
+        child = StrategyDefinition(self.market, self.timeframe, a.direction if self.rng.random() < .5 else b.direction, predicates, a.logic if self.rng.random() < .5 else b.logic, 14, a.stop_atr if self.rng.random() < .5 else b.stop_atr, a.target_atr if self.rng.random() < .5 else b.target_atr, a.time_exit if self.rng.random() < .5 else b.time_exit, grammar_version=self.grammar_version)
         if self.mode == "scale":
             same = child.canonical_hash in {a.canonical_hash, b.canonical_hash}
             self.telemetry["crossover_noop"] += int(same)
@@ -125,7 +148,7 @@ class GeneticGenerator(RandomGenerator):
             self.generation += 1
 
     def state(self):
-        return {"generated": self.generated, "generation": self.generation, "rng_state": self.rng.bit_generator.state,
+        return {**super().state(), "generated": self.generated, "generation": self.generation, "rng_state": self.rng.bit_generator.state,
                 "mode": self.mode, "telemetry": self.telemetry,
                 "population": [(s.to_json(), score) for s, score in self.population],
                 "elite": [(s.to_json(), score) for s, score in self.elite]}
