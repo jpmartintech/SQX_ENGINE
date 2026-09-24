@@ -1,0 +1,16 @@
+market,timeframe,family,oos_pass_observations
+EURUSD,H1,Momentum,4
+EURUSD,H1,Momentum+Structure,20
+EURUSD,H1,Momentum+Volatility,11
+EURUSD,H1,Momentum+Volatility+Structure,31
+EURUSD,H1,Structure,1
+EURUSD,H1,Trend,54
+EURUSD,H1,Trend+Momentum,60
+EURUSD,H1,Trend+Momentum+Structure,77
+EURUSD,H1,Trend+Momentum+Volatility,36
+EURUSD,H1,Trend+Momentum+Volatility+Structure,21
+EURUSD,H1,Trend+Structure,126
+EURUSD,H1,Trend+Volatility,107
+EURUSD,H1,Trend+Volatility+Structure,88
+EURUSD,H1,Volatility,3
+EURUSD,H1,Volatility+Structure,13

@@ -1,0 +1,563 @@
+{
+  "jobs": [
+    {
+      "attempts": 1,
+      "batch_id": "5fd6ec9fd4e0688f06eb5288bfc7cc77c49fb77534bb6d79053c15b01b40405d",
+      "candidates": 1241,
+      "completed_at": "2026-09-24T07:21:53.521005+00:00",
+      "config": {
+        "backtest": {
+          "initial_capital": 10000,
+          "slippage": 2e-05,
+          "spread": 8e-05
+        },
+        "candidate_pool": {
+          "size": 5000
+        },
+        "checkpoint": {
+          "path": "/home/xaume/SQX_ENGINE/runs/production/PRODUCTION_01/EURUSD/H1/seed_1301/19de1cf009c99736/checkpoint.json"
+        },
+        "data_path": "/home/xaume/SQX_ENGINE/data/cloud/EURUSD_1H.csv",
+        "engine": "numba",
+        "execution": {
+          "batch_size": 32,
+          "cache_size": 512,
+          "workers": 1
+        },
+        "execution_profile": {
+          "cost_source": "Unchanged EURUSD H1 V1.8 baseline; no separate commission modeled by frozen engine",
+          "initial_capital": 10000,
+          "slippage": 2e-05,
+          "spread": 8e-05
+        },
+        "factory_version": "1.8.0",
+        "funnel": {
+          "basic": {
+            "max_drawdown": 0.3,
+            "min_expectancy": 0.0,
+            "min_pf": 1.0,
+            "min_sharpe": 0.0,
+            "min_trades": 100
+          },
+          "cost_stress": {
+            "enabled": true,
+            "min_pass_ratio": 0.67,
+            "min_pf": 0.95,
+            "multipliers": [
+              1.25,
+              1.5,
+              2.0
+            ]
+          },
+          "diversity": {
+            "enabled": true,
+            "max_entry_overlap": 0.8,
+            "max_pnl_correlation": 0.85
+          },
+          "execution_stress": {
+            "delays": [
+              1,
+              2
+            ],
+            "enabled": true,
+            "min_expectancy": 0.0,
+            "min_pass_ratio": 0.5
+          },
+          "plateau": {
+            "enabled": true,
+            "min_pass_ratio": 0.5
+          },
+          "stability": {
+            "enabled": true,
+            "min_positive_segments": 3,
+            "min_trades_per_segment": 20,
+            "segments": 4
+          }
+        },
+        "generator": {
+          "crossover_rate": 0.7,
+          "evaluations": 250000,
+          "mode": "scale",
+          "mutation_rate": 0.35,
+          "novelty": {
+            "retry_limit": 8
+          },
+          "population_size": 40,
+          "seed": 1301,
+          "type": "genetic"
+        },
+        "market": "EURUSD",
+        "oos": {
+          "min_expectancy": 0.0,
+          "min_profit_factor": 1.0,
+          "min_sharpe": 0.0,
+          "min_trades": 20
+        },
+        "portfolio": {
+          "max_correlation": 0.7,
+          "max_strategies": 10
+        },
+        "production_batch": "PRODUCTION_01",
+        "production_policy": "PRODUCTION_2016_2026_V1",
+        "runtime": {
+          "checkpoint_every_evaluations": 1000,
+          "heartbeat_seconds": 30
+        },
+        "store": {
+          "path": "/home/xaume/SQX_ENGINE/runs/production/PRODUCTION_01/EURUSD/H1/seed_1301/19de1cf009c99736/discovery.sqlite"
+        },
+        "strategy": {
+          "grammar_version": "v1.7",
+          "max_predicates": 4,
+          "min_predicates": 1
+        },
+        "temporal_policy": {
+          "development": {
+            "end": "2022-01-01T00:00:00Z",
+            "start": "2016-01-01T00:00:00Z"
+          },
+          "mode": "explicit_dates",
+          "name": "PRODUCTION_2016_2026_V1",
+          "oos": {
+            "end": "latest",
+            "start": "2024-01-01T00:00:00Z"
+          },
+          "validation": {
+            "end": "2024-01-01T00:00:00Z",
+            "start": "2022-01-01T00:00:00Z"
+          }
+        },
+        "timeframe": "H1",
+        "validation": {
+          "min_expectancy": 0.0,
+          "min_profit_factor": 1.0,
+          "min_sharpe": 0.0,
+          "min_trades": 20
+        }
+      },
+      "dataset": {
+        "NaN": {
+          "close": 0,
+          "high": 0,
+          "low": 0,
+          "open": 0,
+          "timestamp": 0,
+          "volume": 0
+        },
+        "anomalies": [],
+        "chronological": true,
+        "columns": [
+          "timestamp",
+          "open",
+          "high",
+          "low",
+          "close",
+          "volume"
+        ],
+        "duplicates": 0,
+        "end": "2026-04-14 02:00:00+00:00",
+        "error": null,
+        "kind": "native",
+        "market": "EURUSD",
+        "path": "data/cloud/EURUSD_1H.csv",
+        "provenance": {},
+        "rows": 143197,
+        "sha256": "7afd8f9af21360ee01deeef78aeba3ff8fcd62c3764c2b6f01244f84ee1c212c",
+        "source_timeframe": null,
+        "start": "2003-05-05 03:00:00+00:00",
+        "status": "DATASET_AVAILABLE",
+        "timeframe": "H1",
+        "timestamp_semantics": "open"
+      },
+      "directory": "/home/xaume/SQX_ENGINE/runs/production/PRODUCTION_01/EURUSD/H1/seed_1301/19de1cf009c99736",
+      "error": null,
+      "evaluations": 250000,
+      "generated": 250000,
+      "grammar": "v1.7",
+      "job_id": "19de1cf009c9973604d1525e2dfc99009bf5abee131919434f84443eacdbdf20",
+      "market": "EURUSD",
+      "oos_pass": 169,
+      "promoted": 169,
+      "runtime": 418.12145870900713,
+      "seed": 1301,
+      "started_at": "2026-09-24T07:15:07.899141+00:00",
+      "status": "COMPLETE",
+      "timeframe": "H1",
+      "validation_pass": 433
+    },
+    {
+      "attempts": 1,
+      "batch_id": "5a5ff3bdeb3a981bed7a7cda45fb8f7e2bc4cfbcb7eaf7c46d368fd34a19664b",
+      "candidates": 1674,
+      "completed_at": "2026-09-24T07:38:54.450819+00:00",
+      "config": {
+        "backtest": {
+          "initial_capital": 10000,
+          "slippage": 2e-05,
+          "spread": 8e-05
+        },
+        "candidate_pool": {
+          "size": 5000
+        },
+        "checkpoint": {
+          "path": "/home/xaume/SQX_ENGINE/runs/production/PRODUCTION_01/EURUSD/H1/seed_1303/4fd1f7ebaab4e517/checkpoint.json"
+        },
+        "data_path": "/home/xaume/SQX_ENGINE/data/cloud/EURUSD_1H.csv",
+        "engine": "numba",
+        "execution": {
+          "batch_size": 32,
+          "cache_size": 512,
+          "workers": 1
+        },
+        "execution_profile": {
+          "cost_source": "Unchanged EURUSD H1 V1.8 baseline; no separate commission modeled by frozen engine",
+          "initial_capital": 10000,
+          "slippage": 2e-05,
+          "spread": 8e-05
+        },
+        "factory_version": "1.8.0",
+        "funnel": {
+          "basic": {
+            "max_drawdown": 0.3,
+            "min_expectancy": 0.0,
+            "min_pf": 1.0,
+            "min_sharpe": 0.0,
+            "min_trades": 100
+          },
+          "cost_stress": {
+            "enabled": true,
+            "min_pass_ratio": 0.67,
+            "min_pf": 0.95,
+            "multipliers": [
+              1.25,
+              1.5,
+              2.0
+            ]
+          },
+          "diversity": {
+            "enabled": true,
+            "max_entry_overlap": 0.8,
+            "max_pnl_correlation": 0.85
+          },
+          "execution_stress": {
+            "delays": [
+              1,
+              2
+            ],
+            "enabled": true,
+            "min_expectancy": 0.0,
+            "min_pass_ratio": 0.5
+          },
+          "plateau": {
+            "enabled": true,
+            "min_pass_ratio": 0.5
+          },
+          "stability": {
+            "enabled": true,
+            "min_positive_segments": 3,
+            "min_trades_per_segment": 20,
+            "segments": 4
+          }
+        },
+        "generator": {
+          "crossover_rate": 0.7,
+          "evaluations": 250000,
+          "mode": "scale",
+          "mutation_rate": 0.35,
+          "novelty": {
+            "retry_limit": 8
+          },
+          "population_size": 40,
+          "seed": 1303,
+          "type": "genetic"
+        },
+        "market": "EURUSD",
+        "oos": {
+          "min_expectancy": 0.0,
+          "min_profit_factor": 1.0,
+          "min_sharpe": 0.0,
+          "min_trades": 20
+        },
+        "portfolio": {
+          "max_correlation": 0.7,
+          "max_strategies": 10
+        },
+        "production_batch": "PRODUCTION_01",
+        "production_policy": "PRODUCTION_2016_2026_V1",
+        "runtime": {
+          "checkpoint_every_evaluations": 1000,
+          "heartbeat_seconds": 30
+        },
+        "store": {
+          "path": "/home/xaume/SQX_ENGINE/runs/production/PRODUCTION_01/EURUSD/H1/seed_1303/4fd1f7ebaab4e517/discovery.sqlite"
+        },
+        "strategy": {
+          "grammar_version": "v1.7",
+          "max_predicates": 4,
+          "min_predicates": 1
+        },
+        "temporal_policy": {
+          "development": {
+            "end": "2022-01-01T00:00:00Z",
+            "start": "2016-01-01T00:00:00Z"
+          },
+          "mode": "explicit_dates",
+          "name": "PRODUCTION_2016_2026_V1",
+          "oos": {
+            "end": "latest",
+            "start": "2024-01-01T00:00:00Z"
+          },
+          "validation": {
+            "end": "2024-01-01T00:00:00Z",
+            "start": "2022-01-01T00:00:00Z"
+          }
+        },
+        "timeframe": "H1",
+        "validation": {
+          "min_expectancy": 0.0,
+          "min_profit_factor": 1.0,
+          "min_sharpe": 0.0,
+          "min_trades": 20
+        }
+      },
+      "dataset": {
+        "NaN": {
+          "close": 0,
+          "high": 0,
+          "low": 0,
+          "open": 0,
+          "timestamp": 0,
+          "volume": 0
+        },
+        "anomalies": [],
+        "chronological": true,
+        "columns": [
+          "timestamp",
+          "open",
+          "high",
+          "low",
+          "close",
+          "volume"
+        ],
+        "duplicates": 0,
+        "end": "2026-04-14 02:00:00+00:00",
+        "error": null,
+        "kind": "native",
+        "market": "EURUSD",
+        "path": "data/cloud/EURUSD_1H.csv",
+        "provenance": {},
+        "rows": 143197,
+        "sha256": "7afd8f9af21360ee01deeef78aeba3ff8fcd62c3764c2b6f01244f84ee1c212c",
+        "source_timeframe": null,
+        "start": "2003-05-05 03:00:00+00:00",
+        "status": "DATASET_AVAILABLE",
+        "timeframe": "H1",
+        "timestamp_semantics": "open"
+      },
+      "directory": "/home/xaume/SQX_ENGINE/runs/production/PRODUCTION_01/EURUSD/H1/seed_1303/4fd1f7ebaab4e517",
+      "error": null,
+      "evaluations": 250000,
+      "generated": 250000,
+      "grammar": "v1.7",
+      "job_id": "4fd1f7ebaab4e517ea6428e0d14e9cd48c5f7de87f6e269fbe59a8d7578d4f31",
+      "market": "EURUSD",
+      "oos_pass": 124,
+      "promoted": 124,
+      "runtime": 516.7122977859981,
+      "seed": 1303,
+      "started_at": "2026-09-24T07:30:33.409044+00:00",
+      "status": "COMPLETE",
+      "timeframe": "H1",
+      "validation_pass": 439
+    },
+    {
+      "attempts": 1,
+      "batch_id": "5a5ff3bdeb3a981bed7a7cda45fb8f7e2bc4cfbcb7eaf7c46d368fd34a19664b",
+      "candidates": 1703,
+      "completed_at": "2026-09-24T07:30:33.401068+00:00",
+      "config": {
+        "backtest": {
+          "initial_capital": 10000,
+          "slippage": 2e-05,
+          "spread": 8e-05
+        },
+        "candidate_pool": {
+          "size": 5000
+        },
+        "checkpoint": {
+          "path": "/home/xaume/SQX_ENGINE/runs/production/PRODUCTION_01/EURUSD/H1/seed_1302/a7a75b4bd08b60be/checkpoint.json"
+        },
+        "data_path": "/home/xaume/SQX_ENGINE/data/cloud/EURUSD_1H.csv",
+        "engine": "numba",
+        "execution": {
+          "batch_size": 32,
+          "cache_size": 512,
+          "workers": 1
+        },
+        "execution_profile": {
+          "cost_source": "Unchanged EURUSD H1 V1.8 baseline; no separate commission modeled by frozen engine",
+          "initial_capital": 10000,
+          "slippage": 2e-05,
+          "spread": 8e-05
+        },
+        "factory_version": "1.8.0",
+        "funnel": {
+          "basic": {
+            "max_drawdown": 0.3,
+            "min_expectancy": 0.0,
+            "min_pf": 1.0,
+            "min_sharpe": 0.0,
+            "min_trades": 100
+          },
+          "cost_stress": {
+            "enabled": true,
+            "min_pass_ratio": 0.67,
+            "min_pf": 0.95,
+            "multipliers": [
+              1.25,
+              1.5,
+              2.0
+            ]
+          },
+          "diversity": {
+            "enabled": true,
+            "max_entry_overlap": 0.8,
+            "max_pnl_correlation": 0.85
+          },
+          "execution_stress": {
+            "delays": [
+              1,
+              2
+            ],
+            "enabled": true,
+            "min_expectancy": 0.0,
+            "min_pass_ratio": 0.5
+          },
+          "plateau": {
+            "enabled": true,
+            "min_pass_ratio": 0.5
+          },
+          "stability": {
+            "enabled": true,
+            "min_positive_segments": 3,
+            "min_trades_per_segment": 20,
+            "segments": 4
+          }
+        },
+        "generator": {
+          "crossover_rate": 0.7,
+          "evaluations": 250000,
+          "mode": "scale",
+          "mutation_rate": 0.35,
+          "novelty": {
+            "retry_limit": 8
+          },
+          "population_size": 40,
+          "seed": 1302,
+          "type": "genetic"
+        },
+        "market": "EURUSD",
+        "oos": {
+          "min_expectancy": 0.0,
+          "min_profit_factor": 1.0,
+          "min_sharpe": 0.0,
+          "min_trades": 20
+        },
+        "portfolio": {
+          "max_correlation": 0.7,
+          "max_strategies": 10
+        },
+        "production_batch": "PRODUCTION_01",
+        "production_policy": "PRODUCTION_2016_2026_V1",
+        "runtime": {
+          "checkpoint_every_evaluations": 1000,
+          "heartbeat_seconds": 30
+        },
+        "store": {
+          "path": "/home/xaume/SQX_ENGINE/runs/production/PRODUCTION_01/EURUSD/H1/seed_1302/a7a75b4bd08b60be/discovery.sqlite"
+        },
+        "strategy": {
+          "grammar_version": "v1.7",
+          "max_predicates": 4,
+          "min_predicates": 1
+        },
+        "temporal_policy": {
+          "development": {
+            "end": "2022-01-01T00:00:00Z",
+            "start": "2016-01-01T00:00:00Z"
+          },
+          "mode": "explicit_dates",
+          "name": "PRODUCTION_2016_2026_V1",
+          "oos": {
+            "end": "latest",
+            "start": "2024-01-01T00:00:00Z"
+          },
+          "validation": {
+            "end": "2024-01-01T00:00:00Z",
+            "start": "2022-01-01T00:00:00Z"
+          }
+        },
+        "timeframe": "H1",
+        "validation": {
+          "min_expectancy": 0.0,
+          "min_profit_factor": 1.0,
+          "min_sharpe": 0.0,
+          "min_trades": 20
+        }
+      },
+      "dataset": {
+        "NaN": {
+          "close": 0,
+          "high": 0,
+          "low": 0,
+          "open": 0,
+          "timestamp": 0,
+          "volume": 0
+        },
+        "anomalies": [],
+        "chronological": true,
+        "columns": [
+          "timestamp",
+          "open",
+          "high",
+          "low",
+          "close",
+          "volume"
+        ],
+        "duplicates": 0,
+        "end": "2026-04-14 02:00:00+00:00",
+        "error": null,
+        "kind": "native",
+        "market": "EURUSD",
+        "path": "data/cloud/EURUSD_1H.csv",
+        "provenance": {},
+        "rows": 143197,
+        "sha256": "7afd8f9af21360ee01deeef78aeba3ff8fcd62c3764c2b6f01244f84ee1c212c",
+        "source_timeframe": null,
+        "start": "2003-05-05 03:00:00+00:00",
+        "status": "DATASET_AVAILABLE",
+        "timeframe": "H1",
+        "timestamp_semantics": "open"
+      },
+      "directory": "/home/xaume/SQX_ENGINE/runs/production/PRODUCTION_01/EURUSD/H1/seed_1302/a7a75b4bd08b60be",
+      "error": null,
+      "evaluations": 250000,
+      "generated": 250000,
+      "grammar": "v1.7",
+      "job_id": "a7a75b4bd08b60be28ed23edfd273a2a988daee8156525954d4eeb966c15784f",
+      "market": "EURUSD",
+      "oos_pass": 359,
+      "promoted": 359,
+      "runtime": 533.0574346689973,
+      "seed": 1302,
+      "started_at": "2026-09-24T07:21:55.865294+00:00",
+      "status": "COMPLETE",
+      "timeframe": "H1",
+      "validation_pass": 1164
+    }
+  ],
+  "counts": {
+    "COMPLETE": 3
+  },
+  "total": 3
+}

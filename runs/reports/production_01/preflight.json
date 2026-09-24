@@ -1,0 +1,14 @@
+{
+  "factory_commit": "16a70ec0db6d58f8adb51ec8ae7caa361e139003",
+  "tag": "v1.8",
+  "golden_tag": "benchmark-v1.7-eurusd-h1",
+  "golden_commit": "e7aae6b279ace1dba47ae395fad5156201acb2f1",
+  "initial_worktree": "CLEAN",
+  "pytest": {
+    "passed": 87,
+    "warnings": 4,
+    "runtime_seconds": 10.72
+  },
+  "fast": "PASS",
+  "audit": "PASS"
+}

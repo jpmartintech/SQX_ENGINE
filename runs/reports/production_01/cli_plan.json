@@ -1,0 +1,35 @@
+{
+  "requested": 3,
+  "counts": {
+    "PENDING": 3
+  },
+  "jobs": [
+    {
+      "job_id": "19de1cf009c9973604d1525e2dfc99009bf5abee131919434f84443eacdbdf20",
+      "market": "EURUSD",
+      "timeframe": "H1",
+      "seed": 1301,
+      "evaluations": 250000,
+      "status": "PENDING",
+      "error": null
+    },
+    {
+      "job_id": "a7a75b4bd08b60be28ed23edfd273a2a988daee8156525954d4eeb966c15784f",
+      "market": "EURUSD",
+      "timeframe": "H1",
+      "seed": 1302,
+      "evaluations": 250000,
+      "status": "PENDING",
+      "error": null
+    },
+    {
+      "job_id": "4fd1f7ebaab4e517ea6428e0d14e9cd48c5f7de87f6e269fbe59a8d7578d4f31",
+      "market": "EURUSD",
+      "timeframe": "H1",
+      "seed": 1303,
+      "evaluations": 250000,
+      "status": "PENDING",
+      "error": null
+    }
+  ]
+}

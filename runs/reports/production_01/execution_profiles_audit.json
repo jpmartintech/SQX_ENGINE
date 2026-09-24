@@ -1,0 +1,16 @@
+{
+  "accepted": {
+    "EURUSD_H1": {
+      "initial_capital": 10000,
+      "spread": 8e-05,
+      "slippage": 2e-05,
+      "cost_source": "Unchanged EURUSD H1 V1.8 baseline; no separate commission modeled by frozen engine"
+    }
+  },
+  "rejected": {
+    "EURUSD_H4": "V1.8 profile explicitly infrastructure smoke, no timeframe calibration",
+    "other_market_profiles": "External fee_pips is not an explicit spread/commission profile; no reliable execution provenance"
+  },
+  "external_profile_path": "/home/xaume/proyectos/sqx_lite/market_profiles/profiles.yaml",
+  "external_profile_sha256": "3ee92c2930bb9a397d20d595d28ab7ac135094b3b63cb3ddacba2235d4583a34"
+}

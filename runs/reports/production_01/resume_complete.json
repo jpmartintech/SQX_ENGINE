@@ -1,0 +1,53 @@
+{
+  "total": 3,
+  "counts": {
+    "COMPLETE": 3
+  },
+  "jobs": [
+    {
+      "job_id": "19de1cf009c9973604d1525e2dfc99009bf5abee131919434f84443eacdbdf20",
+      "market": "EURUSD",
+      "timeframe": "H1",
+      "seed": 1301,
+      "status": "COMPLETE",
+      "attempts": 1,
+      "generated": 250000,
+      "candidates": 1241,
+      "validation_pass": 433,
+      "oos_pass": 169,
+      "promoted": 169,
+      "runtime": 418.12145870900713,
+      "error": null
+    },
+    {
+      "job_id": "4fd1f7ebaab4e517ea6428e0d14e9cd48c5f7de87f6e269fbe59a8d7578d4f31",
+      "market": "EURUSD",
+      "timeframe": "H1",
+      "seed": 1303,
+      "status": "COMPLETE",
+      "attempts": 1,
+      "generated": 250000,
+      "candidates": 1674,
+      "validation_pass": 439,
+      "oos_pass": 124,
+      "promoted": 124,
+      "runtime": 516.7122977859981,
+      "error": null
+    },
+    {
+      "job_id": "a7a75b4bd08b60be28ed23edfd273a2a988daee8156525954d4eeb966c15784f",
+      "market": "EURUSD",
+      "timeframe": "H1",
+      "seed": 1302,
+      "status": "COMPLETE",
+      "attempts": 1,
+      "generated": 250000,
+      "candidates": 1703,
+      "validation_pass": 1164,
+      "oos_pass": 359,
+      "promoted": 359,
+      "runtime": 533.0574346689973,
+      "error": null
+    }
+  ]
+}

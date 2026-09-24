@@ -1,0 +1,1996 @@
+{
+  "batch": "PRODUCTION_01",
+  "batch_id": "c9ee2f3d04e6d37581a75b82f5c19d3d206da75c3500f338f74d40ccb435d9a7",
+  "requested": 63,
+  "counts": {
+    "MISSING_EXECUTION_PROFILE": 60,
+    "READY": 3
+  },
+  "planned_strategies": 750000,
+  "policy": {
+    "name": "PRODUCTION_2016_2026_V1",
+    "mode": "explicit_dates",
+    "development": {
+      "start": "2016-01-01T00:00:00Z",
+      "end": "2022-01-01T00:00:00Z"
+    },
+    "validation": {
+      "start": "2022-01-01T00:00:00Z",
+      "end": "2024-01-01T00:00:00Z"
+    },
+    "oos": {
+      "start": "2024-01-01T00:00:00Z",
+      "end": "latest"
+    }
+  },
+  "jobs": [
+    {
+      "job_id": "13ded2f1cfc100a819adfe3e3f813d3b1fe9039fd1ef55be136379e25a09b7d1",
+      "market": "EURUSD",
+      "timeframe": "M15",
+      "seed": 1301,
+      "evaluations": 250000,
+      "dataset": "data/cloud/EURUSD_M15.csv",
+      "dataset_sha256": "11d571e8bb3d676ae234af48878e607e88a1bf1d25c88c0a514135539fcb058b",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 23:45:00+00:00",
+          "bars": 149622
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 23:45:00+00:00",
+          "bars": 49859
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-14 02:45:00+00:00",
+          "bars": 56819
+        }
+      },
+      "reserved_bars": 316603,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "a3647cb01e09aaf25fdda9da4e1204d429abc58fb8365774fd5ca427cc933461",
+      "market": "EURUSD",
+      "timeframe": "M15",
+      "seed": 1302,
+      "evaluations": 250000,
+      "dataset": "data/cloud/EURUSD_M15.csv",
+      "dataset_sha256": "11d571e8bb3d676ae234af48878e607e88a1bf1d25c88c0a514135539fcb058b",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 23:45:00+00:00",
+          "bars": 149622
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 23:45:00+00:00",
+          "bars": 49859
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-14 02:45:00+00:00",
+          "bars": 56819
+        }
+      },
+      "reserved_bars": 316603,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "e83ab7167333d861423d4d0143ffcde4b31c88c5f7a1b1d02ad9f1407c7e0bc0",
+      "market": "EURUSD",
+      "timeframe": "M15",
+      "seed": 1303,
+      "evaluations": 250000,
+      "dataset": "data/cloud/EURUSD_M15.csv",
+      "dataset_sha256": "11d571e8bb3d676ae234af48878e607e88a1bf1d25c88c0a514135539fcb058b",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 23:45:00+00:00",
+          "bars": 149622
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 23:45:00+00:00",
+          "bars": 49859
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-14 02:45:00+00:00",
+          "bars": 56819
+        }
+      },
+      "reserved_bars": 316603,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "19de1cf009c9973604d1525e2dfc99009bf5abee131919434f84443eacdbdf20",
+      "market": "EURUSD",
+      "timeframe": "H1",
+      "seed": 1301,
+      "evaluations": 250000,
+      "dataset": "data/cloud/EURUSD_1H.csv",
+      "dataset_sha256": "7afd8f9af21360ee01deeef78aeba3ff8fcd62c3764c2b6f01244f84ee1c212c",
+      "execution_profile": {
+        "initial_capital": 10000,
+        "spread": 8e-05,
+        "slippage": 2e-05,
+        "cost_source": "Unchanged EURUSD H1 V1.8 baseline; no separate commission modeled by frozen engine"
+      },
+      "status": "READY",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 23:00:00+00:00",
+          "bars": 37403
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 23:00:00+00:00",
+          "bars": 12464
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-14 02:00:00+00:00",
+          "bars": 14200
+        }
+      },
+      "reserved_bars": 79130,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "a7a75b4bd08b60be28ed23edfd273a2a988daee8156525954d4eeb966c15784f",
+      "market": "EURUSD",
+      "timeframe": "H1",
+      "seed": 1302,
+      "evaluations": 250000,
+      "dataset": "data/cloud/EURUSD_1H.csv",
+      "dataset_sha256": "7afd8f9af21360ee01deeef78aeba3ff8fcd62c3764c2b6f01244f84ee1c212c",
+      "execution_profile": {
+        "initial_capital": 10000,
+        "spread": 8e-05,
+        "slippage": 2e-05,
+        "cost_source": "Unchanged EURUSD H1 V1.8 baseline; no separate commission modeled by frozen engine"
+      },
+      "status": "READY",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 23:00:00+00:00",
+          "bars": 37403
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 23:00:00+00:00",
+          "bars": 12464
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-14 02:00:00+00:00",
+          "bars": 14200
+        }
+      },
+      "reserved_bars": 79130,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "4fd1f7ebaab4e517ea6428e0d14e9cd48c5f7de87f6e269fbe59a8d7578d4f31",
+      "market": "EURUSD",
+      "timeframe": "H1",
+      "seed": 1303,
+      "evaluations": 250000,
+      "dataset": "data/cloud/EURUSD_1H.csv",
+      "dataset_sha256": "7afd8f9af21360ee01deeef78aeba3ff8fcd62c3764c2b6f01244f84ee1c212c",
+      "execution_profile": {
+        "initial_capital": 10000,
+        "spread": 8e-05,
+        "slippage": 2e-05,
+        "cost_source": "Unchanged EURUSD H1 V1.8 baseline; no separate commission modeled by frozen engine"
+      },
+      "status": "READY",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 23:00:00+00:00",
+          "bars": 37403
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 23:00:00+00:00",
+          "bars": 12464
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-14 02:00:00+00:00",
+          "bars": 14200
+        }
+      },
+      "reserved_bars": 79130,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "745b75ecaba6f51971709af1de06755a6fa431715103e83d203348a36ac4915c",
+      "market": "EURUSD",
+      "timeframe": "H4",
+      "seed": 1301,
+      "evaluations": 250000,
+      "dataset": "data/derived/EURUSD_H4_11d571e8bb3d_35651.csv",
+      "dataset_sha256": "4017072200f5b0804489eaadbdf7cc95634f629f2a028a5779f305fcd1582d8a",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 20:00:00+00:00",
+          "bars": 9325
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 20:00:00+00:00",
+          "bars": 3109
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-13 20:00:00+00:00",
+          "bars": 3535
+        }
+      },
+      "reserved_bars": 19682,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "23c04f2043c59e5f403803102787376486e45a9afa471a43ad2c7c7550a9a4a0",
+      "market": "EURUSD",
+      "timeframe": "H4",
+      "seed": 1302,
+      "evaluations": 250000,
+      "dataset": "data/derived/EURUSD_H4_11d571e8bb3d_35651.csv",
+      "dataset_sha256": "4017072200f5b0804489eaadbdf7cc95634f629f2a028a5779f305fcd1582d8a",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 20:00:00+00:00",
+          "bars": 9325
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 20:00:00+00:00",
+          "bars": 3109
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-13 20:00:00+00:00",
+          "bars": 3535
+        }
+      },
+      "reserved_bars": 19682,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "6f0f4692bd04464640e73afa571f09385d4918d6029b3287e7c46512b8dc3d73",
+      "market": "EURUSD",
+      "timeframe": "H4",
+      "seed": 1303,
+      "evaluations": 250000,
+      "dataset": "data/derived/EURUSD_H4_11d571e8bb3d_35651.csv",
+      "dataset_sha256": "4017072200f5b0804489eaadbdf7cc95634f629f2a028a5779f305fcd1582d8a",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 20:00:00+00:00",
+          "bars": 9325
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 20:00:00+00:00",
+          "bars": 3109
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-13 20:00:00+00:00",
+          "bars": 3535
+        }
+      },
+      "reserved_bars": 19682,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "57f7fddf0976cf92926a4a17bbac4bfc5e90d77de5badb224651b56dad1e59d3",
+      "market": "GBPUSD",
+      "timeframe": "M15",
+      "seed": 1301,
+      "evaluations": 250000,
+      "dataset": "data/cloud/GBPUSD_M15.csv",
+      "dataset_sha256": "0fd4a5e80da9dc3823d6ff04b8444174ba1d28d8ee2a57f34c3e5555c2a18803",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 23:45:00+00:00",
+          "bars": 149616
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 23:45:00+00:00",
+          "bars": 49850
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-14 02:45:00+00:00",
+          "bars": 56817
+        }
+      },
+      "reserved_bars": 316575,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "c95ece712d862824bb38c114c2cd6c870b23f7bdc0ea9f8a5cf9445d4f9bb8a2",
+      "market": "GBPUSD",
+      "timeframe": "M15",
+      "seed": 1302,
+      "evaluations": 250000,
+      "dataset": "data/cloud/GBPUSD_M15.csv",
+      "dataset_sha256": "0fd4a5e80da9dc3823d6ff04b8444174ba1d28d8ee2a57f34c3e5555c2a18803",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 23:45:00+00:00",
+          "bars": 149616
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 23:45:00+00:00",
+          "bars": 49850
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-14 02:45:00+00:00",
+          "bars": 56817
+        }
+      },
+      "reserved_bars": 316575,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "9f8a854879dffc3ad6e30df3bca068efc896074980f78b9ab8ac6ab6ccf990d2",
+      "market": "GBPUSD",
+      "timeframe": "M15",
+      "seed": 1303,
+      "evaluations": 250000,
+      "dataset": "data/cloud/GBPUSD_M15.csv",
+      "dataset_sha256": "0fd4a5e80da9dc3823d6ff04b8444174ba1d28d8ee2a57f34c3e5555c2a18803",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 23:45:00+00:00",
+          "bars": 149616
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 23:45:00+00:00",
+          "bars": 49850
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-14 02:45:00+00:00",
+          "bars": 56817
+        }
+      },
+      "reserved_bars": 316575,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "aabd0b95a35aeead5b8b81263af7aa858b6375eb1141a6a1ba9b582a4d66e9b3",
+      "market": "GBPUSD",
+      "timeframe": "H1",
+      "seed": 1301,
+      "evaluations": 250000,
+      "dataset": "data/derived/GBPUSD_H1_0fd4a5e80da9_143187.csv",
+      "dataset_sha256": "22232c964f03ab318174451cfc416ba061747a5e6b1c81577c9935746ace5cb7",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 23:00:00+00:00",
+          "bars": 37401
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 23:00:00+00:00",
+          "bars": 12461
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-14 02:00:00+00:00",
+          "bars": 14200
+        }
+      },
+      "reserved_bars": 79125,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "c41523884dfac4a42f97cb200ed2695388e69b973bdd0357864ddd0b8b0081b8",
+      "market": "GBPUSD",
+      "timeframe": "H1",
+      "seed": 1302,
+      "evaluations": 250000,
+      "dataset": "data/derived/GBPUSD_H1_0fd4a5e80da9_143187.csv",
+      "dataset_sha256": "22232c964f03ab318174451cfc416ba061747a5e6b1c81577c9935746ace5cb7",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 23:00:00+00:00",
+          "bars": 37401
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 23:00:00+00:00",
+          "bars": 12461
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-14 02:00:00+00:00",
+          "bars": 14200
+        }
+      },
+      "reserved_bars": 79125,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "59dadea7f6976755b7b50a72cc4dad030ee72820028b19494677ad7d212774a9",
+      "market": "GBPUSD",
+      "timeframe": "H1",
+      "seed": 1303,
+      "evaluations": 250000,
+      "dataset": "data/derived/GBPUSD_H1_0fd4a5e80da9_143187.csv",
+      "dataset_sha256": "22232c964f03ab318174451cfc416ba061747a5e6b1c81577c9935746ace5cb7",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 23:00:00+00:00",
+          "bars": 37401
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 23:00:00+00:00",
+          "bars": 12461
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-14 02:00:00+00:00",
+          "bars": 14200
+        }
+      },
+      "reserved_bars": 79125,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "6f4f3040eae77b219be370dd5a1fcc00568eb9c11a36faa3cbc4aea52826c564",
+      "market": "GBPUSD",
+      "timeframe": "H4",
+      "seed": 1301,
+      "evaluations": 250000,
+      "dataset": "data/derived/GBPUSD_H4_0fd4a5e80da9_35645.csv",
+      "dataset_sha256": "9b0121e76c937702fd5349daa2de87a3b092759bff4f855e8860ba0ceaa92c05",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 20:00:00+00:00",
+          "bars": 9325
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 20:00:00+00:00",
+          "bars": 3107
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-13 20:00:00+00:00",
+          "bars": 3534
+        }
+      },
+      "reserved_bars": 19679,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "516d4df798187b8edd1fb5f39d61b829ec5ae71b4463661ff1e43ff5b0e6d3ad",
+      "market": "GBPUSD",
+      "timeframe": "H4",
+      "seed": 1302,
+      "evaluations": 250000,
+      "dataset": "data/derived/GBPUSD_H4_0fd4a5e80da9_35645.csv",
+      "dataset_sha256": "9b0121e76c937702fd5349daa2de87a3b092759bff4f855e8860ba0ceaa92c05",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 20:00:00+00:00",
+          "bars": 9325
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 20:00:00+00:00",
+          "bars": 3107
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-13 20:00:00+00:00",
+          "bars": 3534
+        }
+      },
+      "reserved_bars": 19679,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "c1db0b1107d1f8c9d4b96d06949b1678589c5358c8bc816266b5252b3f5cfdf0",
+      "market": "GBPUSD",
+      "timeframe": "H4",
+      "seed": 1303,
+      "evaluations": 250000,
+      "dataset": "data/derived/GBPUSD_H4_0fd4a5e80da9_35645.csv",
+      "dataset_sha256": "9b0121e76c937702fd5349daa2de87a3b092759bff4f855e8860ba0ceaa92c05",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 20:00:00+00:00",
+          "bars": 9325
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 20:00:00+00:00",
+          "bars": 3107
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-13 20:00:00+00:00",
+          "bars": 3534
+        }
+      },
+      "reserved_bars": 19679,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "acec02743775ea5a2450d9a83715f7a930d1ad8dcf91ba198e097cb61cb9d60d",
+      "market": "NZDUSD",
+      "timeframe": "M15",
+      "seed": 1301,
+      "evaluations": 250000,
+      "dataset": "data/cloud/NZDUSD_M15.csv",
+      "dataset_sha256": "0e91c0d12434fcfa6476ce6d439f81e1368ac43b7a6f464cd771bee547436a25",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 23:45:00+00:00",
+          "bars": 149613
+        },
+        "validation": {
+          "start": "2022-01-03 00:30:00+00:00",
+          "end": "2023-12-29 23:45:00+00:00",
+          "bars": 49809
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-14 02:45:00+00:00",
+          "bars": 56797
+        }
+      },
+      "reserved_bars": 310097,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "99843898e22957343ef5a8ec2f8513593b7b4d628a8503f53991a9325105dbe4",
+      "market": "NZDUSD",
+      "timeframe": "M15",
+      "seed": 1302,
+      "evaluations": 250000,
+      "dataset": "data/cloud/NZDUSD_M15.csv",
+      "dataset_sha256": "0e91c0d12434fcfa6476ce6d439f81e1368ac43b7a6f464cd771bee547436a25",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 23:45:00+00:00",
+          "bars": 149613
+        },
+        "validation": {
+          "start": "2022-01-03 00:30:00+00:00",
+          "end": "2023-12-29 23:45:00+00:00",
+          "bars": 49809
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-14 02:45:00+00:00",
+          "bars": 56797
+        }
+      },
+      "reserved_bars": 310097,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "5b935ac2347f1ade689d1fd37ac43b78c602f524ce0f066438289307be2af228",
+      "market": "NZDUSD",
+      "timeframe": "M15",
+      "seed": 1303,
+      "evaluations": 250000,
+      "dataset": "data/cloud/NZDUSD_M15.csv",
+      "dataset_sha256": "0e91c0d12434fcfa6476ce6d439f81e1368ac43b7a6f464cd771bee547436a25",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 23:45:00+00:00",
+          "bars": 149613
+        },
+        "validation": {
+          "start": "2022-01-03 00:30:00+00:00",
+          "end": "2023-12-29 23:45:00+00:00",
+          "bars": 49809
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-14 02:45:00+00:00",
+          "bars": 56797
+        }
+      },
+      "reserved_bars": 310097,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "e7c900a2b88afc2e2c5c3b5b3f6365258ce460d7ca4c4061f08f4456052de531",
+      "market": "NZDUSD",
+      "timeframe": "H1",
+      "seed": 1301,
+      "evaluations": 250000,
+      "dataset": "data/derived/NZDUSD_H1_0e91c0d12434_141524.csv",
+      "dataset_sha256": "afb1ef3101a9b3096d67ba7d2fbe4d35003618c34f456d0e5d9f22e50fc45048",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 23:00:00+00:00",
+          "bars": 37401
+        },
+        "validation": {
+          "start": "2022-01-03 01:00:00+00:00",
+          "end": "2023-12-29 23:00:00+00:00",
+          "bars": 12443
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-14 02:00:00+00:00",
+          "bars": 14194
+        }
+      },
+      "reserved_bars": 77486,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "c182bfca01d12409764149f7f866df1704a48ded81a926566f63eda1d21d3359",
+      "market": "NZDUSD",
+      "timeframe": "H1",
+      "seed": 1302,
+      "evaluations": 250000,
+      "dataset": "data/derived/NZDUSD_H1_0e91c0d12434_141524.csv",
+      "dataset_sha256": "afb1ef3101a9b3096d67ba7d2fbe4d35003618c34f456d0e5d9f22e50fc45048",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 23:00:00+00:00",
+          "bars": 37401
+        },
+        "validation": {
+          "start": "2022-01-03 01:00:00+00:00",
+          "end": "2023-12-29 23:00:00+00:00",
+          "bars": 12443
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-14 02:00:00+00:00",
+          "bars": 14194
+        }
+      },
+      "reserved_bars": 77486,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "9ae7d4e6fbffd9019d9ea6cbde043ae003a80bdf442ab42f14038b358dcbcace",
+      "market": "NZDUSD",
+      "timeframe": "H1",
+      "seed": 1303,
+      "evaluations": 250000,
+      "dataset": "data/derived/NZDUSD_H1_0e91c0d12434_141524.csv",
+      "dataset_sha256": "afb1ef3101a9b3096d67ba7d2fbe4d35003618c34f456d0e5d9f22e50fc45048",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 23:00:00+00:00",
+          "bars": 37401
+        },
+        "validation": {
+          "start": "2022-01-03 01:00:00+00:00",
+          "end": "2023-12-29 23:00:00+00:00",
+          "bars": 12443
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-14 02:00:00+00:00",
+          "bars": 14194
+        }
+      },
+      "reserved_bars": 77486,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "188b657eb62fb29748f2ac26a278b3e035ab106016cbaa4757f0adfabb42553a",
+      "market": "NZDUSD",
+      "timeframe": "H4",
+      "seed": 1301,
+      "evaluations": 250000,
+      "dataset": "data/derived/NZDUSD_H4_0e91c0d12434_35220.csv",
+      "dataset_sha256": "2a763e7212084a408fca906203619b97e1392cba8a51ebf83e360daf941d4aa2",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 20:00:00+00:00",
+          "bars": 9324
+        },
+        "validation": {
+          "start": "2022-01-03 04:00:00+00:00",
+          "end": "2023-12-29 20:00:00+00:00",
+          "bars": 3100
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-13 20:00:00+00:00",
+          "bars": 3534
+        }
+      },
+      "reserved_bars": 19262,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "cc084fd4b7ca77430f488aec3dc7c6ae9ca860bd121d85ce22d229bdab601644",
+      "market": "NZDUSD",
+      "timeframe": "H4",
+      "seed": 1302,
+      "evaluations": 250000,
+      "dataset": "data/derived/NZDUSD_H4_0e91c0d12434_35220.csv",
+      "dataset_sha256": "2a763e7212084a408fca906203619b97e1392cba8a51ebf83e360daf941d4aa2",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 20:00:00+00:00",
+          "bars": 9324
+        },
+        "validation": {
+          "start": "2022-01-03 04:00:00+00:00",
+          "end": "2023-12-29 20:00:00+00:00",
+          "bars": 3100
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-13 20:00:00+00:00",
+          "bars": 3534
+        }
+      },
+      "reserved_bars": 19262,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "7c55a093a1fe6e54894dafa836e88093b510617c12bbca2899d1fc3acff4467c",
+      "market": "NZDUSD",
+      "timeframe": "H4",
+      "seed": 1303,
+      "evaluations": 250000,
+      "dataset": "data/derived/NZDUSD_H4_0e91c0d12434_35220.csv",
+      "dataset_sha256": "2a763e7212084a408fca906203619b97e1392cba8a51ebf83e360daf941d4aa2",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 20:00:00+00:00",
+          "bars": 9324
+        },
+        "validation": {
+          "start": "2022-01-03 04:00:00+00:00",
+          "end": "2023-12-29 20:00:00+00:00",
+          "bars": 3100
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-13 20:00:00+00:00",
+          "bars": 3534
+        }
+      },
+      "reserved_bars": 19262,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "82843d1401eb0bcb276cd415482c74a376223509174d0a9574368951d69e203b",
+      "market": "USDCAD",
+      "timeframe": "M15",
+      "seed": 1301,
+      "evaluations": 250000,
+      "dataset": "data/cloud/USDCAD_M15.csv",
+      "dataset_sha256": "62a0d35bff6ab4a009b511baddd0b4e0a1981c65c2c0be5d4de52615514983f5",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 23:45:00+00:00",
+          "bars": 149620
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 23:45:00+00:00",
+          "bars": 49840
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-14 02:45:00+00:00",
+          "bars": 56815
+        }
+      },
+      "reserved_bars": 310249,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "8376ed771abcdeb61b02ff62cd1ce6c12a759db52ab49586082f3170d9d56b2f",
+      "market": "USDCAD",
+      "timeframe": "M15",
+      "seed": 1302,
+      "evaluations": 250000,
+      "dataset": "data/cloud/USDCAD_M15.csv",
+      "dataset_sha256": "62a0d35bff6ab4a009b511baddd0b4e0a1981c65c2c0be5d4de52615514983f5",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 23:45:00+00:00",
+          "bars": 149620
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 23:45:00+00:00",
+          "bars": 49840
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-14 02:45:00+00:00",
+          "bars": 56815
+        }
+      },
+      "reserved_bars": 310249,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "8dcff144dbdef17eaf807ba6981ed0bac8bae1837fd816fa032f0467ae5b5a41",
+      "market": "USDCAD",
+      "timeframe": "M15",
+      "seed": 1303,
+      "evaluations": 250000,
+      "dataset": "data/cloud/USDCAD_M15.csv",
+      "dataset_sha256": "62a0d35bff6ab4a009b511baddd0b4e0a1981c65c2c0be5d4de52615514983f5",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 23:45:00+00:00",
+          "bars": 149620
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 23:45:00+00:00",
+          "bars": 49840
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-14 02:45:00+00:00",
+          "bars": 56815
+        }
+      },
+      "reserved_bars": 310249,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "5d0f05e1bf0b527c0819148ec84711b90be81ff187362588d74077424680ce1c",
+      "market": "USDCAD",
+      "timeframe": "H1",
+      "seed": 1301,
+      "evaluations": 250000,
+      "dataset": "data/derived/USDCAD_H1_62a0d35bff6a_141588.csv",
+      "dataset_sha256": "039e92beb4db65f715d7f2d7b1b593152df7310041c2282d260653acacbd8c59",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 23:00:00+00:00",
+          "bars": 37402
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 23:00:00+00:00",
+          "bars": 12456
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-14 02:00:00+00:00",
+          "bars": 14202
+        }
+      },
+      "reserved_bars": 77528,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "b4c29ee660f5e7bac7b610d436df4cc99b16d45b464ec7830cc5f20ad171b342",
+      "market": "USDCAD",
+      "timeframe": "H1",
+      "seed": 1302,
+      "evaluations": 250000,
+      "dataset": "data/derived/USDCAD_H1_62a0d35bff6a_141588.csv",
+      "dataset_sha256": "039e92beb4db65f715d7f2d7b1b593152df7310041c2282d260653acacbd8c59",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 23:00:00+00:00",
+          "bars": 37402
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 23:00:00+00:00",
+          "bars": 12456
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-14 02:00:00+00:00",
+          "bars": 14202
+        }
+      },
+      "reserved_bars": 77528,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "2588ac288d62acdf67b59b4267fab96f897dcc765f5ec8b91af7ce86b9ed4152",
+      "market": "USDCAD",
+      "timeframe": "H1",
+      "seed": 1303,
+      "evaluations": 250000,
+      "dataset": "data/derived/USDCAD_H1_62a0d35bff6a_141588.csv",
+      "dataset_sha256": "039e92beb4db65f715d7f2d7b1b593152df7310041c2282d260653acacbd8c59",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 23:00:00+00:00",
+          "bars": 37402
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 23:00:00+00:00",
+          "bars": 12456
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-14 02:00:00+00:00",
+          "bars": 14202
+        }
+      },
+      "reserved_bars": 77528,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "e202ce820d935cf29ebae94ca8f0192c48c2d658fea4f5ce9bd4d673af174877",
+      "market": "USDCAD",
+      "timeframe": "H4",
+      "seed": 1301,
+      "evaluations": 250000,
+      "dataset": "data/derived/USDCAD_H4_62a0d35bff6a_35239.csv",
+      "dataset_sha256": "3712858aba686ae3e8a8b87ee12eba2d814add8fcdf96e691f5a86a9b3c07453",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 20:00:00+00:00",
+          "bars": 9324
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 20:00:00+00:00",
+          "bars": 3103
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-13 20:00:00+00:00",
+          "bars": 3536
+        }
+      },
+      "reserved_bars": 19276,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "f96e79818821867c76d39173e16c484f4ca83aa0a0a7ee5186e5b68ad0ed33f1",
+      "market": "USDCAD",
+      "timeframe": "H4",
+      "seed": 1302,
+      "evaluations": 250000,
+      "dataset": "data/derived/USDCAD_H4_62a0d35bff6a_35239.csv",
+      "dataset_sha256": "3712858aba686ae3e8a8b87ee12eba2d814add8fcdf96e691f5a86a9b3c07453",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 20:00:00+00:00",
+          "bars": 9324
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 20:00:00+00:00",
+          "bars": 3103
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-13 20:00:00+00:00",
+          "bars": 3536
+        }
+      },
+      "reserved_bars": 19276,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "5f5919592cfb86db904200e67842e3bec2e6f0830f79564596696128871a879c",
+      "market": "USDCAD",
+      "timeframe": "H4",
+      "seed": 1303,
+      "evaluations": 250000,
+      "dataset": "data/derived/USDCAD_H4_62a0d35bff6a_35239.csv",
+      "dataset_sha256": "3712858aba686ae3e8a8b87ee12eba2d814add8fcdf96e691f5a86a9b3c07453",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 20:00:00+00:00",
+          "bars": 9324
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 20:00:00+00:00",
+          "bars": 3103
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-13 20:00:00+00:00",
+          "bars": 3536
+        }
+      },
+      "reserved_bars": 19276,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "3b39c2cd14801c40282f8269d1cf60e7ce44350ae16e62c212de7916cba2fb8c",
+      "market": "USDCHF",
+      "timeframe": "M15",
+      "seed": 1301,
+      "evaluations": 250000,
+      "dataset": "data/cloud/USDCHF_M15.csv",
+      "dataset_sha256": "379cf0cf5c5a18c6ba70cd81a09dfc6661abcc866e4d817309c3214d1026e418",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 23:45:00+00:00",
+          "bars": 149611
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 23:45:00+00:00",
+          "bars": 49799
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-14 02:45:00+00:00",
+          "bars": 56817
+        }
+      },
+      "reserved_bars": 316470,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "310f2bd9d4e6360c47c0f1235799ae990bfede70d70d15cb23c3b9550bb888ef",
+      "market": "USDCHF",
+      "timeframe": "M15",
+      "seed": 1302,
+      "evaluations": 250000,
+      "dataset": "data/cloud/USDCHF_M15.csv",
+      "dataset_sha256": "379cf0cf5c5a18c6ba70cd81a09dfc6661abcc866e4d817309c3214d1026e418",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 23:45:00+00:00",
+          "bars": 149611
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 23:45:00+00:00",
+          "bars": 49799
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-14 02:45:00+00:00",
+          "bars": 56817
+        }
+      },
+      "reserved_bars": 316470,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "eacac1deb195da7db136fc4a9a42646f3b903f8e7f48562bba8cb0e24c166f43",
+      "market": "USDCHF",
+      "timeframe": "M15",
+      "seed": 1303,
+      "evaluations": 250000,
+      "dataset": "data/cloud/USDCHF_M15.csv",
+      "dataset_sha256": "379cf0cf5c5a18c6ba70cd81a09dfc6661abcc866e4d817309c3214d1026e418",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 23:45:00+00:00",
+          "bars": 149611
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 23:45:00+00:00",
+          "bars": 49799
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-14 02:45:00+00:00",
+          "bars": 56817
+        }
+      },
+      "reserved_bars": 316470,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "6c472cdaa66319250ef0c7e553d88e5926f35866c491bdeb56bce8f77efc19a3",
+      "market": "USDCHF",
+      "timeframe": "H1",
+      "seed": 1301,
+      "evaluations": 250000,
+      "dataset": "data/derived/USDCHF_H1_379cf0cf5c5a_143126.csv",
+      "dataset_sha256": "811bea9461e7e80b55490a8f0f10a1cabcc0800a9f376f6afe152734735a7b5f",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 23:00:00+00:00",
+          "bars": 37395
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 23:00:00+00:00",
+          "bars": 12437
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-14 02:00:00+00:00",
+          "bars": 14201
+        }
+      },
+      "reserved_bars": 79093,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "1477a6dbdce6331d69a157b933d2497dd22b6a934e5cd769d578aa600196c5f0",
+      "market": "USDCHF",
+      "timeframe": "H1",
+      "seed": 1302,
+      "evaluations": 250000,
+      "dataset": "data/derived/USDCHF_H1_379cf0cf5c5a_143126.csv",
+      "dataset_sha256": "811bea9461e7e80b55490a8f0f10a1cabcc0800a9f376f6afe152734735a7b5f",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 23:00:00+00:00",
+          "bars": 37395
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 23:00:00+00:00",
+          "bars": 12437
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-14 02:00:00+00:00",
+          "bars": 14201
+        }
+      },
+      "reserved_bars": 79093,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "1c2d3ef8d127d2f45b24d3abee44a1dd7d15ee455c7da64cd95ace27d9a58c92",
+      "market": "USDCHF",
+      "timeframe": "H1",
+      "seed": 1303,
+      "evaluations": 250000,
+      "dataset": "data/derived/USDCHF_H1_379cf0cf5c5a_143126.csv",
+      "dataset_sha256": "811bea9461e7e80b55490a8f0f10a1cabcc0800a9f376f6afe152734735a7b5f",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 23:00:00+00:00",
+          "bars": 37395
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 23:00:00+00:00",
+          "bars": 12437
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-14 02:00:00+00:00",
+          "bars": 14201
+        }
+      },
+      "reserved_bars": 79093,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "b33308dbd76bf99ca35efe131f4bb2adef3d967cd2df4cd6324a44aa01a3dcc0",
+      "market": "USDCHF",
+      "timeframe": "H4",
+      "seed": 1301,
+      "evaluations": 250000,
+      "dataset": "data/derived/USDCHF_H4_379cf0cf5c5a_35613.csv",
+      "dataset_sha256": "a965dcec3cbf8ab2c1abcc0fde71d044e96ae8c1c6dc70a1baf24f5298c5e789",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 20:00:00+00:00",
+          "bars": 9318
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 20:00:00+00:00",
+          "bars": 3089
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-13 20:00:00+00:00",
+          "bars": 3535
+        }
+      },
+      "reserved_bars": 19671,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "91c99b104ca56c273ffc1623ec0d051977f0ebe2ae4c8506d94ce2d0448dac78",
+      "market": "USDCHF",
+      "timeframe": "H4",
+      "seed": 1302,
+      "evaluations": 250000,
+      "dataset": "data/derived/USDCHF_H4_379cf0cf5c5a_35613.csv",
+      "dataset_sha256": "a965dcec3cbf8ab2c1abcc0fde71d044e96ae8c1c6dc70a1baf24f5298c5e789",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 20:00:00+00:00",
+          "bars": 9318
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 20:00:00+00:00",
+          "bars": 3089
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-13 20:00:00+00:00",
+          "bars": 3535
+        }
+      },
+      "reserved_bars": 19671,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "f795888300c85b0a98be2e85174b05249aeca38665584279db3b6e6f3f90cf0a",
+      "market": "USDCHF",
+      "timeframe": "H4",
+      "seed": 1303,
+      "evaluations": 250000,
+      "dataset": "data/derived/USDCHF_H4_379cf0cf5c5a_35613.csv",
+      "dataset_sha256": "a965dcec3cbf8ab2c1abcc0fde71d044e96ae8c1c6dc70a1baf24f5298c5e789",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 20:00:00+00:00",
+          "bars": 9318
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 20:00:00+00:00",
+          "bars": 3089
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-13 20:00:00+00:00",
+          "bars": 3535
+        }
+      },
+      "reserved_bars": 19671,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "3f9963e8a5d78fd3f3c204a3ae6e83293ebd9d83c0a48131cfd04a7295a5c8ad",
+      "market": "USDJPY",
+      "timeframe": "M15",
+      "seed": 1301,
+      "evaluations": 250000,
+      "dataset": "data/cloud/USDJPY_M15.csv",
+      "dataset_sha256": "4b4c1023d6ad2e49375417ec5955ee6a60477b6b3e75c1dbd44d2374ebad04c3",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 23:45:00+00:00",
+          "bars": 149620
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 23:45:00+00:00",
+          "bars": 49856
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-14 02:45:00+00:00",
+          "bars": 56823
+        }
+      },
+      "reserved_bars": 316493,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "a323c015d4be1a9c22da741347a0af7c98241536984cfe55ea49d7f54e78df77",
+      "market": "USDJPY",
+      "timeframe": "M15",
+      "seed": 1302,
+      "evaluations": 250000,
+      "dataset": "data/cloud/USDJPY_M15.csv",
+      "dataset_sha256": "4b4c1023d6ad2e49375417ec5955ee6a60477b6b3e75c1dbd44d2374ebad04c3",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 23:45:00+00:00",
+          "bars": 149620
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 23:45:00+00:00",
+          "bars": 49856
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-14 02:45:00+00:00",
+          "bars": 56823
+        }
+      },
+      "reserved_bars": 316493,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "3e727ffe5b121fabeb04aa5ad6fc3fd5bc8e4eb859a1f170f1df602765950468",
+      "market": "USDJPY",
+      "timeframe": "M15",
+      "seed": 1303,
+      "evaluations": 250000,
+      "dataset": "data/cloud/USDJPY_M15.csv",
+      "dataset_sha256": "4b4c1023d6ad2e49375417ec5955ee6a60477b6b3e75c1dbd44d2374ebad04c3",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 23:45:00+00:00",
+          "bars": 149620
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 23:45:00+00:00",
+          "bars": 49856
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-14 02:45:00+00:00",
+          "bars": 56823
+        }
+      },
+      "reserved_bars": 316493,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "39fa94c4529066a6faeff2053d1b3ae4a1535745ca405e4a1e940b5e06406518",
+      "market": "USDJPY",
+      "timeframe": "H1",
+      "seed": 1301,
+      "evaluations": 250000,
+      "dataset": "data/derived/USDJPY_H1_4b4c1023d6ad_143174.csv",
+      "dataset_sha256": "1e67c787f0b804fcadbad8c5d5913fcd43522d82eb5303d47ad151488451d0e9",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 23:00:00+00:00",
+          "bars": 37403
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 23:00:00+00:00",
+          "bars": 12463
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-14 02:00:00+00:00",
+          "bars": 14204
+        }
+      },
+      "reserved_bars": 79104,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "17ec0225889e509e11493fb455beb2673353ba9686cdab20f16cb12584607d0e",
+      "market": "USDJPY",
+      "timeframe": "H1",
+      "seed": 1302,
+      "evaluations": 250000,
+      "dataset": "data/derived/USDJPY_H1_4b4c1023d6ad_143174.csv",
+      "dataset_sha256": "1e67c787f0b804fcadbad8c5d5913fcd43522d82eb5303d47ad151488451d0e9",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 23:00:00+00:00",
+          "bars": 37403
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 23:00:00+00:00",
+          "bars": 12463
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-14 02:00:00+00:00",
+          "bars": 14204
+        }
+      },
+      "reserved_bars": 79104,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "a9f0d1af41895ee43e46d92b39101b1f92713d1fecca31460fa8cebcd5d7c4c4",
+      "market": "USDJPY",
+      "timeframe": "H1",
+      "seed": 1303,
+      "evaluations": 250000,
+      "dataset": "data/derived/USDJPY_H1_4b4c1023d6ad_143174.csv",
+      "dataset_sha256": "1e67c787f0b804fcadbad8c5d5913fcd43522d82eb5303d47ad151488451d0e9",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 23:00:00+00:00",
+          "bars": 37403
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 23:00:00+00:00",
+          "bars": 12463
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-14 02:00:00+00:00",
+          "bars": 14204
+        }
+      },
+      "reserved_bars": 79104,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "d26115968faa1ac6da10640f8b0df487ad1ac1ad568de7d245d75b5eb9f82e2a",
+      "market": "USDJPY",
+      "timeframe": "H4",
+      "seed": 1301,
+      "evaluations": 250000,
+      "dataset": "data/derived/USDJPY_H4_4b4c1023d6ad_35638.csv",
+      "dataset_sha256": "30da5d22010372bce7e5c62381f34b849261dcda6b6a20cfd740448df4661123",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 20:00:00+00:00",
+          "bars": 9325
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 20:00:00+00:00",
+          "bars": 3108
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-13 20:00:00+00:00",
+          "bars": 3536
+        }
+      },
+      "reserved_bars": 19669,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "481153a2393eabb781afee7e5e1c04ae9036192be7cc6b2e8119e4b4c36ae88c",
+      "market": "USDJPY",
+      "timeframe": "H4",
+      "seed": 1302,
+      "evaluations": 250000,
+      "dataset": "data/derived/USDJPY_H4_4b4c1023d6ad_35638.csv",
+      "dataset_sha256": "30da5d22010372bce7e5c62381f34b849261dcda6b6a20cfd740448df4661123",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 20:00:00+00:00",
+          "bars": 9325
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 20:00:00+00:00",
+          "bars": 3108
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-13 20:00:00+00:00",
+          "bars": 3536
+        }
+      },
+      "reserved_bars": 19669,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "b8ed3f15d50ea2308d66aaf09a499b9953ab7e898ca1a2bf84921f4d9a4e4dad",
+      "market": "USDJPY",
+      "timeframe": "H4",
+      "seed": 1303,
+      "evaluations": 250000,
+      "dataset": "data/derived/USDJPY_H4_4b4c1023d6ad_35638.csv",
+      "dataset_sha256": "30da5d22010372bce7e5c62381f34b849261dcda6b6a20cfd740448df4661123",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 00:00:00+00:00",
+          "end": "2021-12-31 20:00:00+00:00",
+          "bars": 9325
+        },
+        "validation": {
+          "start": "2022-01-03 00:00:00+00:00",
+          "end": "2023-12-29 20:00:00+00:00",
+          "bars": 3108
+        },
+        "oos": {
+          "start": "2024-01-02 00:00:00+00:00",
+          "end": "2026-04-13 20:00:00+00:00",
+          "bars": 3536
+        }
+      },
+      "reserved_bars": 19669,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "0d174c388028e53394d740cd1b4fdd36d9c016d2b50ddd1909716d6a5dbb264a",
+      "market": "XAUUSD",
+      "timeframe": "M15",
+      "seed": 1301,
+      "evaluations": 250000,
+      "dataset": "data/cloud/XAUUSD_M15.csv",
+      "dataset_sha256": "ace62dd3d22f598b1d2b17ecd7ce2fd594a1a2eaddbe5fee897da585219cc0dd",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 01:00:00+00:00",
+          "end": "2021-12-31 23:45:00+00:00",
+          "bars": 141777
+        },
+        "validation": {
+          "start": "2022-01-03 01:00:00+00:00",
+          "end": "2023-12-29 23:45:00+00:00",
+          "bars": 47194
+        },
+        "oos": {
+          "start": "2024-01-02 01:00:00+00:00",
+          "end": "2026-04-14 02:45:00+00:00",
+          "bars": 53891
+        }
+      },
+      "reserved_bars": 309767,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "aa219cc4427ea24a3de61d6d27b5b423f26abf526173c9edd308a9d21079e26c",
+      "market": "XAUUSD",
+      "timeframe": "M15",
+      "seed": 1302,
+      "evaluations": 250000,
+      "dataset": "data/cloud/XAUUSD_M15.csv",
+      "dataset_sha256": "ace62dd3d22f598b1d2b17ecd7ce2fd594a1a2eaddbe5fee897da585219cc0dd",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 01:00:00+00:00",
+          "end": "2021-12-31 23:45:00+00:00",
+          "bars": 141777
+        },
+        "validation": {
+          "start": "2022-01-03 01:00:00+00:00",
+          "end": "2023-12-29 23:45:00+00:00",
+          "bars": 47194
+        },
+        "oos": {
+          "start": "2024-01-02 01:00:00+00:00",
+          "end": "2026-04-14 02:45:00+00:00",
+          "bars": 53891
+        }
+      },
+      "reserved_bars": 309767,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "232fb98e2ff83ab19d054b87b850eac8d5e550470e2016de81d4bec49e24c6f7",
+      "market": "XAUUSD",
+      "timeframe": "M15",
+      "seed": 1303,
+      "evaluations": 250000,
+      "dataset": "data/cloud/XAUUSD_M15.csv",
+      "dataset_sha256": "ace62dd3d22f598b1d2b17ecd7ce2fd594a1a2eaddbe5fee897da585219cc0dd",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 01:00:00+00:00",
+          "end": "2021-12-31 23:45:00+00:00",
+          "bars": 141777
+        },
+        "validation": {
+          "start": "2022-01-03 01:00:00+00:00",
+          "end": "2023-12-29 23:45:00+00:00",
+          "bars": 47194
+        },
+        "oos": {
+          "start": "2024-01-02 01:00:00+00:00",
+          "end": "2026-04-14 02:45:00+00:00",
+          "bars": 53891
+        }
+      },
+      "reserved_bars": 309767,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "531240d48ffa9770b8775f254b5fb3d47aa2606e7cc363c37d85a75157a328fb",
+      "market": "XAUUSD",
+      "timeframe": "H1",
+      "seed": 1301,
+      "evaluations": 250000,
+      "dataset": "data/derived/XAUUSD_H1_ace62dd3d22f_136885.csv",
+      "dataset_sha256": "4256762d2c2df4a0b8bb16939c076fb44aa15bad4b1305a23197a39564003216",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 01:00:00+00:00",
+          "end": "2021-12-31 23:00:00+00:00",
+          "bars": 35419
+        },
+        "validation": {
+          "start": "2022-01-03 01:00:00+00:00",
+          "end": "2023-12-29 23:00:00+00:00",
+          "bars": 11791
+        },
+        "oos": {
+          "start": "2024-01-02 01:00:00+00:00",
+          "end": "2026-04-14 02:00:00+00:00",
+          "bars": 13462
+        }
+      },
+      "reserved_bars": 76213,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "0fef66892d39c391ba77617ed7ed481b57012bb589cf323e5c0fefcc1c2f362d",
+      "market": "XAUUSD",
+      "timeframe": "H1",
+      "seed": 1302,
+      "evaluations": 250000,
+      "dataset": "data/derived/XAUUSD_H1_ace62dd3d22f_136885.csv",
+      "dataset_sha256": "4256762d2c2df4a0b8bb16939c076fb44aa15bad4b1305a23197a39564003216",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 01:00:00+00:00",
+          "end": "2021-12-31 23:00:00+00:00",
+          "bars": 35419
+        },
+        "validation": {
+          "start": "2022-01-03 01:00:00+00:00",
+          "end": "2023-12-29 23:00:00+00:00",
+          "bars": 11791
+        },
+        "oos": {
+          "start": "2024-01-02 01:00:00+00:00",
+          "end": "2026-04-14 02:00:00+00:00",
+          "bars": 13462
+        }
+      },
+      "reserved_bars": 76213,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "b2a5807b3b67da8865fabdb43843bfd5e64ce8c6d978d8588ad9fe36351cebe2",
+      "market": "XAUUSD",
+      "timeframe": "H1",
+      "seed": 1303,
+      "evaluations": 250000,
+      "dataset": "data/derived/XAUUSD_H1_ace62dd3d22f_136885.csv",
+      "dataset_sha256": "4256762d2c2df4a0b8bb16939c076fb44aa15bad4b1305a23197a39564003216",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 01:00:00+00:00",
+          "end": "2021-12-31 23:00:00+00:00",
+          "bars": 35419
+        },
+        "validation": {
+          "start": "2022-01-03 01:00:00+00:00",
+          "end": "2023-12-29 23:00:00+00:00",
+          "bars": 11791
+        },
+        "oos": {
+          "start": "2024-01-02 01:00:00+00:00",
+          "end": "2026-04-14 02:00:00+00:00",
+          "bars": 13462
+        }
+      },
+      "reserved_bars": 76213,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "aad2b65a5a64b2d1d38ecede851b9d993d8c6ed392dafb818a7a13918b1c5a7b",
+      "market": "XAUUSD",
+      "timeframe": "H4",
+      "seed": 1301,
+      "evaluations": 250000,
+      "dataset": "data/derived/XAUUSD_H4_ace62dd3d22f_31005.csv",
+      "dataset_sha256": "e0d2ec555d39c540cc08fc4084b3a98a3061f73da2dfa3ad161d759f8c5244ec",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 04:00:00+00:00",
+          "end": "2021-12-31 20:00:00+00:00",
+          "bars": 7690
+        },
+        "validation": {
+          "start": "2022-01-03 04:00:00+00:00",
+          "end": "2023-12-29 20:00:00+00:00",
+          "bars": 2558
+        },
+        "oos": {
+          "start": "2024-01-02 04:00:00+00:00",
+          "end": "2026-04-13 20:00:00+00:00",
+          "bars": 2920
+        }
+      },
+      "reserved_bars": 17837,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "6290d9222b4c00012abae5ad79c96f895cdb6ecf71effd87638a456d7dc48398",
+      "market": "XAUUSD",
+      "timeframe": "H4",
+      "seed": 1302,
+      "evaluations": 250000,
+      "dataset": "data/derived/XAUUSD_H4_ace62dd3d22f_31005.csv",
+      "dataset_sha256": "e0d2ec555d39c540cc08fc4084b3a98a3061f73da2dfa3ad161d759f8c5244ec",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 04:00:00+00:00",
+          "end": "2021-12-31 20:00:00+00:00",
+          "bars": 7690
+        },
+        "validation": {
+          "start": "2022-01-03 04:00:00+00:00",
+          "end": "2023-12-29 20:00:00+00:00",
+          "bars": 2558
+        },
+        "oos": {
+          "start": "2024-01-02 04:00:00+00:00",
+          "end": "2026-04-13 20:00:00+00:00",
+          "bars": 2920
+        }
+      },
+      "reserved_bars": 17837,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    },
+    {
+      "job_id": "529d7ff0646d50e7be31ff53efba12e07b83664ec44f20b3f281c4a8b2b9e39f",
+      "market": "XAUUSD",
+      "timeframe": "H4",
+      "seed": 1303,
+      "evaluations": 250000,
+      "dataset": "data/derived/XAUUSD_H4_ace62dd3d22f_31005.csv",
+      "dataset_sha256": "e0d2ec555d39c540cc08fc4084b3a98a3061f73da2dfa3ad161d759f8c5244ec",
+      "execution_profile": null,
+      "status": "MISSING_EXECUTION_PROFILE",
+      "splits": {
+        "development": {
+          "start": "2016-01-04 04:00:00+00:00",
+          "end": "2021-12-31 20:00:00+00:00",
+          "bars": 7690
+        },
+        "validation": {
+          "start": "2022-01-03 04:00:00+00:00",
+          "end": "2023-12-29 20:00:00+00:00",
+          "bars": 2558
+        },
+        "oos": {
+          "start": "2024-01-02 04:00:00+00:00",
+          "end": "2026-04-13 20:00:00+00:00",
+          "bars": 2920
+        }
+      },
+      "reserved_bars": 17837,
+      "issues": [],
+      "rule": "within 7 calendar days of each boundary and >=80% weekday grid slots; weekends/holidays not filled"
+    }
+  ]
+}

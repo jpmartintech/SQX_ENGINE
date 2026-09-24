@@ -1,0 +1,59 @@
+[
+  {
+    "job_id": "19de1cf009c9973604d1525e2dfc99009bf5abee131919434f84443eacdbdf20",
+    "status": "PASS",
+    "db_integrity": "PASS",
+    "checkpoint": "PASS",
+    "provenance": "PASS",
+    "promotion": "PASS",
+    "dedup": "PASS",
+    "development_isolation": "PASS",
+    "validation_isolation": "PASS",
+    "true_oos_per_job": "PASS",
+    "allowed_infinite_pf": {},
+    "promotion_counts": {
+      "eligible": 169,
+      "inserted": 169,
+      "duplicates_rejected": 0,
+      "new_observations": 169
+    }
+  },
+  {
+    "job_id": "4fd1f7ebaab4e517ea6428e0d14e9cd48c5f7de87f6e269fbe59a8d7578d4f31",
+    "status": "PASS",
+    "db_integrity": "PASS",
+    "checkpoint": "PASS",
+    "provenance": "PASS",
+    "promotion": "PASS",
+    "dedup": "PASS",
+    "development_isolation": "PASS",
+    "validation_isolation": "PASS",
+    "true_oos_per_job": "PASS",
+    "allowed_infinite_pf": {},
+    "promotion_counts": {
+      "eligible": 124,
+      "inserted": 121,
+      "duplicates_rejected": 3,
+      "new_observations": 124
+    }
+  },
+  {
+    "job_id": "a7a75b4bd08b60be28ed23edfd273a2a988daee8156525954d4eeb966c15784f",
+    "status": "PASS",
+    "db_integrity": "PASS",
+    "checkpoint": "PASS",
+    "provenance": "PASS",
+    "promotion": "PASS",
+    "dedup": "PASS",
+    "development_isolation": "PASS",
+    "validation_isolation": "PASS",
+    "true_oos_per_job": "PASS",
+    "allowed_infinite_pf": {},
+    "promotion_counts": {
+      "eligible": 359,
+      "inserted": 359,
+      "duplicates_rejected": 0,
+      "new_observations": 359
+    }
+  }
+]

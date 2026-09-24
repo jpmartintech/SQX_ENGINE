@@ -1,0 +1,13 @@
+temporal_policy:
+  name: PRODUCTION_2016_2026_V1
+  mode: explicit_dates
+  development:
+    start: '2016-01-01T00:00:00Z'
+    end: '2022-01-01T00:00:00Z'
+  validation:
+    start: '2022-01-01T00:00:00Z'
+    end: '2024-01-01T00:00:00Z'
+  oos:
+    start: '2024-01-01T00:00:00Z'
+    end: latest
+historical_stress_reserved: timestamp < 2016-01-01T00:00:00Z

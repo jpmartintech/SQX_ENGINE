@@ -1,0 +1,43 @@
+{
+  "market": "EURUSD",
+  "timeframe": "H1",
+  "path": "data/cloud/EURUSD_1H.csv",
+  "sha256": "7afd8f9af21360ee01deeef78aeba3ff8fcd62c3764c2b6f01244f84ee1c212c",
+  "rows": 143197,
+  "start": "2003-05-05 03:00:00+00:00",
+  "end": "2026-04-14 02:00:00+00:00",
+  "chronological": true,
+  "duplicates": 0,
+  "NaN": {
+    "timestamp": 0,
+    "open": 0,
+    "high": 0,
+    "low": 0,
+    "close": 0,
+    "volume": 0
+  },
+  "ohlc_violations": 0,
+  "spacing_minutes": {
+    "60.0": 141929,
+    "2940.0": 1120,
+    "2880.0": 44,
+    "120.0": 43,
+    "3000.0": 25,
+    "180.0": 8,
+    "1500.0": 7,
+    "900.0": 7,
+    "4380.0": 4,
+    "360.0": 2,
+    "3780.0": 2,
+    "3120.0": 1,
+    "240.0": 1,
+    "300.0": 1,
+    "960.0": 1,
+    "3060.0": 1
+  },
+  "gap_count": 1267,
+  "max_gap_minutes": 4380.0,
+  "missing_grid_slots": 57923,
+  "gap_note": "Includes closed-market weekends and holidays; no bars fabricated",
+  "status": "DATASET_AVAILABLE"
+}

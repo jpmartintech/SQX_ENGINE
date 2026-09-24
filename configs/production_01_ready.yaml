@@ -1,0 +1,35 @@
+batch_name: PRODUCTION_01
+production_policy: PRODUCTION_2016_2026_V1
+base_config: configs/production_01_base.yaml
+markets:
+- EURUSD
+timeframes:
+- H1
+seeds:
+- 1301
+- 1302
+- 1303
+evaluations_per_job: 250000
+grammar_version: v1.7
+workers: 1
+execution_profiles:
+  EURUSD_H1:
+    initial_capital: 10000
+    spread: 8.0e-05
+    slippage: 2.0e-05
+    cost_source: Unchanged EURUSD H1 V1.8 baseline; no separate commission modeled
+      by frozen engine
+promotion_policy: OOS_PASS
+output_root: runs/production/PRODUCTION_01
+temporal_policy:
+  name: PRODUCTION_2016_2026_V1
+  mode: explicit_dates
+  development:
+    start: '2016-01-01T00:00:00Z'
+    end: '2022-01-01T00:00:00Z'
+  validation:
+    start: '2022-01-01T00:00:00Z'
+    end: '2024-01-01T00:00:00Z'
+  oos:
+    start: '2024-01-01T00:00:00Z'
+    end: latest

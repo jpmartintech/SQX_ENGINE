@@ -1,0 +1,53 @@
+{
+  "total": 952,
+  "by_market": {
+    "EURUSD": 952
+  },
+  "by_timeframe": {
+    "H1": 948,
+    "H4": 4
+  },
+  "by_family": {
+    "Momentum": 6,
+    "Momentum+Structure": 27,
+    "Momentum+Volatility": 15,
+    "Momentum+Volatility+Structure": 48,
+    "Structure": 2,
+    "Trend": 55,
+    "Trend+Momentum": 88,
+    "Trend+Momentum+Structure": 98,
+    "Trend+Momentum+Volatility": 47,
+    "Trend+Momentum+Volatility+Structure": 47,
+    "Trend+Structure": 132,
+    "Trend+Volatility": 123,
+    "Trend+Volatility+Structure": 233,
+    "Volatility": 4,
+    "Volatility+Structure": 27
+  },
+  "by_direction": {
+    "LONG": 719,
+    "SHORT": 233
+  },
+  "by_predicate_count": {
+    "2": 79,
+    "3": 310,
+    "4": 563
+  },
+  "by_market_timeframe": {
+    "EURUSD H1": 948,
+    "EURUSD H4": 4
+  },
+  "by_production_policy_first_discovery": {
+    "LEGACY_V1_7_GOLDEN_IMPORT": 299,
+    "V1_8_SMOKE_CHRONOLOGICAL": 4,
+    "PRODUCTION_2016_2026_V1": 649
+  },
+  "by_production_policy_membership": {
+    "PRODUCTION_2016_2026_V1": 649,
+    "LEGACY_V1_7_GOLDEN_IMPORT": 299,
+    "V1_8_SMOKE_CHRONOLOGICAL": 6
+  },
+  "policy_note": "Membership overlaps when the same trading identity survives multiple policies; first discovery is exclusive.",
+  "observations": 957,
+  "database_sha256": "c6740b60a2794f11adbe5c1b4790620b257cb5690156c22e6c2b6bd2f527cfb2"
+}

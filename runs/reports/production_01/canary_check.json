@@ -1,0 +1,19 @@
+{
+  "job_id": "19de1cf009c9973604d1525e2dfc99009bf5abee131919434f84443eacdbdf20",
+  "status": "CANARY_PASS",
+  "db_integrity": "PASS",
+  "checkpoint": "PASS",
+  "provenance": "PASS",
+  "promotion": "PASS",
+  "dedup": "PASS",
+  "development_isolation": "PASS",
+  "validation_isolation": "PASS",
+  "true_oos_per_job": "PASS",
+  "allowed_infinite_pf": {},
+  "promotion_counts": {
+    "eligible": 169,
+    "inserted": 169,
+    "duplicates_rejected": 0,
+    "new_observations": 169
+  }
+}

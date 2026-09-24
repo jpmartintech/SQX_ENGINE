@@ -1,0 +1,525 @@
+{
+  "batch": "PRODUCTION_01",
+  "status": "COMPLETE",
+  "factory_commit": "16a70ec0db6d58f8adb51ec8ae7caa361e139003",
+  "grammar": "v1.7",
+  "plan_counts": {
+    "MISSING_EXECUTION_PROFILE": 60,
+    "READY": 3
+  },
+  "completed": 3,
+  "failed": 0,
+  "interrupted": 0,
+  "skipped": 60,
+  "jobs": [
+    {
+      "job_id": "19de1cf009c9973604d1525e2dfc99009bf5abee131919434f84443eacdbdf20",
+      "market": "EURUSD",
+      "timeframe": "H1",
+      "seed": 1301,
+      "status": "COMPLETE",
+      "generated": 250000,
+      "candidates": 1241,
+      "validation_pass": 433,
+      "oos_pass": 169,
+      "runtime": 418.12145870900713,
+      "attempts": 1,
+      "error": null,
+      "new_library": 169,
+      "duplicates": 0,
+      "rediscoveries": 0,
+      "timings": {
+        "data_loading": 0.2060714349936461,
+        "feature_calculation": 0.1126921100076288,
+        "generation": 60.96977271187643,
+        "fast_backtesting": 97.05663191677013,
+        "generation_and_basic": 271.7313006600016,
+        "quality_funnel": 31.185753572004614,
+        "diversity": 106.44208933300979,
+        "portfolio": 0.18797256899415515,
+        "generator_telemetry": {
+          "mutation_attempts": 314661,
+          "mutation_effective": 309315,
+          "mutation_noop": 0,
+          "crossover_attempts": 315083,
+          "crossover_effective": 302402,
+          "crossover_noop": 12681,
+          "novelty_retries": 322726,
+          "global_duplicate": 322726,
+          "immigrant_attempts": 145389,
+          "immigrant_unique": 122236
+        },
+        "cache": {
+          "hits": 34,
+          "misses": 330898,
+          "hit_ratio": 0.00010274013996833187,
+          "predicate_entries": 178,
+          "signal_entries": 512,
+          "evaluation_entries": 512
+        }
+      },
+      "funnel": {
+        "generated": 250000,
+        "attempts": 250000,
+        "duplicates": 0,
+        "unique": 250000,
+        "backtested": 250000,
+        "basic_pass": 9654,
+        "stability_pass": 3212,
+        "plateau_pass": 3195,
+        "cost_pass": 3156,
+        "execution_pass": 1491,
+        "before_diversity": 1491,
+        "diversity_pass": 1241
+      },
+      "strategies_per_sec": 597.9123883569637,
+      "oos_families": {
+        "Momentum+Structure": 10,
+        "Trend+Momentum+Structure": 29,
+        "Trend+Momentum": 22,
+        "Trend+Momentum+Volatility+Structure": 7,
+        "Momentum+Volatility+Structure": 16,
+        "Trend+Momentum+Volatility": 9,
+        "Momentum+Volatility": 5,
+        "Trend+Volatility+Structure": 29,
+        "Trend+Structure": 17,
+        "Trend+Volatility": 10,
+        "Trend": 6,
+        "Momentum": 1,
+        "Volatility+Structure": 7,
+        "Structure": 1
+      },
+      "source_run_id": "ab35c2b1-9c87-4e3e-a963-783fc6e6297d",
+      "validation_run_id": "65dcd3d7-c1e9-4b68-8414-803d920ec9b4",
+      "dataset_sha256": "7afd8f9af21360ee01deeef78aeba3ff8fcd62c3764c2b6f01244f84ee1c212c",
+      "production_policy": "PRODUCTION_2016_2026_V1",
+      "production_batch": "PRODUCTION_01",
+      "directory": "/home/xaume/SQX_ENGINE/runs/production/PRODUCTION_01/EURUSD/H1/seed_1301/19de1cf009c99736",
+      "artifacts": {
+        "discovery.sqlite": {
+          "path": "/home/xaume/SQX_ENGINE/runs/production/PRODUCTION_01/EURUSD/H1/seed_1301/19de1cf009c99736/discovery.sqlite",
+          "sha256": "b7fe87428422acce7346a1d31b4f86ba9c56d3a26040ba3e5f5c52d89c31b6ed"
+        },
+        "validation.sqlite": {
+          "path": "/home/xaume/SQX_ENGINE/runs/production/PRODUCTION_01/EURUSD/H1/seed_1301/19de1cf009c99736/validation.sqlite",
+          "sha256": "d5484ef2fdf68d8664c93c7f2300673ac4def700fda7bda46d482c3e36655d04"
+        },
+        "checkpoint.json": {
+          "path": "/home/xaume/SQX_ENGINE/runs/production/PRODUCTION_01/EURUSD/H1/seed_1301/19de1cf009c99736/checkpoint.json",
+          "sha256": "9ef867c6ac0be1790a2427fb8f9c3009916098796766304ee799796fb711703e"
+        },
+        "discovery.yaml": {
+          "path": "/home/xaume/SQX_ENGINE/runs/production/PRODUCTION_01/EURUSD/H1/seed_1301/19de1cf009c99736/discovery.yaml",
+          "sha256": "8689bf6d61cadb308dcf6945f9cb2f0666c2fc87b05dbff570c1e317b6f928fc"
+        },
+        "validation.yaml": {
+          "path": "/home/xaume/SQX_ENGINE/runs/production/PRODUCTION_01/EURUSD/H1/seed_1301/19de1cf009c99736/validation.yaml",
+          "sha256": "aec55d1fe3ce30bf98eb259933e081c46b53359dc8a40fb4ee3c839c94f53432"
+        }
+      },
+      "survival": {
+        "generated_to_oos": 0.000676,
+        "dev_to_val": 0.34891216760676874,
+        "val_to_oos": 0.3903002309468822,
+        "dev_to_oos": 0.1361804995970991
+      }
+    },
+    {
+      "job_id": "a7a75b4bd08b60be28ed23edfd273a2a988daee8156525954d4eeb966c15784f",
+      "market": "EURUSD",
+      "timeframe": "H1",
+      "seed": 1302,
+      "status": "COMPLETE",
+      "generated": 250000,
+      "candidates": 1703,
+      "validation_pass": 1164,
+      "oos_pass": 359,
+      "runtime": 533.0574346689973,
+      "attempts": 1,
+      "error": null,
+      "new_library": 359,
+      "duplicates": 0,
+      "rediscoveries": 0,
+      "timings": {
+        "data_loading": 0.19382138700166252,
+        "feature_calculation": 0.10276438100845553,
+        "generation": 63.11094577265612,
+        "fast_backtesting": 97.18968333298108,
+        "generation_and_basic": 280.00530188099947,
+        "quality_funnel": 37.48312926199287,
+        "diversity": 202.08474925400515,
+        "portfolio": 0.26308923999022227,
+        "generator_telemetry": {
+          "mutation_attempts": 318664,
+          "mutation_effective": 313096,
+          "mutation_noop": 0,
+          "crossover_attempts": 318940,
+          "crossover_effective": 297133,
+          "crossover_noop": 21807,
+          "novelty_retries": 332751,
+          "global_duplicate": 332751,
+          "immigrant_attempts": 151366,
+          "immigrant_unique": 127410
+        },
+        "cache": {
+          "hits": 184,
+          "misses": 344364,
+          "hit_ratio": 0.0005340329939514959,
+          "predicate_entries": 178,
+          "signal_entries": 512,
+          "evaluation_entries": 512
+        }
+      },
+      "funnel": {
+        "generated": 250000,
+        "attempts": 250000,
+        "duplicates": 0,
+        "unique": 250000,
+        "backtested": 250000,
+        "basic_pass": 14078,
+        "stability_pass": 3971,
+        "plateau_pass": 3966,
+        "cost_pass": 3960,
+        "execution_pass": 2078,
+        "before_diversity": 2078,
+        "diversity_pass": 1703
+      },
+      "strategies_per_sec": 468.99261456739237,
+      "oos_families": {
+        "Trend+Momentum+Volatility": 16,
+        "Trend+Volatility+Structure": 44,
+        "Trend+Volatility": 77,
+        "Trend+Structure": 97,
+        "Trend": 44,
+        "Momentum+Volatility": 3,
+        "Trend+Momentum+Structure": 33,
+        "Trend+Momentum+Volatility+Structure": 10,
+        "Trend+Momentum": 24,
+        "Momentum+Volatility+Structure": 8,
+        "Momentum+Structure": 2,
+        "Volatility+Structure": 1
+      },
+      "source_run_id": "b99eb8e0-bc04-4fcc-9b8f-81faf1e19f59",
+      "validation_run_id": "6924675a-252f-485e-b6d4-5e897563cc09",
+      "dataset_sha256": "7afd8f9af21360ee01deeef78aeba3ff8fcd62c3764c2b6f01244f84ee1c212c",
+      "production_policy": "PRODUCTION_2016_2026_V1",
+      "production_batch": "PRODUCTION_01",
+      "directory": "/home/xaume/SQX_ENGINE/runs/production/PRODUCTION_01/EURUSD/H1/seed_1302/a7a75b4bd08b60be",
+      "artifacts": {
+        "discovery.sqlite": {
+          "path": "/home/xaume/SQX_ENGINE/runs/production/PRODUCTION_01/EURUSD/H1/seed_1302/a7a75b4bd08b60be/discovery.sqlite",
+          "sha256": "968e78bb9015dd60647538879c44b3bb34e1e2f3675882b8447b20256af0a6db"
+        },
+        "validation.sqlite": {
+          "path": "/home/xaume/SQX_ENGINE/runs/production/PRODUCTION_01/EURUSD/H1/seed_1302/a7a75b4bd08b60be/validation.sqlite",
+          "sha256": "16be86a84b243b37ae89100bdc348502e455c2e17378dfc55e6a07db90c8b886"
+        },
+        "checkpoint.json": {
+          "path": "/home/xaume/SQX_ENGINE/runs/production/PRODUCTION_01/EURUSD/H1/seed_1302/a7a75b4bd08b60be/checkpoint.json",
+          "sha256": "e01b4b2244ad9402cd79aa458a8c16158582b9b70e80f196fd6eab3ec0caba7d"
+        },
+        "discovery.yaml": {
+          "path": "/home/xaume/SQX_ENGINE/runs/production/PRODUCTION_01/EURUSD/H1/seed_1302/a7a75b4bd08b60be/discovery.yaml",
+          "sha256": "846f68fb6ba8c430e6374a95e417e9137b47e61ab7ee95331d39474832a0fdf2"
+        },
+        "validation.yaml": {
+          "path": "/home/xaume/SQX_ENGINE/runs/production/PRODUCTION_01/EURUSD/H1/seed_1302/a7a75b4bd08b60be/validation.yaml",
+          "sha256": "eaa73c0ba919b5fa491d7c5c230c3231bd97e355c035bb6e50c636a7ba1d2cf9"
+        }
+      },
+      "survival": {
+        "generated_to_oos": 0.001436,
+        "dev_to_val": 0.6834997064004698,
+        "val_to_oos": 0.3084192439862543,
+        "dev_to_oos": 0.21080446271285966
+      }
+    },
+    {
+      "job_id": "4fd1f7ebaab4e517ea6428e0d14e9cd48c5f7de87f6e269fbe59a8d7578d4f31",
+      "market": "EURUSD",
+      "timeframe": "H1",
+      "seed": 1303,
+      "status": "COMPLETE",
+      "generated": 250000,
+      "candidates": 1674,
+      "validation_pass": 439,
+      "oos_pass": 124,
+      "runtime": 516.7122977859981,
+      "attempts": 1,
+      "error": null,
+      "new_library": 121,
+      "duplicates": 3,
+      "rediscoveries": 3,
+      "timings": {
+        "data_loading": 0.19489595299819484,
+        "feature_calculation": 0.10467944899573922,
+        "generation": 63.241783518285956,
+        "fast_backtesting": 98.24191568735114,
+        "generation_and_basic": 273.44262062601047,
+        "quality_funnel": 30.319957814004738,
+        "diversity": 203.96839489300328,
+        "portfolio": 0.21101857899338938,
+        "generator_telemetry": {
+          "mutation_attempts": 318030,
+          "mutation_effective": 312579,
+          "mutation_noop": 0,
+          "crossover_attempts": 318769,
+          "crossover_effective": 302414,
+          "crossover_noop": 16355,
+          "novelty_retries": 329461,
+          "global_duplicate": 329461,
+          "immigrant_attempts": 150646,
+          "immigrant_unique": 125029
+        },
+        "cache": {
+          "hits": 20,
+          "misses": 323138,
+          "hit_ratio": 6.188923065497373e-05,
+          "predicate_entries": 178,
+          "signal_entries": 512,
+          "evaluation_entries": 512
+        }
+      },
+      "funnel": {
+        "generated": 250000,
+        "attempts": 250000,
+        "duplicates": 0,
+        "unique": 250000,
+        "backtested": 250000,
+        "basic_pass": 8280,
+        "stability_pass": 2739,
+        "plateau_pass": 2704,
+        "cost_pass": 2655,
+        "execution_pass": 1868,
+        "before_diversity": 1868,
+        "diversity_pass": 1674
+      },
+      "strategies_per_sec": 483.8282368567511,
+      "oos_families": {
+        "Momentum+Structure": 8,
+        "Trend+Volatility": 20,
+        "Trend+Structure": 12,
+        "Volatility+Structure": 5,
+        "Trend+Momentum+Structure": 15,
+        "Trend+Momentum+Volatility": 11,
+        "Trend+Momentum": 14,
+        "Momentum+Volatility+Structure": 7,
+        "Momentum+Volatility": 3,
+        "Trend": 4,
+        "Trend+Momentum+Volatility+Structure": 4,
+        "Trend+Volatility+Structure": 15,
+        "Momentum": 3,
+        "Volatility": 3
+      },
+      "source_run_id": "36a8e4a9-6ba9-43a1-88fb-f6c7613a8aad",
+      "validation_run_id": "1718dac1-73bc-4210-b45f-9047170d049e",
+      "dataset_sha256": "7afd8f9af21360ee01deeef78aeba3ff8fcd62c3764c2b6f01244f84ee1c212c",
+      "production_policy": "PRODUCTION_2016_2026_V1",
+      "production_batch": "PRODUCTION_01",
+      "directory": "/home/xaume/SQX_ENGINE/runs/production/PRODUCTION_01/EURUSD/H1/seed_1303/4fd1f7ebaab4e517",
+      "artifacts": {
+        "discovery.sqlite": {
+          "path": "/home/xaume/SQX_ENGINE/runs/production/PRODUCTION_01/EURUSD/H1/seed_1303/4fd1f7ebaab4e517/discovery.sqlite",
+          "sha256": "4194143fb51f05048187655b02ee7a672b07203a6caeecf2f2581f1e29939f14"
+        },
+        "validation.sqlite": {
+          "path": "/home/xaume/SQX_ENGINE/runs/production/PRODUCTION_01/EURUSD/H1/seed_1303/4fd1f7ebaab4e517/validation.sqlite",
+          "sha256": "31834f093028540490f52b013d244a87f378c9a79eceb2bcf03e98c11ad91585"
+        },
+        "checkpoint.json": {
+          "path": "/home/xaume/SQX_ENGINE/runs/production/PRODUCTION_01/EURUSD/H1/seed_1303/4fd1f7ebaab4e517/checkpoint.json",
+          "sha256": "a53226fe9ab4a7db98718b90b7a997a3f8abc4d781da108c3cbcb09b4e217c42"
+        },
+        "discovery.yaml": {
+          "path": "/home/xaume/SQX_ENGINE/runs/production/PRODUCTION_01/EURUSD/H1/seed_1303/4fd1f7ebaab4e517/discovery.yaml",
+          "sha256": "ea67fe2301c82127f33342710b2ea078461c1aed50c4869ebc087b5c8de796d1"
+        },
+        "validation.yaml": {
+          "path": "/home/xaume/SQX_ENGINE/runs/production/PRODUCTION_01/EURUSD/H1/seed_1303/4fd1f7ebaab4e517/validation.yaml",
+          "sha256": "2f2e02025a27b879b40a9e30a8372aabc949b83ffee0f3457ba8f8cbf0f1bdd8"
+        }
+      },
+      "survival": {
+        "generated_to_oos": 0.000496,
+        "dev_to_val": 0.26224611708482676,
+        "val_to_oos": 0.2824601366742597,
+        "dev_to_oos": 0.07407407407407407
+      }
+    }
+  ],
+  "by_market_timeframe": {
+    "EURUSD H1": {
+      "seeds": [
+        1301,
+        1302,
+        1303
+      ],
+      "generated": 750000,
+      "development": 4618,
+      "validation": 2036,
+      "oos": 652,
+      "new_library": 649,
+      "runtime": 1467.8911911640025,
+      "oos_families": {
+        "Momentum+Structure": 20,
+        "Trend+Momentum+Structure": 77,
+        "Trend+Momentum": 60,
+        "Trend+Momentum+Volatility+Structure": 21,
+        "Momentum+Volatility+Structure": 31,
+        "Trend+Momentum+Volatility": 36,
+        "Momentum+Volatility": 11,
+        "Trend+Volatility+Structure": 88,
+        "Trend+Structure": 126,
+        "Trend+Volatility": 107,
+        "Trend": 54,
+        "Momentum": 4,
+        "Volatility+Structure": 13,
+        "Structure": 1,
+        "Volatility": 3
+      },
+      "survival": {
+        "dev_to_val": 0.44088349935036814,
+        "val_to_oos": 0.32023575638506874,
+        "dev_to_oos": 0.14118666089216111,
+        "generated_to_oos": 0.0008693333333333333
+      }
+    }
+  },
+  "library": {
+    "before": 303,
+    "added": 649,
+    "duplicates": 3,
+    "rediscoveries": 3,
+    "after": 952,
+    "stats": {
+      "total": 952,
+      "by_market": {
+        "EURUSD": 952
+      },
+      "by_timeframe": {
+        "H1": 948,
+        "H4": 4
+      },
+      "by_family": {
+        "Momentum": 6,
+        "Momentum+Structure": 27,
+        "Momentum+Volatility": 15,
+        "Momentum+Volatility+Structure": 48,
+        "Structure": 2,
+        "Trend": 55,
+        "Trend+Momentum": 88,
+        "Trend+Momentum+Structure": 98,
+        "Trend+Momentum+Volatility": 47,
+        "Trend+Momentum+Volatility+Structure": 47,
+        "Trend+Structure": 132,
+        "Trend+Volatility": 123,
+        "Trend+Volatility+Structure": 233,
+        "Volatility": 4,
+        "Volatility+Structure": 27
+      },
+      "by_direction": {
+        "LONG": 719,
+        "SHORT": 233
+      },
+      "by_predicate_count": {
+        "2": 79,
+        "3": 310,
+        "4": 563
+      },
+      "by_market_timeframe": {
+        "EURUSD H1": 948,
+        "EURUSD H4": 4
+      },
+      "by_production_policy_first_discovery": {
+        "LEGACY_V1_7_GOLDEN_IMPORT": 299,
+        "V1_8_SMOKE_CHRONOLOGICAL": 4,
+        "PRODUCTION_2016_2026_V1": 649
+      },
+      "by_production_policy_membership": {
+        "PRODUCTION_2016_2026_V1": 649,
+        "LEGACY_V1_7_GOLDEN_IMPORT": 299,
+        "V1_8_SMOKE_CHRONOLOGICAL": 6
+      },
+      "policy_note": "Membership overlaps when the same trading identity survives multiple policies; first discovery is exclusive.",
+      "observations": 957,
+      "database_sha256": "c6740b60a2794f11adbe5c1b4790620b257cb5690156c22e6c2b6bd2f527cfb2"
+    }
+  },
+  "performance": {
+    "total_generated": 750000,
+    "total_job_runtime": 1467.8911911640025,
+    "strategies_per_sec": 510.93705345099045,
+    "peak_observed_rss_mib": 3584.1328125,
+    "rss_note": "Maximum sampled 30-second heartbeat/final-discovery RSS; not an OS high-water mark"
+  },
+  "integrity": {
+    "frozen_factory": "PASS",
+    "dataset_and_original_source_hashes": "PASS",
+    "resume_complete_jobs": "PASS",
+    "historical_artifacts_unchanged": 88,
+    "tags_unchanged": "PASS",
+    "jobs": [
+      {
+        "job_id": "19de1cf009c9973604d1525e2dfc99009bf5abee131919434f84443eacdbdf20",
+        "status": "PASS",
+        "db_integrity": "PASS",
+        "checkpoint": "PASS",
+        "provenance": "PASS",
+        "promotion": "PASS",
+        "dedup": "PASS",
+        "development_isolation": "PASS",
+        "validation_isolation": "PASS",
+        "true_oos_per_job": "PASS",
+        "allowed_infinite_pf": {},
+        "promotion_counts": {
+          "eligible": 169,
+          "inserted": 169,
+          "duplicates_rejected": 0,
+          "new_observations": 169
+        }
+      },
+      {
+        "job_id": "4fd1f7ebaab4e517ea6428e0d14e9cd48c5f7de87f6e269fbe59a8d7578d4f31",
+        "status": "PASS",
+        "db_integrity": "PASS",
+        "checkpoint": "PASS",
+        "provenance": "PASS",
+        "promotion": "PASS",
+        "dedup": "PASS",
+        "development_isolation": "PASS",
+        "validation_isolation": "PASS",
+        "true_oos_per_job": "PASS",
+        "allowed_infinite_pf": {},
+        "promotion_counts": {
+          "eligible": 124,
+          "inserted": 121,
+          "duplicates_rejected": 3,
+          "new_observations": 124
+        }
+      },
+      {
+        "job_id": "a7a75b4bd08b60be28ed23edfd273a2a988daee8156525954d4eeb966c15784f",
+        "status": "PASS",
+        "db_integrity": "PASS",
+        "checkpoint": "PASS",
+        "provenance": "PASS",
+        "promotion": "PASS",
+        "dedup": "PASS",
+        "development_isolation": "PASS",
+        "validation_isolation": "PASS",
+        "true_oos_per_job": "PASS",
+        "allowed_infinite_pf": {},
+        "promotion_counts": {
+          "eligible": 359,
+          "inserted": 359,
+          "duplicates_rejected": 0,
+          "new_observations": 359
+        }
+      }
+    ]
+  },
+  "readiness_blockers": {
+    "60_skipped_jobs": "Missing reliable production execution profiles"
+  },
+  "execution_blockers": []
+}

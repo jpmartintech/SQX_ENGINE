@@ -1,0 +1,2 @@
+market,timeframe,seeds,generated,development,validation,oos,new_library,runtime,dev_to_val,val_to_oos,dev_to_oos,generated_to_oos
+EURUSD,H1,"1301,1302,1303",750000,4618,2036,652,649,1467.8911911640025,0.44088349935036814,0.32023575638506874,0.14118666089216111,0.0008693333333333333

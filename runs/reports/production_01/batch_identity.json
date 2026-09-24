@@ -1,0 +1,12 @@
+{
+  "name": "PRODUCTION_01",
+  "policy": "PRODUCTION_2016_2026_V1",
+  "matrix_batch_id": "c9ee2f3d04e6d37581a75b82f5c19d3d206da75c3500f338f74d40ccb435d9a7",
+  "canary_batch_id": "5fd6ec9fd4e0688f06eb5288bfc7cc77c49fb77534bb6d79053c15b01b40405d",
+  "ready_batch_id": "5a5ff3bdeb3a981bed7a7cda45fb8f7e2bc4cfbcb7eaf7c46d368fd34a19664b",
+  "job_ids": [
+    "19de1cf009c9973604d1525e2dfc99009bf5abee131919434f84443eacdbdf20",
+    "4fd1f7ebaab4e517ea6428e0d14e9cd48c5f7de87f6e269fbe59a8d7578d4f31",
+    "a7a75b4bd08b60be28ed23edfd273a2a988daee8156525954d4eeb966c15784f"
+  ]
+}
