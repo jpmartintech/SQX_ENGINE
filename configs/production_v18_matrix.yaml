@@ -1,0 +1,34 @@
+base_config: configs/eurusd_h1_grammar_v17_250k_clean.yaml
+markets:
+- EURUSD
+- GBPUSD
+- NZDUSD
+- USDCAD
+- USDCHF
+- USDJPY
+- XAUUSD
+timeframes:
+- M15
+- H1
+- H4
+seeds:
+- 1301
+- 1302
+- 1303
+evaluations_per_job: 250000
+grammar_version: v1.7
+workers: 1
+execution_profiles:
+  EURUSD_H1:
+    initial_capital: 10000
+    spread: 8.0e-05
+    slippage: 2.0e-05
+    cost_source: V1.7 golden fixed-price-unit execution model
+  EURUSD_H4:
+    initial_capital: 10000
+    spread: 8.0e-05
+    slippage: 2.0e-05
+    cost_source: Explicit reuse of existing EURUSD price-unit costs; infrastructure
+      smoke, no timeframe calibration
+promotion_policy: OOS_PASS
+output_root: runs/production

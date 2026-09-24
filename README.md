@@ -110,3 +110,27 @@ The benchmark command is capped at 50K. The clean 250K configuration is prepared
 but was not run. See [grammar definitions, causality and compatibility](docs/V1.7_GRAMMAR.md).
 Validation exports use `summary_path` / `csv_path`; conflicting legacy aliases
 now fail before writing outputs.
+
+
+## V1.8 Production Factory
+
+```bash
+sqx benchmark v1.7 --mode fast
+sqx data scan
+sqx production plan configs/production_v18_matrix.yaml
+sqx production run configs/production_v18_smoke.yaml
+sqx production status
+sqx library stats
+sqx factory status
+```
+
+V1.8 freezes V1.7 grammar and trading semantics, adds a dataset catalog with causal
+resampling, resumable production jobs and an independently queryable Strategy
+Library. The 250K matrix is prepared, not automatically executed.
+
+- [Production operations and temporal/cost policies](docs/PRODUCTION_FACTORY.md)
+- [Library, deduplication and provenance](docs/STRATEGY_LIBRARY.md)
+- [Golden benchmark: FAST, AUDIT and FULL](docs/GOLDEN_BENCHMARK.md)
+
+Strategy Factory produces validated strategies; Portfolio Factory is a separate
+future project. No advanced portfolio optimization is included.

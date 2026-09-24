@@ -1,0 +1,141 @@
+{
+  "factory_version": "1.8.0",
+  "database": "library/strategies.sqlite",
+  "sha256_at_release": "e265f7a692bdaa0bcd779f8311b665493952c9c0b9adee4742f843a4e21e6669",
+  "statistics": {
+    "total": 303,
+    "by_market": {
+      "EURUSD": 303
+    },
+    "by_timeframe": {
+      "H1": 299,
+      "H4": 4
+    },
+    "by_family": {
+      "Momentum": 2,
+      "Momentum+Structure": 9,
+      "Momentum+Volatility": 4,
+      "Momentum+Volatility+Structure": 17,
+      "Structure": 1,
+      "Trend": 1,
+      "Trend+Momentum": 29,
+      "Trend+Momentum+Structure": 21,
+      "Trend+Momentum+Volatility": 11,
+      "Trend+Momentum+Volatility+Structure": 26,
+      "Trend+Structure": 6,
+      "Trend+Volatility": 16,
+      "Trend+Volatility+Structure": 145,
+      "Volatility": 1,
+      "Volatility+Structure": 14
+    }
+  },
+  "observations": 305,
+  "golden_imported": 299,
+  "jobs": [
+    {
+      "job_id": "LEGACY_V1_7_GOLDEN_IMPORT",
+      "kind": "LEGACY_V1_7_GOLDEN_IMPORT",
+      "provenance": {
+        "config_path": "/home/xaume/SQX_ENGINE/configs/eurusd_h1_grammar_v17_250k_clean.yaml",
+        "config_sha256": "7916129ca24620cd23585810d4a8d7aed603887a9079367afa2d8bca2ee6664a",
+        "dataset_path": "/home/xaume/SQX_ENGINE/data/cloud/EURUSD_1H.csv",
+        "dataset_sha256": "7afd8f9af21360ee01deeef78aeba3ff8fcd62c3764c2b6f01244f84ee1c212c",
+        "factory_version": "1.7",
+        "grammar_version": "v1.7",
+        "seed": 1301,
+        "source_database": "/home/xaume/SQX_ENGINE/runs/eurusd_h1_grammar_v17_250k_clean.sqlite",
+        "source_database_sha256": "6f384c748f59910f09a456a2a0ab270a29b695605cb28d32c0f74a81d8327a4c",
+        "source_run_id": "169d1631-8254-4b10-b17f-d914c7b21b0d",
+        "splits": {
+          "development": {
+            "bars": 100237,
+            "end": "2019-05-22 16:00:00+00:00",
+            "start": "2003-05-05 03:00:00+00:00"
+          },
+          "oos": {
+            "bars": 21481,
+            "end": "2026-04-14 02:00:00+00:00",
+            "start": "2022-10-31 22:00:00+00:00"
+          },
+          "validation": {
+            "bars": 21479,
+            "end": "2022-10-31 21:00:00+00:00",
+            "start": "2019-05-22 17:00:00+00:00"
+          }
+        },
+        "validation_database": "/home/xaume/SQX_ENGINE/runs/eurusd_h1_grammar_v17_250k_clean_validation.sqlite",
+        "validation_run_id": "6ce25038-09fc-47d3-8666-ce4d0f185e8b"
+      }
+    },
+    {
+      "job_id": "405bd4069a5b22683e2ec4036f4257a1b0c32b4d7506d4a667bf686975bc4224",
+      "kind": "PRODUCTION",
+      "provenance": {
+        "config_path": "/home/xaume/SQX_ENGINE/runs/production/EURUSD/H1/seed_1301/405bd4069a5b2268/discovery.yaml",
+        "config_sha256": "2f5c90d34dd4ccb444d20a5a94081ed9e827b6ecf0e80f049a958928eb7719a7",
+        "dataset_path": "/home/xaume/SQX_ENGINE/data/cloud/EURUSD_1H.csv",
+        "dataset_sha256": "7afd8f9af21360ee01deeef78aeba3ff8fcd62c3764c2b6f01244f84ee1c212c",
+        "factory_version": "1.8.0",
+        "grammar_version": "v1.7",
+        "seed": 1301,
+        "source_database": "/home/xaume/SQX_ENGINE/runs/production/EURUSD/H1/seed_1301/405bd4069a5b2268/discovery.sqlite",
+        "source_database_sha256": "158a288927f52c76f5611cd2528b2b237007e2887a54f5dba12b6846f3ed6557",
+        "source_run_id": "11409a51-3c76-4a8d-a7c4-0d0c41a04722",
+        "splits": {
+          "development": {
+            "bars": 100237,
+            "end": "2019-05-22 16:00:00+00:00",
+            "start": "2003-05-05 03:00:00+00:00"
+          },
+          "oos": {
+            "bars": 21481,
+            "end": "2026-04-14 02:00:00+00:00",
+            "start": "2022-10-31 22:00:00+00:00"
+          },
+          "validation": {
+            "bars": 21479,
+            "end": "2022-10-31 21:00:00+00:00",
+            "start": "2019-05-22 17:00:00+00:00"
+          }
+        },
+        "validation_database": "/home/xaume/SQX_ENGINE/runs/production/EURUSD/H1/seed_1301/405bd4069a5b2268/validation.sqlite",
+        "validation_run_id": "413ebfbc-8f7f-4dcc-8b26-4d80516f995e"
+      }
+    },
+    {
+      "job_id": "08017c47372ed4b50a85a7aa5eed60c23aa26931675b10be9e1404578f77ac85",
+      "kind": "PRODUCTION",
+      "provenance": {
+        "config_path": "/home/xaume/SQX_ENGINE/runs/production/EURUSD/H4/seed_1301/08017c47372ed4b5/discovery.yaml",
+        "config_sha256": "0fe24df39e9509fae735333014090e9a82dc5e1c8bc12c6fdbf808201c7664fe",
+        "dataset_path": "/home/xaume/SQX_ENGINE/data/derived/EURUSD_H4_7afd8f9af213_35651.csv",
+        "dataset_sha256": "4017072200f5b0804489eaadbdf7cc95634f629f2a028a5779f305fcd1582d8a",
+        "factory_version": "1.8.0",
+        "grammar_version": "v1.7",
+        "seed": 1301,
+        "source_database": "/home/xaume/SQX_ENGINE/runs/production/EURUSD/H4/seed_1301/08017c47372ed4b5/discovery.sqlite",
+        "source_database_sha256": "ed246337b10d8e4adafc1b25e2514db7bb20deb40bbb5fe07df91fdc26fba895",
+        "source_run_id": "4cfeab75-f040-4323-b34b-a09eca9a6fee",
+        "splits": {
+          "development": {
+            "bars": 24955,
+            "end": "2019-05-24 08:00:00+00:00",
+            "start": "2003-05-05 04:00:00+00:00"
+          },
+          "oos": {
+            "bars": 5349,
+            "end": "2026-04-13 20:00:00+00:00",
+            "start": "2022-11-01 04:00:00+00:00"
+          },
+          "validation": {
+            "bars": 5347,
+            "end": "2022-11-01 00:00:00+00:00",
+            "start": "2019-05-24 12:00:00+00:00"
+          }
+        },
+        "validation_database": "/home/xaume/SQX_ENGINE/runs/production/EURUSD/H4/seed_1301/08017c47372ed4b5/validation.sqlite",
+        "validation_run_id": "316f1fbe-76c2-43b5-a063-c7dc6e4f0a65"
+      }
+    }
+  ]
+}

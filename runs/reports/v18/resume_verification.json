@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "jobs_unchanged": true,
+  "validation_runs_per_completed_job": 1,
+  "discovery_integrity": "PASS",
+  "validation_integrity": "PASS"
+}

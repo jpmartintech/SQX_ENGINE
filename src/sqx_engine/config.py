@@ -2,6 +2,14 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 import hashlib, json, yaml
+from datetime import date, datetime
+
+def _plain_yaml(value):
+    if isinstance(value, (date, datetime)): return value.isoformat()
+    if isinstance(value, dict): return {k: _plain_yaml(v) for k, v in value.items()}
+    if isinstance(value, list): return [_plain_yaml(v) for v in value]
+    return value
+
 
 @dataclass(frozen=True)
 class EngineConfig:
@@ -9,7 +17,7 @@ class EngineConfig:
     source: str = "inline"
     @classmethod
     def from_yaml(cls, path: str | Path):
-        p = Path(path); return cls(yaml.safe_load(p.read_text()), str(p))
+        p = Path(path); return cls(_plain_yaml(yaml.safe_load(p.read_text())), str(p))
     @property
     def config_hash(self):
         return hashlib.sha256(json.dumps(self.raw, sort_keys=True, separators=(",", ":")).encode()).hexdigest()

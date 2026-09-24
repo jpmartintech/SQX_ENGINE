@@ -1,0 +1,576 @@
+{
+  "requested": 63,
+  "counts": {
+    "SKIPPED_DATA_MISSING": 57,
+    "PENDING": 6
+  },
+  "jobs": [
+    {
+      "job_id": "b7d818a062a54cfa3b1aed47b6a48dc17db68b543ff2e7e056493dddca6bcec6",
+      "market": "EURUSD",
+      "timeframe": "M15",
+      "seed": 1301,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: EURUSD M15"
+    },
+    {
+      "job_id": "18c0c5d7b9c67c3efd37aa08b1d780c7415cf475db971557e1640263d7b42998",
+      "market": "EURUSD",
+      "timeframe": "M15",
+      "seed": 1302,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: EURUSD M15"
+    },
+    {
+      "job_id": "c1968f90383416188635f6db03caee629ecaf6736024fb2c20d828d6bc0f6cce",
+      "market": "EURUSD",
+      "timeframe": "M15",
+      "seed": 1303,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: EURUSD M15"
+    },
+    {
+      "job_id": "4a7cee84f2f4955dc8e26b73222051c73ddf91270b33b7afd99b2987f3f30d9a",
+      "market": "EURUSD",
+      "timeframe": "H1",
+      "seed": 1301,
+      "evaluations": 250000,
+      "status": "PENDING",
+      "error": null
+    },
+    {
+      "job_id": "8c45ebd85ddb53eb70e12a0a9e8986bc8bf7af498b8e25b00a1329bff2357cc9",
+      "market": "EURUSD",
+      "timeframe": "H1",
+      "seed": 1302,
+      "evaluations": 250000,
+      "status": "PENDING",
+      "error": null
+    },
+    {
+      "job_id": "eae911495ae32d0615b345c569d3b0aa191c835c9e776456b6dde30c07fbb9ad",
+      "market": "EURUSD",
+      "timeframe": "H1",
+      "seed": 1303,
+      "evaluations": 250000,
+      "status": "PENDING",
+      "error": null
+    },
+    {
+      "job_id": "24770a3615374c2312c2843642aea5a3ded703c934d13de17ecff7cd1c22f907",
+      "market": "EURUSD",
+      "timeframe": "H4",
+      "seed": 1301,
+      "evaluations": 250000,
+      "status": "PENDING",
+      "error": null
+    },
+    {
+      "job_id": "e03154aa5ad6927975d2c82f959e52f4d3746553009b16cacfe227896a57cec1",
+      "market": "EURUSD",
+      "timeframe": "H4",
+      "seed": 1302,
+      "evaluations": 250000,
+      "status": "PENDING",
+      "error": null
+    },
+    {
+      "job_id": "90311794766231409e8c491fd4108b65c9ab37ab066f60232e20e6b95fb21fe4",
+      "market": "EURUSD",
+      "timeframe": "H4",
+      "seed": 1303,
+      "evaluations": 250000,
+      "status": "PENDING",
+      "error": null
+    },
+    {
+      "job_id": "87596b2883a7115c008a5acfd6bbb66dd1fbf10c43b1639e801caef05c76570d",
+      "market": "GBPUSD",
+      "timeframe": "M15",
+      "seed": 1301,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: GBPUSD M15"
+    },
+    {
+      "job_id": "80eb6fe4d55b9cf5996f6e296b79a9aed0a5d5807b3c30297c50969f5d082803",
+      "market": "GBPUSD",
+      "timeframe": "M15",
+      "seed": 1302,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: GBPUSD M15"
+    },
+    {
+      "job_id": "52fe016ceea6074fe2e0ba93b4c773b199a309e88299aa9876a4de6acfd047c3",
+      "market": "GBPUSD",
+      "timeframe": "M15",
+      "seed": 1303,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: GBPUSD M15"
+    },
+    {
+      "job_id": "a79e4a76b44cd9d2e7fd7e2ba16187693a41262c96adf458ecdc0ad305c5898f",
+      "market": "GBPUSD",
+      "timeframe": "H1",
+      "seed": 1301,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: GBPUSD H1"
+    },
+    {
+      "job_id": "b6ca8f8b217e7c10db169118b74c32baba4cd7900e15844c1608558a8df1a999",
+      "market": "GBPUSD",
+      "timeframe": "H1",
+      "seed": 1302,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: GBPUSD H1"
+    },
+    {
+      "job_id": "f8c304eed9c084340e6a4998257dde57c90c51288f84a9366c47cf80f6f95dee",
+      "market": "GBPUSD",
+      "timeframe": "H1",
+      "seed": 1303,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: GBPUSD H1"
+    },
+    {
+      "job_id": "62aeb6dcd3ba157c22f42ec71127d8c59d23775f601391896982ab921d3e0464",
+      "market": "GBPUSD",
+      "timeframe": "H4",
+      "seed": 1301,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: GBPUSD H4"
+    },
+    {
+      "job_id": "277613a5a251f7269b2dcfbf060ab8bdc903ca427b86c5285cad8fa67852a089",
+      "market": "GBPUSD",
+      "timeframe": "H4",
+      "seed": 1302,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: GBPUSD H4"
+    },
+    {
+      "job_id": "c66b3353d9db34f089a7099dc59bd0ab30758c264dd88e2bc2601b2c6add7e65",
+      "market": "GBPUSD",
+      "timeframe": "H4",
+      "seed": 1303,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: GBPUSD H4"
+    },
+    {
+      "job_id": "49f0d79a1549089e1570f2a09a1cf4399e65598d30773f5da356f8b8587fb07d",
+      "market": "NZDUSD",
+      "timeframe": "M15",
+      "seed": 1301,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: NZDUSD M15"
+    },
+    {
+      "job_id": "125e9da456fd7d096a9e7e7a88b7d7ee61407cee9336d98aac5da5d04b736f64",
+      "market": "NZDUSD",
+      "timeframe": "M15",
+      "seed": 1302,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: NZDUSD M15"
+    },
+    {
+      "job_id": "5cef51f363519a31b0596f780d1784665938184e99ccdbc20f1ea853b8c583b3",
+      "market": "NZDUSD",
+      "timeframe": "M15",
+      "seed": 1303,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: NZDUSD M15"
+    },
+    {
+      "job_id": "6d7031af6ebc6979160a738bc9d61c12ba4aeb2a305390f432051c525db9be48",
+      "market": "NZDUSD",
+      "timeframe": "H1",
+      "seed": 1301,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: NZDUSD H1"
+    },
+    {
+      "job_id": "603188daf6aa6375edffa8d381e0b971cff7cff40e64470a01e6cc31e859693e",
+      "market": "NZDUSD",
+      "timeframe": "H1",
+      "seed": 1302,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: NZDUSD H1"
+    },
+    {
+      "job_id": "5f3ec75dc521cad7f43aff6f2200054db2eff5e0459e966ce8e2c0ab627e1ba1",
+      "market": "NZDUSD",
+      "timeframe": "H1",
+      "seed": 1303,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: NZDUSD H1"
+    },
+    {
+      "job_id": "59a8099e5fbbf5eb5d3402bd6da396670e5d81492adb077b0a6dcc79ae675008",
+      "market": "NZDUSD",
+      "timeframe": "H4",
+      "seed": 1301,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: NZDUSD H4"
+    },
+    {
+      "job_id": "e897235c2d4d10f1633918b680b4daffe6ee15abbf49a1b964c91bd9687c23bb",
+      "market": "NZDUSD",
+      "timeframe": "H4",
+      "seed": 1302,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: NZDUSD H4"
+    },
+    {
+      "job_id": "616dd7313f1ad1edee8093e6ae79f04b00ff70641db2c8f1e95eeda9e32229f5",
+      "market": "NZDUSD",
+      "timeframe": "H4",
+      "seed": 1303,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: NZDUSD H4"
+    },
+    {
+      "job_id": "1b043ab1c19dc274487eb9960574df5607bf91ef1d7f230ba4f0a9cab98a9cf5",
+      "market": "USDCAD",
+      "timeframe": "M15",
+      "seed": 1301,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: USDCAD M15"
+    },
+    {
+      "job_id": "340463295cefe2aed0c17ee1f5ae6bb6de1c654dea31c691e0e8573db1d74f62",
+      "market": "USDCAD",
+      "timeframe": "M15",
+      "seed": 1302,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: USDCAD M15"
+    },
+    {
+      "job_id": "0d6b459bc2db841dc2e61759e9d3da561d68ebc0bd942dc5c59d173eff162bf4",
+      "market": "USDCAD",
+      "timeframe": "M15",
+      "seed": 1303,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: USDCAD M15"
+    },
+    {
+      "job_id": "9212f271d9caec3b03574fa0b493a8af3a576f5c4ebd1255a4d6071a936a5032",
+      "market": "USDCAD",
+      "timeframe": "H1",
+      "seed": 1301,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: USDCAD H1"
+    },
+    {
+      "job_id": "7deceb3c2095a8a72c219ec2e865a431f1cee34c960d7609d49955d1d8cdd929",
+      "market": "USDCAD",
+      "timeframe": "H1",
+      "seed": 1302,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: USDCAD H1"
+    },
+    {
+      "job_id": "fe790a7c124cd7854fde422833c8584903c5dd957819d7a5cc4cc028a707c76d",
+      "market": "USDCAD",
+      "timeframe": "H1",
+      "seed": 1303,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: USDCAD H1"
+    },
+    {
+      "job_id": "eb395a0ab92a3dc5477ee73e0a7ba3ffa91d0680388f7cddba1dd91eb16694a3",
+      "market": "USDCAD",
+      "timeframe": "H4",
+      "seed": 1301,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: USDCAD H4"
+    },
+    {
+      "job_id": "7d21405fde3f1bb08ecadfadb9b3c63548907b55f5fba84882c235ae672d86e9",
+      "market": "USDCAD",
+      "timeframe": "H4",
+      "seed": 1302,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: USDCAD H4"
+    },
+    {
+      "job_id": "f23d9d3e21be16f2a11675d53ad2b2e9eec436cc8190aea464c896efbb5ce4f0",
+      "market": "USDCAD",
+      "timeframe": "H4",
+      "seed": 1303,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: USDCAD H4"
+    },
+    {
+      "job_id": "c33399b95e17e482d9ca07bdf57877abe9ca1ae0fa1e86f93bd1d0e2e4668ac1",
+      "market": "USDCHF",
+      "timeframe": "M15",
+      "seed": 1301,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: USDCHF M15"
+    },
+    {
+      "job_id": "4842033821e47d5ac467e5c79bbc050fca54c2da35722631fe35da431de2a2d2",
+      "market": "USDCHF",
+      "timeframe": "M15",
+      "seed": 1302,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: USDCHF M15"
+    },
+    {
+      "job_id": "c9ce06fcbde1616e1e138dca3d7937a181df60745f49b125fd0cda75f63d6446",
+      "market": "USDCHF",
+      "timeframe": "M15",
+      "seed": 1303,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: USDCHF M15"
+    },
+    {
+      "job_id": "d9ce05a6805b68d618eac7efffde882ae172770690bdf6d895f2adb61e9f96b4",
+      "market": "USDCHF",
+      "timeframe": "H1",
+      "seed": 1301,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: USDCHF H1"
+    },
+    {
+      "job_id": "c8d342ab1c359f27a402947b7cd59b1bba16a0754681683868bf42d1c3fa86ac",
+      "market": "USDCHF",
+      "timeframe": "H1",
+      "seed": 1302,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: USDCHF H1"
+    },
+    {
+      "job_id": "ddb44f2862e2ec03d66ee415e6d64eba1051d607b62c4ba64c7d4fb5a08b3f70",
+      "market": "USDCHF",
+      "timeframe": "H1",
+      "seed": 1303,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: USDCHF H1"
+    },
+    {
+      "job_id": "eb51a2d837bbc57b145d29283692dda468fd0137b14fa9041caf825d21accfdb",
+      "market": "USDCHF",
+      "timeframe": "H4",
+      "seed": 1301,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: USDCHF H4"
+    },
+    {
+      "job_id": "d18a4e53b3fb9a9c17af340a7e72bfd7e07c3a5dcba91e496002ba9e907e4b37",
+      "market": "USDCHF",
+      "timeframe": "H4",
+      "seed": 1302,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: USDCHF H4"
+    },
+    {
+      "job_id": "6296fb98f81634ea6febabd5216e0039d46ac50480838f5463208e6e04937bed",
+      "market": "USDCHF",
+      "timeframe": "H4",
+      "seed": 1303,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: USDCHF H4"
+    },
+    {
+      "job_id": "210c2ab25c0f48188bea484ea5282272d38c19fcc9dbf2c6229b279a56dad2a9",
+      "market": "USDJPY",
+      "timeframe": "M15",
+      "seed": 1301,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: USDJPY M15"
+    },
+    {
+      "job_id": "760aefde92215cd26f42dbfc7ba77fbe0ddb2455d209bfdcb4bb27172bb27784",
+      "market": "USDJPY",
+      "timeframe": "M15",
+      "seed": 1302,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: USDJPY M15"
+    },
+    {
+      "job_id": "d48f414ba8fadfb7551600968bdd1d883e075e1e69cb532816a394f1b2062845",
+      "market": "USDJPY",
+      "timeframe": "M15",
+      "seed": 1303,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: USDJPY M15"
+    },
+    {
+      "job_id": "9246c8e4abaf39409d70013bc4e690d7487cd2fb6650a23b3376354927e54ae1",
+      "market": "USDJPY",
+      "timeframe": "H1",
+      "seed": 1301,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: USDJPY H1"
+    },
+    {
+      "job_id": "1fb3fee7ac9df3e780d7ff954b9d415bab2a502f76c25ddd784d837eee145b9b",
+      "market": "USDJPY",
+      "timeframe": "H1",
+      "seed": 1302,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: USDJPY H1"
+    },
+    {
+      "job_id": "73c86e18fa479aa636d6cccb6282866616b3bf0f3a57a3464ee6f1d0948055e5",
+      "market": "USDJPY",
+      "timeframe": "H1",
+      "seed": 1303,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: USDJPY H1"
+    },
+    {
+      "job_id": "214a0bf56c11fb8438b24f6ef7ebaca95977cf62ac2a75f1112ce909ba25e2d4",
+      "market": "USDJPY",
+      "timeframe": "H4",
+      "seed": 1301,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: USDJPY H4"
+    },
+    {
+      "job_id": "6774a90be09d6ad188d0ffaeb8836255b97c12376dd8d7db407d9839eccf118e",
+      "market": "USDJPY",
+      "timeframe": "H4",
+      "seed": 1302,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: USDJPY H4"
+    },
+    {
+      "job_id": "4edbadc7945da07e8bbddc0ca15f62afcb89d07ce96e7aa3645023dafc406772",
+      "market": "USDJPY",
+      "timeframe": "H4",
+      "seed": 1303,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: USDJPY H4"
+    },
+    {
+      "job_id": "c3c555c1f43065cbd96479876c2ea8354e3f39f711bdf7ce7e09b4afeb8a569c",
+      "market": "XAUUSD",
+      "timeframe": "M15",
+      "seed": 1301,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: XAUUSD M15"
+    },
+    {
+      "job_id": "ab10229e54dfdb5c9c93e8d618c0771c1f7cb90bc61ceda9f0dddb7bade962df",
+      "market": "XAUUSD",
+      "timeframe": "M15",
+      "seed": 1302,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: XAUUSD M15"
+    },
+    {
+      "job_id": "c768d3a6a042ff0a9e11db254656ad850734ce78c2cc1f74b40de1e6a4639ff5",
+      "market": "XAUUSD",
+      "timeframe": "M15",
+      "seed": 1303,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: XAUUSD M15"
+    },
+    {
+      "job_id": "faeebb129024f977a01dbed7cbaf2bfd321a6b66b739bd499fc0d52d7ae9fd6b",
+      "market": "XAUUSD",
+      "timeframe": "H1",
+      "seed": 1301,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: XAUUSD H1"
+    },
+    {
+      "job_id": "1d2b8070e381df618204dd9c7207130a84a0f369da57d0cb03600de86841609a",
+      "market": "XAUUSD",
+      "timeframe": "H1",
+      "seed": 1302,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: XAUUSD H1"
+    },
+    {
+      "job_id": "05766f9553b7d397ea000a8031bae95855a38278965a44b1098c48c177b4d4d5",
+      "market": "XAUUSD",
+      "timeframe": "H1",
+      "seed": 1303,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: XAUUSD H1"
+    },
+    {
+      "job_id": "189c3f6f235e35ed79ae06cc10652fe35342a81ce4f4f02902f141c620a32b8b",
+      "market": "XAUUSD",
+      "timeframe": "H4",
+      "seed": 1301,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: XAUUSD H4"
+    },
+    {
+      "job_id": "efee8c0f25aac36245834c1a52a4101241f4c55e9e554f0c64866249c17e30fc",
+      "market": "XAUUSD",
+      "timeframe": "H4",
+      "seed": 1302,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: XAUUSD H4"
+    },
+    {
+      "job_id": "b7099f1d0432de0a24470100739de55056990f64b84d38a44492267d4d12dfbe",
+      "market": "XAUUSD",
+      "timeframe": "H4",
+      "seed": 1303,
+      "evaluations": 250000,
+      "status": "SKIPPED_DATA_MISSING",
+      "error": "DATASET_MISSING: XAUUSD H4"
+    }
+  ]
+}

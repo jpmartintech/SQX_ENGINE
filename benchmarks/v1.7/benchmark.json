@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "benchmark": "V1.7 EURUSD H1 GOLDEN",
+  "commit": "e7aae6b279ace1dba47ae395fad5156201acb2f1",
+  "tag": "v1.7",
+  "benchmark_tag": "benchmark-v1.7-eurusd-h1",
+  "market": "EURUSD",
+  "timeframe": "H1",
+  "seed": 1301,
+  "generated": 250000,
+  "basic_pass": 22132,
+  "stability_pass": 3610,
+  "plateau_pass": 3608,
+  "cost_pass": 3607,
+  "execution_pass": 2637,
+  "development_candidates": 2133,
+  "validation_pass": 605,
+  "oos_pass": 299,
+  "final_diversity": 134,
+  "portfolio_selected": 10,
+  "dataset": "data/cloud/EURUSD_1H.csv",
+  "dataset_sha256": "7afd8f9af21360ee01deeef78aeba3ff8fcd62c3764c2b6f01244f84ee1c212c",
+  "source_run_id": "169d1631-8254-4b10-b17f-d914c7b21b0d",
+  "validation_run_id": "6ce25038-09fc-47d3-8666-ce4d0f185e8b",
+  "grammar_version": "v1.7",
+  "engine": "numba",
+  "split": {
+    "method": "chronological",
+    "development": 0.7,
+    "validation": 0.15,
+    "oos": 0.15
+  },
+  "split_boundaries": {
+    "development": {
+      "start": "2003-05-05 03:00:00+00:00",
+      "end": "2019-05-22 16:00:00+00:00",
+      "bars": 100237
+    },
+    "validation": {
+      "start": "2019-05-22 17:00:00+00:00",
+      "end": "2022-10-31 21:00:00+00:00",
+      "bars": 21479
+    },
+    "oos": {
+      "start": "2022-10-31 22:00:00+00:00",
+      "end": "2026-04-14 02:00:00+00:00",
+      "bars": 21481
+    }
+  },
+  "cost_assumptions": {
+    "initial_capital": 10000,
+    "spread": 8e-05,
+    "slippage": 2e-05
+  },
+  "source_database": "runs/eurusd_h1_grammar_v17_250k_clean.sqlite",
+  "validation_database": "runs/eurusd_h1_grammar_v17_250k_clean_validation.sqlite",
+  "checkpoint": "runs/checkpoints/eurusd_h1_grammar_v17_250k_clean.json",
+  "source_config": "configs/eurusd_h1_grammar_v17_250k_clean.yaml",
+  "validation_config": "configs/eurusd_h1_grammar_v17_validation.yaml",
+  "source_database_sha256": "6f384c748f59910f09a456a2a0ab270a29b695605cb28d32c0f74a81d8327a4c",
+  "validation_database_sha256": "5e362551465f69ef8c1bfe056935d2edff9f1bc0eca0e735c08f6a5b3bfebbbc",
+  "canonical_digest": "5c09e6c3a0f6cc9fb727ee4cde0446026f3d5e221522206111a2246db2c995d2",
+  "fast_dataset_sha256": "91481d22e1a0c6d6324f4031ff68f96bca45b81251d54228425ec8d359744628",
+  "fast_expected_sha256": "7c81cac924fbdea52a924bc2a5d1ca4e484601aa348c8c6931182146cb270e0a",
+  "semantic_files_sha256": {
+    "src/sqx_engine/strategy/definition.py": "acefad9828617d0f9342ecc8303b7cb585f8fe3b4ac0a5c2c71ace1d49da97e6",
+    "src/sqx_engine/grammar.py": "db3cb4ecf023a5c80efc45751ca5b9018487ee4b554e0ee9003a0128cb71a4bf",
+    "src/sqx_engine/features/engine.py": "5232a9d042714fe100204b47abf82fcc2f0658a9170e9c91edecc6777925733b",
+    "src/sqx_engine/generators/random.py": "769d3347b4471823ad6d93c2729ba5e98e20b590d1acb1a3cf86c95e7fc09113",
+    "src/sqx_engine/generators/genetic.py": "6f8597720f09a0e7c3b479cf0d11b51e1876c8fb239f752c8640fdfa994ab94c",
+    "src/sqx_engine/backtest/fast.py": "d5faae6f82383ac7410b5bf73e9b69025e8e2815049a4934583aef9abe7e57ac",
+    "src/sqx_engine/backtest/predicates.py": "bd8ad423bc3b2d4527246a894eac18804e15d2aca99f9c15552d13a88ce7b783",
+    "src/sqx_engine/backtest/numba_core.py": "95b34564ffbae53d8cdb337944d0aa13399bdf57c4c51bca2f03e3b2c1bf8992",
+    "src/sqx_engine/funnel/funnel.py": "05c72c8906d85f21102e828541307709c6fd63712bb7a547feba307f2720e327"
+  }
+}

@@ -5,6 +5,7 @@ import time
 import uuid
 import signal
 import os
+import copy
 from pathlib import Path
 
 import numpy as np
@@ -58,8 +59,13 @@ class StrategyFactory:
         overlap = len(ea & eb) / max(1, min(len(ea), len(eb)))
         return overlap >= max_overlap
 
-    def run(self, resume=False, workers=None):
+    def run(self, resume=False, workers=None, resource_limits=None):
         started = time.perf_counter()
+        limits = resource_limits or {}
+        def limit_reason():
+            if limits.get('max_runtime') is not None and time.perf_counter() - started >= float(limits['max_runtime']): return 'MAX_RUNTIME'
+            if limits.get('max_memory_gb') is not None and _rss_mb() >= float(limits['max_memory_gb']) * 1024: return 'MAX_MEMORY'
+            return None
         run_id = str(uuid.uuid4())
         timings = {}
         t = time.perf_counter(); data, discovery_provenance = discovery_data(self.config); timings["data_loading"] = time.perf_counter() - t
@@ -125,6 +131,7 @@ class StrategyFactory:
         duplicates = int(counters.get("duplicates", 0))
         interrupted = False
         stop_requested = False
+        stop_reason = "SIGINT"
         def _sigint(_signum, _frame):
             nonlocal stop_requested
             stop_requested = True
@@ -135,6 +142,10 @@ class StrategyFactory:
         heartbeat_seconds = float(self.config.get("runtime.heartbeat_seconds", 60.0))
         next_heartbeat = time.perf_counter() + heartbeat_seconds
         while len(seen) < requested and attempts < requested * 20 and not stop_requested:
+            if limits:
+                reason = limit_reason()
+                if reason:
+                    stop_reason = reason; stop_requested = True; break
             t_gen = time.perf_counter()
             attempts += 1; counters["attempts"] = attempts; strategy = gen.ask(known_hashes=seen); counters["generated"] += 1
             timings['generation'] = timings.get('generation', 0.) + time.perf_counter() - t_gen
@@ -168,7 +179,7 @@ class StrategyFactory:
             now = time.perf_counter()
             if now >= next_heartbeat:
                 elapsed_window = max(1e-9, now - t_search)
-                print(f"SQX HEARTBEAT unique={len(seen)}/{requested} attempts={attempts} duplicates={duplicates} duplicate_rate={duplicates/max(1, attempts):.1%} unique/sec={len(seen)/elapsed_window:.2f} RSS={_rss_mb():.1f}MB", flush=True)
+                print(f"SQX HEARTBEAT unique={len(seen)}/{requested} attempts={attempts} duplicates={duplicates} duplicate_rate={duplicates/max(1, attempts):.1%} unique/sec={len(seen)/elapsed_window:.2f} RSS={_rss_mb():.1f}MB elapsed={elapsed_window:.1f}s ETA={(requested-len(seen))/(len(seen)/elapsed_window) if len(seen) else 0:.1f}s candidates={counters['basic_pass']}", flush=True)
                 next_heartbeat = now + heartbeat_seconds
         if stop_requested:
             interrupted = True
@@ -176,8 +187,27 @@ class StrategyFactory:
             checkpoint.save({"family_telemetry": family_telemetry, "run_id": run_id, "status": "INTERRUPTED", "evaluations": len(seen), "canonical_hashes": sorted(seen), "generator": getattr(gen, "state", lambda: {})(), "counters": counters, "rejected": rejected, "rejection_counts": rejection_counts, "basic_records": [{"strategy": s.to_json(), "result": _result_state(r)} for s, r in basic_records]})
             if parallel is not None: parallel.shutdown()
             store.close(); signal.signal(signal.SIGINT, previous_sigint)
-            return {"run_id": run_id, "status": "INTERRUPTED", "requested": requested, "attempts": attempts, "duplicates": duplicates, "unique": len(seen), "backtested": counters["backtested"], "checkpoint": str(checkpoint_path)}
+            return {"run_id": run_id, "status": "INTERRUPTED", "reason": stop_reason, "requested": requested, "attempts": attempts, "duplicates": duplicates, "unique": len(seen), "backtested": counters["backtested"], "checkpoint": str(checkpoint_path)}
         timings["generation_and_basic"] = time.perf_counter() - t_search
+        # Search is durably committed before the transactional funnel. If a
+        # guard/SIGINT fires later, roll back its partial rows and checkpoint the
+        # completed search; resume repeats the deterministic funnel, never Genetic.
+        store.commit()
+        pre_funnel = copy.deepcopy((counters, rejected, rejection_counts, family_telemetry))
+        def interrupt_funnel_if_needed():
+            reason = 'SIGINT' if stop_requested else (limit_reason() if limits else None)
+            if not reason: return None
+            store.db.rollback()
+            saved_counters, saved_rejected, saved_reasons, saved_families = pre_funnel
+            checkpoint.save({"family_telemetry": saved_families, "run_id": run_id, "status": "INTERRUPTED",
+                             "phase": "FUNNEL", "reason": reason, "evaluations": len(seen),
+                             "canonical_hashes": sorted(seen), "generator": gen.state(),
+                             "counters": saved_counters, "rejected": saved_rejected, "rejection_counts": saved_reasons,
+                             "basic_records": [{"strategy": s.to_json(), "result": _result_state(r)} for s, r in basic_records]})
+            if parallel is not None: parallel.shutdown()
+            store.close(); signal.signal(signal.SIGINT, previous_sigint)
+            return {"run_id": run_id, "status": "INTERRUPTED", "reason": reason, "phase": "FUNNEL",
+                    "unique": len(seen), "checkpoint": str(checkpoint_path)}
         candidate_limit = int(self.config.get("candidate_pool.size", requested))
         basic_records.sort(key=lambda x: (x[1].expectancy_r, x[1].sharpe, -x[1].max_drawdown, x[0].canonical_hash), reverse=True)
         advanced = basic_records[:candidate_limit]
@@ -191,6 +221,8 @@ class StrategyFactory:
         advanced_results = (evaluator.evaluate_batch([s for s, _ in advanced], rich=False)
                            if parallel is None else parallel.evaluate_batch([s for s, _ in advanced], rich=False))
         for (strategy, aggregate_result), aggregate in zip(advanced, advanced_results):
+            stopped = interrupt_funnel_if_needed()
+            if stopped: return stopped
             f = funnel.evaluate(strategy, aggregate)
             for stage, label in [('stability', 'STABILITY'), ('plateau', 'PLATEAU'), ('cost_stress', 'COST'), ('execution_stress', 'EXECUTION')]:
                 if f['stages'].get(stage): count_stage(family_telemetry, label, strategy)
@@ -205,12 +237,16 @@ class StrategyFactory:
         t_div = time.perf_counter(); final = []
         dcfg = self.config.get("funnel.diversity", {}); max_corr = float(dcfg.get("max_pnl_correlation", dcfg.get("max_correlation", .85))); max_overlap = float(dcfg.get("max_entry_overlap", .80))
         for item in sorted(records, key=lambda x: (x["funnel"].get("quality_score", 0), x["result"].expectancy_r), reverse=True):
+            stopped = interrupt_funnel_if_needed()
+            if stopped: return stopped
             if any(self._similar(item, old, max_corr, max_overlap) for old in final):
                 item["funnel"]["stages"]["diversity"] = False; item["funnel"]["reasons"] = ["BEHAVIORAL_CLONE"]; rejected += 1; rejection_counts["BEHAVIORAL_CLONE"] = rejection_counts.get("BEHAVIORAL_CLONE", 0) + 1
                 store.add_strategy(item["strategy"], item["result"], item["funnel"], self.config.get("generator.seed"), "REJECTED", run_id)
                 continue
             item["funnel"]["stages"]["diversity"] = True; final.append(item)
             count_stage(family_telemetry, "DIVERSITY", item["strategy"])
+        stopped = interrupt_funnel_if_needed()
+        if stopped: return stopped
         counters["diversity_pass"], timings["diversity"] = len(final), time.perf_counter() - t_div
         for item in final:
             store.add_strategy(item["strategy"], item["result"], item["funnel"], self.config.get("generator.seed"), "CANDIDATE", run_id)

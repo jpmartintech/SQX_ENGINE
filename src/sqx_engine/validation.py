@@ -18,7 +18,7 @@ import pandas as pd
 from .backtest import FastEvaluator
 from .backtest.numba_core import NUMBA_AVAILABLE
 from .config import EngineConfig
-from .data.split import TimeSplit, audit_dataset, file_sha256
+from .data.split import TimeSplit, audit_dataset, file_sha256, partition_dataset, discovery_manifest
 from .features import prepare_features
 from .strategy import StrategyDefinition
 from .grammar import family_key
@@ -195,8 +195,9 @@ def load_source(config, splits, audit):
             row = db.execute('SELECT manifest FROM discovery_provenance WHERE run_id=?', (run['run_id'],)).fetchone()
             if row:
                 provenance = json.loads(row[0])
-                expected = {'scope': 'DEVELOPMENT_ONLY', 'dataset_sha256': audit['sha256'], 'splits': splits.manifest(),
-                            'config_hash': source_config.config_hash, 'backtest': source_config.get('backtest', {}), 'data_split': config.get('data_split')}
+                expected = discovery_manifest(source_config, audit, splits)
+                if source_config.get('temporal_policy') != config.get('temporal_policy') or source_config.get('data_split') != config.get('data_split'):
+                    raise ValueError('Discovery provenance temporal policy mismatch')
                 if provenance != expected: raise ValueError('Discovery provenance does not match dataset/splits/execution')
                 clean = True
         if not clean and config.get('test_type') != 'RETROSPECTIVE_SPLIT_TEST':
@@ -246,7 +247,7 @@ class ValidationFactory:
             raise ValueError('Outputs must be distinct and cannot overwrite inputs')
         frame, audit = audit_dataset(cfg.resolve_path('data_path'))
         if cfg.get('expected_sha256') and audit['sha256'] != cfg.get('expected_sha256'): raise ValueError('Dataset SHA256 mismatch')
-        splits = TimeSplit(**cfg.get('data_split', {})).partition(frame)
+        splits = partition_dataset(cfg, frame)
         strategies, source_config, source = load_source(cfg, splits, audit)
         if not NUMBA_AVAILABLE: raise RuntimeError('V1.6 requires Numba')
         timings = {'load_time': time.perf_counter() - started}
@@ -322,3 +323,27 @@ class ValidationFactory:
         summary_path = cfg.resolve_path('summary_path'); summary_path.parent.mkdir(parents=True, exist_ok=True)
         summary_path.write_text(json.dumps(json_safe(summary), indent=2, allow_nan=False) + '\n')
         return summary
+
+
+def export_stored_results(database, run_id, summary_path, csv_path):
+    """Recover exports from a committed run without evaluating or appending to it."""
+    paths = [Path(database).resolve(), Path(summary_path).resolve(), Path(csv_path).resolve()]
+    if len(set(paths)) != 3: raise ValueError('Export outputs must be distinct from each other and the database')
+    with sqlite3.connect(Path(database).resolve().as_uri()+'?mode=ro',uri=True) as db:
+        row = db.execute('SELECT summary FROM validation_runs WHERE validation_run_id=?',(run_id,)).fetchone()
+        if row is None: raise ValueError('Unknown validation run')
+        summary = json.loads(row[0])
+        survivors = db.execute('SELECT strategy_id,canonical_hash FROM final_candidates WHERE validation_run_id=? ORDER BY canonical_hash',(run_id,)).fetchall()
+        columns = ['strategy_id','canonical_hash']+[f'{stage}_{m}' for stage in ('development','validation','oos') for m in ('trade_count','pf','expectancy','sharpe','maxdd')]+['validation_pass','oos_pass']
+        rows=[]
+        for sid,h in survivors:
+            output={'strategy_id':sid,'canonical_hash':h,'validation_pass':True,'oos_pass':True}
+            for stage in ('development','validation','oos'):
+                m=json.loads(db.execute(f'SELECT metrics FROM {stage}_results WHERE validation_run_id=? AND strategy_id=?',(run_id,sid)).fetchone()[0])
+                for label,field in [('trade_count','trade_count'),('pf','profit_factor'),('expectancy','expectancy'),('sharpe','sharpe'),('maxdd','max_drawdown')]: output[f'{stage}_{label}']=m[field]
+            rows.append(output)
+    Path(summary_path).parent.mkdir(parents=True,exist_ok=True); Path(csv_path).parent.mkdir(parents=True,exist_ok=True)
+    Path(summary_path).write_text(json.dumps(summary,indent=2)+'\n')
+    with Path(csv_path).open('w',newline='') as handle:
+        writer=csv.DictWriter(handle,fieldnames=columns); writer.writeheader(); writer.writerows(rows)
+    return summary

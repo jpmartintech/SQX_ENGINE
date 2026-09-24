@@ -1,0 +1,30 @@
+{
+  "1k": {
+    "runtime": 3.625521119000041,
+    "throughput": 275.8224175717424,
+    "rss_mb": 577.79296875,
+    "peak_rss_mb": 583.09375,
+    "generation": 0.14579219091683626,
+    "fast_backtest": 1.1026162690104684,
+    "funnel": 1.4927356010011863,
+    "diversity": 0.1065868590012542,
+    "v17_runtime": 3.6231490169957397,
+    "runtime_change_pct": 0.06547072707123736,
+    "exact_sqlite_equivalence": true,
+    "strategies_checked": 1000
+  },
+  "10k": {
+    "runtime": 18.323513231000106,
+    "throughput": 545.7468703699129,
+    "rss_mb": 866.6484375,
+    "peak_rss_mb": 871.94921875,
+    "generation": 1.8892155812864075,
+    "fast_backtest": 8.71311914580292,
+    "funnel": 4.864655122997647,
+    "diversity": 0.9688233449996915,
+    "v17_runtime": 17.90148509300343,
+    "runtime_change_pct": 2.3575035021067725,
+    "exact_sqlite_equivalence": true,
+    "strategies_checked": 10000
+  }
+}

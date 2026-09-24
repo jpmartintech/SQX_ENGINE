@@ -1,0 +1,42 @@
+{
+  "factory": "SQX STRATEGY FACTORY",
+  "factory_version": "1.8.0",
+  "grammar": "V1.7 FROZEN",
+  "golden_fast_regression": "PASS",
+  "datasets": {
+    "markets": 7,
+    "timeframes": 3,
+    "available_combinations": 2
+  },
+  "library": {
+    "total": 303,
+    "by_market": {
+      "EURUSD": 303
+    },
+    "by_timeframe": {
+      "H1": 299,
+      "H4": 4
+    },
+    "by_family": {
+      "Momentum": 2,
+      "Momentum+Structure": 9,
+      "Momentum+Volatility": 4,
+      "Momentum+Volatility+Structure": 17,
+      "Structure": 1,
+      "Trend": 1,
+      "Trend+Momentum": 29,
+      "Trend+Momentum+Structure": 21,
+      "Trend+Momentum+Volatility": 11,
+      "Trend+Momentum+Volatility+Structure": 26,
+      "Trend+Structure": 6,
+      "Trend+Volatility": 16,
+      "Trend+Volatility+Structure": 145,
+      "Volatility": 1,
+      "Volatility+Structure": 14
+    }
+  },
+  "production": {
+    "SKIPPED_DATA_MISSING": 19,
+    "COMPLETE": 2
+  }
+}

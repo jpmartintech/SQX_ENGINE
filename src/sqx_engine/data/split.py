@@ -84,11 +84,45 @@ class DatasetSplit:
 def discovery_data(config):
     """Return only Development to every discovery consumer (features, fitness, funnel)."""
     from .loader import load_ohlcv
-    if not config.get('data_split'):
+    if not config.get('data_split') and not config.get('temporal_policy'):
         return load_ohlcv(config.resolve_path('data_path')), None
     frame, audit = audit_dataset(config.resolve_path('data_path'))
-    split = TimeSplit(**config.get('data_split')).partition(frame)
-    provenance = {'scope': 'DEVELOPMENT_ONLY', 'dataset_sha256': audit['sha256'],
-                  'splits': split.manifest(), 'config_hash': config.config_hash,
-                  'backtest': config.get('backtest', {}), 'data_split': config.get('data_split')}
+    split = partition_dataset(config, frame)
+    provenance = discovery_manifest(config, audit, split)
     return split.development_df, provenance
+
+
+def partition_dataset(config, frame):
+    """Legacy chronological split or explicit UTC date ranges, without fitting."""
+    policy = config.get('temporal_policy')
+    if not policy or policy.get('mode') == 'chronological':
+        return TimeSplit(**config.get('data_split', {'development': .7, 'validation': .15, 'oos': .15})).partition(frame)
+    if policy.get('mode') != 'explicit_dates': raise ValueError('Unknown temporal policy')
+    validate_ohlcv(frame)
+    parts, previous_end = [], None
+    for name in ('development', 'validation', 'oos'):
+        spec = policy[name]
+        start = pd.Timestamp(str(spec['start']))
+        start = start.tz_localize('UTC') if start.tzinfo is None else start.tz_convert('UTC')
+        end_raw = str(spec['end'])
+        if end_raw == 'latest':
+            if name != 'oos': raise ValueError('latest only allowed for OOS end')
+            end = frame.timestamp.max() + pd.Timedelta(nanoseconds=1)
+        else:
+            end = pd.Timestamp(end_raw)
+            end = end.tz_localize('UTC') if end.tzinfo is None else end.tz_convert('UTC')
+            # Date-only ends are inclusive days; timestamp ends are exclusive.
+            if len(end_raw) == 10: end += pd.Timedelta(days=1)
+        if end <= start or (previous_end is not None and start < previous_end): raise ValueError('Invalid or overlapping date ranges')
+        part = frame[(frame.timestamp >= start) & (frame.timestamp < end)].copy().reset_index(drop=True)
+        if part.empty: raise ValueError(f'Empty temporal partition: {name}')
+        parts.append(part); previous_end = end
+    return DatasetSplit(*parts)
+
+
+def discovery_manifest(config, audit, split):
+    result = {'scope': 'DEVELOPMENT_ONLY', 'dataset_sha256': audit['sha256'],
+              'splits': split.manifest(), 'config_hash': config.config_hash,
+              'backtest': config.get('backtest', {}), 'data_split': config.get('data_split')}
+    if config.get('temporal_policy'): result['temporal_policy'] = config.get('temporal_policy')
+    return result

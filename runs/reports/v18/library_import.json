@@ -1,0 +1,31 @@
+{
+  "eligible": 299,
+  "inserted": 299,
+  "duplicates_rejected": 0,
+  "new_observations": 299,
+  "stats": {
+    "total": 299,
+    "by_market": {
+      "EURUSD": 299
+    },
+    "by_timeframe": {
+      "H1": 299
+    },
+    "by_family": {
+      "Momentum": 2,
+      "Momentum+Structure": 9,
+      "Momentum+Volatility": 4,
+      "Momentum+Volatility+Structure": 17,
+      "Trend": 1,
+      "Trend+Momentum": 29,
+      "Trend+Momentum+Structure": 21,
+      "Trend+Momentum+Volatility": 11,
+      "Trend+Momentum+Volatility+Structure": 25,
+      "Trend+Structure": 6,
+      "Trend+Volatility": 15,
+      "Trend+Volatility+Structure": 145,
+      "Volatility": 1,
+      "Volatility+Structure": 13
+    }
+  }
+}

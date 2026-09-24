@@ -1,0 +1,1922 @@
+[
+  {
+    "canonical_hash": "b37839c98849028cb9af07733565a13106fa9eedbc7549d90102cf53615f495e",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"trend.close_ema.20\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":2.0,\"target_atr\":1.5,\"time_exit\":24,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 53,
+      "profit_factor": 0.9652566568054174,
+      "expectancy": -2.359054509056444e-05,
+      "expectancy_r": -0.03963333383632285,
+      "sharpe": -0.728001888797639,
+      "max_drawdown": 6.645244886385626e-07,
+      "win_rate": 0.5849056603773585,
+      "net_profit": -0.0012502988897999153,
+      "return_pct": -1.250298892196966e-07
+    }
+  },
+  {
+    "canonical_hash": "cc58a3caa1aa96d4c56d45b14ea029ed994149170dd7820bf4b5f688fd1f0130",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"volatility.atr_regime.14.50\",\"operator\":\"<\",\"value\":0.0}],\"stop_atr\":2.5,\"target_atr\":3.0,\"time_exit\":96,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 49,
+      "profit_factor": 0.805360507475002,
+      "expectancy": -0.00022347728370645715,
+      "expectancy_r": -0.11334854727422583,
+      "sharpe": -1.6589909417088071,
+      "max_drawdown": 2.1324937230019716e-06,
+      "win_rate": 0.42857142857142855,
+      "net_profit": -0.0109503869016164,
+      "return_pct": -1.0950386897246034e-06
+    }
+  },
+  {
+    "canonical_hash": "51d43b722cff96531ce48a5c2200d7c8358bea85adda4b51cc64d9b6d003d999",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"OR\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"rsi_14\",\"operator\":\"<\",\"value\":60.0},{\"feature\":\"rsi_14\",\"operator\":\">\",\"value\":35.0},{\"feature\":\"structure.fractal_low.5\",\"operator\":\"==\",\"value\":1.0},{\"feature\":\"trend.close_ema.20\",\"operator\":\"<\",\"value\":0.0}],\"stop_atr\":2.0,\"target_atr\":3.0,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 59,
+      "profit_factor": 1.0227949051065826,
+      "expectancy": 2.1671989940713482e-05,
+      "expectancy_r": 0.007266842593459343,
+      "sharpe": 0.09385404502194662,
+      "max_drawdown": 7.034984308120328e-07,
+      "win_rate": 0.423728813559322,
+      "net_profit": 0.0012786474065020954,
+      "return_pct": 1.2786474079540255e-07
+    }
+  },
+  {
+    "canonical_hash": "adfed3d51b8b4a6e1191f851f47b5d2ab7ab51d490942c32c45fda03b59e2705",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"rsi_14\",\"operator\":\"<\",\"value\":40.0},{\"feature\":\"volatility.atr_regime.28.50\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":2.0,\"target_atr\":3.0,\"time_exit\":24,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 14,
+      "profit_factor": 1.9236877328444202,
+      "expectancy": 0.0006139205176569998,
+      "expectancy_r": 0.4122686974265985,
+      "sharpe": 5.488015304353015,
+      "max_drawdown": 1.106322773375723e-06,
+      "win_rate": 0.5714285714285714,
+      "net_profit": 0.008594887247197997,
+      "return_pct": 8.594887246360372e-07
+    }
+  },
+  {
+    "canonical_hash": "6b8c63e8d89aef10cdd1a122d30dc634613e977e38f3ca55a003954a7eec025f",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"trend.ema_pair.20.50\",\"operator\":\"<\",\"value\":0.0}],\"stop_atr\":2.0,\"target_atr\":1.5,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 47,
+      "profit_factor": 0.9167835448963936,
+      "expectancy": -5.7119216631161726e-05,
+      "expectancy_r": -0.03632544699373061,
+      "sharpe": -0.676396830760925,
+      "max_drawdown": 6.529423546453472e-07,
+      "win_rate": 0.574468085106383,
+      "net_profit": -0.002684603181664601,
+      "return_pct": -2.6846031819793836e-07
+    }
+  },
+  {
+    "canonical_hash": "8666bea1129a7ea5e22fb3c84a1e94e8a2eae56a37561a4fea11d42eeab0dadc",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"OR\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"structure.break_low.2\",\"operator\":\"<\",\"value\":0.0},{\"feature\":\"structure.last.2\",\"operator\":\"==\",\"value\":1.0},{\"feature\":\"volatility.bb_middle.50.2\",\"operator\":\"<\",\"value\":0.0},{\"feature\":\"volatility.bb_middle.50.2\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":2.0,\"target_atr\":1.5,\"time_exit\":72,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 91,
+      "profit_factor": 0.7457667802685287,
+      "expectancy": -0.00019880616577121804,
+      "expectancy_r": -0.12106326059791846,
+      "sharpe": -2.2038808111163495,
+      "max_drawdown": 2.2501774998090696e-06,
+      "win_rate": 0.5384615384615384,
+      "net_profit": -0.018091361085180842,
+      "return_pct": -1.8091361089211944e-06
+    }
+  },
+  {
+    "canonical_hash": "1cd323c0b698ebe7bdd189409d0e01b43c82ace02cd8bbc8418176db3da95e7a",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"OR\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.roc.8\",\"operator\":\">\",\"value\":-0.005},{\"feature\":\"structure.fractal_high.5\",\"operator\":\"==\",\"value\":1.0}],\"stop_atr\":1.0,\"target_atr\":1.5,\"time_exit\":24,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 119,
+      "profit_factor": 0.952887928613723,
+      "expectancy": -2.327943381112444e-05,
+      "expectancy_r": -0.026730518863667736,
+      "sharpe": -0.3434065349679589,
+      "max_drawdown": 5.046820995630697e-07,
+      "win_rate": 0.4369747899159664,
+      "net_profit": -0.002770252623523808,
+      "return_pct": -2.770252626183023e-07
+    }
+  },
+  {
+    "canonical_hash": "c1315d54e2e2ab1d16d623430856a11977e10bd11856fd2f89413f9c16fa37bb",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"structure.break_high.5\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":1.5,\"target_atr\":2.0,\"time_exit\":72,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 26,
+      "profit_factor": 1.2270497788739665,
+      "expectancy": 0.00014259221770973358,
+      "expectancy_r": 0.08253873114219215,
+      "sharpe": 1.1204589364959223,
+      "max_drawdown": 3.938027268304722e-07,
+      "win_rate": 0.5,
+      "net_profit": 0.0037073976604530727,
+      "return_pct": 3.7073976577595147e-07
+    }
+  },
+  {
+    "canonical_hash": "ebeeecc05185c207e4fb0cfb9e4b0edbb8e52871d1caea62c739900de168654e",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"structure.last.2\",\"operator\":\"==\",\"value\":1.0},{\"feature\":\"structure.last.3\",\"operator\":\"==\",\"value\":2.0},{\"feature\":\"trend.breakout_high.50\",\"operator\":\">\",\"value\":0.0},{\"feature\":\"trend.ema_slope.200.1\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":2.5,\"target_atr\":2.0,\"time_exit\":72,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 0,
+      "profit_factor": 0.0,
+      "expectancy": 0.0,
+      "expectancy_r": 0.0,
+      "sharpe": 0.0,
+      "max_drawdown": 0.0,
+      "win_rate": 0.0,
+      "net_profit": 0.0,
+      "return_pct": 0.0
+    }
+  },
+  {
+    "canonical_hash": "15d21ebf70529bf7ee1da837107607f9b9a86c873ee4a870ace5e562cad6f839",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"structure.last.2\",\"operator\":\"==\",\"value\":3.0}],\"stop_atr\":1.5,\"target_atr\":1.5,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 40,
+      "profit_factor": 1.3341495049699412,
+      "expectancy": 0.00015355267757901636,
+      "expectancy_r": 0.1860001274540418,
+      "sharpe": 3.128539749598217,
+      "max_drawdown": 6.242107101570582e-07,
+      "win_rate": 0.625,
+      "net_profit": 0.0061421071031606544,
+      "return_pct": 6.142107102924399e-07
+    }
+  },
+  {
+    "canonical_hash": "2c4cffde75725e9e9fab74af5f96aa730ff64e613d036db90802e15301d72406",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"rsi_14\",\"operator\":\">\",\"value\":35.0}],\"stop_atr\":1.5,\"target_atr\":4.0,\"time_exit\":96,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 55,
+      "profit_factor": 1.2093264832962451,
+      "expectancy": 0.0001801654887284798,
+      "expectancy_r": 0.1829863120394806,
+      "sharpe": 1.6674774645945498,
+      "max_drawdown": 1.1776712392020272e-06,
+      "win_rate": 0.34545454545454546,
+      "net_profit": 0.00990910188006639,
+      "return_pct": 9.909101874594484e-07
+    }
+  },
+  {
+    "canonical_hash": "ff8c32ca2f602bbeb71de675ab03454fccd166de167186b942b0ec0daea0517a",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.willr.14\",\"operator\":\">\",\"value\":-20.0},{\"feature\":\"rsi_14\",\"operator\":\">\",\"value\":70.0},{\"feature\":\"structure.break_low.5\",\"operator\":\"<\",\"value\":0.0}],\"stop_atr\":2.5,\"target_atr\":3.0,\"time_exit\":24,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 0,
+      "profit_factor": 0.0,
+      "expectancy": 0.0,
+      "expectancy_r": 0.0,
+      "sharpe": 0.0,
+      "max_drawdown": 0.0,
+      "win_rate": 0.0,
+      "net_profit": 0.0,
+      "return_pct": 0.0
+    }
+  },
+  {
+    "canonical_hash": "987d27062aaab9829beb8eb2ad6bc5b70522481b71b68d4bc56b5b2a2c3cf2af",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"trend.ema_slope.10.6\",\"operator\":\"<\",\"value\":0.0}],\"stop_atr\":2.0,\"target_atr\":3.0,\"time_exit\":96,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 40,
+      "profit_factor": 0.49962134091373517,
+      "expectancy": -0.0006118192040187153,
+      "expectancy_r": -0.38149678925679653,
+      "sharpe": -5.468371594385161,
+      "max_drawdown": 2.855260523028846e-06,
+      "win_rate": 0.275,
+      "net_profit": -0.024472768160748615,
+      "return_pct": -2.4472768164196523e-06
+    }
+  },
+  {
+    "canonical_hash": "5487c4fe0c70f823b73bee7b7259aa8457f6ffeeccdff208c51d463d6cdb9629",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.roc.16\",\"operator\":\"<\",\"value\":0.005}],\"stop_atr\":1.0,\"target_atr\":2.0,\"time_exit\":72,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 113,
+      "profit_factor": 1.1674000549611265,
+      "expectancy": 8.663409481920808e-05,
+      "expectancy_r": 0.10255137773983795,
+      "sharpe": 1.1072762225924715,
+      "max_drawdown": 9.889652725178166e-07,
+      "win_rate": 0.40707964601769914,
+      "net_profit": 0.009789652714570513,
+      "return_pct": 9.789652726244213e-07
+    }
+  },
+  {
+    "canonical_hash": "8240f1d11629de87aac120c14c9131edddd2e9ccb1c32eaddc37a2110b42a053",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.willr.28\",\"operator\":\">\",\"value\":-80.0},{\"feature\":\"trend.ema_slope.10.12\",\"operator\":\"<\",\"value\":0.0},{\"feature\":\"volatility.bb_middle.50.2\",\"operator\":\"<\",\"value\":0.0},{\"feature\":\"volatility.bb_upper.20.2\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":2.0,\"target_atr\":2.0,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 0,
+      "profit_factor": 0.0,
+      "expectancy": 0.0,
+      "expectancy_r": 0.0,
+      "sharpe": 0.0,
+      "max_drawdown": 0.0,
+      "win_rate": 0.0,
+      "net_profit": 0.0,
+      "return_pct": 0.0
+    }
+  },
+  {
+    "canonical_hash": "c6d41b32aa729bc13d56f9f26d95472cce4427a607763cacfbe61b4cb351a54f",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"OR\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"trend.ema_slope.50.6\",\"operator\":\"<\",\"value\":0.0},{\"feature\":\"volatility.atr_regime.14.50\",\"operator\":\"<\",\"value\":0.0},{\"feature\":\"volatility.bb_middle.50.2\",\"operator\":\">\",\"value\":0.0},{\"feature\":\"volatility.compression.20.2.1.5\",\"operator\":\"==\",\"value\":-1.0}],\"stop_atr\":2.0,\"target_atr\":2.0,\"time_exit\":72,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 82,
+      "profit_factor": 0.8512858813394892,
+      "expectancy": -0.00012633013780487455,
+      "expectancy_r": -0.07666776140026563,
+      "sharpe": -1.224837284604701,
+      "max_drawdown": 1.171354460893781e-06,
+      "win_rate": 0.4878048780487805,
+      "net_profit": -0.010359071299999714,
+      "return_pct": -1.035907129853797e-06
+    }
+  },
+  {
+    "canonical_hash": "fa61a635f93267d8e50f3bce8f9008b0d8a2a95c6fecd320d4a7234a64700f12",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"OR\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"structure.fractal_high.2\",\"operator\":\"==\",\"value\":1.0},{\"feature\":\"volatility.bb_middle.50.2\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":2.5,\"target_atr\":2.0,\"time_exit\":24,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 52,
+      "profit_factor": 1.2080968600484172,
+      "expectancy": 0.0001569187455397829,
+      "expectancy_r": 0.09033180639739019,
+      "sharpe": 1.6554884171729891,
+      "max_drawdown": 9.82486853172304e-07,
+      "win_rate": 0.6346153846153846,
+      "net_profit": 0.008159774768068711,
+      "return_pct": 8.159774773641715e-07
+    }
+  },
+  {
+    "canonical_hash": "1a1e43ab650ff8492aee4dc8ab743d2c6ee04a0e18f298fbcb5df0bf4264699a",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.willr.28\",\"operator\":\">\",\"value\":-20.0},{\"feature\":\"momentum.willr.7\",\"operator\":\"<\",\"value\":-50.0}],\"stop_atr\":1.5,\"target_atr\":2.0,\"time_exit\":24,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 11,
+      "profit_factor": 0.6777752394250831,
+      "expectancy": -0.0002699168788008274,
+      "expectancy_r": -0.2331648897679188,
+      "sharpe": -3.2945566231483254,
+      "max_drawdown": 4.922848262140179e-07,
+      "win_rate": 0.36363636363636365,
+      "net_profit": -0.002969085666809101,
+      "return_pct": -2.969085666215676e-07
+    }
+  },
+  {
+    "canonical_hash": "d1936b8b6a9c713a8bf6ef5a4d350251d85c7220ded87b44a72094746398c090",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.roc.16\",\"operator\":\">\",\"value\":-0.005}],\"stop_atr\":2.5,\"target_atr\":3.0,\"time_exit\":24,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 51,
+      "profit_factor": 0.9041565602476032,
+      "expectancy": -0.00010708416660514805,
+      "expectancy_r": -0.04451790012761848,
+      "sharpe": -0.6507730593766228,
+      "max_drawdown": 1.0728300094342558e-06,
+      "win_rate": 0.45098039215686275,
+      "net_profit": -0.005461292496862551,
+      "return_pct": -5.46129249823224e-07
+    }
+  },
+  {
+    "canonical_hash": "b8b5d2867fe2f9367e6589b98a4ddaa1b74e9d5781bde6141f72f5b006a87005",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"OR\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"structure.break_low.5\",\"operator\":\"<\",\"value\":0.0},{\"feature\":\"structure.fractal_low.2\",\"operator\":\"==\",\"value\":1.0},{\"feature\":\"structure.last.3\",\"operator\":\"==\",\"value\":4.0},{\"feature\":\"trend.ema_slope.200.1\",\"operator\":\"<\",\"value\":0.0}],\"stop_atr\":2.5,\"target_atr\":3.0,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 43,
+      "profit_factor": 1.6181196230598427,
+      "expectancy": 0.0004989431312536171,
+      "expectancy_r": 0.28759087596505445,
+      "sharpe": 4.2901563543585,
+      "max_drawdown": 2.4951610757852904e-06,
+      "win_rate": 0.6046511627906976,
+      "net_profit": 0.021454554643905534,
+      "return_pct": 2.1454554641753276e-06
+    }
+  },
+  {
+    "canonical_hash": "ab0efbc8ab83a006aa7fec2ea904ddaba497e591cdfff7b0580fd36048debd7b",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"structure.break_low.3\",\"operator\":\"<\",\"value\":0.0}],\"stop_atr\":2.0,\"target_atr\":3.0,\"time_exit\":96,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 17,
+      "profit_factor": 0.7836258935082214,
+      "expectancy": -0.00021667421554957779,
+      "expectancy_r": -0.12218952503919282,
+      "sharpe": -1.6530116516143127,
+      "max_drawdown": 7.926146701720427e-07,
+      "win_rate": 0.35294117647058826,
+      "net_profit": -0.0036834616643428224,
+      "return_pct": -3.6834616656822305e-07
+    }
+  },
+  {
+    "canonical_hash": "718e157917aa64f31ff861a3ed9783868858549e152552b42b79fe3fd02f3d8b",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.roc.16\",\"operator\":\">\",\"value\":0.0},{\"feature\":\"structure.break_low.2\",\"operator\":\"<\",\"value\":0.0},{\"feature\":\"structure.last.3\",\"operator\":\"==\",\"value\":1.0},{\"feature\":\"trend.ema_slope.10.6\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":1.0,\"target_atr\":4.0,\"time_exit\":96,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 0,
+      "profit_factor": 0.0,
+      "expectancy": 0.0,
+      "expectancy_r": 0.0,
+      "sharpe": 0.0,
+      "max_drawdown": 0.0,
+      "win_rate": 0.0,
+      "net_profit": 0.0,
+      "return_pct": 0.0
+    }
+  },
+  {
+    "canonical_hash": "183f10185dcc7d19ba94d7678ad7730cf86660e5c84cde3db5475ecef5ea8d50",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"rsi_14\",\"operator\":\"<\",\"value\":30.0},{\"feature\":\"rsi_14\",\"operator\":\">\",\"value\":30.0},{\"feature\":\"structure.last.5\",\"operator\":\"==\",\"value\":2.0},{\"feature\":\"trend.ema_slope.200.3\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":1.0,\"target_atr\":4.0,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 0,
+      "profit_factor": 0.0,
+      "expectancy": 0.0,
+      "expectancy_r": 0.0,
+      "sharpe": 0.0,
+      "max_drawdown": 0.0,
+      "win_rate": 0.0,
+      "net_profit": 0.0,
+      "return_pct": 0.0
+    }
+  },
+  {
+    "canonical_hash": "bf5304448ea686403928d2cae0aecf9107eace02cb62e110264d23f2d50fafcc",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.roc.8\",\"operator\":\">\",\"value\":-0.005},{\"feature\":\"trend.ema_slope.10.1\",\"operator\":\"<\",\"value\":0.0},{\"feature\":\"volatility.atr_regime.14.50\",\"operator\":\">\",\"value\":0.0},{\"feature\":\"volatility.bb_upper.20.2\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":1.5,\"target_atr\":1.5,\"time_exit\":24,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 0,
+      "profit_factor": 0.0,
+      "expectancy": 0.0,
+      "expectancy_r": 0.0,
+      "sharpe": 0.0,
+      "max_drawdown": 0.0,
+      "win_rate": 0.0,
+      "net_profit": 0.0,
+      "return_pct": 0.0
+    }
+  },
+  {
+    "canonical_hash": "fbea56e96f3f7ec2e79f04633a68a49c3feec7a3fbc60d45e4bdb9b4177c36c9",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"trend.ema_slope.20.3\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":1.5,\"target_atr\":4.0,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 41,
+      "profit_factor": 0.9806142198848548,
+      "expectancy": -1.7862907292513545e-05,
+      "expectancy_r": -0.010336605473361408,
+      "sharpe": -0.09837295920631436,
+      "max_drawdown": 6.130024776211939e-07,
+      "win_rate": 0.2926829268292683,
+      "net_profit": -0.0007323791989930553,
+      "return_pct": -7.32379196177746e-08
+    }
+  },
+  {
+    "canonical_hash": "3ebb3b58ed6bdf9c89309a5e548be061c7efbf31d28120827296f52b39c7d7c9",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"trend.ema_slope.100.1\",\"operator\":\"<\",\"value\":0.0}],\"stop_atr\":2.0,\"target_atr\":4.0,\"time_exit\":96,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 24,
+      "profit_factor": 1.2704659134804581,
+      "expectancy": 0.00026900808842642764,
+      "expectancy_r": 0.1985097196122094,
+      "sharpe": 2.1445068924013024,
+      "max_drawdown": 9.54468353484117e-07,
+      "win_rate": 0.4166666666666667,
+      "net_profit": 0.006456194122234263,
+      "return_pct": 6.456194123760639e-07
+    }
+  },
+  {
+    "canonical_hash": "340d47891f039df9c820bdd0a48e3057bee6f33fc9c08fe8b16166d6c2f3ee14",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"OR\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.willr.7\",\"operator\":\">\",\"value\":-50.0},{\"feature\":\"rsi_14\",\"operator\":\">\",\"value\":60.0},{\"feature\":\"structure.last.2\",\"operator\":\"==\",\"value\":4.0},{\"feature\":\"volatility.bb_middle.20.2\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":1.0,\"target_atr\":4.0,\"time_exit\":96,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 55,
+      "profit_factor": 1.3498663813394065,
+      "expectancy": 0.00022385140814541675,
+      "expectancy_r": 0.3276984871486113,
+      "sharpe": 2.293689286490871,
+      "max_drawdown": 1.5856663761951495e-06,
+      "win_rate": 0.2909090909090909,
+      "net_profit": 0.012311827447997921,
+      "return_pct": 1.2311827459754454e-06
+    }
+  },
+  {
+    "canonical_hash": "9f2fdea65db046a4d297c4db5a42b11a9338de7cdfe9abfe6ef8cf6bf8818975",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"OR\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.roc.16\",\"operator\":\"<\",\"value\":0.0},{\"feature\":\"structure.last.2\",\"operator\":\"==\",\"value\":4.0},{\"feature\":\"trend.close_ema.100\",\"operator\":\">\",\"value\":0.0},{\"feature\":\"volatility.compression.20.2.1.5\",\"operator\":\"==\",\"value\":1.0}],\"stop_atr\":1.5,\"target_atr\":2.0,\"time_exit\":24,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 87,
+      "profit_factor": 0.898796595244276,
+      "expectancy": -7.31101557565096e-05,
+      "expectancy_r": -0.06556832790266295,
+      "sharpe": -0.8991313925853354,
+      "max_drawdown": 8.268561196018708e-07,
+      "win_rate": 0.4367816091954023,
+      "net_profit": -0.006360583550816336,
+      "return_pct": -6.360583554299026e-07
+    }
+  },
+  {
+    "canonical_hash": "0e5d7ed33eaf3ccb031f30c91c38c544f0c85b6884c33852250b17a618a93bc7",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"structure.last.5\",\"operator\":\"==\",\"value\":3.0}],\"stop_atr\":1.5,\"target_atr\":1.5,\"time_exit\":72,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 30,
+      "profit_factor": 1.2555183332256177,
+      "expectancy": 0.00012712646626918957,
+      "expectancy_r": 0.06457923166981162,
+      "sharpe": 1.0470399767803817,
+      "max_drawdown": 5.649167664159904e-07,
+      "win_rate": 0.5666666666666667,
+      "net_profit": 0.0038137939880756875,
+      "return_pct": 3.8137939872839866e-07
+    }
+  },
+  {
+    "canonical_hash": "6e23e71b4a20378cf8978f2ef6935d16c87562e7e05b8d2d3a88adddafc9a49a",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"OR\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.willr.28\",\"operator\":\"<\",\"value\":-80.0},{\"feature\":\"volatility.bb_lower.20.2\",\"operator\":\"<\",\"value\":0.0}],\"stop_atr\":2.0,\"target_atr\":3.0,\"time_exit\":72,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 25,
+      "profit_factor": 0.905287274537582,
+      "expectancy": -9.143217451369024e-05,
+      "expectancy_r": 0.004714074779908861,
+      "sharpe": 0.06175515357104887,
+      "max_drawdown": 8.470617678540294e-07,
+      "win_rate": 0.44,
+      "net_profit": -0.002285804362842256,
+      "return_pct": -2.2858043646767356e-07
+    }
+  },
+  {
+    "canonical_hash": "8a6e8f965fbc30c89098b61f820d95871c537ea1487ca6d262fa1689e018e04c",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"structure.last.5\",\"operator\":\"==\",\"value\":1.0},{\"feature\":\"trend.ema_slope.200.6\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":1.0,\"target_atr\":1.5,\"time_exit\":24,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 23,
+      "profit_factor": 0.4375464995420822,
+      "expectancy": -0.0003743361758362809,
+      "expectancy_r": -0.4730216485630233,
+      "sharpe": -6.833651256379634,
+      "max_drawdown": 1.0296617685526143e-06,
+      "win_rate": 0.2608695652173913,
+      "net_profit": -0.00860973204423446,
+      "return_pct": -8.609732041753304e-07
+    }
+  },
+  {
+    "canonical_hash": "47f17c2ef0334a82efdad2077bcf784712cb138dda796089fd34233c1239fe7d",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"OR\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"structure.last.3\",\"operator\":\"==\",\"value\":2.0},{\"feature\":\"volatility.compression.20.2.1.5\",\"operator\":\"==\",\"value\":-1.0}],\"stop_atr\":1.5,\"target_atr\":4.0,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 52,
+      "profit_factor": 1.0200746064366881,
+      "expectancy": 1.8422438146342356e-05,
+      "expectancy_r": 0.04543794830350892,
+      "sharpe": 0.4265978305244283,
+      "max_drawdown": 6.579420152775128e-07,
+      "win_rate": 0.3076923076923077,
+      "net_profit": 0.0009579667836098025,
+      "return_pct": 9.57966785897213e-08
+    }
+  },
+  {
+    "canonical_hash": "776c24d83a6fd0f9d52a4a5b58d6611fd8d049f6d772d13c80d08720866afed3",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.roc.8\",\"operator\":\">\",\"value\":0.005},{\"feature\":\"momentum.willr.28\",\"operator\":\"<\",\"value\":-80.0},{\"feature\":\"trend.ema_slope.50.6\",\"operator\":\"<\",\"value\":0.0}],\"stop_atr\":1.5,\"target_atr\":2.0,\"time_exit\":96,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 0,
+      "profit_factor": 0.0,
+      "expectancy": 0.0,
+      "expectancy_r": 0.0,
+      "sharpe": 0.0,
+      "max_drawdown": 0.0,
+      "win_rate": 0.0,
+      "net_profit": 0.0,
+      "return_pct": 0.0
+    }
+  },
+  {
+    "canonical_hash": "9e72672c892e078c1649840836358cebd03867590187460cdb089c2b142856c1",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.roc.32\",\"operator\":\"<\",\"value\":0.0}],\"stop_atr\":1.0,\"target_atr\":1.5,\"time_exit\":96,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 64,
+      "profit_factor": 1.0540106921089794,
+      "expectancy": 2.5247539577748927e-05,
+      "expectancy_r": 0.020354814533534875,
+      "sharpe": 0.26105030178464533,
+      "max_drawdown": 5.882187921088189e-07,
+      "win_rate": 0.453125,
+      "net_profit": 0.0016158425329759313,
+      "return_pct": 1.615842537550094e-07
+    }
+  },
+  {
+    "canonical_hash": "60298768b5e3ae2688dc5299292812b9021572ce6a3a74b80bec3042f0ad01b4",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.roc.16\",\"operator\":\"<\",\"value\":0.0},{\"feature\":\"trend.ema_slope.10.1\",\"operator\":\"<\",\"value\":0.0}],\"stop_atr\":2.5,\"target_atr\":4.0,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 21,
+      "profit_factor": 0.8956884379626934,
+      "expectancy": -0.00013207468046348535,
+      "expectancy_r": -0.02504935064760467,
+      "sharpe": -0.31984917805215723,
+      "max_drawdown": 6.157924228318734e-07,
+      "win_rate": 0.38095238095238093,
+      "net_profit": -0.002773568289733192,
+      "return_pct": -2.7735682905927206e-07
+    }
+  },
+  {
+    "canonical_hash": "52ddb1287598a9be53828e003e04b4040d920667fd14ece2e234aa1619371e29",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.roc.32\",\"operator\":\">\",\"value\":-0.005},{\"feature\":\"trend.ema_slope.200.12\",\"operator\":\"<\",\"value\":0.0}],\"stop_atr\":2.5,\"target_atr\":3.0,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 15,
+      "profit_factor": 2.1109921684668995,
+      "expectancy": 0.000792500630606804,
+      "expectancy_r": 0.41629297470645094,
+      "sharpe": 6.3776799199084735,
+      "max_drawdown": 9.729505945870188e-07,
+      "win_rate": 0.6666666666666666,
+      "net_profit": 0.01188750945910206,
+      "return_pct": 1.188750945901873e-06
+    }
+  },
+  {
+    "canonical_hash": "ab4a912b8c886b0b4041520b316654858ab995ecf486690475813577f2612a36",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"OR\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.willr.7\",\"operator\":\">\",\"value\":-80.0},{\"feature\":\"structure.break_low.3\",\"operator\":\"<\",\"value\":0.0}],\"stop_atr\":2.0,\"target_atr\":2.0,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 83,
+      "profit_factor": 0.866636486342843,
+      "expectancy": -0.00010994112998203518,
+      "expectancy_r": -0.04163386960525445,
+      "sharpe": -0.6663612940782468,
+      "max_drawdown": 1.17985452470748e-06,
+      "win_rate": 0.5060240963855421,
+      "net_profit": -0.00912511378850892,
+      "return_pct": -9.125113791252915e-07
+    }
+  },
+  {
+    "canonical_hash": "149f6a71c9ed0f43f58afa28fca881102bce5d6c470e0599600ad4c38f68ed0d",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"trend.ema_slope.50.12\",\"operator\":\"<\",\"value\":0.0},{\"feature\":\"volatility.bb_middle.50.2\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":1.0,\"target_atr\":1.5,\"time_exit\":72,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 11,
+      "profit_factor": 1.0745432299004885,
+      "expectancy": 3.6070755168446146e-05,
+      "expectancy_r": 0.011835428973621654,
+      "sharpe": 0.15052274727034204,
+      "max_drawdown": 2.1765297151432605e-07,
+      "win_rate": 0.45454545454545453,
+      "net_profit": 0.00039677830685290764,
+      "return_pct": 3.967783057667873e-08
+    }
+  },
+  {
+    "canonical_hash": "a4b750ed26dbf865d2f0263a4fde06db8ebb048640fe3a1e4649c6939e2e33c6",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"OR\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.roc.32\",\"operator\":\">\",\"value\":0.0},{\"feature\":\"volatility.atr_regime.28.50\",\"operator\":\"<\",\"value\":0.0},{\"feature\":\"volatility.bb_lower.20.2\",\"operator\":\"<\",\"value\":0.0},{\"feature\":\"volatility.bb_middle.20.2\",\"operator\":\"<\",\"value\":0.0}],\"stop_atr\":2.0,\"target_atr\":1.5,\"time_exit\":72,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 90,
+      "profit_factor": 0.7650611407870903,
+      "expectancy": -0.0001811303083231494,
+      "expectancy_r": -0.11061907800982941,
+      "sharpe": -2.015647520945874,
+      "max_drawdown": 2.2088433765020455e-06,
+      "win_rate": 0.5444444444444444,
+      "net_profit": -0.016301727749083447,
+      "return_pct": -1.6301727752132678e-06
+    }
+  },
+  {
+    "canonical_hash": "6bfa48bcba83284844faea83b45d9f08d1aeffab592de36161c17a69c997cd5a",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"structure.last.5\",\"operator\":\"==\",\"value\":4.0},{\"feature\":\"trend.ema_slope.20.6\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":1.0,\"target_atr\":4.0,\"time_exit\":24,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 14,
+      "profit_factor": 0.0,
+      "expectancy": -0.0008564310797213265,
+      "expectancy_r": -1.1328716424479097,
+      "sharpe": -1935.0789333093414,
+      "max_drawdown": 1.1990035116468789e-06,
+      "win_rate": 0.0,
+      "net_profit": -0.011990035116098571,
+      "return_pct": -1.1990035116982156e-06
+    }
+  },
+  {
+    "canonical_hash": "fd20689830f847d56df833e6aaf61e532ad3d7545416334c64b3f8ecd6e3524a",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"trend.ema_pair.20.50\",\"operator\":\"<\",\"value\":0.0},{\"feature\":\"volatility.bb_upper.20.2\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":2.0,\"target_atr\":2.0,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 4,
+      "profit_factor": 0.826154169474643,
+      "expectancy": -0.00015858202728242778,
+      "expectancy_r": -0.0601101696730269,
+      "sharpe": -0.9562450859277505,
+      "max_drawdown": 2.1620049119519535e-07,
+      "win_rate": 0.5,
+      "net_profit": -0.0006343281091297111,
+      "return_pct": -6.343281089282726e-08
+    }
+  },
+  {
+    "canonical_hash": "164abb50e67605dbe7052df9eaea8042d33b1a913a3d2ed2e5ccac7f0b20e76c",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"trend.ema_pair.20.100\",\"operator\":\"<\",\"value\":0.0}],\"stop_atr\":2.0,\"target_atr\":2.0,\"time_exit\":72,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 35,
+      "profit_factor": 0.9072549644932553,
+      "expectancy": -7.67266579618738e-05,
+      "expectancy_r": -0.026954997240732116,
+      "sharpe": -0.43156038929425916,
+      "max_drawdown": 4.4776783070119564e-07,
+      "win_rate": 0.5142857142857142,
+      "net_profit": -0.002685433028665583,
+      "return_pct": -2.685433031501816e-07
+    }
+  },
+  {
+    "canonical_hash": "c67f78877cd336a025a9a33bdc3f09df5696b48b8f12e196a6427528c1373360",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.willr.28\",\"operator\":\">\",\"value\":-80.0},{\"feature\":\"structure.break_low.3\",\"operator\":\"<\",\"value\":0.0},{\"feature\":\"trend.ema_slope.10.12\",\"operator\":\"<\",\"value\":0.0},{\"feature\":\"volatility.bb_middle.50.2\",\"operator\":\"<\",\"value\":0.0}],\"stop_atr\":2.0,\"target_atr\":3.0,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 2,
+      "profit_factor": 0.0,
+      "expectancy": -0.0017009361373232612,
+      "expectancy_r": -1.062504084207288,
+      "sharpe": -10583.994082431078,
+      "max_drawdown": 3.4018722744804107e-07,
+      "win_rate": 0.0,
+      "net_profit": -0.0034018722746465223,
+      "return_pct": -3.401872274988449e-07
+    }
+  },
+  {
+    "canonical_hash": "c780f55361a0833f59c568298ee1bbd090425b3dd62b6d7e7b99666c3263e6d7",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.willr.14\",\"operator\":\">\",\"value\":-20.0},{\"feature\":\"rsi_14\",\"operator\":\">\",\"value\":70.0},{\"feature\":\"structure.break_low.5\",\"operator\":\"<\",\"value\":0.0},{\"feature\":\"trend.ema_pair.20.50\",\"operator\":\"<\",\"value\":0.0}],\"stop_atr\":2.5,\"target_atr\":1.5,\"time_exit\":24,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 0,
+      "profit_factor": 0.0,
+      "expectancy": 0.0,
+      "expectancy_r": 0.0,
+      "sharpe": 0.0,
+      "max_drawdown": 0.0,
+      "win_rate": 0.0,
+      "net_profit": 0.0,
+      "return_pct": 0.0
+    }
+  },
+  {
+    "canonical_hash": "ab0becaba27115cfa3755bba0b042edee63e9a6fb087e2647d783572aa37a7e8",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.roc.8\",\"operator\":\">\",\"value\":0.005},{\"feature\":\"structure.last.5\",\"operator\":\"==\",\"value\":3.0},{\"feature\":\"trend.ema_slope.50.6\",\"operator\":\"<\",\"value\":0.0}],\"stop_atr\":1.5,\"target_atr\":1.5,\"time_exit\":96,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 0,
+      "profit_factor": 0.0,
+      "expectancy": 0.0,
+      "expectancy_r": 0.0,
+      "sharpe": 0.0,
+      "max_drawdown": 0.0,
+      "win_rate": 0.0,
+      "net_profit": 0.0,
+      "return_pct": 0.0
+    }
+  },
+  {
+    "canonical_hash": "2b3d9d95a53c7a0a3929f29b35a067ac95c94fc48f4d0b8d5c274066c66681d7",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"OR\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.roc.16\",\"operator\":\"<\",\"value\":0.005},{\"feature\":\"momentum.willr.7\",\"operator\":\">\",\"value\":-50.0},{\"feature\":\"volatility.bb_middle.20.2\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":1.5,\"target_atr\":4.0,\"time_exit\":72,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 60,
+      "profit_factor": 1.0253553394988293,
+      "expectancy": 2.2803480614771216e-05,
+      "expectancy_r": 0.04956897289104105,
+      "sharpe": 0.4694094660066254,
+      "max_drawdown": 9.587513284714078e-07,
+      "win_rate": 0.31666666666666665,
+      "net_profit": 0.0013682088368862728,
+      "return_pct": 1.368208835117457e-07
+    }
+  },
+  {
+    "canonical_hash": "a2aa8e8c2079697a22d1406951268002a86850130916dbc5c274be82cb611d0e",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"structure.last.5\",\"operator\":\"==\",\"value\":3.0},{\"feature\":\"trend.breakout_low.100\",\"operator\":\"<\",\"value\":0.0}],\"stop_atr\":1.5,\"target_atr\":2.0,\"time_exit\":72,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 0,
+      "profit_factor": 0.0,
+      "expectancy": 0.0,
+      "expectancy_r": 0.0,
+      "sharpe": 0.0,
+      "max_drawdown": 0.0,
+      "win_rate": 0.0,
+      "net_profit": 0.0,
+      "return_pct": 0.0
+    }
+  },
+  {
+    "canonical_hash": "c045029d64f9f33c7e22465b003d39390922187aba6fe46e57cda1fe17a7e33e",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.willr.14\",\"operator\":\">\",\"value\":-20.0},{\"feature\":\"structure.break_low.5\",\"operator\":\"<\",\"value\":0.0}],\"stop_atr\":2.0,\"target_atr\":3.0,\"time_exit\":24,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 0,
+      "profit_factor": 0.0,
+      "expectancy": 0.0,
+      "expectancy_r": 0.0,
+      "sharpe": 0.0,
+      "max_drawdown": 0.0,
+      "win_rate": 0.0,
+      "net_profit": 0.0,
+      "return_pct": 0.0
+    }
+  },
+  {
+    "canonical_hash": "6a392844cd39328f566d971fd7fb71e1a48e68fc73554e9368d4207bbef8e10b",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"structure.break_low.5\",\"operator\":\"<\",\"value\":0.0}],\"stop_atr\":1.5,\"target_atr\":4.0,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 22,
+      "profit_factor": 0.7139418860657881,
+      "expectancy": -0.0002758397220431383,
+      "expectancy_r": -0.20391552395722437,
+      "sharpe": -2.1230241899327407,
+      "max_drawdown": 6.838565785074024e-07,
+      "win_rate": 0.22727272727272727,
+      "net_profit": -0.0060684738849490424,
+      "return_pct": -6.068473883402703e-07
+    }
+  },
+  {
+    "canonical_hash": "39faa00c6db65f39a31c508dfe47bf474a74d9387ca6df917b92fb104e12fb2d",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"OR\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"rsi_14\",\"operator\":\"<\",\"value\":60.0},{\"feature\":\"rsi_14\",\"operator\":\">\",\"value\":35.0}],\"stop_atr\":2.0,\"target_atr\":1.5,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 94,
+      "profit_factor": 0.7628562934009263,
+      "expectancy": -0.00018286148624908975,
+      "expectancy_r": -0.1140183465453463,
+      "sharpe": -2.07651771096781,
+      "max_drawdown": 2.2088433765020455e-06,
+      "win_rate": 0.5425531914893617,
+      "net_profit": -0.017188979707414436,
+      "return_pct": -1.7188979709592545e-06
+    }
+  },
+  {
+    "canonical_hash": "f65dd64764bb1877bb1a8f5749188fc104b6257eeb54b1fa9db488730b2951e8",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"structure.last.3\",\"operator\":\"==\",\"value\":1.0}],\"stop_atr\":2.0,\"target_atr\":3.0,\"time_exit\":96,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 25,
+      "profit_factor": 1.2867299738974223,
+      "expectancy": 0.00025350779464962126,
+      "expectancy_r": 0.13816933869292242,
+      "sharpe": 1.7547442589367326,
+      "max_drawdown": 1.0090372516060598e-06,
+      "win_rate": 0.48,
+      "net_profit": 0.006337694866240531,
+      "return_pct": 6.33769486446667e-07
+    }
+  },
+  {
+    "canonical_hash": "bc9d9796e809b4350ea7888b58d1ff4d43bafe493495013432d0c7e0555fe0fe",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.roc.4\",\"operator\":\"<\",\"value\":0.005},{\"feature\":\"structure.last.3\",\"operator\":\"==\",\"value\":1.0}],\"stop_atr\":1.5,\"target_atr\":3.0,\"time_exit\":96,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 31,
+      "profit_factor": 1.1277124454368619,
+      "expectancy": 0.00010236830810371391,
+      "expectancy_r": 0.07850663443061336,
+      "sharpe": 0.8526530186837601,
+      "max_drawdown": 7.025759881798877e-07,
+      "win_rate": 0.3870967741935484,
+      "net_profit": 0.0031734175512151313,
+      "return_pct": 3.173417553181679e-07
+    }
+  },
+  {
+    "canonical_hash": "c119cb2fdda557b2929779ed3d31e11569037e8d345a4ee90b7ea1e8d60cf28e",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.roc.16\",\"operator\":\">\",\"value\":0.0},{\"feature\":\"structure.last.3\",\"operator\":\"==\",\"value\":1.0},{\"feature\":\"trend.ema_slope.10.6\",\"operator\":\">\",\"value\":0.0},{\"feature\":\"volatility.compression.20.2.1.5\",\"operator\":\"==\",\"value\":1.0}],\"stop_atr\":1.0,\"target_atr\":4.0,\"time_exit\":96,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 0,
+      "profit_factor": 0.0,
+      "expectancy": 0.0,
+      "expectancy_r": 0.0,
+      "sharpe": 0.0,
+      "max_drawdown": 0.0,
+      "win_rate": 0.0,
+      "net_profit": 0.0,
+      "return_pct": 0.0
+    }
+  },
+  {
+    "canonical_hash": "fa4675a0d5003cb149475c873a2a6fffccfd030ef4a14a9475a049cee151fd40",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"trend.ema_pair.50.100\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":2.0,\"target_atr\":4.0,\"time_exit\":24,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 32,
+      "profit_factor": 0.5622119431359233,
+      "expectancy": -0.0005503451220316604,
+      "expectancy_r": -0.3502163537716854,
+      "sharpe": -4.5153228579006575,
+      "max_drawdown": 1.9173877813955187e-06,
+      "win_rate": 0.25,
+      "net_profit": -0.017611043905013134,
+      "return_pct": -1.761104390651802e-06
+    }
+  },
+  {
+    "canonical_hash": "5eec20102ae41c14f515f26a8252ec12bfff1bc148873803c71a25e01f1534cd",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.willr.14\",\"operator\":\">\",\"value\":-20.0},{\"feature\":\"rsi_14\",\"operator\":\"<\",\"value\":30.0}],\"stop_atr\":2.5,\"target_atr\":4.0,\"time_exit\":24,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 0,
+      "profit_factor": 0.0,
+      "expectancy": 0.0,
+      "expectancy_r": 0.0,
+      "sharpe": 0.0,
+      "max_drawdown": 0.0,
+      "win_rate": 0.0,
+      "net_profit": 0.0,
+      "return_pct": 0.0
+    }
+  },
+  {
+    "canonical_hash": "62761bdeb737487441466abc3b9b7c0a35e4c8c5f1596f222f66b7a76dc606e4",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.roc.16\",\"operator\":\">\",\"value\":0.0},{\"feature\":\"volatility.atr_regime.14.50\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":2.5,\"target_atr\":1.5,\"time_exit\":96,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 28,
+      "profit_factor": 0.5970582736479919,
+      "expectancy": -0.0004032151592048313,
+      "expectancy_r": -0.19194287072840413,
+      "sharpe": -3.8201842162689856,
+      "max_drawdown": 1.236890750078601e-06,
+      "win_rate": 0.5357142857142857,
+      "net_profit": -0.011290024457735276,
+      "return_pct": -1.1290024455323788e-06
+    }
+  },
+  {
+    "canonical_hash": "8a1768e8468819a2d199bbf057c68242ae57c531768d425c2844ce3d6fbe982a",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"volatility.bb_middle.50.2\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":1.5,\"target_atr\":2.0,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 47,
+      "profit_factor": 0.9683864551988837,
+      "expectancy": -2.193280844300679e-05,
+      "expectancy_r": -0.042902854679748456,
+      "sharpe": -0.5861088739368049,
+      "max_drawdown": 5.998949656714103e-07,
+      "win_rate": 0.44680851063829785,
+      "net_profit": -0.001030841996821319,
+      "return_pct": -1.030841997318177e-07
+    }
+  },
+  {
+    "canonical_hash": "80393e57f5bad64d369020e8e27f9bbb12dd34f4d539b8fcfc51926f6ffa33ff",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"structure.last.2\",\"operator\":\"==\",\"value\":1.0},{\"feature\":\"trend.ema_slope.200.1\",\"operator\":\">\",\"value\":0.0},{\"feature\":\"trend.ema_slope.50.12\",\"operator\":\"<\",\"value\":0.0},{\"feature\":\"volatility.bb_middle.50.2\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":1.0,\"target_atr\":2.0,\"time_exit\":72,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 1,
+      "profit_factor": "Infinity",
+      "expectancy": 0.001443294939479356,
+      "expectancy_r": 1.870407143259801,
+      "sharpe": 0.0,
+      "max_drawdown": 0.0,
+      "win_rate": 1.0,
+      "net_profit": 0.001443294939479356,
+      "return_pct": 1.4432949391185446e-07
+    }
+  },
+  {
+    "canonical_hash": "b5b79f56da91e34d7bbcdb1cf203fcdd5cc2d281527e9ee592fd2af21f762634",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"structure.last.3\",\"operator\":\"==\",\"value\":1.0},{\"feature\":\"volatility.bb_middle.50.2\",\"operator\":\"<\",\"value\":0.0},{\"feature\":\"volatility.bb_upper.20.2\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":1.0,\"target_atr\":2.0,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 0,
+      "profit_factor": 0.0,
+      "expectancy": 0.0,
+      "expectancy_r": 0.0,
+      "sharpe": 0.0,
+      "max_drawdown": 0.0,
+      "win_rate": 0.0,
+      "net_profit": 0.0,
+      "return_pct": 0.0
+    }
+  },
+  {
+    "canonical_hash": "563e61d30cd6ebc817298dcac3064f55635e8a4bb37e296c3423d4e3d1c5dd09",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"OR\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"structure.last.3\",\"operator\":\"==\",\"value\":2.0},{\"feature\":\"volatility.atr_regime.28.50\",\"operator\":\"<\",\"value\":0.0},{\"feature\":\"volatility.compression.20.2.1.5\",\"operator\":\"==\",\"value\":-1.0}],\"stop_atr\":1.5,\"target_atr\":4.0,\"time_exit\":24,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 53,
+      "profit_factor": 1.0179354154521758,
+      "expectancy": 1.6146316388226288e-05,
+      "expectancy_r": 0.04557012995813552,
+      "sharpe": 0.4319729005547849,
+      "max_drawdown": 6.579420152775128e-07,
+      "win_rate": 0.32075471698113206,
+      "net_profit": 0.0008557547685759932,
+      "return_pct": 8.557547692689127e-08
+    }
+  },
+  {
+    "canonical_hash": "ae3e497eb587407688caee4951e163b249d38b2bc8e81e086fcd37befb335676",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"volatility.bb_lower.20.2\",\"operator\":\"<\",\"value\":0.0},{\"feature\":\"volatility.bb_middle.50.2\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":1.0,\"target_atr\":2.0,\"time_exit\":72,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 0,
+      "profit_factor": 0.0,
+      "expectancy": 0.0,
+      "expectancy_r": 0.0,
+      "sharpe": 0.0,
+      "max_drawdown": 0.0,
+      "win_rate": 0.0,
+      "net_profit": 0.0,
+      "return_pct": 0.0
+    }
+  },
+  {
+    "canonical_hash": "8d1609147121dd4ce0835a43ce53248f70cb366fc895753891aac071eeabc3ec",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"volatility.bb_upper.20.2\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":2.0,\"target_atr\":4.0,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 11,
+      "profit_factor": 1.4559253589581973,
+      "expectancy": 0.000428633856018484,
+      "expectancy_r": 0.3007119233490871,
+      "sharpe": 3.1984541542618827,
+      "max_drawdown": 6.439039083488752e-07,
+      "win_rate": 0.45454545454545453,
+      "net_profit": 0.004714972416203324,
+      "return_pct": 4.714972416941521e-07
+    }
+  },
+  {
+    "canonical_hash": "138c371684b6e8e5c52dcaf47d13cd774c07625276290f8dc5f0a43567a73775",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"OR\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.willr.28\",\"operator\":\">\",\"value\":-80.0},{\"feature\":\"volatility.bb_middle.50.2\",\"operator\":\"<\",\"value\":0.0},{\"feature\":\"volatility.bb_upper.20.2\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":2.0,\"target_atr\":4.0,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 44,
+      "profit_factor": 1.035209833114942,
+      "expectancy": 3.816801488645989e-05,
+      "expectancy_r": 0.04410031341835473,
+      "sharpe": 0.48809708596150836,
+      "max_drawdown": 7.387117084363126e-07,
+      "win_rate": 0.36363636363636365,
+      "net_profit": 0.0016793926550042351,
+      "return_pct": 1.679392649389655e-07
+    }
+  },
+  {
+    "canonical_hash": "96c74c12c5864b23f53b040f12589197e06e9f6816dde2bd4c550dd9437d3ce5",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"OR\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.willr.28\",\"operator\":\"<\",\"value\":-80.0},{\"feature\":\"volatility.bb_middle.50.2\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":2.0,\"target_atr\":2.0,\"time_exit\":72,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 68,
+      "profit_factor": 0.7585466090197173,
+      "expectancy": -0.00021433749835715978,
+      "expectancy_r": -0.1324578135168066,
+      "sharpe": -2.1221503256377177,
+      "max_drawdown": 1.8824186910933349e-06,
+      "win_rate": 0.47058823529411764,
+      "net_profit": -0.014574949888286864,
+      "return_pct": -1.4574949889212263e-06
+    }
+  },
+  {
+    "canonical_hash": "1878935f167b3aafdffda7d46611fe8c3e142c8a1d94938bcff7bcb77164fe7d",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"structure.last.3\",\"operator\":\"==\",\"value\":4.0}],\"stop_atr\":1.0,\"target_atr\":2.0,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 31,
+      "profit_factor": 1.3568251585065303,
+      "expectancy": 0.0001784477207148898,
+      "expectancy_r": 0.23075372827878654,
+      "sharpe": 2.4548770223517726,
+      "max_drawdown": 5.356063942599576e-07,
+      "win_rate": 0.45161290322580644,
+      "net_profit": 0.005531879342161584,
+      "return_pct": 5.531879343489976e-07
+    }
+  },
+  {
+    "canonical_hash": "0bab0ad4351261a5960d9a108cfd94908410b56e15443032fe38370079c81d1e",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.roc.8\",\"operator\":\">\",\"value\":0.005},{\"feature\":\"structure.last.3\",\"operator\":\"==\",\"value\":1.0},{\"feature\":\"trend.ema_slope.50.6\",\"operator\":\"<\",\"value\":0.0},{\"feature\":\"volatility.bb_middle.50.2\",\"operator\":\"<\",\"value\":0.0}],\"stop_atr\":1.5,\"target_atr\":2.0,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 0,
+      "profit_factor": 0.0,
+      "expectancy": 0.0,
+      "expectancy_r": 0.0,
+      "sharpe": 0.0,
+      "max_drawdown": 0.0,
+      "win_rate": 0.0,
+      "net_profit": 0.0,
+      "return_pct": 0.0
+    }
+  },
+  {
+    "canonical_hash": "00243590e624f2a9b685d6b44b7ca62eddebec8bbc91fe099ea64c18deee0327",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"rsi_14\",\"operator\":\">\",\"value\":30.0},{\"feature\":\"structure.last.3\",\"operator\":\"==\",\"value\":1.0},{\"feature\":\"structure.last.5\",\"operator\":\"==\",\"value\":2.0},{\"feature\":\"trend.ema_slope.200.3\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":1.0,\"target_atr\":3.0,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 11,
+      "profit_factor": 1.2944774301845874,
+      "expectancy": 0.00017514860352498538,
+      "expectancy_r": 0.3289972713917855,
+      "sharpe": 2.724901838478679,
+      "max_drawdown": 1.8688909894990503e-07,
+      "win_rate": 0.36363636363636365,
+      "net_profit": 0.0019266346387748392,
+      "return_pct": 1.9266346384938515e-07
+    }
+  },
+  {
+    "canonical_hash": "1c9fa37e0ff2b6c5745de4fa0b2ed1448296e7a70ecce023791f634663614387",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"volatility.bb_upper.20.2\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":2.0,\"target_atr\":2.0,\"time_exit\":72,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 16,
+      "profit_factor": 1.2223759887432073,
+      "expectancy": 0.0001598250282393327,
+      "expectancy_r": 0.06266925794029524,
+      "sharpe": 1.0004349325880986,
+      "max_drawdown": 4.360629591246834e-07,
+      "win_rate": 0.5625,
+      "net_profit": 0.002557200451829323,
+      "return_pct": 2.55720045139185e-07
+    }
+  },
+  {
+    "canonical_hash": "62876cb1a21830ed003e5d12709d4b644d5a8f0b3e0f76974d6e0cb75b9660ce",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"rsi_14\",\"operator\":\">\",\"value\":40.0},{\"feature\":\"structure.break_high.5\",\"operator\":\">\",\"value\":0.0},{\"feature\":\"trend.ema_slope.50.12\",\"operator\":\"<\",\"value\":0.0},{\"feature\":\"volatility.bb_middle.50.2\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":1.5,\"target_atr\":2.0,\"time_exit\":72,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 6,
+      "profit_factor": 0.6029783717629134,
+      "expectancy": -0.000347977772742547,
+      "expectancy_r": -0.3035453808965291,
+      "sharpe": -4.374592001204153,
+      "max_drawdown": 2.655051959663979e-07,
+      "win_rate": 0.3333333333333333,
+      "net_profit": -0.002087866636455282,
+      "return_pct": -2.0878666351364927e-07
+    }
+  },
+  {
+    "canonical_hash": "939cae3ee5ad1c2a56aba2564da020f3e301dd56051ae8e52478600e9663c056",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"volatility.compression.50.2.1.5\",\"operator\":\"==\",\"value\":-1.0}],\"stop_atr\":2.0,\"target_atr\":2.0,\"time_exit\":72,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 75,
+      "profit_factor": 0.8997991032789512,
+      "expectancy": -8.287761225236111e-05,
+      "expectancy_r": -0.06169462543373572,
+      "sharpe": -0.9852778206165127,
+      "max_drawdown": 1.1771748593673693e-06,
+      "win_rate": 0.5066666666666667,
+      "net_profit": -0.006215820918927083,
+      "return_pct": -6.215820922417237e-07
+    }
+  },
+  {
+    "canonical_hash": "0fa57d399a70e0d390d54c68753acdd9702af7abe5f6799263ebce7352f80709",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"trend.close_ema.50\",\"operator\":\"<\",\"value\":0.0},{\"feature\":\"trend.ema_slope.10.1\",\"operator\":\"<\",\"value\":0.0}],\"stop_atr\":2.5,\"target_atr\":1.5,\"time_exit\":24,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 42,
+      "profit_factor": 0.6822053780999267,
+      "expectancy": -0.0002709490934941802,
+      "expectancy_r": -0.11414906445061453,
+      "sharpe": -2.3320536343187066,
+      "max_drawdown": 1.5436243966178154e-06,
+      "win_rate": 0.5714285714285714,
+      "net_profit": -0.01137986192675557,
+      "return_pct": -1.1379861929450286e-06
+    }
+  },
+  {
+    "canonical_hash": "04e7227ecc6cdd21676f75fe5cbe804e3a84904bc22989bc92fd915df9cdb4e9",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.willr.28\",\"operator\":\">\",\"value\":-80.0},{\"feature\":\"volatility.bb_middle.50.2\",\"operator\":\"<\",\"value\":0.0},{\"feature\":\"volatility.bb_upper.20.2\",\"operator\":\">\",\"value\":0.0},{\"feature\":\"volatility.compression.50.2.1.5\",\"operator\":\"==\",\"value\":1.0}],\"stop_atr\":2.0,\"target_atr\":1.5,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 0,
+      "profit_factor": 0.0,
+      "expectancy": 0.0,
+      "expectancy_r": 0.0,
+      "sharpe": 0.0,
+      "max_drawdown": 0.0,
+      "win_rate": 0.0,
+      "net_profit": 0.0,
+      "return_pct": 0.0
+    }
+  },
+  {
+    "canonical_hash": "ea72803b7b769b196daadd6b1fee1544006ea235d6b92886741dd04c97bc9b79",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"OR\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"rsi_14\",\"operator\":\"<\",\"value\":60.0},{\"feature\":\"rsi_14\",\"operator\":\">\",\"value\":35.0}],\"stop_atr\":1.5,\"target_atr\":4.0,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 54,
+      "profit_factor": 1.0522465062800153,
+      "expectancy": 4.743408896305073e-05,
+      "expectancy_r": 0.07145476880395903,
+      "sharpe": 0.6667013800436337,
+      "max_drawdown": 7.948978065542178e-07,
+      "win_rate": 0.3148148148148148,
+      "net_profit": 0.0025614408040047394,
+      "return_pct": 2.5614408061258587e-07
+    }
+  },
+  {
+    "canonical_hash": "b7479b91180102d2c41b47da0be375f0d517f97a9708438eea5797dcc0921bf3",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.willr.28\",\"operator\":\"<\",\"value\":-80.0},{\"feature\":\"volatility.bb_lower.20.2\",\"operator\":\"<\",\"value\":0.0}],\"stop_atr\":2.0,\"target_atr\":3.0,\"time_exit\":72,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 10,
+      "profit_factor": 1.33181699198058,
+      "expectancy": 0.0002757760427092416,
+      "expectancy_r": 0.16423756317565258,
+      "sharpe": 2.1197906717598762,
+      "max_drawdown": 3.30130343172641e-07,
+      "win_rate": 0.5,
+      "net_profit": 0.0027577604270924163,
+      "return_pct": 2.7577604311268544e-07
+    }
+  },
+  {
+    "canonical_hash": "3557f1ff038de76a0f88c199530e1739a10ac64c36fd710d085eae5de4a3c372",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"rsi_14\",\"operator\":\"<\",\"value\":60.0},{\"feature\":\"rsi_14\",\"operator\":\">\",\"value\":30.0},{\"feature\":\"structure.last.3\",\"operator\":\"==\",\"value\":1.0},{\"feature\":\"structure.last.5\",\"operator\":\"==\",\"value\":2.0}],\"stop_atr\":1.5,\"target_atr\":2.0,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 0,
+      "profit_factor": 0.0,
+      "expectancy": 0.0,
+      "expectancy_r": 0.0,
+      "sharpe": 0.0,
+      "max_drawdown": 0.0,
+      "win_rate": 0.0,
+      "net_profit": 0.0,
+      "return_pct": 0.0
+    }
+  },
+  {
+    "canonical_hash": "aa0fc52ccc25549422a31a713b70cff0010b28964a525f5fc8ee126f1020ff6d",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.roc.32\",\"operator\":\">\",\"value\":-0.005},{\"feature\":\"trend.ema_slope.50.6\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":1.5,\"target_atr\":3.0,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 38,
+      "profit_factor": 0.9588298745140412,
+      "expectancy": -3.447197004897404e-05,
+      "expectancy_r": -0.05803566566476904,
+      "sharpe": -0.6465238145593801,
+      "max_drawdown": 6.124474843090866e-07,
+      "win_rate": 0.34210526315789475,
+      "net_profit": -0.0013099348618610133,
+      "return_pct": -1.309934865023621e-07
+    }
+  },
+  {
+    "canonical_hash": "91f9238a0234c43bf2fc898d3736c7de91ab8b3de0c24e853b416b4b7fcdd7e2",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"structure.break_low.5\",\"operator\":\"<\",\"value\":0.0},{\"feature\":\"structure.last.2\",\"operator\":\"==\",\"value\":1.0},{\"feature\":\"trend.ema_slope.50.12\",\"operator\":\"<\",\"value\":0.0}],\"stop_atr\":2.0,\"target_atr\":2.0,\"time_exit\":72,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 1,
+      "profit_factor": 0.0,
+      "expectancy": -0.0016986941807726307,
+      "expectancy_r": -1.0625510502275495,
+      "sharpe": 0.0,
+      "max_drawdown": 1.6986941809591373e-07,
+      "win_rate": 0.0,
+      "net_profit": -0.0016986941807726307,
+      "return_pct": -1.698694180873872e-07
+    }
+  },
+  {
+    "canonical_hash": "edb7fb52983c666e7a616dcf480fa4d70e8e5cf3b8a9e3ed3e73953de31bfe87",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"structure.last.3\",\"operator\":\"==\",\"value\":1.0},{\"feature\":\"volatility.bb_middle.50.2\",\"operator\":\"<\",\"value\":0.0},{\"feature\":\"volatility.bb_upper.20.2\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":2.5,\"target_atr\":2.0,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 0,
+      "profit_factor": 0.0,
+      "expectancy": 0.0,
+      "expectancy_r": 0.0,
+      "sharpe": 0.0,
+      "max_drawdown": 0.0,
+      "win_rate": 0.0,
+      "net_profit": 0.0,
+      "return_pct": 0.0
+    }
+  },
+  {
+    "canonical_hash": "57b2d794fb7bb6f1effe6fcd732e7b2ee21b536c5bcf9ff95f8aad8fc49a7061",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"structure.last.2\",\"operator\":\"==\",\"value\":3.0},{\"feature\":\"volatility.bb_middle.50.2\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":1.5,\"target_atr\":1.5,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 3,
+      "profit_factor": "Infinity",
+      "expectancy": 0.0009289466739354196,
+      "expectancy_r": 0.9028107457835755,
+      "sharpe": 29095.778203037356,
+      "max_drawdown": 1.8548434545664348e-07,
+      "win_rate": 1.0,
+      "net_profit": 0.0027868400218062587,
+      "return_pct": 2.7868400231945145e-07
+    }
+  },
+  {
+    "canonical_hash": "64aef2779afa6dd65c28fd4cf839577d5aa8d87705236b6bec4f99e5a65df201",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.roc.4\",\"operator\":\"<\",\"value\":-0.005},{\"feature\":\"structure.fractal_low.2\",\"operator\":\"==\",\"value\":1.0},{\"feature\":\"structure.last.3\",\"operator\":\"==\",\"value\":4.0},{\"feature\":\"trend.ema_slope.200.1\",\"operator\":\"<\",\"value\":0.0}],\"stop_atr\":2.5,\"target_atr\":1.5,\"time_exit\":24,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 0,
+      "profit_factor": 0.0,
+      "expectancy": 0.0,
+      "expectancy_r": 0.0,
+      "sharpe": 0.0,
+      "max_drawdown": 0.0,
+      "win_rate": 0.0,
+      "net_profit": 0.0,
+      "return_pct": 0.0
+    }
+  },
+  {
+    "canonical_hash": "358a5248fbc802a6940e73e891059c34e8311161e31df8bd473d5735e8b8d114",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"volatility.compression.20.2.1.5\",\"operator\":\"==\",\"value\":-1.0}],\"stop_atr\":2.0,\"target_atr\":2.0,\"time_exit\":72,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 82,
+      "profit_factor": 0.9102368627938764,
+      "expectancy": -7.366986219512572e-05,
+      "expectancy_r": -0.049794467524619586,
+      "sharpe": -0.7951711520826606,
+      "max_drawdown": 1.185096757762949e-06,
+      "win_rate": 0.5121951219512195,
+      "net_profit": -0.006040928700000309,
+      "return_pct": -6.040928703932025e-07
+    }
+  },
+  {
+    "canonical_hash": "596ea550ca98fe1b5daff971135a8993bdea260afb42c14ef74cfaefcca188f5",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"OR\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"rsi_14\",\"operator\":\">\",\"value\":30.0},{\"feature\":\"structure.break_low.5\",\"operator\":\"<\",\"value\":0.0}],\"stop_atr\":2.5,\"target_atr\":3.0,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 49,
+      "profit_factor": 0.8567657366925746,
+      "expectancy": -0.0001669496770327219,
+      "expectancy_r": -0.07477426369726936,
+      "sharpe": -1.0955934873925581,
+      "max_drawdown": 1.5360713450718321e-06,
+      "win_rate": 0.4489795918367347,
+      "net_profit": -0.008180534174603373,
+      "return_pct": -8.180534168955589e-07
+    }
+  },
+  {
+    "canonical_hash": "27413ba82f0cdfd6741d001d8b48fece6d2ad7ca890c0a98ecd2bff8b8c24097",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"structure.last.2\",\"operator\":\"==\",\"value\":3.0}],\"stop_atr\":2.0,\"target_atr\":1.5,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 39,
+      "profit_factor": 0.41033607389238175,
+      "expectancy": -0.0005635403254149173,
+      "expectancy_r": -0.41289177895942814,
+      "sharpe": -7.820043477289594,
+      "max_drawdown": 2.1978072687488746e-06,
+      "win_rate": 0.358974358974359,
+      "net_profit": -0.021978072691181776,
+      "return_pct": -2.1978072687334205e-06
+    }
+  },
+  {
+    "canonical_hash": "23fd9a40c9f6bbc88db01e9bc3ae76e1bba14f3e47cb89fec73478567642b540",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"OR\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.willr.14\",\"operator\":\">\",\"value\":-20.0},{\"feature\":\"structure.break_low.5\",\"operator\":\"<\",\"value\":0.0},{\"feature\":\"structure.last.5\",\"operator\":\"==\",\"value\":1.0}],\"stop_atr\":1.5,\"target_atr\":3.0,\"time_exit\":72,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 59,
+      "profit_factor": 1.2581686263265905,
+      "expectancy": 0.00019369856673543022,
+      "expectancy_r": 0.17011696056980866,
+      "sharpe": 1.83998683365325,
+      "max_drawdown": 1.1454791894720983e-06,
+      "win_rate": 0.423728813559322,
+      "net_profit": 0.011428215437390383,
+      "return_pct": 1.1428215440645317e-06
+    }
+  },
+  {
+    "canonical_hash": "fde9684bbaa1d49bb3e5b9a8efa7d4dabcec07f7097dbd4382fbad4db06172ce",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"structure.last.2\",\"operator\":\"==\",\"value\":3.0}],\"stop_atr\":2.0,\"target_atr\":3.0,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 35,
+      "profit_factor": 0.7820274714129534,
+      "expectancy": -0.00021592268290946556,
+      "expectancy_r": -0.18073458674013718,
+      "sharpe": -2.4317157800797515,
+      "max_drawdown": 7.557293896752526e-07,
+      "win_rate": 0.34285714285714286,
+      "net_profit": -0.007557293901831294,
+      "return_pct": -7.557293896232053e-07
+    }
+  },
+  {
+    "canonical_hash": "cd87421be3928f655fcddd0a61e12bdf9d093e31d9a171304e4dc3906a9770a3",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"structure.last.3\",\"operator\":\"==\",\"value\":1.0}],\"stop_atr\":2.0,\"target_atr\":2.0,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 25,
+      "profit_factor": 0.5559285367248901,
+      "expectancy": -0.0004687972672178574,
+      "expectancy_r": -0.2618306613070651,
+      "sharpe": -4.249947808386834,
+      "max_drawdown": 1.32045979025861e-06,
+      "win_rate": 0.4,
+      "net_profit": -0.011719931680446435,
+      "return_pct": -1.1719931682918627e-06
+    }
+  },
+  {
+    "canonical_hash": "d6be0ddae2433e771d534231b39fff6cc9cfa4d48137ceaf995f505d638180af",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"volatility.bb_middle.50.2\",\"operator\":\"<\",\"value\":0.0}],\"stop_atr\":2.0,\"target_atr\":2.0,\"time_exit\":96,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 35,
+      "profit_factor": 0.9803982997615726,
+      "expectancy": -1.5167919327948702e-05,
+      "expectancy_r": -0.006312283384524182,
+      "sharpe": -0.10186903744219472,
+      "max_drawdown": 6.105509750341298e-07,
+      "win_rate": 0.5142857142857142,
+      "net_profit": -0.0005308771764782046,
+      "return_pct": -5.308771744427787e-08
+    }
+  },
+  {
+    "canonical_hash": "bfc6b69bb99f4eed2909bb725dcb7a966e9ee5a4cda94674ecdcd7962d133f6e",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.roc.4\",\"operator\":\"<\",\"value\":0.005},{\"feature\":\"momentum.willr.7\",\"operator\":\">\",\"value\":-80.0},{\"feature\":\"structure.last.3\",\"operator\":\"==\",\"value\":1.0}],\"stop_atr\":1.5,\"target_atr\":3.0,\"time_exit\":96,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 24,
+      "profit_factor": 1.6507942884385118,
+      "expectancy": 0.00042082033019498764,
+      "expectancy_r": 0.4130359840979057,
+      "sharpe": 4.37974694553676,
+      "max_drawdown": 1.1401694442611187e-06,
+      "win_rate": 0.5,
+      "net_profit": 0.010099687924679704,
+      "return_pct": 1.009968792820004e-06
+    }
+  },
+  {
+    "canonical_hash": "08afe83dc0ddee25827e0bddcd4d2ec12ba94420352630533bbc51360806b8ca",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.roc.16\",\"operator\":\">\",\"value\":0.0},{\"feature\":\"structure.last.3\",\"operator\":\"==\",\"value\":1.0},{\"feature\":\"trend.ema_slope.100.12\",\"operator\":\">\",\"value\":0.0},{\"feature\":\"volatility.compression.20.2.1.5\",\"operator\":\"==\",\"value\":1.0}],\"stop_atr\":1.0,\"target_atr\":4.0,\"time_exit\":96,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 0,
+      "profit_factor": 0.0,
+      "expectancy": 0.0,
+      "expectancy_r": 0.0,
+      "sharpe": 0.0,
+      "max_drawdown": 0.0,
+      "win_rate": 0.0,
+      "net_profit": 0.0,
+      "return_pct": 0.0
+    }
+  },
+  {
+    "canonical_hash": "36c4443499c01d608cdc65315f0223c0fae59b6185588d1a78a1cb7731042ab1",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"rsi_14\",\"operator\":\"<\",\"value\":60.0},{\"feature\":\"structure.last.3\",\"operator\":\"==\",\"value\":1.0}],\"stop_atr\":1.5,\"target_atr\":2.0,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 19,
+      "profit_factor": 5.9536397853063425,
+      "expectancy": 0.0010275215279397648,
+      "expectancy_r": 0.8797685754749065,
+      "sharpe": 16.43642712634881,
+      "max_drawdown": 1.920218819213915e-06,
+      "win_rate": 0.8421052631578947,
+      "net_profit": 0.01952290903085553,
+      "return_pct": 1.9522909036062686e-06
+    }
+  },
+  {
+    "canonical_hash": "68f7a79a53739aa4941e5335099de584f6dd9616bfbf634697f219a7e84d8c1a",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"rsi_14\",\"operator\":\">\",\"value\":70.0}],\"stop_atr\":2.5,\"target_atr\":2.0,\"time_exit\":96,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 21,
+      "profit_factor": 14.025603406040785,
+      "expectancy": 0.0013148940694849601,
+      "expectancy_r": 0.6636810910797627,
+      "sharpe": 27.501221564291097,
+      "max_drawdown": 2.6286377209544297e-06,
+      "win_rate": 0.9523809523809523,
+      "net_profit": 0.027612775459184162,
+      "return_pct": 2.7612775459484595e-06
+    }
+  },
+  {
+    "canonical_hash": "cc7cbdb66fb465d43c1bc78df62e83160b8ffe34306bbc123f4375b5a9ddb20a",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.roc.8\",\"operator\":\">\",\"value\":-0.005},{\"feature\":\"structure.last.3\",\"operator\":\"==\",\"value\":2.0},{\"feature\":\"volatility.atr_regime.14.50\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":1.5,\"target_atr\":4.0,\"time_exit\":24,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 18,
+      "profit_factor": 0.3098402095172471,
+      "expectancy": -0.0007703226147168155,
+      "expectancy_r": -0.6204724704555972,
+      "sharpe": -8.534483430998396,
+      "max_drawdown": 1.7004059602186316e-06,
+      "win_rate": 0.1111111111111111,
+      "net_profit": -0.013865807064902678,
+      "return_pct": -1.386580706586038e-06
+    }
+  },
+  {
+    "canonical_hash": "82a0d05c39f8b72b80c7133f834f768ea8fbcaf082e108926dc0cef2ac3d4b86",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"rsi_14\",\"operator\":\">\",\"value\":35.0},{\"feature\":\"structure.last.5\",\"operator\":\"==\",\"value\":3.0}],\"stop_atr\":1.5,\"target_atr\":4.0,\"time_exit\":96,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 16,
+      "profit_factor": 0.8178108334118414,
+      "expectancy": -0.0001623416958517725,
+      "expectancy_r": -0.17442598125989023,
+      "sharpe": -1.7423191448359583,
+      "max_drawdown": 4.935425051371567e-07,
+      "win_rate": 0.25,
+      "net_profit": -0.00259746713362836,
+      "return_pct": -2.597467133602649e-07
+    }
+  },
+  {
+    "canonical_hash": "92f1bb93e394e66d71d022ca435b240bf5ece7ea689921e950aa026b8c6a1481",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"trend.ema_slope.50.12\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":1.5,\"target_atr\":4.0,\"time_exit\":96,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 32,
+      "profit_factor": 1.0322989764439776,
+      "expectancy": 2.918443639129558e-05,
+      "expectancy_r": 0.061991441527234806,
+      "sharpe": 0.5796583402403538,
+      "max_drawdown": 7.269376719705178e-07,
+      "win_rate": 0.3125,
+      "net_profit": 0.0009339019645214586,
+      "return_pct": 9.339019624299283e-08
+    }
+  },
+  {
+    "canonical_hash": "c31f94c279ca10662c9b27ccac7da6248ba47f75f84b9fbdeea3ca6fdd5317fc",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"volatility.bb_lower.20.2\",\"operator\":\"<\",\"value\":0.0}],\"stop_atr\":2.0,\"target_atr\":1.5,\"time_exit\":72,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 15,
+      "profit_factor": 1.0886552274025445,
+      "expectancy": 5.224370328144046e-05,
+      "expectancy_r": 0.053905334325333995,
+      "sharpe": 1.0576680604610238,
+      "max_drawdown": 4.1167908548231936e-07,
+      "win_rate": 0.6,
+      "net_profit": 0.0007836555492216069,
+      "return_pct": 7.836555493412334e-08
+    }
+  },
+  {
+    "canonical_hash": "0dcf38ed43c57d36b409cd918a6202175fe7050be49cc92ffb83936624e21599",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"structure.last.3\",\"operator\":\"==\",\"value\":1.0},{\"feature\":\"structure.last.3\",\"operator\":\"==\",\"value\":2.0}],\"stop_atr\":1.5,\"target_atr\":2.0,\"time_exit\":96,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 0,
+      "profit_factor": 0.0,
+      "expectancy": 0.0,
+      "expectancy_r": 0.0,
+      "sharpe": 0.0,
+      "max_drawdown": 0.0,
+      "win_rate": 0.0,
+      "net_profit": 0.0,
+      "return_pct": 0.0
+    }
+  },
+  {
+    "canonical_hash": "08d2ce66108d09755cc7c81392e3df9a83af996fd3eb3f6b94fd556711c932cf",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.roc.4\",\"operator\":\"<\",\"value\":0.005},{\"feature\":\"structure.last.3\",\"operator\":\"==\",\"value\":1.0},{\"feature\":\"volatility.bb_upper.20.2\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":1.5,\"target_atr\":4.0,\"time_exit\":72,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 0,
+      "profit_factor": 0.0,
+      "expectancy": 0.0,
+      "expectancy_r": 0.0,
+      "sharpe": 0.0,
+      "max_drawdown": 0.0,
+      "win_rate": 0.0,
+      "net_profit": 0.0,
+      "return_pct": 0.0
+    }
+  },
+  {
+    "canonical_hash": "13ffe9c483f27af43e71442b18e7e94f76e36435d36effb56ba5a1b8f5a876d6",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"rsi_14\",\"operator\":\"<\",\"value\":60.0},{\"feature\":\"trend.ema_pair.20.50\",\"operator\":\"<\",\"value\":0.0}],\"stop_atr\":1.5,\"target_atr\":1.5,\"time_exit\":24,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 40,
+      "profit_factor": 1.3200574800955565,
+      "expectancy": 0.00015644247459120075,
+      "expectancy_r": 0.1276469985890062,
+      "sharpe": 2.0944372555495177,
+      "max_drawdown": 9.422942534001777e-07,
+      "win_rate": 0.6,
+      "net_profit": 0.00625769898364803,
+      "return_pct": 6.257698981215754e-07
+    }
+  },
+  {
+    "canonical_hash": "d4611900b2549a2e1e69867b194b2e81cee6a7ceb3405f9b391c2d4046266418",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"structure.last.5\",\"operator\":\"==\",\"value\":3.0}],\"stop_atr\":2.0,\"target_atr\":2.0,\"time_exit\":72,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 26,
+      "profit_factor": 0.6228193100680682,
+      "expectancy": -0.0003473224323877779,
+      "expectancy_r": -0.17651865603746486,
+      "sharpe": -2.885224951101043,
+      "max_drawdown": 1.184910791926086e-06,
+      "win_rate": 0.46153846153846156,
+      "net_profit": -0.009030383242082225,
+      "return_pct": -9.030383248953555e-07
+    }
+  },
+  {
+    "canonical_hash": "e2c26c14a9362eabdcccbc7f4bf808d786cbbe64fbc4ca5a1b942e49132d6204",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"rsi_14\",\"operator\":\"<\",\"value\":60.0},{\"feature\":\"trend.ema_pair.20.50\",\"operator\":\"<\",\"value\":0.0}],\"stop_atr\":1.5,\"target_atr\":2.0,\"time_exit\":24,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 40,
+      "profit_factor": 1.4677275803478966,
+      "expectancy": 0.00025788344828893693,
+      "expectancy_r": 0.21107112831595015,
+      "sharpe": 2.9141547146137246,
+      "max_drawdown": 1.3480581479598185e-06,
+      "win_rate": 0.55,
+      "net_profit": 0.010315337931557478,
+      "return_pct": 1.0315337928279433e-06
+    }
+  },
+  {
+    "canonical_hash": "605ed0c7e1ece67ecdefae8ffaa5a6169616961419359b3903fcd1277e15da1b",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"rsi_14\",\"operator\":\"<\",\"value\":60.0},{\"feature\":\"trend.ema_pair.20.50\",\"operator\":\"<\",\"value\":0.0}],\"stop_atr\":2.0,\"target_atr\":2.0,\"time_exit\":72,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 37,
+      "profit_factor": 1.1077087133310868,
+      "expectancy": 7.814696732309758e-05,
+      "expectancy_r": 0.04466741527966631,
+      "sharpe": 0.7229347244785567,
+      "max_drawdown": 6.335122361633693e-07,
+      "win_rate": 0.5405405405405406,
+      "net_profit": 0.0028914377909546106,
+      "return_pct": 2.8914377936395397e-07
+    }
+  },
+  {
+    "canonical_hash": "2339d83403f4df8dc046f0d589aa3a589da6831fbc041c136efd92c3b6fa4e5a",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.roc.4\",\"operator\":\"<\",\"value\":0.005},{\"feature\":\"structure.last.3\",\"operator\":\"==\",\"value\":1.0},{\"feature\":\"trend.ema_slope.100.1\",\"operator\":\"<\",\"value\":0.0}],\"stop_atr\":2.0,\"target_atr\":4.0,\"time_exit\":96,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 5,
+      "profit_factor": 2.5362927121992715,
+      "expectancy": 0.0011171047757683517,
+      "expectancy_r": 0.7388955453888812,
+      "sharpe": 7.993827297903732,
+      "max_drawdown": 7.406677086692071e-07,
+      "win_rate": 0.6,
+      "net_profit": 0.005585523878841759,
+      "return_pct": 5.585523878970378e-07
+    }
+  },
+  {
+    "canonical_hash": "33592fd48c6b6074dd6f07e599115d65127482451faa320fa492d68573c4011c",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"trend.ema_slope.50.6\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":2.0,\"target_atr\":4.0,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 30,
+      "profit_factor": 0.7884050345697198,
+      "expectancy": -0.0002518117433363238,
+      "expectancy_r": -0.16248237967890544,
+      "sharpe": -1.875775686724157,
+      "max_drawdown": 1.329755501137697e-06,
+      "win_rate": 0.3,
+      "net_profit": -0.007554352300089714,
+      "return_pct": -7.55435229815582e-07
+    }
+  },
+  {
+    "canonical_hash": "b52e747ddaab3f2f07acca26f3e9357cb1fa896190318ad8418f87bcaad87e1b",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.willr.7\",\"operator\":\">\",\"value\":-50.0}],\"stop_atr\":2.0,\"target_atr\":4.0,\"time_exit\":96,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 41,
+      "profit_factor": 0.9730629339275612,
+      "expectancy": -2.8948530167276387e-05,
+      "expectancy_r": 0.032753153808326545,
+      "sharpe": 0.3604355923691471,
+      "max_drawdown": 7.341405320403283e-07,
+      "win_rate": 0.36585365853658536,
+      "net_profit": -0.001186889736858332,
+      "return_pct": -1.1868897342726115e-07
+    }
+  },
+  {
+    "canonical_hash": "279def8addd6e6f2dfed6da6a422d95a913219e45d0358c80ec7ee06a3b4592f",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"rsi_14\",\"operator\":\">\",\"value\":30.0},{\"feature\":\"structure.last.3\",\"operator\":\"==\",\"value\":1.0},{\"feature\":\"structure.last.5\",\"operator\":\"==\",\"value\":2.0},{\"feature\":\"trend.ema_slope.200.3\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":1.0,\"target_atr\":4.0,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 11,
+      "profit_factor": 1.7463493066015947,
+      "expectancy": 0.00044391191104584777,
+      "expectancy_r": 0.6926336350281364,
+      "sharpe": 4.585754504161603,
+      "max_drawdown": 3.982213102062815e-07,
+      "win_rate": 0.36363636363636365,
+      "net_profit": 0.004883031021504326,
+      "return_pct": 4.883031021751805e-07
+    }
+  },
+  {
+    "canonical_hash": "b287f75ed0078650ab8aeca36d0c159c87d540c62f3f9b61096d4cefca561e96",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"OR\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.willr.28\",\"operator\":\"<\",\"value\":-80.0},{\"feature\":\"rsi_14\",\"operator\":\">\",\"value\":35.0},{\"feature\":\"structure.fractal_low.5\",\"operator\":\"==\",\"value\":1.0},{\"feature\":\"trend.close_ema.20\",\"operator\":\"<\",\"value\":0.0}],\"stop_atr\":2.0,\"target_atr\":3.0,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 59,
+      "profit_factor": 1.0227949051065826,
+      "expectancy": 2.1671989940713482e-05,
+      "expectancy_r": 0.007266842593459343,
+      "sharpe": 0.09385404502194662,
+      "max_drawdown": 7.034984308120328e-07,
+      "win_rate": 0.423728813559322,
+      "net_profit": 0.0012786474065020954,
+      "return_pct": 1.2786474079540255e-07
+    }
+  },
+  {
+    "canonical_hash": "957b660b916e9d2d2514803f82529f13114d35e9fd5f0980125a5fab06b3fb11",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"OR\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"structure.break_low.5\",\"operator\":\"<\",\"value\":0.0},{\"feature\":\"structure.fractal_low.2\",\"operator\":\"==\",\"value\":1.0}],\"stop_atr\":1.0,\"target_atr\":3.0,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 38,
+      "profit_factor": 0.47147256590867326,
+      "expectancy": -0.00037926655084695595,
+      "expectancy_r": -0.5133999892796296,
+      "sharpe": -5.682285457397379,
+      "max_drawdown": 1.8590297890114016e-06,
+      "win_rate": 0.15789473684210525,
+      "net_profit": -0.014412128932184326,
+      "return_pct": -1.441212893804611e-06
+    }
+  },
+  {
+    "canonical_hash": "7513b5b5e0e8d93c06c121b38508b515e4d7a2e3e44c26255a7075ede3f84b9d",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"OR\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.roc.16\",\"operator\":\"<\",\"value\":0.005},{\"feature\":\"momentum.willr.7\",\"operator\":\">\",\"value\":-50.0},{\"feature\":\"volatility.bb_middle.20.2\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":1.5,\"target_atr\":4.0,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 60,
+      "profit_factor": 1.0253553394988293,
+      "expectancy": 2.2803480614771216e-05,
+      "expectancy_r": 0.04956897289104105,
+      "sharpe": 0.4694094660066254,
+      "max_drawdown": 9.587513284714078e-07,
+      "win_rate": 0.31666666666666665,
+      "net_profit": 0.0013682088368862728,
+      "return_pct": 1.368208835117457e-07
+    }
+  },
+  {
+    "canonical_hash": "bd72e8323dd1c2dd29a1a462dec7d139bc8eae1dd9f8d4f8d8920b78942ae9d4",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.roc.16\",\"operator\":\"<\",\"value\":0.005},{\"feature\":\"momentum.willr.28\",\"operator\":\"<\",\"value\":-80.0},{\"feature\":\"momentum.willr.7\",\"operator\":\">\",\"value\":-50.0},{\"feature\":\"volatility.bb_lower.20.2\",\"operator\":\"<\",\"value\":0.0}],\"stop_atr\":1.5,\"target_atr\":4.0,\"time_exit\":72,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 0,
+      "profit_factor": 0.0,
+      "expectancy": 0.0,
+      "expectancy_r": 0.0,
+      "sharpe": 0.0,
+      "max_drawdown": 0.0,
+      "win_rate": 0.0,
+      "net_profit": 0.0,
+      "return_pct": 0.0
+    }
+  },
+  {
+    "canonical_hash": "102194d0a4cbd823aae9efd7ddc8251811a8c92ef8a6477a9b0e8a1a6d7e5311",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"OR\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.willr.28\",\"operator\":\"<\",\"value\":-80.0},{\"feature\":\"trend.ema_slope.100.6\",\"operator\":\"<\",\"value\":0.0},{\"feature\":\"volatility.bb_lower.20.2\",\"operator\":\"<\",\"value\":0.0}],\"stop_atr\":1.5,\"target_atr\":3.0,\"time_exit\":72,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 35,
+      "profit_factor": 0.9661466079005754,
+      "expectancy": -2.806267968254044e-05,
+      "expectancy_r": 0.001698990106932739,
+      "sharpe": 0.01899681704577815,
+      "max_drawdown": 7.167236999521265e-07,
+      "win_rate": 0.37142857142857144,
+      "net_profit": -0.0009821937888889155,
+      "return_pct": -9.821937851928197e-08
+    }
+  },
+  {
+    "canonical_hash": "341b4ea2b6a7738c61939499455c2bf3d26015de55f0a038044ca9ba9de0c0fe",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"structure.last.3\",\"operator\":\"==\",\"value\":2.0},{\"feature\":\"volatility.bb_upper.50.2\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":1.5,\"target_atr\":4.0,\"time_exit\":96,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 7,
+      "profit_factor": 1.7410545754459517,
+      "expectancy": 0.0005534249923284551,
+      "expectancy_r": 0.4874461340187688,
+      "sharpe": 4.267117631549484,
+      "max_drawdown": 7.768643359668204e-07,
+      "win_rate": 0.42857142857142855,
+      "net_profit": 0.0038739749462991862,
+      "return_pct": 3.8739749452787464e-07
+    }
+  },
+  {
+    "canonical_hash": "1978c25291866c562601538bfcddda20ec812915b9af493b9fc44abc46409c72",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"structure.last.3\",\"operator\":\"==\",\"value\":1.0},{\"feature\":\"structure.last.5\",\"operator\":\"==\",\"value\":3.0}],\"stop_atr\":1.5,\"target_atr\":2.0,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 0,
+      "profit_factor": 0.0,
+      "expectancy": 0.0,
+      "expectancy_r": 0.0,
+      "sharpe": 0.0,
+      "max_drawdown": 0.0,
+      "win_rate": 0.0,
+      "net_profit": 0.0,
+      "return_pct": 0.0
+    }
+  },
+  {
+    "canonical_hash": "72d45d641755675266f93a1afc2d5aaef6d7476b734b3b02f90d1fdf1d643bdb",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"structure.break_high.5\",\"operator\":\">\",\"value\":0.0},{\"feature\":\"structure.last.3\",\"operator\":\"==\",\"value\":1.0},{\"feature\":\"structure.last.5\",\"operator\":\"==\",\"value\":2.0},{\"feature\":\"trend.ema_slope.200.3\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":1.5,\"target_atr\":3.0,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 9,
+      "profit_factor": 0.46472587436298685,
+      "expectancy": -0.0005628604747461839,
+      "expectancy_r": -0.41481887487611296,
+      "sharpe": -5.29237806063907,
+      "max_drawdown": 5.065744271632866e-07,
+      "win_rate": 0.2222222222222222,
+      "net_profit": -0.005065744272715654,
+      "return_pct": -5.065744271837147e-07
+    }
+  },
+  {
+    "canonical_hash": "487fce74549a5e9d65c8a77a5b8240577d2ee1b533e9faa72fce98872dc7b940",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"volatility.bb_lower.20.2\",\"operator\":\"<\",\"value\":0.0}],\"stop_atr\":2.0,\"target_atr\":1.5,\"time_exit\":72,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 12,
+      "profit_factor": 0.7991833918116714,
+      "expectancy": -0.00013832760977133072,
+      "expectancy_r": -0.10510194929270926,
+      "sharpe": -1.9965649995537555,
+      "max_drawdown": 4.4006751904817065e-07,
+      "win_rate": 0.5,
+      "net_profit": -0.0016599313172559688,
+      "return_pct": -1.6599313168441654e-07
+    }
+  },
+  {
+    "canonical_hash": "321d3cddc0b3109602aa49bbf6197d9feda89eb70a3781a18f16ea43b68d89d6",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"structure.last.5\",\"operator\":\"==\",\"value\":4.0},{\"feature\":\"trend.ema_slope.200.1\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":1.0,\"target_atr\":2.0,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 5,
+      "profit_factor": "Infinity",
+      "expectancy": 0.0015519820261818197,
+      "expectancy_r": 1.8788420973895505,
+      "sharpe": 8925.951745181594,
+      "max_drawdown": 6.222511477972148e-07,
+      "win_rate": 1.0,
+      "net_profit": 0.007759910130909098,
+      "return_pct": 7.759910132243419e-07
+    }
+  },
+  {
+    "canonical_hash": "ced8e26f8b0710e9d2bbee2abbe7173c033854d0580c1a18f3f7adcb42fbdf10",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"structure.break_low.5\",\"operator\":\"<\",\"value\":0.0},{\"feature\":\"structure.fractal_low.2\",\"operator\":\"==\",\"value\":1.0},{\"feature\":\"trend.ema_slope.200.1\",\"operator\":\"<\",\"value\":0.0},{\"feature\":\"volatility.atr_regime.14.50\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":2.0,\"target_atr\":3.0,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 4,
+      "profit_factor": 0.4389536658419206,
+      "expectancy": -0.000739443306199472,
+      "expectancy_r": -0.43578934866625024,
+      "sharpe": -6.395108596444291,
+      "max_drawdown": 3.5023234413529283e-07,
+      "win_rate": 0.25,
+      "net_profit": -0.002957773224797888,
+      "return_pct": -2.957773225231719e-07
+    }
+  },
+  {
+    "canonical_hash": "092a65a9a7220e18e9c78589d7bb27f5462403e7f2d48f48d9ce1c207bd92dfd",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"rsi_14\",\"operator\":\">\",\"value\":30.0},{\"feature\":\"trend.ema_slope.200.3\",\"operator\":\">\",\"value\":0.0},{\"feature\":\"trend.ema_slope.50.12\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":1.5,\"target_atr\":4.0,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 23,
+      "profit_factor": 1.0054310071963144,
+      "expectancy": 4.979469803329333e-06,
+      "expectancy_r": 0.03268104453408806,
+      "sharpe": 0.3077454221995693,
+      "max_drawdown": 5.278156804706669e-07,
+      "win_rate": 0.30434782608695654,
+      "net_profit": 0.00011452780547657466,
+      "return_pct": 1.1452780279697095e-08
+    }
+  },
+  {
+    "canonical_hash": "ab8699ad6f272c87ecae5878b23f3a6901c5746b74b26738f9416b28506aa144",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.willr.7\",\"operator\":\">\",\"value\":-50.0},{\"feature\":\"trend.close_ema.20\",\"operator\":\"<\",\"value\":0.0}],\"stop_atr\":2.0,\"target_atr\":4.0,\"time_exit\":96,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 18,
+      "profit_factor": 0.8503936196432007,
+      "expectancy": -0.00016964540950303733,
+      "expectancy_r": -0.06411124724970763,
+      "sharpe": -0.7207112641224491,
+      "max_drawdown": 6.942209660337539e-07,
+      "win_rate": 0.3333333333333333,
+      "net_profit": -0.003053617371054672,
+      "return_pct": -3.0536173711848136e-07
+    }
+  },
+  {
+    "canonical_hash": "df0226e57ce8c653aacd06b8c6ea505553120d9224b972ab60280a10b3df82ef",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"structure.fractal_low.2\",\"operator\":\"==\",\"value\":1.0},{\"feature\":\"volatility.bb_middle.50.2\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":1.5,\"target_atr\":3.0,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 11,
+      "profit_factor": 0.0,
+      "expectancy": -0.0011535147736263021,
+      "expectancy_r": -1.094947546685084,
+      "sharpe": -10854.962154151503,
+      "max_drawdown": 1.2688662513028248e-06,
+      "win_rate": 0.0,
+      "net_profit": -0.012688662509889323,
+      "return_pct": -1.2688662512916338e-06
+    }
+  },
+  {
+    "canonical_hash": "89698640c2928f0962c6e2c0c52c31b5092ce4e5c1484715c6c575ea443f6497",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"structure.last.2\",\"operator\":\"==\",\"value\":1.0},{\"feature\":\"trend.ema_slope.50.12\",\"operator\":\"<\",\"value\":0.0},{\"feature\":\"volatility.bb_middle.50.2\",\"operator\":\">\",\"value\":0.0}],\"stop_atr\":1.0,\"target_atr\":1.5,\"time_exit\":72,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 1,
+      "profit_factor": "Infinity",
+      "expectancy": 0.001057471204609406,
+      "expectancy_r": 1.3704071432596265,
+      "sharpe": 0.0,
+      "max_drawdown": 0.0,
+      "win_rate": 1.0,
+      "net_profit": 0.001057471204609406,
+      "return_pct": 1.0574712061561797e-07
+    }
+  },
+  {
+    "canonical_hash": "3278a61b2cc8bb60bae65163c816ab07444bee6ba06b0a88d0e306c2731c586d",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"structure.last.2\",\"operator\":\"==\",\"value\":4.0}],\"stop_atr\":1.0,\"target_atr\":2.0,\"time_exit\":24,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 26,
+      "profit_factor": 1.4036073637797346,
+      "expectancy": 0.00019672771553847553,
+      "expectancy_r": 0.25916040942136126,
+      "sharpe": 2.75284190870935,
+      "max_drawdown": 6.963855688809418e-07,
+      "win_rate": 0.46153846153846156,
+      "net_profit": 0.005114920604000364,
+      "return_pct": 5.114920602622419e-07
+    }
+  },
+  {
+    "canonical_hash": "1c69a0fac8577053956487970b231aa848ecd6b86923d61388781ca219f17d8f",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"OR\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"rsi_14\",\"operator\":\"<\",\"value\":40.0},{\"feature\":\"structure.last.3\",\"operator\":\"==\",\"value\":4.0}],\"stop_atr\":1.0,\"target_atr\":3.0,\"time_exit\":24,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 40,
+      "profit_factor": 1.731666468879088,
+      "expectancy": 0.000385952778085741,
+      "expectancy_r": 0.494827598542638,
+      "sharpe": 4.035817167820731,
+      "max_drawdown": 1.7522252795970416e-06,
+      "win_rate": 0.4,
+      "net_profit": 0.015438111123429639,
+      "return_pct": 1.543811112503235e-06
+    }
+  },
+  {
+    "canonical_hash": "6280328959d001770e293556965c25a059cd33c45c081d1c0439db4a41ce3336",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.willr.28\",\"operator\":\"<\",\"value\":-80.0},{\"feature\":\"structure.break_high.5\",\"operator\":\">\",\"value\":0.0},{\"feature\":\"volatility.bb_lower.20.2\",\"operator\":\"<\",\"value\":0.0}],\"stop_atr\":2.0,\"target_atr\":2.0,\"time_exit\":72,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 0,
+      "profit_factor": 0.0,
+      "expectancy": 0.0,
+      "expectancy_r": 0.0,
+      "sharpe": 0.0,
+      "max_drawdown": 0.0,
+      "win_rate": 0.0,
+      "net_profit": 0.0,
+      "return_pct": 0.0
+    }
+  },
+  {
+    "canonical_hash": "5ee5a53b69c3ca616efdf00ac008e363968388aaee6f18f4f91533caf94a6bdb",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"rsi_14\",\"operator\":\"<\",\"value\":60.0}],\"stop_atr\":2.0,\"target_atr\":2.0,\"time_exit\":48,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 65,
+      "profit_factor": 0.6466412547447675,
+      "expectancy": -0.00033363138193970125,
+      "expectancy_r": -0.21651842346713418,
+      "sharpe": -3.5042583691765863,
+      "max_drawdown": 2.5625856998885864e-06,
+      "win_rate": 0.4307692307692308,
+      "net_profit": -0.02168603982608058,
+      "return_pct": -2.1686039828328063e-06
+    }
+  },
+  {
+    "canonical_hash": "cd3b3dfa4c3fb1dfdcb32b6adf4a8b58a1f4e7808797902ab8e112a93d2038f5",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"SHORT\",\"grammar_version\":\"v1.7\",\"logic\":\"OR\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"structure.break_high.5\",\"operator\":\">\",\"value\":0.0},{\"feature\":\"volatility.bb_lower.20.2\",\"operator\":\"<\",\"value\":0.0}],\"stop_atr\":2.0,\"target_atr\":1.5,\"time_exit\":72,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 44,
+      "profit_factor": 0.8228701129605698,
+      "expectancy": -0.00013047429400662474,
+      "expectancy_r": -0.0850550350190012,
+      "sharpe": -1.5709572118923443,
+      "max_drawdown": 1.1557874711797923e-06,
+      "win_rate": 0.5454545454545454,
+      "net_profit": -0.0057408689362914885,
+      "return_pct": -5.740868936898735e-07
+    }
+  },
+  {
+    "canonical_hash": "c53f3d20c2a1622f26412b16287b7f4a780f019dc99f7dc5efe2f1bf3fcdfcce",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"rsi_14\",\"operator\":\">\",\"value\":35.0},{\"feature\":\"trend.ema_slope.10.6\",\"operator\":\"<\",\"value\":0.0},{\"feature\":\"trend.ema_slope.100.1\",\"operator\":\"<\",\"value\":0.0}],\"stop_atr\":1.5,\"target_atr\":4.0,\"time_exit\":96,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 17,
+      "profit_factor": 1.3128039683436918,
+      "expectancy": 0.0002495708674623455,
+      "expectancy_r": 0.20598684577844614,
+      "sharpe": 1.8652479852374086,
+      "max_drawdown": 6.162097477499629e-07,
+      "win_rate": 0.35294117647058826,
+      "net_profit": 0.004242704746859873,
+      "return_pct": 4.2427047408644114e-07
+    }
+  },
+  {
+    "canonical_hash": "f4347f9055dfcb4bb97461465615eb81be9545d9c4d766284006d23315831883",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"momentum.roc.4\",\"operator\":\"<\",\"value\":0.005},{\"feature\":\"structure.last.2\",\"operator\":\"==\",\"value\":4.0},{\"feature\":\"trend.ema_slope.10.3\",\"operator\":\"<\",\"value\":0.0}],\"stop_atr\":1.0,\"target_atr\":4.0,\"time_exit\":96,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 14,
+      "profit_factor": 0.8725082292018377,
+      "expectancy": -9.079056310028307e-05,
+      "expectancy_r": -0.054697756212077064,
+      "sharpe": -0.4240112436947394,
+      "max_drawdown": 3.626911056926474e-07,
+      "win_rate": 0.21428571428571427,
+      "net_profit": -0.001271067883403963,
+      "return_pct": -1.2710678787275498e-07
+    }
+  },
+  {
+    "canonical_hash": "d7f9bce0bcc5a04b372819879d7229835791aadce2c3eb6a4bf7a47dcbe85cd0",
+    "strategy_json": "{\"atr_period\":14,\"direction\":\"LONG\",\"grammar_version\":\"v1.7\",\"logic\":\"AND\",\"market\":\"EURUSD\",\"predicates\":[{\"feature\":\"structure.last.5\",\"operator\":\"==\",\"value\":1.0}],\"stop_atr\":1.0,\"target_atr\":2.0,\"time_exit\":72,\"timeframe\":\"H1\"}",
+    "metrics": {
+      "trade_count": 24,
+      "profit_factor": 3.403946525146016,
+      "expectancy": 0.0007385870637444282,
+      "expectancy_r": 0.8793557437528845,
+      "sharpe": 9.864581549258707,
+      "max_drawdown": 1.6990858352073701e-06,
+      "win_rate": 0.6666666666666666,
+      "net_profit": 0.017726089529866276,
+      "return_pct": 1.772608952954613e-06
+    }
+  }
+]

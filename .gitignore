@@ -9,3 +9,6 @@ data/cloud/*.parquet
 *.sqlite
 .venv/
 *.egg-info/
+data/cloud/*.csv
+data/derived/
+*.sqlite-*
