@@ -1,0 +1,142 @@
+[
+  {
+    "market": "EURUSD",
+    "timeframe": "M15",
+    "status": "PASS",
+    "expected_roundtrip_cost": 0.0001,
+    "scope": "first 2048 Development bars; fixed RSI rule; LONG and SHORT; Python/Numba; no Validation/OOS read for cost selection"
+  },
+  {
+    "market": "EURUSD",
+    "timeframe": "H4",
+    "status": "PASS",
+    "expected_roundtrip_cost": 0.0001,
+    "scope": "first 2048 Development bars; fixed RSI rule; LONG and SHORT; Python/Numba; no Validation/OOS read for cost selection"
+  },
+  {
+    "market": "GBPUSD",
+    "timeframe": "M15",
+    "status": "PASS",
+    "expected_roundtrip_cost": 0.00016,
+    "scope": "first 2048 Development bars; fixed RSI rule; LONG and SHORT; Python/Numba; no Validation/OOS read for cost selection"
+  },
+  {
+    "market": "GBPUSD",
+    "timeframe": "H1",
+    "status": "PASS",
+    "expected_roundtrip_cost": 0.00016,
+    "scope": "first 2048 Development bars; fixed RSI rule; LONG and SHORT; Python/Numba; no Validation/OOS read for cost selection"
+  },
+  {
+    "market": "GBPUSD",
+    "timeframe": "H4",
+    "status": "PASS",
+    "expected_roundtrip_cost": 0.00016,
+    "scope": "first 2048 Development bars; fixed RSI rule; LONG and SHORT; Python/Numba; no Validation/OOS read for cost selection"
+  },
+  {
+    "market": "NZDUSD",
+    "timeframe": "M15",
+    "status": "PASS",
+    "expected_roundtrip_cost": 0.00030000000000000003,
+    "scope": "first 2048 Development bars; fixed RSI rule; LONG and SHORT; Python/Numba; no Validation/OOS read for cost selection"
+  },
+  {
+    "market": "NZDUSD",
+    "timeframe": "H1",
+    "status": "PASS",
+    "expected_roundtrip_cost": 0.00030000000000000003,
+    "scope": "first 2048 Development bars; fixed RSI rule; LONG and SHORT; Python/Numba; no Validation/OOS read for cost selection"
+  },
+  {
+    "market": "NZDUSD",
+    "timeframe": "H4",
+    "status": "PASS",
+    "expected_roundtrip_cost": 0.00030000000000000003,
+    "scope": "first 2048 Development bars; fixed RSI rule; LONG and SHORT; Python/Numba; no Validation/OOS read for cost selection"
+  },
+  {
+    "market": "USDCAD",
+    "timeframe": "M15",
+    "status": "PASS",
+    "expected_roundtrip_cost": 0.00025,
+    "scope": "first 2048 Development bars; fixed RSI rule; LONG and SHORT; Python/Numba; no Validation/OOS read for cost selection"
+  },
+  {
+    "market": "USDCAD",
+    "timeframe": "H1",
+    "status": "PASS",
+    "expected_roundtrip_cost": 0.00025,
+    "scope": "first 2048 Development bars; fixed RSI rule; LONG and SHORT; Python/Numba; no Validation/OOS read for cost selection"
+  },
+  {
+    "market": "USDCAD",
+    "timeframe": "H4",
+    "status": "PASS",
+    "expected_roundtrip_cost": 0.00025,
+    "scope": "first 2048 Development bars; fixed RSI rule; LONG and SHORT; Python/Numba; no Validation/OOS read for cost selection"
+  },
+  {
+    "market": "USDCHF",
+    "timeframe": "M15",
+    "status": "PASS",
+    "expected_roundtrip_cost": 0.00025,
+    "scope": "first 2048 Development bars; fixed RSI rule; LONG and SHORT; Python/Numba; no Validation/OOS read for cost selection"
+  },
+  {
+    "market": "USDCHF",
+    "timeframe": "H1",
+    "status": "PASS",
+    "expected_roundtrip_cost": 0.00025,
+    "scope": "first 2048 Development bars; fixed RSI rule; LONG and SHORT; Python/Numba; no Validation/OOS read for cost selection"
+  },
+  {
+    "market": "USDCHF",
+    "timeframe": "H4",
+    "status": "PASS",
+    "expected_roundtrip_cost": 0.00025,
+    "scope": "first 2048 Development bars; fixed RSI rule; LONG and SHORT; Python/Numba; no Validation/OOS read for cost selection"
+  },
+  {
+    "market": "USDJPY",
+    "timeframe": "M15",
+    "status": "PASS",
+    "expected_roundtrip_cost": 0.012,
+    "scope": "first 2048 Development bars; fixed RSI rule; LONG and SHORT; Python/Numba; no Validation/OOS read for cost selection"
+  },
+  {
+    "market": "USDJPY",
+    "timeframe": "H1",
+    "status": "PASS",
+    "expected_roundtrip_cost": 0.012,
+    "scope": "first 2048 Development bars; fixed RSI rule; LONG and SHORT; Python/Numba; no Validation/OOS read for cost selection"
+  },
+  {
+    "market": "USDJPY",
+    "timeframe": "H4",
+    "status": "PASS",
+    "expected_roundtrip_cost": 0.012,
+    "scope": "first 2048 Development bars; fixed RSI rule; LONG and SHORT; Python/Numba; no Validation/OOS read for cost selection"
+  },
+  {
+    "market": "XAUUSD",
+    "timeframe": "M15",
+    "status": "PASS",
+    "expected_roundtrip_cost": 0.4,
+    "scope": "first 2048 Development bars; fixed RSI rule; LONG and SHORT; Python/Numba; no Validation/OOS read for cost selection"
+  },
+  {
+    "market": "XAUUSD",
+    "timeframe": "H1",
+    "status": "PASS",
+    "expected_roundtrip_cost": 0.4,
+    "scope": "first 2048 Development bars; fixed RSI rule; LONG and SHORT; Python/Numba; no Validation/OOS read for cost selection"
+  },
+  {
+    "market": "XAUUSD",
+    "timeframe": "H4",
+    "status": "PASS",
+    "expected_roundtrip_cost": 0.4,
+    "scope": "first 2048 Development bars; fixed RSI rule; LONG and SHORT; Python/Numba; no Validation/OOS read for cost selection"
+  }
+]

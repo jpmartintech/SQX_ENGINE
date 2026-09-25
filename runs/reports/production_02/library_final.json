@@ -1,0 +1,85 @@
+{
+  "total": 12289,
+  "observations": 12771,
+  "by_market": {
+    "EURUSD": 1762,
+    "GBPUSD": 820,
+    "NZDUSD": 121,
+    "USDCAD": 285,
+    "USDCHF": 570,
+    "USDJPY": 2806,
+    "XAUUSD": 5925
+  },
+  "by_timeframe": {
+    "H1": 3587,
+    "H4": 8311,
+    "M15": 391
+  },
+  "by_family": {
+    "Momentum": 851,
+    "Momentum+Structure": 1248,
+    "Momentum+Volatility": 840,
+    "Momentum+Volatility+Structure": 580,
+    "Structure": 296,
+    "Trend": 602,
+    "Trend+Momentum": 1532,
+    "Trend+Momentum+Structure": 1028,
+    "Trend+Momentum+Volatility": 944,
+    "Trend+Momentum+Volatility+Structure": 354,
+    "Trend+Structure": 1181,
+    "Trend+Volatility": 1066,
+    "Trend+Volatility+Structure": 884,
+    "Volatility": 229,
+    "Volatility+Structure": 654
+  },
+  "by_direction": {
+    "LONG": 10628,
+    "SHORT": 1661
+  },
+  "by_predicate_count": {
+    "1": 473,
+    "2": 3964,
+    "3": 4202,
+    "4": 3650
+  },
+  "by_market_timeframe": {
+    "EURUSD H1": 948,
+    "EURUSD H4": 730,
+    "EURUSD M15": 84,
+    "GBPUSD H1": 212,
+    "GBPUSD H4": 481,
+    "GBPUSD M15": 127,
+    "NZDUSD H1": 3,
+    "NZDUSD H4": 118,
+    "USDCAD H1": 44,
+    "USDCAD H4": 240,
+    "USDCAD M15": 1,
+    "USDCHF H1": 8,
+    "USDCHF H4": 562,
+    "USDJPY H1": 1032,
+    "USDJPY H4": 1622,
+    "USDJPY M15": 152,
+    "XAUUSD H1": 1340,
+    "XAUUSD H4": 4558,
+    "XAUUSD M15": 27
+  },
+  "by_policy_first_discovery": {
+    "LEGACY_V1_7_GOLDEN_IMPORT": 299,
+    "V1_8_SMOKE_CHRONOLOGICAL": 4,
+    "PRODUCTION_2016_2026_V1": 11986
+  },
+  "by_execution_profile_version_first_discovery": {
+    "PRE_PRODUCTION_EXECUTION_V1": 952,
+    "PRODUCTION_EXECUTION_V1": 11337
+  },
+  "by_policy_membership": {
+    "PRODUCTION_2016_2026_V1": 11986,
+    "LEGACY_V1_7_GOLDEN_IMPORT": 299,
+    "V1_8_SMOKE_CHRONOLOGICAL": 6
+  },
+  "by_execution_profile_version_membership": {
+    "PRODUCTION_EXECUTION_V1": 11337,
+    "PRE_PRODUCTION_EXECUTION_V1": 952
+  },
+  "sha256": "4d042baf9480e4a65a8e18aa90768ee8415d63c26c45e1dd4a0d07b695a7d56c"
+}

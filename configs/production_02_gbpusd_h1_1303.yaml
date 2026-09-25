@@ -1,0 +1,388 @@
+batch_name: PRODUCTION_02
+production_policy: PRODUCTION_2016_2026_V1
+base_config: configs/production_02_base.yaml
+markets:
+- GBPUSD
+timeframes:
+- H1
+seeds:
+- 1303
+evaluations_per_job: 250000
+grammar_version: v1.7
+workers: 1
+execution_profiles:
+  EURUSD_M15:
+    market: EURUSD
+    timeframe: M15
+    spread: 8.0e-05
+    slippage: 2.0e-05
+    units: quote-price units per completed trade
+    pip_size: 0.0001
+    tick_size: 1.0e-05
+    source: configs/production_01_ready.yaml
+    source_sha256: aaeab7cca097d6a1a06481d98c6a75ae7302811760bd7e2b70d3d8428bacb60c
+    rationale: Unchanged V1.8 EURUSD round-trip price-unit cost, identical across
+      TF; no timeframe scaling. H1 jobs remain Production 01 and are excluded.
+    commission_model: No separate commission field supported; historical aggregate
+      friction is represented through spread.
+    status: APPROVED
+    version: PRODUCTION_EXECUTION_V1
+    initial_capital: 10000
+  EURUSD_H4:
+    market: EURUSD
+    timeframe: H4
+    spread: 8.0e-05
+    slippage: 2.0e-05
+    units: quote-price units per completed trade
+    pip_size: 0.0001
+    tick_size: 1.0e-05
+    source: configs/production_01_ready.yaml
+    source_sha256: aaeab7cca097d6a1a06481d98c6a75ae7302811760bd7e2b70d3d8428bacb60c
+    rationale: Unchanged V1.8 EURUSD round-trip price-unit cost, identical across
+      TF; no timeframe scaling. H1 jobs remain Production 01 and are excluded.
+    commission_model: No separate commission field supported; historical aggregate
+      friction is represented through spread.
+    status: APPROVED
+    version: PRODUCTION_EXECUTION_V1
+    initial_capital: 10000
+  GBPUSD_M15:
+    market: GBPUSD
+    timeframe: M15
+    spread: 0.0001
+    slippage: 6.0e-05
+    units: quote-price units per completed trade
+    pip_size: 0.0001
+    tick_size: 1.0e-05
+    source: /home/xaume/proyectos/sqx_lite/market_profiles/profiles.yaml
+    source_sha256: 3ee92c2930bb9a397d20d595d28ab7ac135094b3b63cb3ddacba2235d4583a34
+    rationale: 'Historical simulation assumption: round-trip fee_pips*pip deducted
+      through spread; 2*per-side slippage_pips*pip deducted once. Not a broker quote
+      or measured fill distribution.'
+    commission_model: No separate commission field supported; historical aggregate
+      friction is represented through spread.
+    status: APPROVED
+    version: PRODUCTION_EXECUTION_V1
+    initial_capital: 10000
+  GBPUSD_H1:
+    market: GBPUSD
+    timeframe: H1
+    spread: 0.0001
+    slippage: 6.0e-05
+    units: quote-price units per completed trade
+    pip_size: 0.0001
+    tick_size: 1.0e-05
+    source: /home/xaume/proyectos/sqx_lite/market_profiles/profiles.yaml
+    source_sha256: 3ee92c2930bb9a397d20d595d28ab7ac135094b3b63cb3ddacba2235d4583a34
+    rationale: 'Historical simulation assumption: round-trip fee_pips*pip deducted
+      through spread; 2*per-side slippage_pips*pip deducted once. Not a broker quote
+      or measured fill distribution.'
+    commission_model: No separate commission field supported; historical aggregate
+      friction is represented through spread.
+    status: APPROVED
+    version: PRODUCTION_EXECUTION_V1
+    initial_capital: 10000
+  GBPUSD_H4:
+    market: GBPUSD
+    timeframe: H4
+    spread: 0.0001
+    slippage: 6.0e-05
+    units: quote-price units per completed trade
+    pip_size: 0.0001
+    tick_size: 1.0e-05
+    source: /home/xaume/proyectos/sqx_lite/market_profiles/profiles.yaml
+    source_sha256: 3ee92c2930bb9a397d20d595d28ab7ac135094b3b63cb3ddacba2235d4583a34
+    rationale: 'Historical simulation assumption: round-trip fee_pips*pip deducted
+      through spread; 2*per-side slippage_pips*pip deducted once. Not a broker quote
+      or measured fill distribution.'
+    commission_model: No separate commission field supported; historical aggregate
+      friction is represented through spread.
+    status: APPROVED
+    version: PRODUCTION_EXECUTION_V1
+    initial_capital: 10000
+  NZDUSD_M15:
+    market: NZDUSD
+    timeframe: M15
+    spread: 0.0002
+    slippage: 0.0001
+    units: quote-price units per completed trade
+    pip_size: 0.0001
+    tick_size: 1.0e-05
+    source: /home/xaume/proyectos/sqx_lite/market_profiles/profiles.yaml
+    source_sha256: 3ee92c2930bb9a397d20d595d28ab7ac135094b3b63cb3ddacba2235d4583a34
+    rationale: 'Historical simulation assumption: round-trip fee_pips*pip deducted
+      through spread; 2*per-side slippage_pips*pip deducted once. Not a broker quote
+      or measured fill distribution.'
+    commission_model: No separate commission field supported; historical aggregate
+      friction is represented through spread.
+    status: APPROVED
+    version: PRODUCTION_EXECUTION_V1
+    initial_capital: 10000
+  NZDUSD_H1:
+    market: NZDUSD
+    timeframe: H1
+    spread: 0.0002
+    slippage: 0.0001
+    units: quote-price units per completed trade
+    pip_size: 0.0001
+    tick_size: 1.0e-05
+    source: /home/xaume/proyectos/sqx_lite/market_profiles/profiles.yaml
+    source_sha256: 3ee92c2930bb9a397d20d595d28ab7ac135094b3b63cb3ddacba2235d4583a34
+    rationale: 'Historical simulation assumption: round-trip fee_pips*pip deducted
+      through spread; 2*per-side slippage_pips*pip deducted once. Not a broker quote
+      or measured fill distribution.'
+    commission_model: No separate commission field supported; historical aggregate
+      friction is represented through spread.
+    status: APPROVED
+    version: PRODUCTION_EXECUTION_V1
+    initial_capital: 10000
+  NZDUSD_H4:
+    market: NZDUSD
+    timeframe: H4
+    spread: 0.0002
+    slippage: 0.0001
+    units: quote-price units per completed trade
+    pip_size: 0.0001
+    tick_size: 1.0e-05
+    source: /home/xaume/proyectos/sqx_lite/market_profiles/profiles.yaml
+    source_sha256: 3ee92c2930bb9a397d20d595d28ab7ac135094b3b63cb3ddacba2235d4583a34
+    rationale: 'Historical simulation assumption: round-trip fee_pips*pip deducted
+      through spread; 2*per-side slippage_pips*pip deducted once. Not a broker quote
+      or measured fill distribution.'
+    commission_model: No separate commission field supported; historical aggregate
+      friction is represented through spread.
+    status: APPROVED
+    version: PRODUCTION_EXECUTION_V1
+    initial_capital: 10000
+  USDCAD_M15:
+    market: USDCAD
+    timeframe: M15
+    spread: 0.00015
+    slippage: 0.0001
+    units: quote-price units per completed trade
+    pip_size: 0.0001
+    tick_size: 1.0e-05
+    source: /home/xaume/proyectos/sqx_lite/market_profiles/profiles.yaml
+    source_sha256: 3ee92c2930bb9a397d20d595d28ab7ac135094b3b63cb3ddacba2235d4583a34
+    rationale: 'Historical simulation assumption: round-trip fee_pips*pip deducted
+      through spread; 2*per-side slippage_pips*pip deducted once. Not a broker quote
+      or measured fill distribution.'
+    commission_model: No separate commission field supported; historical aggregate
+      friction is represented through spread.
+    status: APPROVED
+    version: PRODUCTION_EXECUTION_V1
+    initial_capital: 10000
+  USDCAD_H1:
+    market: USDCAD
+    timeframe: H1
+    spread: 0.00015
+    slippage: 0.0001
+    units: quote-price units per completed trade
+    pip_size: 0.0001
+    tick_size: 1.0e-05
+    source: /home/xaume/proyectos/sqx_lite/market_profiles/profiles.yaml
+    source_sha256: 3ee92c2930bb9a397d20d595d28ab7ac135094b3b63cb3ddacba2235d4583a34
+    rationale: 'Historical simulation assumption: round-trip fee_pips*pip deducted
+      through spread; 2*per-side slippage_pips*pip deducted once. Not a broker quote
+      or measured fill distribution.'
+    commission_model: No separate commission field supported; historical aggregate
+      friction is represented through spread.
+    status: APPROVED
+    version: PRODUCTION_EXECUTION_V1
+    initial_capital: 10000
+  USDCAD_H4:
+    market: USDCAD
+    timeframe: H4
+    spread: 0.00015
+    slippage: 0.0001
+    units: quote-price units per completed trade
+    pip_size: 0.0001
+    tick_size: 1.0e-05
+    source: /home/xaume/proyectos/sqx_lite/market_profiles/profiles.yaml
+    source_sha256: 3ee92c2930bb9a397d20d595d28ab7ac135094b3b63cb3ddacba2235d4583a34
+    rationale: 'Historical simulation assumption: round-trip fee_pips*pip deducted
+      through spread; 2*per-side slippage_pips*pip deducted once. Not a broker quote
+      or measured fill distribution.'
+    commission_model: No separate commission field supported; historical aggregate
+      friction is represented through spread.
+    status: APPROVED
+    version: PRODUCTION_EXECUTION_V1
+    initial_capital: 10000
+  USDCHF_M15:
+    market: USDCHF
+    timeframe: M15
+    spread: 0.00015
+    slippage: 0.0001
+    units: quote-price units per completed trade
+    pip_size: 0.0001
+    tick_size: 1.0e-05
+    source: /home/xaume/proyectos/sqx_lite/market_profiles/profiles.yaml
+    source_sha256: 3ee92c2930bb9a397d20d595d28ab7ac135094b3b63cb3ddacba2235d4583a34
+    rationale: 'Historical simulation assumption: round-trip fee_pips*pip deducted
+      through spread; 2*per-side slippage_pips*pip deducted once. Not a broker quote
+      or measured fill distribution.'
+    commission_model: No separate commission field supported; historical aggregate
+      friction is represented through spread.
+    status: APPROVED
+    version: PRODUCTION_EXECUTION_V1
+    initial_capital: 10000
+  USDCHF_H1:
+    market: USDCHF
+    timeframe: H1
+    spread: 0.00015
+    slippage: 0.0001
+    units: quote-price units per completed trade
+    pip_size: 0.0001
+    tick_size: 1.0e-05
+    source: /home/xaume/proyectos/sqx_lite/market_profiles/profiles.yaml
+    source_sha256: 3ee92c2930bb9a397d20d595d28ab7ac135094b3b63cb3ddacba2235d4583a34
+    rationale: 'Historical simulation assumption: round-trip fee_pips*pip deducted
+      through spread; 2*per-side slippage_pips*pip deducted once. Not a broker quote
+      or measured fill distribution.'
+    commission_model: No separate commission field supported; historical aggregate
+      friction is represented through spread.
+    status: APPROVED
+    version: PRODUCTION_EXECUTION_V1
+    initial_capital: 10000
+  USDCHF_H4:
+    market: USDCHF
+    timeframe: H4
+    spread: 0.00015
+    slippage: 0.0001
+    units: quote-price units per completed trade
+    pip_size: 0.0001
+    tick_size: 1.0e-05
+    source: /home/xaume/proyectos/sqx_lite/market_profiles/profiles.yaml
+    source_sha256: 3ee92c2930bb9a397d20d595d28ab7ac135094b3b63cb3ddacba2235d4583a34
+    rationale: 'Historical simulation assumption: round-trip fee_pips*pip deducted
+      through spread; 2*per-side slippage_pips*pip deducted once. Not a broker quote
+      or measured fill distribution.'
+    commission_model: No separate commission field supported; historical aggregate
+      friction is represented through spread.
+    status: APPROVED
+    version: PRODUCTION_EXECUTION_V1
+    initial_capital: 10000
+  USDJPY_M15:
+    market: USDJPY
+    timeframe: M15
+    spread: 0.008
+    slippage: 0.004
+    units: quote-price units per completed trade
+    pip_size: 0.01
+    tick_size: 0.001
+    source: /home/xaume/proyectos/sqx_lite/market_profiles/profiles.yaml
+    source_sha256: 3ee92c2930bb9a397d20d595d28ab7ac135094b3b63cb3ddacba2235d4583a34
+    rationale: 'Historical simulation assumption: round-trip fee_pips*pip deducted
+      through spread; 2*per-side slippage_pips*pip deducted once. Not a broker quote
+      or measured fill distribution.'
+    commission_model: No separate commission field supported; historical aggregate
+      friction is represented through spread.
+    status: APPROVED
+    version: PRODUCTION_EXECUTION_V1
+    initial_capital: 10000
+  USDJPY_H1:
+    market: USDJPY
+    timeframe: H1
+    spread: 0.008
+    slippage: 0.004
+    units: quote-price units per completed trade
+    pip_size: 0.01
+    tick_size: 0.001
+    source: /home/xaume/proyectos/sqx_lite/market_profiles/profiles.yaml
+    source_sha256: 3ee92c2930bb9a397d20d595d28ab7ac135094b3b63cb3ddacba2235d4583a34
+    rationale: 'Historical simulation assumption: round-trip fee_pips*pip deducted
+      through spread; 2*per-side slippage_pips*pip deducted once. Not a broker quote
+      or measured fill distribution.'
+    commission_model: No separate commission field supported; historical aggregate
+      friction is represented through spread.
+    status: APPROVED
+    version: PRODUCTION_EXECUTION_V1
+    initial_capital: 10000
+  USDJPY_H4:
+    market: USDJPY
+    timeframe: H4
+    spread: 0.008
+    slippage: 0.004
+    units: quote-price units per completed trade
+    pip_size: 0.01
+    tick_size: 0.001
+    source: /home/xaume/proyectos/sqx_lite/market_profiles/profiles.yaml
+    source_sha256: 3ee92c2930bb9a397d20d595d28ab7ac135094b3b63cb3ddacba2235d4583a34
+    rationale: 'Historical simulation assumption: round-trip fee_pips*pip deducted
+      through spread; 2*per-side slippage_pips*pip deducted once. Not a broker quote
+      or measured fill distribution.'
+    commission_model: No separate commission field supported; historical aggregate
+      friction is represented through spread.
+    status: APPROVED
+    version: PRODUCTION_EXECUTION_V1
+    initial_capital: 10000
+  XAUUSD_M15:
+    market: XAUUSD
+    timeframe: M15
+    spread: 0.3
+    slippage: 0.1
+    units: quote-price units per completed trade
+    pip_size: 0.01
+    tick_size: 0.01
+    source: /home/xaume/proyectos/sqx_lite/market_profiles/profiles.yaml
+    source_sha256: 3ee92c2930bb9a397d20d595d28ab7ac135094b3b63cb3ddacba2235d4583a34
+    rationale: 'Historical simulation assumption: round-trip fee_pips*pip deducted
+      through spread; 2*per-side slippage_pips*pip deducted once. Not a broker quote
+      or measured fill distribution.'
+    commission_model: No separate commission field supported; historical aggregate
+      friction is represented through spread.
+    status: APPROVED
+    version: PRODUCTION_EXECUTION_V1
+    initial_capital: 10000
+  XAUUSD_H1:
+    market: XAUUSD
+    timeframe: H1
+    spread: 0.3
+    slippage: 0.1
+    units: quote-price units per completed trade
+    pip_size: 0.01
+    tick_size: 0.01
+    source: /home/xaume/proyectos/sqx_lite/market_profiles/profiles.yaml
+    source_sha256: 3ee92c2930bb9a397d20d595d28ab7ac135094b3b63cb3ddacba2235d4583a34
+    rationale: 'Historical simulation assumption: round-trip fee_pips*pip deducted
+      through spread; 2*per-side slippage_pips*pip deducted once. Not a broker quote
+      or measured fill distribution.'
+    commission_model: No separate commission field supported; historical aggregate
+      friction is represented through spread.
+    status: APPROVED
+    version: PRODUCTION_EXECUTION_V1
+    initial_capital: 10000
+  XAUUSD_H4:
+    market: XAUUSD
+    timeframe: H4
+    spread: 0.3
+    slippage: 0.1
+    units: quote-price units per completed trade
+    pip_size: 0.01
+    tick_size: 0.01
+    source: /home/xaume/proyectos/sqx_lite/market_profiles/profiles.yaml
+    source_sha256: 3ee92c2930bb9a397d20d595d28ab7ac135094b3b63cb3ddacba2235d4583a34
+    rationale: 'Historical simulation assumption: round-trip fee_pips*pip deducted
+      through spread; 2*per-side slippage_pips*pip deducted once. Not a broker quote
+      or measured fill distribution.'
+    commission_model: No separate commission field supported; historical aggregate
+      friction is represented through spread.
+    status: APPROVED
+    version: PRODUCTION_EXECUTION_V1
+    initial_capital: 10000
+promotion_policy: OOS_PASS
+output_root: runs/production/PRODUCTION_02
+temporal_policy:
+  name: PRODUCTION_2016_2026_V1
+  mode: explicit_dates
+  development:
+    start: '2016-01-01T00:00:00Z'
+    end: '2022-01-01T00:00:00Z'
+  validation:
+    start: '2022-01-01T00:00:00Z'
+    end: '2024-01-01T00:00:00Z'
+  oos:
+    start: '2024-01-01T00:00:00Z'
+    end: latest
+execution_profile_version: PRODUCTION_EXECUTION_V1
+resource_guards:
+  max_memory_gb: 20

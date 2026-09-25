@@ -1,0 +1,362 @@
+[
+  {
+    "job_id": "61e38292c317ad7e1be48705b0c455d5b9eb4235b42f303230c46bf76377881c",
+    "market": "EURUSD",
+    "timeframe": "M15",
+    "seed": 1301,
+    "dataset_sha256": "11d571e8bb3d676ae234af48878e607e88a1bf1d25c88c0a514135539fcb058b",
+    "splits": {
+      "development": {
+        "start": "2016-01-04 00:00:00+00:00",
+        "end": "2021-12-31 23:45:00+00:00",
+        "bars": 149622
+      },
+      "validation": {
+        "start": "2022-01-03 00:00:00+00:00",
+        "end": "2023-12-29 23:45:00+00:00",
+        "bars": 49859
+      },
+      "oos": {
+        "start": "2024-01-02 00:00:00+00:00",
+        "end": "2026-04-14 02:45:00+00:00",
+        "bars": 56819
+      }
+    },
+    "execution_profile_version": "PRODUCTION_EXECUTION_V1",
+    "spread": 8e-05,
+    "slippage": 2e-05,
+    "status": "READY",
+    "config": "configs/production_02_eurusd_m15_1301.yaml",
+    "directory": "/home/xaume/SQX_ENGINE/runs/production/PRODUCTION_02/EURUSD/M15/seed_1301/61e38292c317ad7e",
+    "canary": true,
+    "check": {
+      "status": "PASS",
+      "job_id": "61e38292c317ad7e1be48705b0c455d5b9eb4235b42f303230c46bf76377881c",
+      "metrics": "PASS",
+      "execution_costs": "PASS",
+      "execution_units": "PASS",
+      "development_only": "PASS",
+      "validation_oos_isolation": "PASS",
+      "db_integrity": "PASS",
+      "provenance": "PASS",
+      "library_promotion": "PASS",
+      "dedup": "PASS",
+      "checkpoint": "PASS"
+    }
+  },
+  {
+    "job_id": "72c03c947c90dd06865c3e941610670a91736712d27cf491369be79955464752",
+    "market": "EURUSD",
+    "timeframe": "H4",
+    "seed": 1301,
+    "dataset_sha256": "4017072200f5b0804489eaadbdf7cc95634f629f2a028a5779f305fcd1582d8a",
+    "splits": {
+      "development": {
+        "start": "2016-01-04 00:00:00+00:00",
+        "end": "2021-12-31 20:00:00+00:00",
+        "bars": 9325
+      },
+      "validation": {
+        "start": "2022-01-03 00:00:00+00:00",
+        "end": "2023-12-29 20:00:00+00:00",
+        "bars": 3109
+      },
+      "oos": {
+        "start": "2024-01-02 00:00:00+00:00",
+        "end": "2026-04-13 20:00:00+00:00",
+        "bars": 3535
+      }
+    },
+    "execution_profile_version": "PRODUCTION_EXECUTION_V1",
+    "spread": 8e-05,
+    "slippage": 2e-05,
+    "status": "READY",
+    "config": "configs/production_02_eurusd_h4_1301.yaml",
+    "directory": "/home/xaume/SQX_ENGINE/runs/production/PRODUCTION_02/EURUSD/H4/seed_1301/72c03c947c90dd06",
+    "canary": true,
+    "check": {
+      "status": "PASS",
+      "job_id": "72c03c947c90dd06865c3e941610670a91736712d27cf491369be79955464752",
+      "metrics": "PASS",
+      "execution_costs": "PASS",
+      "execution_units": "PASS",
+      "development_only": "PASS",
+      "validation_oos_isolation": "PASS",
+      "db_integrity": "PASS",
+      "provenance": "PASS",
+      "library_promotion": "PASS",
+      "dedup": "PASS",
+      "checkpoint": "PASS"
+    }
+  },
+  {
+    "job_id": "9f9af54fc3d8adb01db059ab3e2f6d3d20ef5f09adb2735f354e41252fcc8b51",
+    "market": "GBPUSD",
+    "timeframe": "H1",
+    "seed": 1301,
+    "dataset_sha256": "22232c964f03ab318174451cfc416ba061747a5e6b1c81577c9935746ace5cb7",
+    "splits": {
+      "development": {
+        "start": "2016-01-04 00:00:00+00:00",
+        "end": "2021-12-31 23:00:00+00:00",
+        "bars": 37401
+      },
+      "validation": {
+        "start": "2022-01-03 00:00:00+00:00",
+        "end": "2023-12-29 23:00:00+00:00",
+        "bars": 12461
+      },
+      "oos": {
+        "start": "2024-01-02 00:00:00+00:00",
+        "end": "2026-04-14 02:00:00+00:00",
+        "bars": 14200
+      }
+    },
+    "execution_profile_version": "PRODUCTION_EXECUTION_V1",
+    "spread": 0.0001,
+    "slippage": 6e-05,
+    "status": "READY",
+    "config": "configs/production_02_gbpusd_h1_1301.yaml",
+    "directory": "/home/xaume/SQX_ENGINE/runs/production/PRODUCTION_02/GBPUSD/H1/seed_1301/9f9af54fc3d8adb0",
+    "canary": true,
+    "check": {
+      "status": "PASS",
+      "job_id": "9f9af54fc3d8adb01db059ab3e2f6d3d20ef5f09adb2735f354e41252fcc8b51",
+      "metrics": "PASS",
+      "execution_costs": "PASS",
+      "execution_units": "PASS",
+      "development_only": "PASS",
+      "validation_oos_isolation": "PASS",
+      "db_integrity": "PASS",
+      "provenance": "PASS",
+      "library_promotion": "PASS",
+      "dedup": "PASS",
+      "checkpoint": "PASS"
+    }
+  },
+  {
+    "job_id": "80e1c9cc7f65e74029ba98c1c0e65e2702fe523e3ec6396f6a987ec55a9c7ebf",
+    "market": "NZDUSD",
+    "timeframe": "H1",
+    "seed": 1301,
+    "dataset_sha256": "afb1ef3101a9b3096d67ba7d2fbe4d35003618c34f456d0e5d9f22e50fc45048",
+    "splits": {
+      "development": {
+        "start": "2016-01-04 00:00:00+00:00",
+        "end": "2021-12-31 23:00:00+00:00",
+        "bars": 37401
+      },
+      "validation": {
+        "start": "2022-01-03 01:00:00+00:00",
+        "end": "2023-12-29 23:00:00+00:00",
+        "bars": 12443
+      },
+      "oos": {
+        "start": "2024-01-02 00:00:00+00:00",
+        "end": "2026-04-14 02:00:00+00:00",
+        "bars": 14194
+      }
+    },
+    "execution_profile_version": "PRODUCTION_EXECUTION_V1",
+    "spread": 0.0002,
+    "slippage": 0.0001,
+    "status": "READY",
+    "config": "configs/production_02_nzdusd_h1_1301.yaml",
+    "directory": "/home/xaume/SQX_ENGINE/runs/production/PRODUCTION_02/NZDUSD/H1/seed_1301/80e1c9cc7f65e740",
+    "canary": true,
+    "check": {
+      "status": "PASS",
+      "job_id": "80e1c9cc7f65e74029ba98c1c0e65e2702fe523e3ec6396f6a987ec55a9c7ebf",
+      "metrics": "PASS",
+      "execution_costs": "PASS",
+      "execution_units": "PASS",
+      "development_only": "PASS",
+      "validation_oos_isolation": "PASS",
+      "db_integrity": "PASS",
+      "provenance": "PASS",
+      "library_promotion": "PASS",
+      "dedup": "PASS",
+      "checkpoint": "PASS"
+    }
+  },
+  {
+    "job_id": "c1626e700ba99a9b5a17f83e5368b33922a65405a32fffae078ee82cafbbd9f7",
+    "market": "USDCAD",
+    "timeframe": "H1",
+    "seed": 1301,
+    "dataset_sha256": "039e92beb4db65f715d7f2d7b1b593152df7310041c2282d260653acacbd8c59",
+    "splits": {
+      "development": {
+        "start": "2016-01-04 00:00:00+00:00",
+        "end": "2021-12-31 23:00:00+00:00",
+        "bars": 37402
+      },
+      "validation": {
+        "start": "2022-01-03 00:00:00+00:00",
+        "end": "2023-12-29 23:00:00+00:00",
+        "bars": 12456
+      },
+      "oos": {
+        "start": "2024-01-02 00:00:00+00:00",
+        "end": "2026-04-14 02:00:00+00:00",
+        "bars": 14202
+      }
+    },
+    "execution_profile_version": "PRODUCTION_EXECUTION_V1",
+    "spread": 0.00015,
+    "slippage": 0.0001,
+    "status": "READY",
+    "config": "configs/production_02_usdcad_h1_1301.yaml",
+    "directory": "/home/xaume/SQX_ENGINE/runs/production/PRODUCTION_02/USDCAD/H1/seed_1301/c1626e700ba99a9b",
+    "canary": true,
+    "check": {
+      "status": "PASS",
+      "job_id": "c1626e700ba99a9b5a17f83e5368b33922a65405a32fffae078ee82cafbbd9f7",
+      "metrics": "PASS",
+      "execution_costs": "PASS",
+      "execution_units": "PASS",
+      "development_only": "PASS",
+      "validation_oos_isolation": "PASS",
+      "db_integrity": "PASS",
+      "provenance": "PASS",
+      "library_promotion": "PASS",
+      "dedup": "PASS",
+      "checkpoint": "PASS"
+    }
+  },
+  {
+    "job_id": "31669e85684e38dff4ce873becc0c5b5aa878e5f00e9c22223ce9b7a34c8ced0",
+    "market": "USDCHF",
+    "timeframe": "H1",
+    "seed": 1301,
+    "dataset_sha256": "811bea9461e7e80b55490a8f0f10a1cabcc0800a9f376f6afe152734735a7b5f",
+    "splits": {
+      "development": {
+        "start": "2016-01-04 00:00:00+00:00",
+        "end": "2021-12-31 23:00:00+00:00",
+        "bars": 37395
+      },
+      "validation": {
+        "start": "2022-01-03 00:00:00+00:00",
+        "end": "2023-12-29 23:00:00+00:00",
+        "bars": 12437
+      },
+      "oos": {
+        "start": "2024-01-02 00:00:00+00:00",
+        "end": "2026-04-14 02:00:00+00:00",
+        "bars": 14201
+      }
+    },
+    "execution_profile_version": "PRODUCTION_EXECUTION_V1",
+    "spread": 0.00015,
+    "slippage": 0.0001,
+    "status": "READY",
+    "config": "configs/production_02_usdchf_h1_1301.yaml",
+    "directory": "/home/xaume/SQX_ENGINE/runs/production/PRODUCTION_02/USDCHF/H1/seed_1301/31669e85684e38df",
+    "canary": true,
+    "check": {
+      "status": "PASS",
+      "job_id": "31669e85684e38dff4ce873becc0c5b5aa878e5f00e9c22223ce9b7a34c8ced0",
+      "metrics": "PASS",
+      "execution_costs": "PASS",
+      "execution_units": "PASS",
+      "development_only": "PASS",
+      "validation_oos_isolation": "PASS",
+      "db_integrity": "PASS",
+      "provenance": "PASS",
+      "library_promotion": "PASS",
+      "dedup": "PASS",
+      "checkpoint": "PASS"
+    }
+  },
+  {
+    "job_id": "849d16bdaba55e10c593084b3a62fcfc24dea214f2459213dd998cf5f19354d2",
+    "market": "USDJPY",
+    "timeframe": "H1",
+    "seed": 1301,
+    "dataset_sha256": "1e67c787f0b804fcadbad8c5d5913fcd43522d82eb5303d47ad151488451d0e9",
+    "splits": {
+      "development": {
+        "start": "2016-01-04 00:00:00+00:00",
+        "end": "2021-12-31 23:00:00+00:00",
+        "bars": 37403
+      },
+      "validation": {
+        "start": "2022-01-03 00:00:00+00:00",
+        "end": "2023-12-29 23:00:00+00:00",
+        "bars": 12463
+      },
+      "oos": {
+        "start": "2024-01-02 00:00:00+00:00",
+        "end": "2026-04-14 02:00:00+00:00",
+        "bars": 14204
+      }
+    },
+    "execution_profile_version": "PRODUCTION_EXECUTION_V1",
+    "spread": 0.008,
+    "slippage": 0.004,
+    "status": "READY",
+    "config": "configs/production_02_usdjpy_h1_1301.yaml",
+    "directory": "/home/xaume/SQX_ENGINE/runs/production/PRODUCTION_02/USDJPY/H1/seed_1301/849d16bdaba55e10",
+    "canary": true,
+    "check": {
+      "status": "PASS",
+      "job_id": "849d16bdaba55e10c593084b3a62fcfc24dea214f2459213dd998cf5f19354d2",
+      "metrics": "PASS",
+      "execution_costs": "PASS",
+      "execution_units": "PASS",
+      "development_only": "PASS",
+      "validation_oos_isolation": "PASS",
+      "db_integrity": "PASS",
+      "provenance": "PASS",
+      "library_promotion": "PASS",
+      "dedup": "PASS",
+      "checkpoint": "PASS"
+    }
+  },
+  {
+    "job_id": "80f8fd654d632773622d36ff242cc53b606eac85493f7116370cafb9b9ea4ac3",
+    "market": "XAUUSD",
+    "timeframe": "H1",
+    "seed": 1301,
+    "dataset_sha256": "4256762d2c2df4a0b8bb16939c076fb44aa15bad4b1305a23197a39564003216",
+    "splits": {
+      "development": {
+        "start": "2016-01-04 01:00:00+00:00",
+        "end": "2021-12-31 23:00:00+00:00",
+        "bars": 35419
+      },
+      "validation": {
+        "start": "2022-01-03 01:00:00+00:00",
+        "end": "2023-12-29 23:00:00+00:00",
+        "bars": 11791
+      },
+      "oos": {
+        "start": "2024-01-02 01:00:00+00:00",
+        "end": "2026-04-14 02:00:00+00:00",
+        "bars": 13462
+      }
+    },
+    "execution_profile_version": "PRODUCTION_EXECUTION_V1",
+    "spread": 0.3,
+    "slippage": 0.1,
+    "status": "READY",
+    "config": "configs/production_02_xauusd_h1_1301.yaml",
+    "directory": "/home/xaume/SQX_ENGINE/runs/production/PRODUCTION_02/XAUUSD/H1/seed_1301/80f8fd654d632773",
+    "canary": true,
+    "check": {
+      "status": "PASS",
+      "job_id": "80f8fd654d632773622d36ff242cc53b606eac85493f7116370cafb9b9ea4ac3",
+      "metrics": "PASS",
+      "execution_costs": "PASS",
+      "execution_units": "PASS",
+      "development_only": "PASS",
+      "validation_oos_isolation": "PASS",
+      "db_integrity": "PASS",
+      "provenance": "PASS",
+      "library_promotion": "PASS",
+      "dedup": "PASS",
+      "checkpoint": "PASS"
+    }
+  }
+]

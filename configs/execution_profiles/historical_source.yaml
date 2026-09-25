@@ -1,0 +1,56 @@
+EURUSD:
+  entry_bar_offset: 1
+  fee_pips: 0.8
+  leverage: 30
+  min_atr_pips: 3.0
+  pip: 0.0001
+  slippage_pips: 0.2
+  tick_size: 1.0e-05
+GBPUSD:
+  entry_bar_offset: 1
+  fee_pips: 1.0
+  leverage: 30
+  min_atr_pips: 4.0
+  pip: 0.0001
+  slippage_pips: 0.3
+  tick_size: 1.0e-05
+NZDUSD:
+  entry_bar_offset: 1
+  fee_pips: 2.0
+  leverage: 1
+  min_atr_pips: 60.0
+  pip: 0.0001
+  slippage_pips: 0.5
+  tick_size: 1.0e-05
+USDCAD:
+  entry_bar_offset: 1
+  fee_pips: 1.5
+  leverage: 1
+  min_atr_pips: 80.0
+  pip: 0.0001
+  slippage_pips: 0.5
+  tick_size: 1.0e-05
+USDCHF:
+  entry_bar_offset: 1
+  fee_pips: 1.5
+  leverage: 1
+  min_atr_pips: 80.0
+  pip: 0.0001
+  slippage_pips: 0.5
+  tick_size: 1.0e-05
+USDJPY:
+  entry_bar_offset: 1
+  fee_pips: 0.8
+  leverage: 30
+  min_atr_pips: 3.0
+  pip: 0.01
+  slippage_pips: 0.2
+  tick_size: 0.001
+XAUUSD:
+  entry_bar_offset: 1
+  fee_pips: 30.0
+  leverage: 20
+  min_atr_pips: 50.0
+  pip: 0.01
+  slippage_pips: 5.0
+  tick_size: 0.01
