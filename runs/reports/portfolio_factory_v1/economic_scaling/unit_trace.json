@@ -1,0 +1,36 @@
+{
+  "root_cause": "The legacy FTMO call passed dimensionless normalized returns as dollar PnL. This produced tiny monetary equity changes. Corrected engine converts normalized return to account-currency PnL before FTMO. Percentage outcomes remain governed by the explicitly defined risk allocation.",
+  "legacy_risk_level": "1.0 was a direct multiplier on normalized portfolio returns.",
+  "trace_examples": [
+    {
+      "portfolio_hash": "a398f6bfcf4c83fdcd193e81dd558c35536c5f5131527269cbec80b3699dd39a",
+      "strategy_id": "SQX-EURUSD-H1-6fa8173ea02b",
+      "market": "EURUSD",
+      "timeframe": "H1",
+      "stored_net_return_example": "see replay return stream",
+      "risk_target": 0.01,
+      "initial_capital": 10000.0,
+      "economic_definition": "normalized return \u00d7 capital \u00d7 risk_target/0.01"
+    },
+    {
+      "portfolio_hash": "67c5f860bfc6ef7263dd38767321cdc21583311551145c733d90c03838989604",
+      "strategy_id": "SQX-EURUSD-H1-6fa8173ea02b",
+      "market": "EURUSD",
+      "timeframe": "H1",
+      "stored_net_return_example": "see replay return stream",
+      "risk_target": 0.01,
+      "initial_capital": 10000.0,
+      "economic_definition": "normalized return \u00d7 capital \u00d7 risk_target/0.01"
+    },
+    {
+      "portfolio_hash": "b54bbf791ddfe6c3abb287025ef5adf876aa0caceb039bb794d09a8c549da69d",
+      "strategy_id": "SQX-EURUSD-H1-6d1cb5fa1910",
+      "market": "EURUSD",
+      "timeframe": "H1",
+      "stored_net_return_example": "see replay return stream",
+      "risk_target": 0.01,
+      "initial_capital": 10000.0,
+      "economic_definition": "normalized return \u00d7 capital \u00d7 risk_target/0.01"
+    }
+  ]
+}

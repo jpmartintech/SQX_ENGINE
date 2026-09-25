@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "replay_immutable": true,
+  "no_generation": true,
+  "no_promotion": true,
+  "account_units": "USD",
+  "net_return_semantics": "dimensionless evaluator PnL / evaluator initial capital",
+  "risk_semantics": "account-return allocation target relative to 1% baseline; not stop-risk sizing"
+}

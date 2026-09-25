@@ -1,0 +1,12 @@
+{
+  "rows": 24000,
+  "risk_targets": [
+    0.0025,
+    0.005,
+    0.0075,
+    0.01
+  ],
+  "pilot_source": "pilot_results.csv",
+  "same_portfolios": true,
+  "runtime_seconds": 78.25753283500671
+}
