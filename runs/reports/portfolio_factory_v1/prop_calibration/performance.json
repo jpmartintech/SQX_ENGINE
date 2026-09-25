@@ -1,0 +1,9 @@
+{
+  "runtime_seconds": 605.3391892910004,
+  "peak_rss_mib": 464.47265625,
+  "portfolios": 6000,
+  "risk_levels": 9,
+  "horizons": 5,
+  "simulations": 270000,
+  "label": "RETROSPECTIVE_PROP_RESEARCH"
+}

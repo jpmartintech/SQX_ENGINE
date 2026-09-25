@@ -31,3 +31,15 @@ def test_risk_target_is_explicit_and_no_double_scaling():
 def test_economic_scaling_prefix_is_causal():
     a=AccountEquityEngine(EconomicConfig(initial_capital=100000,risk_target=.01))
     assert np.allclose(a.pnl([.01,-.02]),a.pnl([.01,-.02,.5])[:2])
+
+def test_prop_horizon_and_data_end_are_distinct():
+    ts=np.array(['2025-01-01T00:00:00Z','2025-01-02T00:00:00Z','2025-01-03T00:00:00Z'],dtype='datetime64[ns]')
+    p=np.array([1.,1.,1.])
+    assert FtmoSimulator(FtmoConfig(profit_target=10.,max_calendar_days=2,max_days=None)).run(p,ts)['status']=='TIMEOUT'
+    assert FtmoSimulator(FtmoConfig(profit_target=10.,max_calendar_days=None,max_days=None)).run(p,ts)['status']=='DATA_END'
+
+def test_prop_target_and_breach_golden_cases():
+    ts=np.array(['2025-01-01T00:00:00Z','2025-01-02T00:00:00Z','2025-01-03T00:00:00Z'],dtype='datetime64[ns]')
+    assert FtmoSimulator(FtmoConfig(profit_target=.10,minimum_trading_days=1,max_calendar_days=None,max_days=None)).run(np.array([600.,600.,0.]),ts)['status']=='PASS'
+    assert FtmoSimulator(FtmoConfig(profit_target=.90,minimum_trading_days=1,max_calendar_days=None,max_days=None)).run(np.array([-600.,0.,0.]),ts)['status']=='FAIL_DAILY'
+    assert FtmoSimulator(FtmoConfig(profit_target=.90,minimum_trading_days=1,max_calendar_days=None,max_days=None)).run(np.array([-1100.,0.,0.]),ts)['status']=='FAIL_DAILY'

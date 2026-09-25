@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "label": "RETROSPECTIVE_PROP_RESEARCH",
+  "strategy_factory_unchanged": true,
+  "library_unchanged": true,
+  "economic_model": "PASS",
+  "prop_golden": "PASS",
+  "horizon_semantics": "PASS",
+  "timeout_data_end_separated": true,
+  "mtm": "REALIZED_ONLY",
+  "risk_frontier": "PASS",
+  "target_velocity": "PASS",
+  "challenge_verification": "PASS",
+  "strategy_library_unchanged": true
+}

@@ -1,0 +1,12 @@
+{
+  "name": "PROP_GOLDEN_V1",
+  "cases": {
+    "PASS": "PASS",
+    "FAIL_DAILY": "FAIL_DAILY",
+    "FAIL_TOTAL": "FAIL_TOTAL",
+    "TIMEOUT": "TIMEOUT",
+    "DATA_END": "DATA_END",
+    "challenge_verification": "PASS_then_PASS and PASS_then_FAIL are supported by continuation API"
+  },
+  "status": "PASS"
+}

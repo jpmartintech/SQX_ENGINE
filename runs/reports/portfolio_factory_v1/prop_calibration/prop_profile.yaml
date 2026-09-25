@@ -1,0 +1,15 @@
+profile_name: PROP_RESEARCH_BASELINE
+label: RETROSPECTIVE_PROP_RESEARCH
+challenge:
+  profit_target: 0.10
+  max_daily_loss: 0.05
+  max_total_loss: 0.10
+  min_trading_days: 4
+  max_calendar_days: null
+verification:
+  profit_target: 0.05
+  max_daily_loss: 0.05
+  max_total_loss: 0.10
+  min_trading_days: 4
+  max_calendar_days: null
+mode: REALIZED_ONLY
