@@ -1,0 +1,5 @@
+scenario,max_xau_fraction,status,note
+unconstrained,1.0,IMPLEMENTED_CONSTRAINT,pilot diagnostic configuration; no retrospective selection
+max_50_percent,0.5,IMPLEMENTED_CONSTRAINT,pilot diagnostic configuration; no retrospective selection
+max_30_percent,0.3,IMPLEMENTED_CONSTRAINT,pilot diagnostic configuration; no retrospective selection
+max_20_percent,0.2,IMPLEMENTED_CONSTRAINT,pilot diagnostic configuration; no retrospective selection

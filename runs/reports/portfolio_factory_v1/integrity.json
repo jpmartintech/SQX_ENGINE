@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "strategy_library_unchanged": true,
+  "replay_source_unchanged": true,
+  "portfolio_library_integrity": "PASS",
+  "unique_portfolio_hashes": 4006,
+  "pilot_results": 6000,
+  "audit_label": "RETROSPECTIVE_PORTFOLIO_RESEARCH"
+}

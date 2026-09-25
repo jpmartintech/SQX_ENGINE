@@ -1,0 +1,15 @@
+{
+  "mode": "FAST",
+  "status": "PASS",
+  "checks": {
+    "frozen_semantics": "PASS",
+    "fixture_sha": "PASS",
+    "dataset_sha": "PASS",
+    "strategy_generation": "PASS",
+    "canonical_hashes": "PASS",
+    "metrics": "PASS",
+    "determinism": "PASS"
+  },
+  "evaluations_per_replay": 128,
+  "full_250k_counts": "NOT_RECOMPUTED_IN_FAST"
+}

@@ -1,0 +1,6 @@
+{
+  "runtime_note": "pilot used 1000 evaluations per method, 3 sizes, 2 weightings",
+  "candidate_pool": 200,
+  "unique_portfolios": 4006,
+  "disk_library_bytes": 10960896
+}

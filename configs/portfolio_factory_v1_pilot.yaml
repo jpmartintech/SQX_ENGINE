@@ -1,0 +1,16 @@
+version: PORTFOLIO_FACTORY_V1
+label: RETROSPECTIVE_PORTFOLIO_RESEARCH
+candidate_universe:
+  replay_equivalence: PASS
+  positive_both_oos_halves: true
+  positive_expectancy_cost_multiplier: 1.5
+  behavioral_cluster_cap: 1
+clock:
+  mode: realized_event_utc
+  mark_to_market: false
+search:
+  methods: [RANDOM, GREEDY_DIVERSITY, GENETIC]
+  evaluations_per_method: 1000
+  portfolio_sizes: [10, 20, 30]
+weighting: [EQUAL_WEIGHT, EQUAL_RISK]
+risk_levels: [0.25, 0.50, 0.75, 1.00]

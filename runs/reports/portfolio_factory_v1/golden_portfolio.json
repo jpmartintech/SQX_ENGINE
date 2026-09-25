@@ -1,0 +1,51 @@
+{
+  "portfolio_hash": "750f8071709dcdc3468c45652280594f0eb7f4b727a2a15f10facf7327640fa6",
+  "strategy_ids": [
+    "SQX-EURUSD-H1-023c37a63f5b",
+    "SQX-EURUSD-H1-02fcd68fb830",
+    "SQX-EURUSD-H1-03108e7ed03e",
+    "SQX-EURUSD-H1-060cc78d9d4e",
+    "SQX-EURUSD-H1-07862d1ea899",
+    "SQX-EURUSD-H1-08c818646515",
+    "SQX-EURUSD-H1-094902684d1e",
+    "SQX-EURUSD-H1-09d11ee2983e",
+    "SQX-EURUSD-H1-0c8db70dd3fa",
+    "SQX-EURUSD-H1-0cc329175f76"
+  ],
+  "metrics": {
+    "strategy_ids": [
+      "SQX-EURUSD-H1-023c37a63f5b",
+      "SQX-EURUSD-H1-02fcd68fb830",
+      "SQX-EURUSD-H1-03108e7ed03e",
+      "SQX-EURUSD-H1-060cc78d9d4e",
+      "SQX-EURUSD-H1-07862d1ea899",
+      "SQX-EURUSD-H1-08c818646515",
+      "SQX-EURUSD-H1-094902684d1e",
+      "SQX-EURUSD-H1-09d11ee2983e",
+      "SQX-EURUSD-H1-0c8db70dd3fa",
+      "SQX-EURUSD-H1-0cc329175f76"
+    ],
+    "weights": {
+      "SQX-EURUSD-H1-023c37a63f5b": 0.1,
+      "SQX-EURUSD-H1-02fcd68fb830": 0.1,
+      "SQX-EURUSD-H1-03108e7ed03e": 0.1,
+      "SQX-EURUSD-H1-060cc78d9d4e": 0.1,
+      "SQX-EURUSD-H1-07862d1ea899": 0.1,
+      "SQX-EURUSD-H1-08c818646515": 0.1,
+      "SQX-EURUSD-H1-094902684d1e": 0.1,
+      "SQX-EURUSD-H1-09d11ee2983e": 0.1,
+      "SQX-EURUSD-H1-0c8db70dd3fa": 0.1,
+      "SQX-EURUSD-H1-0cc329175f76": 0.1
+    },
+    "net_return": 3.2952857142857585e-06,
+    "volatility": 1.6743734405006248e-08,
+    "sharpe": 0.7702701590285331,
+    "sortino": 0.8014286368089298,
+    "max_drawdown": 5.239607142857186e-07,
+    "profit_factor": 1.3221882036125578,
+    "trade_count": 677,
+    "average_correlation": 0.014395102920054479,
+    "max_pair_correlation": 0.10589749011283292,
+    "objective": 0.7702691111071046
+  }
+}

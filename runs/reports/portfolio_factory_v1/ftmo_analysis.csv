@@ -1,0 +1,4 @@
+method,portfolio_size,weighting,ftmo_pass_rate,note
+RANDOM,10/20/30,EQUAL_WEIGHT/EQUAL_RISK,0.0,retrospective realized-only pilot
+GREEDY_DIVERSITY,10/20/30,EQUAL_WEIGHT/EQUAL_RISK,0.0,retrospective realized-only pilot
+GENETIC,10/20/30,EQUAL_WEIGHT/EQUAL_RISK,0.0,retrospective realized-only pilot

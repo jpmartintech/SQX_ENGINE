@@ -1,0 +1,7 @@
+{
+  "status": "COMPLETE",
+  "phase": "PILOT",
+  "evaluations": 6000,
+  "resume_supported": true,
+  "portfolio_library": "data/portfolio_library.sqlite"
+}

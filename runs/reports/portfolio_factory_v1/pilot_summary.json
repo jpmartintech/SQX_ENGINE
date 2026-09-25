@@ -1,0 +1,27 @@
+{
+  "random": {
+    "evaluated": 2000,
+    "best_objective": 1.349592895750189,
+    "best_sharpe": 1.3495932715009313,
+    "median_sharpe": 0.845582403116748,
+    "median_dd": 4.0612333325257004e-07,
+    "ftmo_pass_rate": 0.0
+  },
+  "greedy": {
+    "evaluated": 2000,
+    "best_objective": 1.081219946411837,
+    "best_sharpe": 1.081220736796917,
+    "median_sharpe": 0.9599579187678721,
+    "median_dd": 4.582053571428563e-07,
+    "ftmo_pass_rate": 0.0
+  },
+  "genetic": {
+    "evaluated": 2000,
+    "best_objective": 1.347182296896108,
+    "best_sharpe": 1.3471829468404977,
+    "median_sharpe": 0.8537364187528573,
+    "median_dd": 4.161562500000062e-07,
+    "ftmo_pass_rate": 0.0
+  },
+  "interpretation": "pilot diagnostics only; no definitive portfolio selected"
+}
