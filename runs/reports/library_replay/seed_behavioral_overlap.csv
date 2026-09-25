@@ -1,0 +1,20 @@
+market,timeframe,seed_1301,seed_1302,seed_1303,note
+EURUSD,H1,468,359,121,behavioral cross-seed overlap requires cluster join; retained cluster assignments are in behavioral_clusters.csv
+EURUSD,H4,219,211,300,behavioral cross-seed overlap requires cluster join; retained cluster assignments are in behavioral_clusters.csv
+EURUSD,M15,19,23,42,behavioral cross-seed overlap requires cluster join; retained cluster assignments are in behavioral_clusters.csv
+GBPUSD,H1,70,84,58,behavioral cross-seed overlap requires cluster join; retained cluster assignments are in behavioral_clusters.csv
+GBPUSD,H4,151,197,133,behavioral cross-seed overlap requires cluster join; retained cluster assignments are in behavioral_clusters.csv
+GBPUSD,M15,72,44,11,behavioral cross-seed overlap requires cluster join; retained cluster assignments are in behavioral_clusters.csv
+NZDUSD,H1,0,2,1,behavioral cross-seed overlap requires cluster join; retained cluster assignments are in behavioral_clusters.csv
+NZDUSD,H4,27,51,40,behavioral cross-seed overlap requires cluster join; retained cluster assignments are in behavioral_clusters.csv
+USDCAD,H1,20,14,10,behavioral cross-seed overlap requires cluster join; retained cluster assignments are in behavioral_clusters.csv
+USDCAD,H4,113,54,73,behavioral cross-seed overlap requires cluster join; retained cluster assignments are in behavioral_clusters.csv
+USDCAD,M15,0,0,1,behavioral cross-seed overlap requires cluster join; retained cluster assignments are in behavioral_clusters.csv
+USDCHF,H1,4,3,1,behavioral cross-seed overlap requires cluster join; retained cluster assignments are in behavioral_clusters.csv
+USDCHF,H4,156,232,174,behavioral cross-seed overlap requires cluster join; retained cluster assignments are in behavioral_clusters.csv
+USDJPY,H1,382,359,291,behavioral cross-seed overlap requires cluster join; retained cluster assignments are in behavioral_clusters.csv
+USDJPY,H4,419,721,482,behavioral cross-seed overlap requires cluster join; retained cluster assignments are in behavioral_clusters.csv
+USDJPY,M15,37,64,51,behavioral cross-seed overlap requires cluster join; retained cluster assignments are in behavioral_clusters.csv
+XAUUSD,H1,184,741,415,behavioral cross-seed overlap requires cluster join; retained cluster assignments are in behavioral_clusters.csv
+XAUUSD,H4,1725,1177,1656,behavioral cross-seed overlap requires cluster join; retained cluster assignments are in behavioral_clusters.csv
+XAUUSD,M15,10,10,7,behavioral cross-seed overlap requires cluster join; retained cluster assignments are in behavioral_clusters.csv

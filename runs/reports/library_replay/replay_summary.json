@@ -1,0 +1,11 @@
+{
+  "run_id": "audit-1790365515",
+  "tested": 12289,
+  "complete": 12289,
+  "failed": 0,
+  "equivalence": "PASS",
+  "runtime": 63.28812074661255,
+  "strategies_per_sec": 194.17545334062402,
+  "peak_rss_mib": 882.53515625,
+  "database": "/home/xaume/SQX_ENGINE/runs/library_replay/replay.sqlite"
+}

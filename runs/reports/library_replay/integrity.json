@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "library_unchanged": true,
+  "replay_db_integrity": "ok",
+  "replay_equivalence": [
+    12289,
+    12289,
+    0,
+    "PASS"
+  ],
+  "no_generation": true,
+  "no_promotion": true,
+  "audit_only": true
+}
