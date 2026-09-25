@@ -32,7 +32,7 @@ XAUUSD H4 cost robustness: see cost_sensitivity.csv
 
 ## Replay equivalence
 
-Baseline replay used the frozen V1.8 FastEvaluator, dataset provenance, next-bar execution, stored market/timeframe profiles and OOS boundaries. No strategies were generated or promoted.
+Baseline replay used the frozen V1.8 FastEvaluator, dataset provenance, next-bar execution, stored market/timeframe profiles and OOS boundaries. The persisted trade ledger contains entry/exit timestamps, reconstructed entry/exit prices, gross PnL, execution cost and net PnL. No strategies were generated or promoted.
 
 ## Behavioral method
 
@@ -75,7 +75,7 @@ See portfolio_factory_data_contract.md. It exposes timestamped sparse returns, t
 - No generation: **PASS**
 - No promotion: **PASS**
 - Audit-only: **PASS**
-- Pytest: **90 passed**
+- Pytest: **91 passed**
 - FAST golden: **PASS**
 - AUDIT: **PASS**
 

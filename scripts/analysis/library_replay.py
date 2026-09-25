@@ -71,7 +71,7 @@ def main():
       tr=ev.evaluate(st,start=a,end=b,rich=False,cost_multiplier=1.0); db.execute('insert into temporal_results values (?,?,?)',(r['strategy_id'],label,json.dumps(metric_dict(tr))))
     db.execute('insert or replace into strategy_replays values (?,?,?,?,?,?,?,?,?,?,?,?,?)',(r['strategy_id'],r['canonical_hash'],r['market'],r['timeframe'],r['direction'],r['factory_version'],seg,1.0,json.dumps(stored),json.dumps(replay),status,json.dumps(dif),time.perf_counter()-t0))
     for tr in result.trades:
-     ep=float(tr.get('pnl',0))+float(prof['spread'])+float(prof['slippage']); entry_price=None; exit_price=None
+     ep=float(tr.get('pnl',0))+float(prof['spread'])+float(prof['slippage']); prices={str(t):float(o) for t,o in zip(frame.timestamp,frame.open)}; entry_price=prices.get(str(tr['entry_time'])); exit_price=(entry_price+ep if tr['direction']=='LONG' else entry_price-ep) if entry_price is not None else None
      db.execute('insert into trades values (?,?,?,?,?,?,?,?,?,?,?,?,?)',(r['strategy_id'],r['canonical_hash'],str(tr['entry_time']),str(tr['exit_time']),tr['direction'],entry_price,exit_price,ep,float(prof['spread']+prof['slippage']),float(tr['pnl']),float(tr['pnl'])/10000,int(tr['bars_held']),tr['reason']))
      db.execute('insert into returns values (?,?,?)',(r['strategy_id'],str(tr['exit_time']),float(tr['pnl'])/10000))
     if ok: complete+=1
