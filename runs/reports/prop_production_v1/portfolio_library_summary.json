@@ -1,0 +1,8 @@
+{
+  "total": 20,
+  "ready_for_paper": 20,
+  "status_counts": {
+    "READY_FOR_PAPER": 20
+  },
+  "database": "/home/xaume/SQX_ENGINE/data/prop_portfolio_library.sqlite"
+}

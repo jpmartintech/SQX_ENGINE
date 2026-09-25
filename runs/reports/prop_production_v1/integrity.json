@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "strategy_factory_unchanged": true,
+  "library_unchanged": true,
+  "R_sizing": "PASS",
+  "account_scale": "PASS",
+  "export": "PASS",
+  "prop_profile": "PASS",
+  "execution_feasibility": "PASS",
+  "realized_only": true
+}

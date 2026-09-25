@@ -1,6 +1,7 @@
 import numpy as np
 from sqx_engine.portfolio_factory import PortfolioEngine,PortfolioConstraints,PortfolioRequest,portfolio_hash,FtmoSimulator,FtmoConfig
 from sqx_engine.portfolio_factory.economic import EconomicConfig,AccountEquityEngine
+from sqx_engine.portfolio_factory.production import PortfolioRiskManager,AccountSpec,PropProfile,portfolio_identity,Decision,MarketSpec,ExecutionFeasibility
 
 def test_weights_and_metrics():
  r=np.array([[1,1,-1],[2,2,-1],[1,1,-1.]],float); meta={'index':{'a':0,'b':1,'c':2},'rows':{'a':{'market':'EURUSD','timeframe':'H1','cluster':'1'},'b':{'market':'EURUSD','timeframe':'H1','cluster':'2'},'c':{'market':'USDJPY','timeframe':'H1','cluster':'3'}}}; e=PortfolioEngine(r,meta); x=e.evaluate(['a','c']); assert x['trade_count']==1; assert portfolio_hash(PortfolioRequest(('a','c')))==portfolio_hash(PortfolioRequest(('c','a')))
@@ -54,3 +55,23 @@ def test_per_strategy_and_total_risk_policies_are_distinguishable():
     per=AccountEquityEngine(EconomicConfig(initial_capital=100000,risk_target=.01)).pnl([-.01,-.01]).sum()
     total=AccountEquityEngine(EconomicConfig(initial_capital=100000,risk_target=.005)).pnl([-.01,-.01]).sum()
     assert np.isclose(per,-2000.); assert np.isclose(total,-1000.)
+
+def test_production_risk_manager_decisions():
+    rm=PortfolioRiskManager(AccountSpec(100000),.01,.015)
+    assert rm.allocate(.005,0)['decision']==Decision.ACCEPT.value
+    assert rm.allocate(.02,0)['decision']==Decision.RESIZE.value
+    assert rm.allocate(.005,.015)['decision']==Decision.REJECT.value
+
+def test_production_identity_and_market_spec():
+    p=PropProfile(); a=portfolio_identity(['b','a'],{'a':.5,'b':.5},'PORTFOLIO_TOTAL_RISK',p)
+    assert a[0].startswith('SQX-PROP-'); assert a==portfolio_identity(['a','b'],{'a':.5,'b':.5},'PORTFOLIO_TOTAL_RISK',p)
+    assert MarketSpec('EURUSD').asset_class=='FOREX'; assert ExecutionFeasibility().status=='PASS'
+
+def test_account_scale_invariance():
+    raw=np.array([.01,-.005,.002])
+    vals=[]
+    for capital in (25000,50000,100000,200000):
+        m=AccountEquityEngine(EconomicConfig(initial_capital=capital,risk_target=.01)).metrics(raw)
+        vals.append((m['net_return'],m['max_drawdown'],m['pnl']))
+    assert all(np.isclose(x[0],vals[0][0]) and np.isclose(x[1],vals[0][1]) for x in vals)
+    assert np.isclose(vals[-1][2][0]/vals[0][2][0],8.)

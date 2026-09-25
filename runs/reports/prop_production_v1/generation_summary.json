@@ -1,0 +1,12 @@
+{
+  "generated": 6000,
+  "valid": 6000,
+  "redundancy": 4006,
+  "concentration": 4006,
+  "risk": 1762,
+  "prop_rules": 1758,
+  "cost_stress": 1758,
+  "robustness": 1758,
+  "ready_for_paper": 20,
+  "selected": 20
+}

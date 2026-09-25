@@ -1,0 +1,17 @@
+profile_name: GENERIC_PROP_V1
+label: RETROSPECTIVE_PROP_RESEARCH
+account:
+  initial_equity: 100000
+  currency: USD
+risk:
+  base_risk_pct: [0.005, 0.0075, 0.01, 0.0125]
+  max_open_risk_pct: [0.01, 0.015, 0.02, 0.03]
+portfolio_sizes: [10, 20, 30]
+methods: [RANDOM, GREEDY_DIVERSITY, GENETIC]
+prop:
+  target_pct: 0.10
+  daily_loss_pct: 0.05
+  max_loss_pct: 0.10
+  min_days: 4
+  max_calendar_days: 30
+execution_mode: PAPER
