@@ -1,0 +1,77 @@
+{
+  "direction": {
+    "LONG": 10628,
+    "SHORT": 1661
+  },
+  "family": {
+    "Momentum": 851,
+    "Momentum+Structure": 1248,
+    "Momentum+Volatility": 840,
+    "Momentum+Volatility+Structure": 580,
+    "Structure": 296,
+    "Trend": 602,
+    "Trend+Momentum": 1532,
+    "Trend+Momentum+Structure": 1028,
+    "Trend+Momentum+Volatility": 944,
+    "Trend+Momentum+Volatility+Structure": 354,
+    "Trend+Structure": 1181,
+    "Trend+Volatility": 1066,
+    "Trend+Volatility+Structure": 884,
+    "Volatility": 229,
+    "Volatility+Structure": 654
+  },
+  "legacy": 299,
+  "market": {
+    "EURUSD": 1762,
+    "GBPUSD": 820,
+    "NZDUSD": 121,
+    "USDCAD": 285,
+    "USDCHF": 570,
+    "USDJPY": 2806,
+    "XAUUSD": 5925
+  },
+  "market_timeframe": {
+    "EURUSD H1": 948,
+    "EURUSD H4": 730,
+    "EURUSD M15": 84,
+    "GBPUSD H1": 212,
+    "GBPUSD H4": 481,
+    "GBPUSD M15": 127,
+    "NZDUSD H1": 3,
+    "NZDUSD H4": 118,
+    "USDCAD H1": 44,
+    "USDCAD H4": 240,
+    "USDCAD M15": 1,
+    "USDCHF H1": 8,
+    "USDCHF H4": 562,
+    "USDJPY H1": 1032,
+    "USDJPY H4": 1622,
+    "USDJPY M15": 152,
+    "XAUUSD H1": 1340,
+    "XAUUSD H4": 4558,
+    "XAUUSD M15": 27
+  },
+  "predicate_count": {
+    "1": 473,
+    "2": 3964,
+    "3": 4202,
+    "4": 3650
+  },
+  "production": 11990,
+  "production_policy": 11986,
+  "promotion_level": {
+    "OOS_PASS": 12289
+  },
+  "seed": {
+    "1301": 4076,
+    "1302": 4346,
+    "1303": 3867
+  },
+  "smoke": 4,
+  "timeframe": {
+    "H1": 3587,
+    "H4": 8311,
+    "M15": 391
+  },
+  "total": 12289
+}

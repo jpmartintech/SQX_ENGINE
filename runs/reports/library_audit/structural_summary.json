@@ -1,0 +1,32 @@
+{
+  "canonical_hash_unique": 12289,
+  "clusters": 11340,
+  "effective_structural_estimate": 11340,
+  "exact_canonical_signatures": 12289,
+  "largest": [
+    7,
+    7,
+    7,
+    6,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+  ],
+  "median_cluster_size": 1.0,
+  "method": "union of exact canonical signatures and near predicate-set Jaccard >= 0.8 within market/timeframe/direction/predicate-count, same ATR period/time exit; AUDIT_ONLY",
+  "near_duplicate_members": 1686,
+  "singletons": 10603
+}

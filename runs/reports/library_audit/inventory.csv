@@ -1,0 +1,55 @@
+dimension,value,count,pct
+market,EURUSD,1762,14.338026
+market,GBPUSD,820,6.672634
+market,NZDUSD,121,0.98462
+market,USDCAD,285,2.319147
+market,USDCHF,570,4.638294
+market,USDJPY,2806,22.833428
+market,XAUUSD,5925,48.21385
+timeframe,H1,3587,29.188705
+timeframe,H4,8311,67.629587
+timeframe,M15,391,3.181707
+market_timeframe,EURUSD H1,948,7.714216
+market_timeframe,EURUSD H4,730,5.940272
+market_timeframe,EURUSD M15,84,0.683538
+market_timeframe,GBPUSD H1,212,1.72512
+market_timeframe,GBPUSD H4,481,3.914069
+market_timeframe,GBPUSD M15,127,1.033445
+market_timeframe,NZDUSD H1,3,0.024412
+market_timeframe,NZDUSD H4,118,0.960208
+market_timeframe,USDCAD H1,44,0.358044
+market_timeframe,USDCAD H4,240,1.952966
+market_timeframe,USDCAD M15,1,0.008137
+market_timeframe,USDCHF H1,8,0.065099
+market_timeframe,USDCHF H4,562,4.573196
+market_timeframe,USDJPY H1,1032,8.397754
+market_timeframe,USDJPY H4,1622,13.198796
+market_timeframe,USDJPY M15,152,1.236879
+market_timeframe,XAUUSD H1,1340,10.904061
+market_timeframe,XAUUSD H4,4558,37.090081
+market_timeframe,XAUUSD M15,27,0.219709
+direction,LONG,10628,86.483847
+direction,SHORT,1661,13.516153
+predicate_count,1,473,3.848971
+predicate_count,2,3964,32.25649
+predicate_count,3,4202,34.193181
+predicate_count,4,3650,29.701359
+family,Momentum,851,6.924892
+family,Momentum+Structure,1248,10.155424
+family,Momentum+Volatility,840,6.835381
+family,Momentum+Volatility+Structure,580,4.719668
+family,Structure,296,2.408658
+family,Trend,602,4.89869
+family,Trend+Momentum,1532,12.466433
+family,Trend+Momentum+Structure,1028,8.365205
+family,Trend+Momentum+Volatility,944,7.681667
+family,Trend+Momentum+Volatility+Structure,354,2.880625
+family,Trend+Structure,1181,9.610221
+family,Trend+Volatility,1066,8.674424
+family,Trend+Volatility+Structure,884,7.193425
+family,Volatility,229,1.863455
+family,Volatility+Structure,654,5.321833
+seed,1301,4076,33.167874
+seed,1302,4346,35.364961
+seed,1303,3867,31.467166
+promotion_level,OOS_PASS,12289,100.0

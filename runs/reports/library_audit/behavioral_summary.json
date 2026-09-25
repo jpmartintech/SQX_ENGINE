@@ -1,0 +1,8 @@
+{
+  "clusters": 0,
+  "correlation_distributions": null,
+  "effective_behavioral_estimate": null,
+  "reason": "Library and validation artifacts retain aggregate metrics and strategy definitions, but no trade ledger, entry timestamps, equity curve, or per-scenario cost metrics. No rerun was performed.",
+  "status": "NOT_AVAILABLE",
+  "threshold_proportions": null
+}

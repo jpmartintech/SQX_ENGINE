@@ -1,0 +1,10 @@
+{
+  "audit_only": true,
+  "canonical_dedup": "PASS",
+  "database_integrity": "ok",
+  "distinct_canonical_hashes": 12289,
+  "factory_modified": false,
+  "observations": 12771,
+  "status": "PASS",
+  "strategy_rows": 12289
+}
