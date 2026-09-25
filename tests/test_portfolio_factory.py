@@ -43,3 +43,14 @@ def test_prop_target_and_breach_golden_cases():
     assert FtmoSimulator(FtmoConfig(profit_target=.10,minimum_trading_days=1,max_calendar_days=None,max_days=None)).run(np.array([600.,600.,0.]),ts)['status']=='PASS'
     assert FtmoSimulator(FtmoConfig(profit_target=.90,minimum_trading_days=1,max_calendar_days=None,max_days=None)).run(np.array([-600.,0.,0.]),ts)['status']=='FAIL_DAILY'
     assert FtmoSimulator(FtmoConfig(profit_target=.90,minimum_trading_days=1,max_calendar_days=None,max_days=None)).run(np.array([-1100.,0.,0.]),ts)['status']=='FAIL_DAILY'
+
+def test_r_based_one_r_account_invariant():
+    e=AccountEquityEngine(EconomicConfig(initial_capital=100000,risk_target=.01))
+    assert np.isclose(e.pnl([-.01])[0],-1000.)
+    assert np.isclose(e.pnl([.005])[0],500.)
+    assert np.isclose(e.pnl([.02])[0],2000.)
+
+def test_per_strategy_and_total_risk_policies_are_distinguishable():
+    per=AccountEquityEngine(EconomicConfig(initial_capital=100000,risk_target=.01)).pnl([-.01,-.01]).sum()
+    total=AccountEquityEngine(EconomicConfig(initial_capital=100000,risk_target=.005)).pnl([-.01,-.01]).sum()
+    assert np.isclose(per,-2000.); assert np.isclose(total,-1000.)

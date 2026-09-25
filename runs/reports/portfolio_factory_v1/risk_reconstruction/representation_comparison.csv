@@ -1,0 +1,4 @@
+representation,semantics,normalization,prop_result
+LEGACY_NORMALIZED,dimensionless evaluator return,net_pnl/10000,all historical targets unreached in prior calibration
+CAPITAL_SCALED_NORMALIZED,normalized return converted to USD,return*account_capital,percentage behavior unchanged; units corrected
+R_BASED,stop-risk normalized return,net_R*account_equity*risk_target,meaningful target velocity and breach frontier observed

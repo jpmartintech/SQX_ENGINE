@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "factory_unchanged": true,
+  "library_unchanged": true,
+  "R_coverage": "PASS",
+  "trade_reconstruction": "PASS",
+  "risk_reconstruction_golden": "PASS",
+  "realized_only": true
+}

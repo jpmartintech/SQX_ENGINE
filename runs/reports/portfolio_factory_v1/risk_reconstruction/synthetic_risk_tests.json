@@ -1,0 +1,1 @@
+{"status":"PASS","account":100000,"risk_target":0.01,"-1R_usd":-1000,"+0.5R_usd":500,"+1R_usd":1000,"+2R_usd":2000,"account_scale_invariance":true,"per_strategy_vs_total_risk_distinguished":true}

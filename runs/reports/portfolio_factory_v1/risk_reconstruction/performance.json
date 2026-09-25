@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "runtime_seconds": 34.87556767463684,
+  "peak_rss_mib": 693.5546875,
+  "portfolios": 6000,
+  "representatives": 200,
+  "risk_levels": 7,
+  "horizons": 5,
+  "vectorized": true,
+  "trade_rows": 13861,
+  "sample_strategies": 200,
+  "R_coverage": "100% explicit stops"
+}
