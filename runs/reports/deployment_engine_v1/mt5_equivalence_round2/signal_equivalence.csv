@@ -1,0 +1,6 @@
+trade_number,python_signal_bar,python_entry_bar,mt5_signal_bar,mt5_entry_bar,signal_bar_delta_seconds,entry_bar_delta_seconds,signal_source,signal_match
+1,2024-01-05T20:00:00+00:00,2024-01-05T21:00:00+00:00,2024-01-05T20:00:00+00:00,2024-01-05T21:00:00+00:00,0.0,0.0,MT5 signal inferred from N+1 entry; no signal event was exported,PASS
+2,2024-01-23T07:00:00+00:00,2024-01-23T08:00:00+00:00,2024-01-23T07:00:00+00:00,2024-01-23T08:00:00+00:00,0.0,0.0,MT5 signal inferred from N+1 entry; no signal event was exported,PASS
+3,2024-01-25T08:00:00+00:00,2024-01-25T09:00:00+00:00,2024-01-25T08:00:00+00:00,2024-01-25T09:00:00+00:00,0.0,0.0,MT5 signal inferred from N+1 entry; no signal event was exported,PASS
+4,2024-01-30T14:00:00+00:00,2024-01-30T15:00:00+00:00,2024-01-30T14:00:00+00:00,2024-01-30T15:00:00+00:00,0.0,0.0,MT5 signal inferred from N+1 entry; no signal event was exported,PASS
+5,2024-01-31T14:00:00+00:00,2024-01-31T15:00:00+00:00,2024-01-31T14:00:00+00:00,2024-01-31T15:00:00+00:00,0.0,0.0,MT5 signal inferred from N+1 entry; no signal event was exported,PASS
