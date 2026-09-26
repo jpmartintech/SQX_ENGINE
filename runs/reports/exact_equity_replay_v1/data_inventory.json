@@ -1,0 +1,440 @@
+{
+  "datasets": [
+    {
+      "market": "EURUSD",
+      "timeframe": "M15",
+      "path": "/home/xaume/SQX_ENGINE/data/cloud/EURUSD_M15.csv",
+      "kind": "native",
+      "rows": 572903,
+      "start": "2003-05-05 03:00:00+00:00",
+      "end": "2026-04-14 02:45:00+00:00",
+      "columns": [
+        "timestamp",
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume"
+      ],
+      "duplicates": 0,
+      "monotonic": true,
+      "sha256": "11d571e8bb3d676ae234af48878e607e88a1bf1d25c88c0a514135539fcb058b"
+    },
+    {
+      "market": "EURUSD",
+      "timeframe": "H1",
+      "path": "/home/xaume/SQX_ENGINE/data/derived/EURUSD_H1_11d571e8bb3d_143197.csv",
+      "kind": "derived/native-reference",
+      "rows": 143197,
+      "start": "2003-05-05 03:00:00+00:00",
+      "end": "2026-04-14 02:00:00+00:00",
+      "columns": [
+        "timestamp",
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume",
+        "available_at"
+      ],
+      "duplicates": 0,
+      "monotonic": true,
+      "sha256": "d05762f0ee04a9359c754ff18be4e95575c67bf04b76f202edb184a8963ab21a"
+    },
+    {
+      "market": "EURUSD",
+      "timeframe": "H4",
+      "path": "/home/xaume/SQX_ENGINE/data/derived/EURUSD_H4_11d571e8bb3d_35651.csv",
+      "kind": "derived",
+      "rows": 35651,
+      "start": "2003-05-05 04:00:00+00:00",
+      "end": "2026-04-13 20:00:00+00:00",
+      "columns": [
+        "timestamp",
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume",
+        "available_at"
+      ],
+      "duplicates": 0,
+      "monotonic": true,
+      "sha256": "4017072200f5b0804489eaadbdf7cc95634f629f2a028a5779f305fcd1582d8a"
+    },
+    {
+      "market": "GBPUSD",
+      "timeframe": "M15",
+      "path": "/home/xaume/SQX_ENGINE/data/cloud/GBPUSD_M15.csv",
+      "kind": "native",
+      "rows": 572858,
+      "start": "2003-05-05 03:00:00+00:00",
+      "end": "2026-04-14 02:45:00+00:00",
+      "columns": [
+        "timestamp",
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume"
+      ],
+      "duplicates": 0,
+      "monotonic": true,
+      "sha256": "0fd4a5e80da9dc3823d6ff04b8444174ba1d28d8ee2a57f34c3e5555c2a18803"
+    },
+    {
+      "market": "GBPUSD",
+      "timeframe": "H1",
+      "path": "/home/xaume/SQX_ENGINE/data/derived/GBPUSD_H1_0fd4a5e80da9_143187.csv",
+      "kind": "derived/native-reference",
+      "rows": 143187,
+      "start": "2003-05-05 03:00:00+00:00",
+      "end": "2026-04-14 02:00:00+00:00",
+      "columns": [
+        "timestamp",
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume",
+        "available_at"
+      ],
+      "duplicates": 0,
+      "monotonic": true,
+      "sha256": "22232c964f03ab318174451cfc416ba061747a5e6b1c81577c9935746ace5cb7"
+    },
+    {
+      "market": "GBPUSD",
+      "timeframe": "H4",
+      "path": "/home/xaume/SQX_ENGINE/data/derived/GBPUSD_H4_0fd4a5e80da9_35645.csv",
+      "kind": "derived",
+      "rows": 35645,
+      "start": "2003-05-05 04:00:00+00:00",
+      "end": "2026-04-13 20:00:00+00:00",
+      "columns": [
+        "timestamp",
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume",
+        "available_at"
+      ],
+      "duplicates": 0,
+      "monotonic": true,
+      "sha256": "9b0121e76c937702fd5349daa2de87a3b092759bff4f855e8860ba0ceaa92c05"
+    },
+    {
+      "market": "NZDUSD",
+      "timeframe": "M15",
+      "path": "/home/xaume/SQX_ENGINE/data/cloud/NZDUSD_M15.csv",
+      "kind": "native",
+      "rows": 566316,
+      "start": "2003-08-04 03:00:00+00:00",
+      "end": "2026-04-14 02:45:00+00:00",
+      "columns": [
+        "timestamp",
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume"
+      ],
+      "duplicates": 0,
+      "monotonic": true,
+      "sha256": "0e91c0d12434fcfa6476ce6d439f81e1368ac43b7a6f464cd771bee547436a25"
+    },
+    {
+      "market": "NZDUSD",
+      "timeframe": "H1",
+      "path": "/home/xaume/SQX_ENGINE/data/derived/NZDUSD_H1_0e91c0d12434_141524.csv",
+      "kind": "derived/native-reference",
+      "rows": 141524,
+      "start": "2003-08-04 03:00:00+00:00",
+      "end": "2026-04-14 02:00:00+00:00",
+      "columns": [
+        "timestamp",
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume",
+        "available_at"
+      ],
+      "duplicates": 0,
+      "monotonic": true,
+      "sha256": "afb1ef3101a9b3096d67ba7d2fbe4d35003618c34f456d0e5d9f22e50fc45048"
+    },
+    {
+      "market": "NZDUSD",
+      "timeframe": "H4",
+      "path": "/home/xaume/SQX_ENGINE/data/derived/NZDUSD_H4_0e91c0d12434_35220.csv",
+      "kind": "derived",
+      "rows": 35220,
+      "start": "2003-08-04 04:00:00+00:00",
+      "end": "2026-04-13 20:00:00+00:00",
+      "columns": [
+        "timestamp",
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume",
+        "available_at"
+      ],
+      "duplicates": 0,
+      "monotonic": true,
+      "sha256": "2a763e7212084a408fca906203619b97e1392cba8a51ebf83e360daf941d4aa2"
+    },
+    {
+      "market": "USDCAD",
+      "timeframe": "M15",
+      "path": "/home/xaume/SQX_ENGINE/data/cloud/USDCAD_M15.csv",
+      "kind": "native",
+      "rows": 566524,
+      "start": "2003-08-04 03:00:00+00:00",
+      "end": "2026-04-14 02:45:00+00:00",
+      "columns": [
+        "timestamp",
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume"
+      ],
+      "duplicates": 0,
+      "monotonic": true,
+      "sha256": "62a0d35bff6ab4a009b511baddd0b4e0a1981c65c2c0be5d4de52615514983f5"
+    },
+    {
+      "market": "USDCAD",
+      "timeframe": "H1",
+      "path": "/home/xaume/SQX_ENGINE/data/derived/USDCAD_H1_62a0d35bff6a_141588.csv",
+      "kind": "derived/native-reference",
+      "rows": 141588,
+      "start": "2003-08-04 03:00:00+00:00",
+      "end": "2026-04-14 02:00:00+00:00",
+      "columns": [
+        "timestamp",
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume",
+        "available_at"
+      ],
+      "duplicates": 0,
+      "monotonic": true,
+      "sha256": "039e92beb4db65f715d7f2d7b1b593152df7310041c2282d260653acacbd8c59"
+    },
+    {
+      "market": "USDCAD",
+      "timeframe": "H4",
+      "path": "/home/xaume/SQX_ENGINE/data/derived/USDCAD_H4_62a0d35bff6a_35239.csv",
+      "kind": "derived",
+      "rows": 35239,
+      "start": "2003-08-04 04:00:00+00:00",
+      "end": "2026-04-13 20:00:00+00:00",
+      "columns": [
+        "timestamp",
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume",
+        "available_at"
+      ],
+      "duplicates": 0,
+      "monotonic": true,
+      "sha256": "3712858aba686ae3e8a8b87ee12eba2d814add8fcdf96e691f5a86a9b3c07453"
+    },
+    {
+      "market": "USDCHF",
+      "timeframe": "M15",
+      "path": "/home/xaume/SQX_ENGINE/data/cloud/USDCHF_M15.csv",
+      "kind": "native",
+      "rows": 572697,
+      "start": "2003-05-05 03:00:00+00:00",
+      "end": "2026-04-14 02:45:00+00:00",
+      "columns": [
+        "timestamp",
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume"
+      ],
+      "duplicates": 0,
+      "monotonic": true,
+      "sha256": "379cf0cf5c5a18c6ba70cd81a09dfc6661abcc866e4d817309c3214d1026e418"
+    },
+    {
+      "market": "USDCHF",
+      "timeframe": "H1",
+      "path": "/home/xaume/SQX_ENGINE/data/derived/USDCHF_H1_379cf0cf5c5a_143126.csv",
+      "kind": "derived/native-reference",
+      "rows": 143126,
+      "start": "2003-05-05 03:00:00+00:00",
+      "end": "2026-04-14 02:00:00+00:00",
+      "columns": [
+        "timestamp",
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume",
+        "available_at"
+      ],
+      "duplicates": 0,
+      "monotonic": true,
+      "sha256": "811bea9461e7e80b55490a8f0f10a1cabcc0800a9f376f6afe152734735a7b5f"
+    },
+    {
+      "market": "USDCHF",
+      "timeframe": "H4",
+      "path": "/home/xaume/SQX_ENGINE/data/derived/USDCHF_H4_379cf0cf5c5a_35613.csv",
+      "kind": "derived",
+      "rows": 35613,
+      "start": "2003-05-05 04:00:00+00:00",
+      "end": "2026-04-13 20:00:00+00:00",
+      "columns": [
+        "timestamp",
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume",
+        "available_at"
+      ],
+      "duplicates": 0,
+      "monotonic": true,
+      "sha256": "a965dcec3cbf8ab2c1abcc0fde71d044e96ae8c1c6dc70a1baf24f5298c5e789"
+    },
+    {
+      "market": "USDJPY",
+      "timeframe": "M15",
+      "path": "/home/xaume/SQX_ENGINE/data/cloud/USDJPY_M15.csv",
+      "kind": "native",
+      "rows": 572792,
+      "start": "2003-05-05 03:00:00+00:00",
+      "end": "2026-04-14 02:45:00+00:00",
+      "columns": [
+        "timestamp",
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume"
+      ],
+      "duplicates": 0,
+      "monotonic": true,
+      "sha256": "4b4c1023d6ad2e49375417ec5955ee6a60477b6b3e75c1dbd44d2374ebad04c3"
+    },
+    {
+      "market": "USDJPY",
+      "timeframe": "H1",
+      "path": "/home/xaume/SQX_ENGINE/data/derived/USDJPY_H1_4b4c1023d6ad_143174.csv",
+      "kind": "derived/native-reference",
+      "rows": 143174,
+      "start": "2003-05-05 03:00:00+00:00",
+      "end": "2026-04-14 02:00:00+00:00",
+      "columns": [
+        "timestamp",
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume",
+        "available_at"
+      ],
+      "duplicates": 0,
+      "monotonic": true,
+      "sha256": "1e67c787f0b804fcadbad8c5d5913fcd43522d82eb5303d47ad151488451d0e9"
+    },
+    {
+      "market": "USDJPY",
+      "timeframe": "H4",
+      "path": "/home/xaume/SQX_ENGINE/data/derived/USDJPY_H4_4b4c1023d6ad_35638.csv",
+      "kind": "derived",
+      "rows": 35638,
+      "start": "2003-05-05 04:00:00+00:00",
+      "end": "2026-04-13 20:00:00+00:00",
+      "columns": [
+        "timestamp",
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume",
+        "available_at"
+      ],
+      "duplicates": 0,
+      "monotonic": true,
+      "sha256": "30da5d22010372bce7e5c62381f34b849261dcda6b6a20cfd740448df4661123"
+    },
+    {
+      "market": "XAUUSD",
+      "timeframe": "M15",
+      "path": "/home/xaume/SQX_ENGINE/data/cloud/XAUUSD_M15.csv",
+      "kind": "native",
+      "rows": 552629,
+      "start": "2003-05-05 03:00:00+00:00",
+      "end": "2026-04-14 02:45:00+00:00",
+      "columns": [
+        "timestamp",
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume"
+      ],
+      "duplicates": 0,
+      "monotonic": true,
+      "sha256": "ace62dd3d22f598b1d2b17ecd7ce2fd594a1a2eaddbe5fee897da585219cc0dd"
+    },
+    {
+      "market": "XAUUSD",
+      "timeframe": "H1",
+      "path": "/home/xaume/SQX_ENGINE/data/derived/XAUUSD_H1_ace62dd3d22f_136885.csv",
+      "kind": "derived/native-reference",
+      "rows": 136885,
+      "start": "2003-05-05 03:00:00+00:00",
+      "end": "2026-04-14 02:00:00+00:00",
+      "columns": [
+        "timestamp",
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume",
+        "available_at"
+      ],
+      "duplicates": 0,
+      "monotonic": true,
+      "sha256": "4256762d2c2df4a0b8bb16939c076fb44aa15bad4b1305a23197a39564003216"
+    },
+    {
+      "market": "XAUUSD",
+      "timeframe": "H4",
+      "path": "/home/xaume/SQX_ENGINE/data/derived/XAUUSD_H4_ace62dd3d22f_31005.csv",
+      "kind": "derived",
+      "rows": 31005,
+      "start": "2003-05-05 16:00:00+00:00",
+      "end": "2026-04-13 20:00:00+00:00",
+      "columns": [
+        "timestamp",
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume",
+        "available_at"
+      ],
+      "duplicates": 0,
+      "monotonic": true,
+      "sha256": "e0d2ec555d39c540cc08fc4084b3a98a3061f73da2dfa3ad161d759f8c5244ec"
+    }
+  ],
+  "data_policy": "M15 for H1/H4 MTM; M15 for M15 strategies",
+  "external_downloads": false
+}

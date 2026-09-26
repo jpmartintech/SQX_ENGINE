@@ -1,0 +1,5 @@
+{
+  "ambiguous_position_bar_hits": 4,
+  "policy": "BAR_PATH_CONSERVATIVE; adverse valid OHLC scenario",
+  "tick_exact": false
+}

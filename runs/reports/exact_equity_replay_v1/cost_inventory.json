@@ -1,0 +1,13 @@
+{
+  "mt5_reference": {
+    "commission": -1459.3000000000002,
+    "swap": -1264.23,
+    "total_explicit_costs": -2723.53,
+    "cost_per_trade": -1.8389804186360568,
+    "costs_as_pct_of_gross_profit": 0.06975910258534863
+  },
+  "spread": "COST_UNRESOLVED_FROM_LEDGER",
+  "commission": "COST_EXACT",
+  "swap": "COST_EXACT_FOR_MT5_REFERENCE",
+  "generic_library_swap": "COST_UNRESOLVED"
+}
