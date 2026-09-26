@@ -1,0 +1,13 @@
+{
+  "name": "FTMO_2STEP_V1",
+  "initial_capital": 1.0,
+  "challenge_target": 0.1,
+  "verification_target": 0.05,
+  "daily_loss_fraction": 0.05,
+  "maximum_loss_fraction": 0.1,
+  "minimum_trading_days": 4,
+  "trading_period": "UNLIMITED",
+  "timezone": "Europe/Paris",
+  "daily_loss_amount": 0.05,
+  "maximum_loss_limit": 0.9
+}

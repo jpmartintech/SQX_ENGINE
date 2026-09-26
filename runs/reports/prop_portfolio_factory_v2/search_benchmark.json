@@ -1,0 +1,13 @@
+{
+  "budget": 1000,
+  "portfolios_evaluated": 974,
+  "episodes_per_portfolio": 6,
+  "all_available_episode_starts": 29,
+  "episode_limit": 6,
+  "per_strategy_event_limit": 5,
+  "episodes_evaluated": 5844,
+  "runtime_seconds": 162.97859349700593,
+  "portfolios_per_second": 5.976244972428807,
+  "peak_rss_mib": 837.32421875,
+  "stage": "B_SMOKE_1K"
+}
