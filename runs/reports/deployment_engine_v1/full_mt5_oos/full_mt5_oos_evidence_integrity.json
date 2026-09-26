@@ -1,0 +1,33 @@
+{
+  "html_sha256": "fa0bf3ecb976931a9292c5c2ea43e10a712d91b66784141a6848be61ca146b3d",
+  "html_bytes": 3095746,
+  "encoding": "UTF-16LE",
+  "orders": 2962,
+  "transactional_deals": 2962,
+  "balance_rows": 1,
+  "trades_paired": 1481,
+  "pairing": {
+    "entries": 1481,
+    "exits": 1481,
+    "paired": 1481,
+    "active_unclosed": 0,
+    "failed": [],
+    "ambiguous_pairs": 110
+  },
+  "config": {
+    "expert": "SQX_SQX_PROP_02760ECAC8BA",
+    "symbol": "EURUSD",
+    "period": "H1 (2024.01.01 - 2026.04.14)",
+    "initial_deposit": "100 000.00",
+    "leverage": "1:100",
+    "base_risk": "0.01",
+    "max_open_risk": "0.02",
+    "daily_limit": "0.0",
+    "total_limit": "0.0",
+    "diagnostic_trace": "false",
+    "history_quality": "100%"
+  },
+  "portfolio_id": "SQX-PROP-02760ECAC8BA",
+  "portfolio_members": 20,
+  "portfolio_membership_unchanged": true
+}

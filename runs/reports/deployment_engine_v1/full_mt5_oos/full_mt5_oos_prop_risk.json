@@ -1,0 +1,14 @@
+{
+  "mt5_observed": {
+    "max_balance_drawdown_usd": 2869.17,
+    "max_balance_drawdown_pct": 0.0267,
+    "max_equity_drawdown_usd": 2950.94,
+    "max_equity_drawdown_pct": 0.0274,
+    "worst_realized_day": -457.83,
+    "best_realized_day": 543.5899999999999,
+    "largest_single_loss": -121.99000000000001,
+    "largest_single_profit": 160.76000000000002
+  },
+  "project_prop_model": "Descriptive only; no FTMO certification claim.",
+  "open_risk_exact": "UNRESOLVED_FROM_HTML_ONLY"
+}

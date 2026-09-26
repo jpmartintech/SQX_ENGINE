@@ -1,0 +1,79 @@
+{
+  "html_sha256": "fa0bf3ecb976931a9292c5c2ea43e10a712d91b66784141a6848be61ca146b3d",
+  "configuration": {
+    "expert": "SQX_SQX_PROP_02760ECAC8BA",
+    "symbol": "EURUSD",
+    "period": "H1 (2024.01.01 - 2026.04.14)",
+    "initial_deposit": "100 000.00",
+    "leverage": "1:100",
+    "base_risk": "0.01",
+    "max_open_risk": "0.02",
+    "daily_limit": "0.0",
+    "total_limit": "0.0",
+    "diagnostic_trace": "false",
+    "history_quality": "100%"
+  },
+  "trades": {
+    "trades": 1481,
+    "wins": 678,
+    "losses": 803,
+    "win_rate": 0.4577987846049966,
+    "gross_profit": 40262.3,
+    "gross_loss": -32344.16,
+    "net_pnl": 5194.61,
+    "profit_factor": 1.2448089546922845,
+    "average_trade": 3.5075016880486154,
+    "average_win": 57.58396755162242,
+    "average_loss": -42.151083437110834
+  },
+  "gross_profit_exit_deals": 40262.3,
+  "gross_loss_exit_deals": -32344.16,
+  "final_balance": 105194.61,
+  "peak_balance": 107535.36,
+  "minimum_balance": 97935.22,
+  "realized_max_drawdown": {
+    "max_drawdown": 2869.1699999999983,
+    "drawdown_index": 2924,
+    "peak": 107535.36
+  },
+  "mt5_summary_headline": {
+    "net_profit": 5194.61,
+    "gross_profit": 39359.55,
+    "gross_loss": -34164.94,
+    "profit_factor": 1.15,
+    "trades": 1481,
+    "deals": 2962,
+    "wins": 682,
+    "losses": 799,
+    "max_balance_dd": 2869.17,
+    "max_equity_dd": 2950.94
+  },
+  "ledger_reconstruction_headline": {
+    "net_profit": 5194.61,
+    "gross_profit": 40262.3,
+    "gross_loss": -32344.16,
+    "profit_factor": 1.1534718258343644,
+    "trades": 1481,
+    "deals": 2962,
+    "wins": 678,
+    "losses": 803
+  },
+  "headline_differences": {
+    "net_profit": 0.0,
+    "gross_profit": 902.75,
+    "gross_loss": 1820.7800000000025,
+    "profit_factor": 0.0034718258343644504,
+    "trades": 0,
+    "deals": 0,
+    "wins": -4,
+    "losses": 4
+  },
+  "pairing": {
+    "entries": 1481,
+    "exits": 1481,
+    "paired": 1481,
+    "active_unclosed": 0,
+    "failed": [],
+    "ambiguous_pairs": 110
+  }
+}
