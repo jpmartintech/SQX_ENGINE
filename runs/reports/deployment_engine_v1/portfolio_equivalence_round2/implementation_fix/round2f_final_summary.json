@@ -1,0 +1,128 @@
+{
+  "evidence": {
+    "trace_sha256": "1ad14e1a403e875e3e49711e48572020ce161712b066163bfcc08d4459a514ac",
+    "trace_sha256_expected": "1ad14e1a403e875e3e49711e48572020ce161712b066163bfcc08d4459a514ac",
+    "raw_sha256": "7ff220d26c8d210083e601bce16d7064f2bc3a6ba99701d811ba8f69b8df1b62",
+    "raw_sha256_expected": "7ff220d26c8d210083e601bce16d7064f2bc3a6ba99701d811ba8f69b8df1b62",
+    "trace_sha256_match": true,
+    "raw_sha256_match": true,
+    "trace_rows": 10560,
+    "raw_rows": 238,
+    "expected_rows": 10560,
+    "trace_rows_expected": 10560,
+    "raw_rows_expected": 238,
+    "trace_row_count_ok": true,
+    "raw_row_count_ok": true,
+    "required_trace_columns_missing": [],
+    "trace_required_columns_ok": true,
+    "strategies_covered": 20,
+    "raw_strategies_covered": 18,
+    "trace_duplicate_keys": 0,
+    "raw_duplicate_keys": 0,
+    "trace_time_parse_ok": true,
+    "raw_time_parse_ok": true,
+    "trace_monotonic_by_strategy": true,
+    "raw_monotonic_by_strategy": true,
+    "integrity_pass": true,
+    "positive_control_present": true
+  },
+  "predicate": {
+    "comparable_strategy_bars": 10540,
+    "expected_strategy_bars": 10560,
+    "missing_python_strategy_bars": 20,
+    "missing_mql5_strategy_bars": 20,
+    "comparable_predicates": 32147,
+    "predicate_id_mismatches": 0,
+    "boolean_matches": 32147,
+    "boolean_mismatches": 0,
+    "boolean_match_rate": 1.0,
+    "threshold_mismatches": 0,
+    "numeric_comparisons": 32147,
+    "numeric_mae": 8.597813165167506e-12,
+    "numeric_max_abs_delta": 2.075932500011056e-09
+  },
+  "raw_signal": {
+    "python_signals": 238,
+    "mql5_signals": 238,
+    "exact_matches": 238,
+    "python_only": 0,
+    "mql5_only": 0,
+    "mismatch_count": 0,
+    "match_rate": 1.0
+  },
+  "pre_fix_family_counts": {
+    "structure": 66,
+    "ema": 16,
+    "compression": 115,
+    "other": 0
+  },
+  "post_fix_family_counts": {
+    "structure": 0,
+    "ema": 0,
+    "compression": 0,
+    "other": 0
+  },
+  "round2d_unresolved_before": 3,
+  "round2d_unresolved_after": 0,
+  "positive_control": {
+    "strategy_id": "SQX-EURUSD-H1-63696db839ee",
+    "signal_bar_time": "2024-01-02T04:00:00+00:00",
+    "entry_bar_time": "2024-01-02T05:00:00+00:00",
+    "predicates": [
+      {
+        "predicate_id": "structure.last.2",
+        "python_original_result": true,
+        "python_mt5_result": true,
+        "mql5_result": true,
+        "python_mt5_value": 4.0,
+        "mql5_value": 4.0
+      },
+      {
+        "predicate_id": "trend.ema_pair.50.100",
+        "python_original_result": true,
+        "python_mt5_result": true,
+        "mql5_result": true,
+        "python_mt5_value": 0.0007887245553641,
+        "mql5_value": 0.0007887245532751
+      },
+      {
+        "predicate_id": "trend.ema_slope.200.1",
+        "python_original_result": false,
+        "python_mt5_result": true,
+        "mql5_result": true,
+        "python_mt5_value": 7.535601671548875e-07,
+        "mql5_value": 7.532360100093172e-07
+      },
+      {
+        "predicate_id": "volatility.bb_lower.20.2",
+        "python_original_result": true,
+        "python_mt5_result": true,
+        "mql5_result": true,
+        "python_mt5_value": -0.0003716976951892,
+        "mql5_value": -0.0003716976952101
+      }
+    ],
+    "python_original_raw_signal": false,
+    "python_mt5_raw_signal": true,
+    "mql5_raw_signal": true,
+    "classification": "DATA_FEED"
+  },
+  "gates": {
+    "MT5_FINAL_EVIDENCE_INTEGRITY": "PASS",
+    "SAME_FEED_BAR_ALIGNMENT": "PASS",
+    "STRUCTURE_EQUIVALENCE": "PASS",
+    "EMA_EQUIVALENCE": "PASS",
+    "COMPRESSION_EQUIVALENCE": "PASS",
+    "PREDICATE_ID_EQUIVALENCE": "PASS",
+    "PREDICATE_BOOLEAN_EQUIVALENCE": "PASS",
+    "PREDICATE_NUMERIC_EQUIVALENCE": "PARTIAL",
+    "RAW_SIGNAL_EQUIVALENCE": "PASS",
+    "ROUND2D_UNMATCHED_CLASSIFICATION": "PASS",
+    "POSITIVE_CONTROL": "PASS",
+    "POSITION_OWNERSHIP_REGRESSION": "PASS",
+    "TIME_EXIT_REGRESSION": "PASS",
+    "RISK_REGRESSION": "PASS",
+    "CONCURRENT_SIGNAL_REGRESSION": "PASS",
+    "TRADING_LOGIC_MODIFIED": "NO"
+  }
+}

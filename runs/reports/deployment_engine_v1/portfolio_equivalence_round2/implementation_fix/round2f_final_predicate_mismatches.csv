@@ -1,0 +1,1 @@
+strategy_id,signal_bar_time,predicate_slot,python_predicate_id,mql5_predicate_id,predicate_id_match,python_numeric_value,mql5_numeric_value,numeric_abs_delta,python_threshold,mql5_threshold,threshold_match,python_result,mql5_result,boolean_match,row_match

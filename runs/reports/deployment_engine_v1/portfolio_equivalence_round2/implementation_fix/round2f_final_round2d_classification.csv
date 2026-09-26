@@ -1,0 +1,4 @@
+strategy_id,causal_signal_bar,original_python_feed_raw_signal,python_mt5_feed_raw_signal,mql5_raw_signal,predicate_equivalence,position_state,risk_state,admission_state,classification,evidence
+SQX-EURUSD-H1-ac5da82211be,2024-01-29T23:00:00+00:00,,True,True,PASS,False,ACCEPT_FULL,True,EXECUTION_INTRABAR,same H1 signal and predicate trace; MT5 entry is within the H1 entry bar
+SQX-EURUSD-H1-73f2fc6ba7b5,2024-01-29T23:00:00+00:00,,True,True,PASS,False,ACCEPT_FULL,True,EXECUTION_INTRABAR,same H1 signal and predicate trace; MT5 entry is within the H1 entry bar
+SQX-EURUSD-H1-4c5f2833ce74,2024-01-29T23:00:00+00:00,,True,True,PASS,False,ACCEPT_FULL,True,EXECUTION_INTRABAR,same H1 signal and predicate trace; MT5 entry is within the H1 entry bar
