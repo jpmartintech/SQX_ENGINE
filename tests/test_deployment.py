@@ -24,6 +24,7 @@ def test_strategy_export_deterministic(tmp_path):
     assert "ACCOUNT_EQUITY()" not in text
     assert "AccountInfoDouble(ACCOUNT_EQUITY)" in text
     assert "SQX_ManagePosition(_Symbol,InpMagic,PERIOD_H1,48" in text
+    assert "SQX_HasPosition(_Symbol,InpMagic)" in text
     assert "atr*4/2*stop" not in text
     assert "SQX_SendEntry(_Symbol,ORDER_TYPE_BUY,volume,stop,atr*2," in text
     assert magic_number(s.canonical_hash)==magic_number(s.canonical_hash)
@@ -36,6 +37,7 @@ def test_ready_portfolio_loads_and_exports(tmp_path):
     assert text.count("bool SQX_S") == 20
     assert "ACCOUNT_EQUITY()" not in text
     assert "SQX_ManagePosition(_Symbol,SQX_S0_MAGIC,SQX_S0_TF,SQX_S0_TIME_EXIT" in text
+    assert "!SQX_HasPosition(_Symbol,SQX_S0_MAGIC)" in text
     assert "SQX_S0_TARGET_ATR/SQX_S0_STOP_ATR*stop" not in text
     indicators=(tmp_path/"Include/SQX/sqx_indicators.mqh").read_text()
     assert "bool SQX_LoadRates(string sym,ENUM_TIMEFRAMES tf,MqlRates &a[],int n)" in indicators

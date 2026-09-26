@@ -102,11 +102,19 @@ def _normalize_exit_translation(body, strategy, portfolio):
             "void OnTick() { static datetime last=0;",
             f"void OnTick() {{ SQX_ManagePosition(_Symbol,InpMagic,{_tf(strategy.timeframe)},{strategy.time_exit},InpPortfolioId,SQX_S0_ID); static datetime last=0;",
         )
+        body = body.replace(
+            "if(!SQX_S0_Signal(rates,shift)) return;",
+            "if(!SQX_S0_Signal(rates,shift) || SQX_HasPosition(_Symbol,InpMagic)) return;",
+        )
     elif portfolio is not None:
         for i, item in enumerate(portfolio.strategies):
             needle = f"last[{i}]=iTime(_Symbol,SQX_S{i}_TF,0);{{ MqlRates r{i}[];"
             replacement = f"last[{i}]=iTime(_Symbol,SQX_S{i}_TF,0);{{ SQX_ManagePosition(_Symbol,SQX_S{i}_MAGIC,SQX_S{i}_TF,SQX_S{i}_TIME_EXIT,\"{_cpp_string(portfolio.portfolio_id)}\",SQX_S{i}_ID); MqlRates r{i}[];"
             body = body.replace(needle, replacement)
+            body = body.replace(
+                f"if(SQX_LoadRates(_Symbol,SQX_S{i}_TF,r{i},600) && SQX_S{i}_Signal(r{i},1))",
+                f"if(!SQX_HasPosition(_Symbol,SQX_S{i}_MAGIC) && SQX_LoadRates(_Symbol,SQX_S{i}_TF,r{i},600) && SQX_S{i}_Signal(r{i},1))",
+            )
     return body
 
 def _write_includes(directory):

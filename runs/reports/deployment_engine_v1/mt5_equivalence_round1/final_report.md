@@ -52,8 +52,10 @@ signals was unavailable in WSL, so feed differences cannot be fully excluded.
 
 Code modified: yes. The shared exporter now emits the correct target distance
 `ATR * target_atr` and invokes the common causal position time-exit manager.
-Regression tests cover TP translation, time-exit emission, identity and
-determinism. Both the individual EA and 20-strategy portfolio EA were
+The exporter also rejects a new entry while the same strategy magic has an
+open position, matching the frozen Python position-state rule. Regression
+tests cover TP translation, time-exit emission, open-position gating, identity
+and determinism. Both the individual EA and 20-strategy portfolio EA were
 regenerated and the Windows package was updated.
 
 MetaEditor status after regeneration: `MQL5_RECOMPILE = REQUIRED`.
