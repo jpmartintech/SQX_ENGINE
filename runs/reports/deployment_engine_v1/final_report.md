@@ -9,6 +9,17 @@ Regression tests: MqlRates array signature, ArraySetAsSeries/CopyRates, no inval
 EAs regenerated: single strategy and 20-strategy portfolio.
 Package updated: `deployments/mql5/package`.
 
+REAL METAEDITOR FEEDBACK ROUND 2
+
+Round 1 result: 7 errors / 0 warnings; all Round 1 errors remain fixed.
+Round 2 input: 1 error / 0 warnings.
+Exact expression: line 25, column 348 was the closing parenthesis in `ACCOUNT_EQUITY()` inside `SQX_RiskVolume(_Symbol,ACCOUNT_EQUITY(),...)`.
+Root cause: `ACCOUNT_EQUITY` is an MQL5 account-property enum and cannot be called as a function; the valid construction is `AccountInfoDouble(ACCOUNT_EQUITY)`.
+Exporter fix: shared exporter boundary normalization in `src/sqx_engine/deployment/backend.py`, applied to every generated strategy and portfolio EA.
+Regression test: generated source rejects `ACCOUNT_EQUITY()` and requires `AccountInfoDouble(ACCOUNT_EQUITY)` in single and portfolio outputs.
+EAs regenerated: `SQX_SQX_EURUSD_H1_1320ad51f2e8.mq5` and `SQX_SQX_PROP_02760ECAC8BA.mq5`.
+Package updated: `deployments/mql5/package`.
+
 Strategy Factory: V1.8 preserved
 Strategy Library: 12289
 Portfolio Library: data/prop_portfolio_library.sqlite

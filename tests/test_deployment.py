@@ -21,6 +21,8 @@ def test_strategy_export_deterministic(tmp_path):
     assert "static bool SQX_S0_Signal" not in text
     assert re.search(r"bool SQX_S0_Signal\(const MqlRates &rates\[\]", text)
     assert "SQX_LoadRates(_Symbol,PERIOD_H1,rates,600)" in text
+    assert "ACCOUNT_EQUITY()" not in text
+    assert "AccountInfoDouble(ACCOUNT_EQUITY)" in text
     assert magic_number(s.canonical_hash)==magic_number(s.canonical_hash)
 
 def test_ready_portfolio_loads_and_exports(tmp_path):
@@ -29,6 +31,7 @@ def test_ready_portfolio_loads_and_exports(tmp_path):
     text=out.read_text(); assert len(p.strategies)==20; assert p.portfolio_id in text
     assert "static bool SQX_S" not in text
     assert text.count("bool SQX_S") == 20
+    assert "ACCOUNT_EQUITY()" not in text
     indicators=(tmp_path/"Include/SQX/sqx_indicators.mqh").read_text()
     assert "bool SQX_LoadRates(string sym,ENUM_TIMEFRAMES tf,MqlRates &a[],int n)" in indicators
     assert "ArraySetAsSeries(a,true)" in indicators and "CopyRates(sym,tf,0,n,a)" in indicators
