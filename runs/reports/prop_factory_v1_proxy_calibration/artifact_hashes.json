@@ -1,0 +1,11 @@
+{
+  "calibration_manifest.json": "10e69c70dfc46965bddea5bbbcaab42c4133f2293e1e435a63c626d0d79ac0c9",
+  "calibration_summary.json": "be5c0d8c27f95a927ee9099e20dc7f534cfff6d3001efc1f127687313ec45468",
+  "challenge_rank_comparison.parquet": "4abef169298cfde76fd85c24597887e2bafaef5086b4c5341197b28cde153bad",
+  "exact_replay_results.parquet": "1f1c047b8bae8162a1ae0e6663a580828fcde3b9e85d4b58dfd8bd2ea11fa051",
+  "portfolio_sample.parquet": "4b0f2ebdfbe94ce890e003802ccea3aa51b716185921e4b71366645826053885",
+  "proxy_results.parquet": "1f1c047b8bae8162a1ae0e6663a580828fcde3b9e85d4b58dfd8bd2ea11fa051",
+  "retention_curve_challenge.json": "41ff996f6092bb343c1844a4bd039827392d52ec3d7ffcff2b70de86e63723a9",
+  "retention_curve_verification.json": "1e86d31fe93c18a37e0ad8d9afd4ffd481701f32b096d18cf6803f786867a357",
+  "verification_rank_comparison.parquet": "acbb9af82678d0be75bd5c5761b16e092b14f5f4f93e6868861680b465f737aa"
+}

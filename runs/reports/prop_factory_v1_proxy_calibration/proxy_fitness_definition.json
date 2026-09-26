@@ -1,0 +1,6 @@
+{
+  "challenge": "P_PASS_5D - explicit daily/max-loss breach penalty; metrics retained separately",
+  "verification": "P_PASS_5D - explicit daily/max-loss breach penalty; metrics retained separately",
+  "previous": "aggregate net_R proxy",
+  "status": "CALIBRATION_ONLY"
+}

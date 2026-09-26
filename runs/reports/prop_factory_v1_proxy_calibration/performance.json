@@ -1,0 +1,8 @@
+{
+  "runtime_seconds": "recorded by bounded run; exact sample generation completed",
+  "calibration_portfolios": 60,
+  "episodes": 3,
+  "fast_proxy_portfolios_per_second": "not separately instrumented",
+  "bar_replay_portfolios_per_second": "not separately instrumented",
+  "peak_rss_mib": "available from process benchmark; not used as gate"
+}

@@ -1,0 +1,42 @@
+{
+  "0.01": {
+    "exact_top_1pct_retained": 0.0,
+    "exact_top_5pct_retained": 0.0
+  },
+  "0.02": {
+    "exact_top_1pct_retained": 0.0,
+    "exact_top_5pct_retained": 0.0
+  },
+  "0.05": {
+    "exact_top_1pct_retained": 0.0,
+    "exact_top_5pct_retained": 0.0
+  },
+  "0.1": {
+    "exact_top_1pct_retained": 0.0,
+    "exact_top_5pct_retained": 0.0
+  },
+  "0.15": {
+    "exact_top_1pct_retained": 1.0,
+    "exact_top_5pct_retained": 1.0
+  },
+  "0.2": {
+    "exact_top_1pct_retained": 1.0,
+    "exact_top_5pct_retained": 1.0
+  },
+  "0.25": {
+    "exact_top_1pct_retained": 1.0,
+    "exact_top_5pct_retained": 1.0
+  },
+  "0.3": {
+    "exact_top_1pct_retained": 1.0,
+    "exact_top_5pct_retained": 1.0
+  },
+  "0.4": {
+    "exact_top_1pct_retained": 1.0,
+    "exact_top_5pct_retained": 1.0
+  },
+  "0.5": {
+    "exact_top_1pct_retained": 1.0,
+    "exact_top_5pct_retained": 1.0
+  }
+}

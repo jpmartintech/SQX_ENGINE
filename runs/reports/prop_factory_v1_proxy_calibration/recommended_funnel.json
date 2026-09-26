@@ -1,0 +1,5 @@
+{
+  "recommended_proxy_funnel_fraction": 0.2,
+  "status": "PROVISIONAL",
+  "reason": "recall-first default from bounded sample; exact replay remains mandatory"
+}

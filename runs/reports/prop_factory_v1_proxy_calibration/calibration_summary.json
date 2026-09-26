@@ -1,0 +1,108 @@
+{
+  "portfolios": 60,
+  "rankings": {
+    "challenge": {
+      "spearman": 0.0,
+      "kendall": 0.0,
+      "top_1pct_overlap": 0.0,
+      "top_5pct_overlap": 0.0,
+      "top_10pct_overlap": 0.3333333333333333,
+      "top_20pct_overlap": 0.6666666666666666
+    },
+    "verification": {
+      "spearman": 0.0,
+      "kendall": 0.0,
+      "top_1pct_overlap": 0.0,
+      "top_5pct_overlap": 0.0,
+      "top_10pct_overlap": 0.0,
+      "top_20pct_overlap": 0.5
+    }
+  },
+  "retention": {
+    "challenge": {
+      "0.01": {
+        "exact_top_1pct_retained": 0.0,
+        "exact_top_5pct_retained": 0.0
+      },
+      "0.02": {
+        "exact_top_1pct_retained": 0.0,
+        "exact_top_5pct_retained": 0.0
+      },
+      "0.05": {
+        "exact_top_1pct_retained": 0.0,
+        "exact_top_5pct_retained": 0.0
+      },
+      "0.1": {
+        "exact_top_1pct_retained": 1.0,
+        "exact_top_5pct_retained": 0.6666666666666666
+      },
+      "0.15": {
+        "exact_top_1pct_retained": 1.0,
+        "exact_top_5pct_retained": 1.0
+      },
+      "0.2": {
+        "exact_top_1pct_retained": 1.0,
+        "exact_top_5pct_retained": 1.0
+      },
+      "0.25": {
+        "exact_top_1pct_retained": 1.0,
+        "exact_top_5pct_retained": 1.0
+      },
+      "0.3": {
+        "exact_top_1pct_retained": 1.0,
+        "exact_top_5pct_retained": 1.0
+      },
+      "0.4": {
+        "exact_top_1pct_retained": 1.0,
+        "exact_top_5pct_retained": 1.0
+      },
+      "0.5": {
+        "exact_top_1pct_retained": 1.0,
+        "exact_top_5pct_retained": 1.0
+      }
+    },
+    "verification": {
+      "0.01": {
+        "exact_top_1pct_retained": 0.0,
+        "exact_top_5pct_retained": 0.0
+      },
+      "0.02": {
+        "exact_top_1pct_retained": 0.0,
+        "exact_top_5pct_retained": 0.0
+      },
+      "0.05": {
+        "exact_top_1pct_retained": 0.0,
+        "exact_top_5pct_retained": 0.0
+      },
+      "0.1": {
+        "exact_top_1pct_retained": 0.0,
+        "exact_top_5pct_retained": 0.0
+      },
+      "0.15": {
+        "exact_top_1pct_retained": 1.0,
+        "exact_top_5pct_retained": 1.0
+      },
+      "0.2": {
+        "exact_top_1pct_retained": 1.0,
+        "exact_top_5pct_retained": 1.0
+      },
+      "0.25": {
+        "exact_top_1pct_retained": 1.0,
+        "exact_top_5pct_retained": 1.0
+      },
+      "0.3": {
+        "exact_top_1pct_retained": 1.0,
+        "exact_top_5pct_retained": 1.0
+      },
+      "0.4": {
+        "exact_top_1pct_retained": 1.0,
+        "exact_top_5pct_retained": 1.0
+      },
+      "0.5": {
+        "exact_top_1pct_retained": 1.0,
+        "exact_top_5pct_retained": 1.0
+      }
+    }
+  },
+  "status": "PARTIAL_CALIBRATION"
+}
