@@ -1,4 +1,5 @@
 import csv, json
+import re
 from pathlib import Path
 from dataclasses import replace
 from sqx_engine.strategy import Predicate, StrategyDefinition
@@ -15,13 +16,22 @@ def test_mapping_rejects_unknown_predicate(tmp_path):
 def test_strategy_export_deterministic(tmp_path):
     s=StrategyDefinition("EURUSD","H1","LONG",(Predicate("rsi_14","<",40),),grammar_version="v1.7")
     a=tmp_path/"a.mq5"; b=tmp_path/"b.mq5"; MQL5Backend().export_strategy(s,a); MQL5Backend().export_strategy(s,b)
-    assert a.read_text()==b.read_text() and "shift=1" in a.read_text()
+    text=a.read_text()
+    assert text==b.read_text() and "shift=1" in text
+    assert "static bool SQX_S0_Signal" not in text
+    assert re.search(r"bool SQX_S0_Signal\(const MqlRates &rates\[\]", text)
+    assert "SQX_LoadRates(_Symbol,PERIOD_H1,rates,600)" in text
     assert magic_number(s.canonical_hash)==magic_number(s.canonical_hash)
 
 def test_ready_portfolio_loads_and_exports(tmp_path):
     p=PortfolioDefinition.from_sqlite("data/prop_portfolio_library.sqlite","SQX-PROP-02760ECAC8BA")
-    out=tmp_path/"p.mq5"; MQL5Backend().export_portfolio(p,out)
-    text=out.read_text(); assert len(p.strategies)==20; assert p.portfolio_id in text; assert text.count("static bool SQX_S")==20
+    out=tmp_path/"p.mq5"; MQL5Backend().export_portfolio(p,out,include_dir=tmp_path/"Include/SQX")
+    text=out.read_text(); assert len(p.strategies)==20; assert p.portfolio_id in text
+    assert "static bool SQX_S" not in text
+    assert text.count("bool SQX_S") == 20
+    indicators=(tmp_path/"Include/SQX/sqx_indicators.mqh").read_text()
+    assert "bool SQX_LoadRates(string sym,ENUM_TIMEFRAMES tf,MqlRates &a[],int n)" in indicators
+    assert "ArraySetAsSeries(a,true)" in indicators and "CopyRates(sym,tf,0,n,a)" in indicators
 
 def test_mt5_log_compare(tmp_path):
     p=tmp_path/"log.csv"; fields=["timestamp","portfolio_id","strategy_id","event","symbol","timeframe","direction","price","volume","stop","requested_risk","balance","equity","floating_pnl","open_risk","message"]

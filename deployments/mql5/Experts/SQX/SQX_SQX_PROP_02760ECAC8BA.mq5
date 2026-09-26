@@ -16,7 +16,7 @@ input double InpBaseRisk=0.01000000; input double InpMaxOpenRisk=0.02000000; inp
 #define SQX_S0_TARGET_ATR 4
 #define SQX_S0_TIME_EXIT 24
 #define SQX_S0_DIRECTION_LONG 1
-static bool SQX_S0_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "rsi_14", ">", 30, shift) && SQX_Predicate(rates, "structure.fractal_low.5", "==", 1, shift) && SQX_Predicate(rates, "trend.ema_slope.50.12", "<", 0, shift) && SQX_Predicate(rates, "volatility.bb_middle.50.2", ">", 0, shift)) && SQX_ATR(rates, 14, shift) > 0; }
+bool SQX_S0_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "rsi_14", ">", 30, shift) && SQX_Predicate(rates, "structure.fractal_low.5", "==", 1, shift) && SQX_Predicate(rates, "trend.ema_slope.50.12", "<", 0, shift) && SQX_Predicate(rates, "volatility.bb_middle.50.2", ">", 0, shift)) && SQX_ATR(rates, 14, shift) > 0; }
 
 // SQX-EURUSD-H1-63696db839ee canonical=63696db839ee267494747cb44f0ec0aa5b5742833aa42f7396d2df099fb63813
 #define SQX_S1_ID "SQX-EURUSD-H1-63696db839ee"
@@ -27,7 +27,7 @@ static bool SQX_S0_Signal(const MqlRates &rates[], const int shift) { return (SQ
 #define SQX_S1_TARGET_ATR 4
 #define SQX_S1_TIME_EXIT 72
 #define SQX_S1_DIRECTION_LONG 1
-static bool SQX_S1_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "structure.last.2", "==", 4, shift) && SQX_Predicate(rates, "trend.ema_pair.50.100", ">", 0, shift) && SQX_Predicate(rates, "trend.ema_slope.200.1", ">", 0, shift) && SQX_Predicate(rates, "volatility.bb_lower.20.2", "<", 0, shift)) && SQX_ATR(rates, 14, shift) > 0; }
+bool SQX_S1_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "structure.last.2", "==", 4, shift) && SQX_Predicate(rates, "trend.ema_pair.50.100", ">", 0, shift) && SQX_Predicate(rates, "trend.ema_slope.200.1", ">", 0, shift) && SQX_Predicate(rates, "volatility.bb_lower.20.2", "<", 0, shift)) && SQX_ATR(rates, 14, shift) > 0; }
 
 // SQX-EURUSD-H1-21e4d7fab033 canonical=21e4d7fab0339f182a471315f850f5a46bf52763dcd5b6d100049639a8e2cf93
 #define SQX_S2_ID "SQX-EURUSD-H1-21e4d7fab033"
@@ -38,7 +38,7 @@ static bool SQX_S1_Signal(const MqlRates &rates[], const int shift) { return (SQ
 #define SQX_S2_TARGET_ATR 3
 #define SQX_S2_TIME_EXIT 48
 #define SQX_S2_DIRECTION_LONG 1
-static bool SQX_S2_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "trend.ema_pair.10.100", ">", 0, shift) && SQX_Predicate(rates, "trend.ema_slope.100.6", "<", 0, shift)) && SQX_ATR(rates, 14, shift) > 0; }
+bool SQX_S2_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "trend.ema_pair.10.100", ">", 0, shift) && SQX_Predicate(rates, "trend.ema_slope.100.6", "<", 0, shift)) && SQX_ATR(rates, 14, shift) > 0; }
 
 // SQX-EURUSD-H1-a27691004dcc canonical=a27691004dcca02611c202506bb9debd9d884ec6c6e8cfb511ff9411ad9a5ae5
 #define SQX_S3_ID "SQX-EURUSD-H1-a27691004dcc"
@@ -49,7 +49,7 @@ static bool SQX_S2_Signal(const MqlRates &rates[], const int shift) { return (SQ
 #define SQX_S3_TARGET_ATR 4
 #define SQX_S3_TIME_EXIT 72
 #define SQX_S3_DIRECTION_LONG 1
-static bool SQX_S3_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "structure.break_low.3", "<", 0, shift) && SQX_Predicate(rates, "trend.ema_pair.10.50", ">", 0, shift)) && SQX_ATR(rates, 14, shift) > 0; }
+bool SQX_S3_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "structure.break_low.3", "<", 0, shift) && SQX_Predicate(rates, "trend.ema_pair.10.50", ">", 0, shift)) && SQX_ATR(rates, 14, shift) > 0; }
 
 // SQX-EURUSD-H1-ac5da82211be canonical=ac5da82211be876dbb1310bf07a1df1c27cb850a48af09668bc8f5a6e18c71a5
 #define SQX_S4_ID "SQX-EURUSD-H1-ac5da82211be"
@@ -60,7 +60,7 @@ static bool SQX_S3_Signal(const MqlRates &rates[], const int shift) { return (SQ
 #define SQX_S4_TARGET_ATR 4
 #define SQX_S4_TIME_EXIT 96
 #define SQX_S4_DIRECTION_SHORT 1
-static bool SQX_S4_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "momentum.willr.14", ">", -20, shift) && SQX_Predicate(rates, "structure.last.3", "==", 3, shift) && SQX_Predicate(rates, "structure.last.5", "==", 3, shift) && SQX_Predicate(rates, "volatility.compression.50.2.1.5", "==", -1, shift)) && SQX_ATR(rates, 14, shift) > 0; }
+bool SQX_S4_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "momentum.willr.14", ">", -20, shift) && SQX_Predicate(rates, "structure.last.3", "==", 3, shift) && SQX_Predicate(rates, "structure.last.5", "==", 3, shift) && SQX_Predicate(rates, "volatility.compression.50.2.1.5", "==", -1, shift)) && SQX_ATR(rates, 14, shift) > 0; }
 
 // SQX-EURUSD-H1-07862d1ea899 canonical=07862d1ea899a3865b59f580e233b64d3b138d61fd0b5db6ea3450a161a9d988
 #define SQX_S5_ID "SQX-EURUSD-H1-07862d1ea899"
@@ -71,7 +71,7 @@ static bool SQX_S4_Signal(const MqlRates &rates[], const int shift) { return (SQ
 #define SQX_S5_TARGET_ATR 4
 #define SQX_S5_TIME_EXIT 24
 #define SQX_S5_DIRECTION_LONG 1
-static bool SQX_S5_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "trend.ema_slope.100.3", ">", 0, shift) && SQX_Predicate(rates, "volatility.bb_lower.50.2", "<", 0, shift) && SQX_Predicate(rates, "volatility.bb_middle.50.2", "<", 0, shift)) && SQX_ATR(rates, 14, shift) > 0; }
+bool SQX_S5_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "trend.ema_slope.100.3", ">", 0, shift) && SQX_Predicate(rates, "volatility.bb_lower.50.2", "<", 0, shift) && SQX_Predicate(rates, "volatility.bb_middle.50.2", "<", 0, shift)) && SQX_ATR(rates, 14, shift) > 0; }
 
 // SQX-EURUSD-H1-6edd59636707 canonical=6edd59636707d7bbcf8bdf896089cca28c9ffe7ce78bdae268b1bf07a0f85cc4
 #define SQX_S6_ID "SQX-EURUSD-H1-6edd59636707"
@@ -82,7 +82,7 @@ static bool SQX_S5_Signal(const MqlRates &rates[], const int shift) { return (SQ
 #define SQX_S6_TARGET_ATR 4
 #define SQX_S6_TIME_EXIT 96
 #define SQX_S6_DIRECTION_LONG 1
-static bool SQX_S6_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "structure.last.5", "==", 3, shift) && SQX_Predicate(rates, "volatility.atr_regime.14.50", "<", 0, shift) && SQX_Predicate(rates, "volatility.atr_regime.28.50", ">", 0, shift) && SQX_Predicate(rates, "volatility.bb_lower.20.2", "<", 0, shift)) && SQX_ATR(rates, 14, shift) > 0; }
+bool SQX_S6_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "structure.last.5", "==", 3, shift) && SQX_Predicate(rates, "volatility.atr_regime.14.50", "<", 0, shift) && SQX_Predicate(rates, "volatility.atr_regime.28.50", ">", 0, shift) && SQX_Predicate(rates, "volatility.bb_lower.20.2", "<", 0, shift)) && SQX_ATR(rates, 14, shift) > 0; }
 
 // SQX-EURUSD-H1-4c92b8eb8610 canonical=4c92b8eb861079ceb8f32e2f08409ed86ab61dd0390ecb58d208a66d36c276b7
 #define SQX_S7_ID "SQX-EURUSD-H1-4c92b8eb8610"
@@ -93,7 +93,7 @@ static bool SQX_S6_Signal(const MqlRates &rates[], const int shift) { return (SQ
 #define SQX_S7_TARGET_ATR 2
 #define SQX_S7_TIME_EXIT 96
 #define SQX_S7_DIRECTION_SHORT 1
-static bool SQX_S7_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "structure.break_low.5", "<", 0, shift) && SQX_Predicate(rates, "structure.last.5", "==", 4, shift) && SQX_Predicate(rates, "trend.close_ema.10", ">", 0, shift) && SQX_Predicate(rates, "volatility.compression.50.2.1.5", "==", -1, shift)) && SQX_ATR(rates, 14, shift) > 0; }
+bool SQX_S7_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "structure.break_low.5", "<", 0, shift) && SQX_Predicate(rates, "structure.last.5", "==", 4, shift) && SQX_Predicate(rates, "trend.close_ema.10", ">", 0, shift) && SQX_Predicate(rates, "volatility.compression.50.2.1.5", "==", -1, shift)) && SQX_ATR(rates, 14, shift) > 0; }
 
 // SQX-EURUSD-H1-68567f217ec0 canonical=68567f217ec0c06824a4184673c1a34234e3a9f8d9bdbec88e36c2deb71425a4
 #define SQX_S8_ID "SQX-EURUSD-H1-68567f217ec0"
@@ -104,7 +104,7 @@ static bool SQX_S7_Signal(const MqlRates &rates[], const int shift) { return (SQ
 #define SQX_S8_TARGET_ATR 2
 #define SQX_S8_TIME_EXIT 24
 #define SQX_S8_DIRECTION_SHORT 1
-static bool SQX_S8_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "structure.fractal_low.3", "==", 1, shift) && SQX_Predicate(rates, "structure.last.5", "==", 4, shift) && SQX_Predicate(rates, "trend.ema_slope.50.3", "<", 0, shift) && SQX_Predicate(rates, "volatility.bb_middle.20.2", "<", 0, shift)) && SQX_ATR(rates, 14, shift) > 0; }
+bool SQX_S8_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "structure.fractal_low.3", "==", 1, shift) && SQX_Predicate(rates, "structure.last.5", "==", 4, shift) && SQX_Predicate(rates, "trend.ema_slope.50.3", "<", 0, shift) && SQX_Predicate(rates, "volatility.bb_middle.20.2", "<", 0, shift)) && SQX_ATR(rates, 14, shift) > 0; }
 
 // SQX-EURUSD-H1-611b3b7f3ac5 canonical=611b3b7f3ac5862d89a71223c21d1ada241601b362131558c6ca17dbf87f659f
 #define SQX_S9_ID "SQX-EURUSD-H1-611b3b7f3ac5"
@@ -115,7 +115,7 @@ static bool SQX_S8_Signal(const MqlRates &rates[], const int shift) { return (SQ
 #define SQX_S9_TARGET_ATR 2
 #define SQX_S9_TIME_EXIT 72
 #define SQX_S9_DIRECTION_LONG 1
-static bool SQX_S9_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "momentum.roc.4", ">", 0.0050000000000000001, shift) && SQX_Predicate(rates, "rsi_14", ">", 70, shift)) && SQX_ATR(rates, 14, shift) > 0; }
+bool SQX_S9_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "momentum.roc.4", ">", 0.0050000000000000001, shift) && SQX_Predicate(rates, "rsi_14", ">", 70, shift)) && SQX_ATR(rates, 14, shift) > 0; }
 
 // SQX-EURUSD-H1-6682b7a6ec07 canonical=6682b7a6ec07e31cc9de70e845ba38e1945c2cf0c3a0ff1b8994037947b24fa7
 #define SQX_S10_ID "SQX-EURUSD-H1-6682b7a6ec07"
@@ -126,7 +126,7 @@ static bool SQX_S9_Signal(const MqlRates &rates[], const int shift) { return (SQ
 #define SQX_S10_TARGET_ATR 2
 #define SQX_S10_TIME_EXIT 24
 #define SQX_S10_DIRECTION_LONG 1
-static bool SQX_S10_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "structure.break_high.2", ">", 0, shift) && SQX_Predicate(rates, "trend.ema_slope.10.1", "<", 0, shift)) && SQX_ATR(rates, 14, shift) > 0; }
+bool SQX_S10_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "structure.break_high.2", ">", 0, shift) && SQX_Predicate(rates, "trend.ema_slope.10.1", "<", 0, shift)) && SQX_ATR(rates, 14, shift) > 0; }
 
 // SQX-EURUSD-H1-73f2fc6ba7b5 canonical=73f2fc6ba7b57859f412a94c95757990834d6ae387e12fbe13c7b363bdeb21eb
 #define SQX_S11_ID "SQX-EURUSD-H1-73f2fc6ba7b5"
@@ -137,7 +137,7 @@ static bool SQX_S10_Signal(const MqlRates &rates[], const int shift) { return (S
 #define SQX_S11_TARGET_ATR 4
 #define SQX_S11_TIME_EXIT 96
 #define SQX_S11_DIRECTION_SHORT 1
-static bool SQX_S11_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "momentum.willr.14", ">", -20, shift) && SQX_Predicate(rates, "momentum.willr.28", ">", -80, shift) && SQX_Predicate(rates, "structure.last.5", "==", 3, shift)) && SQX_ATR(rates, 14, shift) > 0; }
+bool SQX_S11_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "momentum.willr.14", ">", -20, shift) && SQX_Predicate(rates, "momentum.willr.28", ">", -80, shift) && SQX_Predicate(rates, "structure.last.5", "==", 3, shift)) && SQX_ATR(rates, 14, shift) > 0; }
 
 // SQX-EURUSD-H1-bdc6d699e26f canonical=bdc6d699e26fea301227e60266b7759f0f300407f4a5d47f287733969be92b10
 #define SQX_S12_ID "SQX-EURUSD-H1-bdc6d699e26f"
@@ -148,7 +148,7 @@ static bool SQX_S11_Signal(const MqlRates &rates[], const int shift) { return (S
 #define SQX_S12_TARGET_ATR 4
 #define SQX_S12_TIME_EXIT 48
 #define SQX_S12_DIRECTION_LONG 1
-static bool SQX_S12_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "structure.last.5", "==", 1, shift) && SQX_Predicate(rates, "volatility.compression.20.2.1.5", "==", 1, shift)) && SQX_ATR(rates, 14, shift) > 0; }
+bool SQX_S12_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "structure.last.5", "==", 1, shift) && SQX_Predicate(rates, "volatility.compression.20.2.1.5", "==", 1, shift)) && SQX_ATR(rates, 14, shift) > 0; }
 
 // SQX-EURUSD-H1-a18d86c3075c canonical=a18d86c3075cb282769464e4cffad790e2cd9b54d2dc9295fdd4f049e468eb83
 #define SQX_S13_ID "SQX-EURUSD-H1-a18d86c3075c"
@@ -159,7 +159,7 @@ static bool SQX_S12_Signal(const MqlRates &rates[], const int shift) { return (S
 #define SQX_S13_TARGET_ATR 1.5
 #define SQX_S13_TIME_EXIT 48
 #define SQX_S13_DIRECTION_LONG 1
-static bool SQX_S13_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "trend.breakout_low.100", "<", 0, shift) && SQX_Predicate(rates, "trend.ema_slope.100.6", "<", 0, shift) && SQX_Predicate(rates, "trend.ema_slope.200.6", "<", 0, shift)) && SQX_ATR(rates, 14, shift) > 0; }
+bool SQX_S13_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "trend.breakout_low.100", "<", 0, shift) && SQX_Predicate(rates, "trend.ema_slope.100.6", "<", 0, shift) && SQX_Predicate(rates, "trend.ema_slope.200.6", "<", 0, shift)) && SQX_ATR(rates, 14, shift) > 0; }
 
 // SQX-EURUSD-H1-59d9b5d3a639 canonical=59d9b5d3a6391a972689ccd2b4c7293e37748e1f6c1d6369d19f82833b6971cf
 #define SQX_S14_ID "SQX-EURUSD-H1-59d9b5d3a639"
@@ -170,7 +170,7 @@ static bool SQX_S13_Signal(const MqlRates &rates[], const int shift) { return (S
 #define SQX_S14_TARGET_ATR 1.5
 #define SQX_S14_TIME_EXIT 48
 #define SQX_S14_DIRECTION_LONG 1
-static bool SQX_S14_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "structure.break_high.2", ">", 0, shift) && SQX_Predicate(rates, "trend.ema_slope.10.1", "<", 0, shift) && SQX_Predicate(rates, "volatility.compression.50.2.1.5", "==", -1, shift)) && SQX_ATR(rates, 14, shift) > 0; }
+bool SQX_S14_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "structure.break_high.2", ">", 0, shift) && SQX_Predicate(rates, "trend.ema_slope.10.1", "<", 0, shift) && SQX_Predicate(rates, "volatility.compression.50.2.1.5", "==", -1, shift)) && SQX_ATR(rates, 14, shift) > 0; }
 
 // SQX-EURUSD-H1-636292a9084a canonical=636292a9084a77e34bc4e89c3164fa3a71e2e63c8f817a49c32aa5e9f3c19463
 #define SQX_S15_ID "SQX-EURUSD-H1-636292a9084a"
@@ -181,7 +181,7 @@ static bool SQX_S14_Signal(const MqlRates &rates[], const int shift) { return (S
 #define SQX_S15_TARGET_ATR 3
 #define SQX_S15_TIME_EXIT 24
 #define SQX_S15_DIRECTION_LONG 1
-static bool SQX_S15_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "structure.break_high.2", ">", 0, shift) && SQX_Predicate(rates, "trend.close_ema.10", "<", 0, shift)) && SQX_ATR(rates, 14, shift) > 0; }
+bool SQX_S15_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "structure.break_high.2", ">", 0, shift) && SQX_Predicate(rates, "trend.close_ema.10", "<", 0, shift)) && SQX_ATR(rates, 14, shift) > 0; }
 
 // SQX-EURUSD-H1-4c5f2833ce74 canonical=4c5f2833ce743c2809f5dbc7da8ff855d63ad9c435aefcd5a82abab82676a6f0
 #define SQX_S16_ID "SQX-EURUSD-H1-4c5f2833ce74"
@@ -192,7 +192,7 @@ static bool SQX_S15_Signal(const MqlRates &rates[], const int shift) { return (S
 #define SQX_S16_TARGET_ATR 4
 #define SQX_S16_TIME_EXIT 96
 #define SQX_S16_DIRECTION_SHORT 1
-static bool SQX_S16_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "momentum.willr.14", ">", -20, shift) && SQX_Predicate(rates, "structure.last.5", "==", 3, shift) && SQX_Predicate(rates, "trend.ema_slope.50.3", "<", 0, shift) && SQX_Predicate(rates, "volatility.bb_middle.20.2", ">", 0, shift)) && SQX_ATR(rates, 14, shift) > 0; }
+bool SQX_S16_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "momentum.willr.14", ">", -20, shift) && SQX_Predicate(rates, "structure.last.5", "==", 3, shift) && SQX_Predicate(rates, "trend.ema_slope.50.3", "<", 0, shift) && SQX_Predicate(rates, "volatility.bb_middle.20.2", ">", 0, shift)) && SQX_ATR(rates, 14, shift) > 0; }
 
 // SQX-EURUSD-H1-108300962057 canonical=1083009620579eed05429c98c9f4e4abff85767b508ea27fd711548b83a3a0e3
 #define SQX_S17_ID "SQX-EURUSD-H1-108300962057"
@@ -203,7 +203,7 @@ static bool SQX_S16_Signal(const MqlRates &rates[], const int shift) { return (S
 #define SQX_S17_TARGET_ATR 4
 #define SQX_S17_TIME_EXIT 48
 #define SQX_S17_DIRECTION_LONG 1
-static bool SQX_S17_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "trend.ema_slope.200.1", "<", 0, shift) && SQX_Predicate(rates, "trend.ema_slope.50.3", ">", 0, shift)) && SQX_ATR(rates, 14, shift) > 0; }
+bool SQX_S17_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "trend.ema_slope.200.1", "<", 0, shift) && SQX_Predicate(rates, "trend.ema_slope.50.3", ">", 0, shift)) && SQX_ATR(rates, 14, shift) > 0; }
 
 // SQX-EURUSD-H1-6d1cb5fa1910 canonical=6d1cb5fa19108db822b3a0868bca737deb76b47f32d472de68773c8cddff5960
 #define SQX_S18_ID "SQX-EURUSD-H1-6d1cb5fa1910"
@@ -214,7 +214,7 @@ static bool SQX_S17_Signal(const MqlRates &rates[], const int shift) { return (S
 #define SQX_S18_TARGET_ATR 3
 #define SQX_S18_TIME_EXIT 96
 #define SQX_S18_DIRECTION_LONG 1
-static bool SQX_S18_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "structure.last.5", "==", 1, shift) && SQX_Predicate(rates, "trend.ema_pair.20.100", "<", 0, shift) && SQX_Predicate(rates, "trend.ema_slope.10.3", "<", 0, shift) && SQX_Predicate(rates, "volatility.bb_middle.20.2", ">", 0, shift)) && SQX_ATR(rates, 14, shift) > 0; }
+bool SQX_S18_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "structure.last.5", "==", 1, shift) && SQX_Predicate(rates, "trend.ema_pair.20.100", "<", 0, shift) && SQX_Predicate(rates, "trend.ema_slope.10.3", "<", 0, shift) && SQX_Predicate(rates, "volatility.bb_middle.20.2", ">", 0, shift)) && SQX_ATR(rates, 14, shift) > 0; }
 
 // SQX-EURUSD-H1-0cc329175f76 canonical=0cc329175f76bbbbb2965ec2ba36f28d1df5f65dcd1e7cb3dd325f0b5ef81e27
 #define SQX_S19_ID "SQX-EURUSD-H1-0cc329175f76"
@@ -225,7 +225,7 @@ static bool SQX_S18_Signal(const MqlRates &rates[], const int shift) { return (S
 #define SQX_S19_TARGET_ATR 2
 #define SQX_S19_TIME_EXIT 48
 #define SQX_S19_DIRECTION_LONG 1
-static bool SQX_S19_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "momentum.roc.4", ">", 0.0050000000000000001, shift) && SQX_Predicate(rates, "rsi_14", ">", 25, shift) && SQX_Predicate(rates, "structure.fractal_low.2", "==", 1, shift)) && SQX_ATR(rates, 14, shift) > 0; }
+bool SQX_S19_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "momentum.roc.4", ">", 0.0050000000000000001, shift) && SQX_Predicate(rates, "rsi_14", ">", 25, shift) && SQX_Predicate(rates, "structure.fractal_low.2", "==", 1, shift)) && SQX_ATR(rates, 14, shift) > 0; }
 
 int OnInit() { SQX_Log("SQX_INIT", "", "", _Symbol, _Period, 0, 0, 0, 0, "NETTING_OR_HEDGING_ACCOUNT_MODE"); return INIT_SUCCEEDED; }
 

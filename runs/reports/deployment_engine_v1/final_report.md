@@ -1,5 +1,14 @@
 SQX DEPLOYMENT ENGINE V1 — MQL5 — FINAL STATUS
 
+REAL METAEDITOR FEEDBACK ROUND 1
+
+Original compile: 7 errors / 0 warnings.
+Root causes: invalid `static` on the generated global strategy function and `SQX_LoadRates` declared `MqlRates&` instead of `MqlRates&[]`, causing the ArraySetAsSeries/CopyRates cascade and line-25 expression error.
+Exporter/common-library fixes: removed invalid `static` and corrected the shared MQL5 array signature; closed-bar `shift=1` causality preserved.
+Regression tests: MqlRates array signature, ArraySetAsSeries/CopyRates, no invalid static functions, single/portfolio invariants, identity, determinism and coverage.
+EAs regenerated: single strategy and 20-strategy portfolio.
+Package updated: `deployments/mql5/package`.
+
 Strategy Factory: V1.8 preserved
 Strategy Library: 12289
 Portfolio Library: data/prop_portfolio_library.sqlite
@@ -34,11 +43,11 @@ Strategy Tester: READY after Windows MetaEditor compile
 Demo package: READY, credential-free
 Tests: 108 passed
 Goldens: existing suite PASS
-Runtime: 0.549s
-Peak RSS: 173.4 MiB
-Git commit: 43031cc
-Push: origin/main PASS
-Working tree: clean
+Runtime: 0.600s
+Peak RSS: 173.1 MiB
+Git commit: pending until this fix round is committed
+Push: pending until this fix round is committed
+Working tree: pending until this fix round is committed
 
 OPERATIONAL STATUS:
 

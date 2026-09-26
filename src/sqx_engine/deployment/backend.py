@@ -62,7 +62,7 @@ def _predicate_expr(p):
 def _strategy_block(s, index):
     preds = [f'SQX_Predicate(rates, "{_cpp_string(p.feature)}", "{p.operator}", {float(p.value):.17g}, shift)' for p in s.predicates]
     join = " && " if s.logic == "AND" else " || "
-    return f'''// {s.readable_id} canonical={s.canonical_hash}\n#define SQX_S{index}_ID "{_cpp_string(s.readable_id)}"\n#define SQX_S{index}_MAGIC {magic_number(s.canonical_hash)}\n#define SQX_S{index}_TF {_tf(s.timeframe)}\n#define SQX_S{index}_ATR_PERIOD {s.atr_period}\n#define SQX_S{index}_STOP_ATR {s.stop_atr:.17g}\n#define SQX_S{index}_TARGET_ATR {s.target_atr:.17g}\n#define SQX_S{index}_TIME_EXIT {s.time_exit}\n#define SQX_S{index}_DIRECTION_{s.direction} 1\nstatic bool SQX_S{index}_Signal(const MqlRates &rates[], const int shift) {{ return ({join.join(preds)}) && SQX_ATR(rates, {s.atr_period}, shift) > 0; }}\n'''
+    return f'''// {s.readable_id} canonical={s.canonical_hash}\n#define SQX_S{index}_ID "{_cpp_string(s.readable_id)}"\n#define SQX_S{index}_MAGIC {magic_number(s.canonical_hash)}\n#define SQX_S{index}_TF {_tf(s.timeframe)}\n#define SQX_S{index}_ATR_PERIOD {s.atr_period}\n#define SQX_S{index}_STOP_ATR {s.stop_atr:.17g}\n#define SQX_S{index}_TARGET_ATR {s.target_atr:.17g}\n#define SQX_S{index}_TIME_EXIT {s.time_exit}\n#define SQX_S{index}_DIRECTION_{s.direction} 1\nbool SQX_S{index}_Signal(const MqlRates &rates[], const int shift) {{ return ({join.join(preds)}) && SQX_ATR(rates, {s.atr_period}, shift) > 0; }}\n'''
 
 def _write_ea(strategy, portfolio, path, portfolio_id, include_dir):
     path.parent.mkdir(parents=True, exist_ok=True)
