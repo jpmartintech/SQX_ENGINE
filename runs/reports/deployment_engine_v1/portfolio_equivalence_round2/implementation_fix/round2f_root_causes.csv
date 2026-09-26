@@ -1,0 +1,12 @@
+root_cause,python_predicate_id,mismatch_count
+CURRENT_CONFIRMATION_STATE_ORDERING,structure.break_high.2,48
+CURRENT_CONFIRMATION_STATE_ORDERING,structure.break_low.3,12
+CURRENT_CONFIRMATION_STATE_ORDERING,structure.break_low.5,6
+EMA_SEED_WARMUP,trend.close_ema.10,2
+EMA_SEED_WARMUP,trend.ema_pair.50.100,1
+EMA_SEED_WARMUP,trend.ema_slope.10.3,1
+EMA_SEED_WARMUP,trend.ema_slope.100.3,2
+EMA_SEED_WARMUP,trend.ema_slope.200.1,4
+EMA_SEED_WARMUP,trend.ema_slope.50.3,6
+EMA_SEED_WARMUP_DEPENDENCY,volatility.compression.20.2.1.5,49
+EMA_SEED_WARMUP_DEPENDENCY,volatility.compression.50.2.1.5,66

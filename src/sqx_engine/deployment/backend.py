@@ -64,7 +64,9 @@ def _required_rate_count(strategy: StrategyDefinition, shift: int = 1) -> int:
     this calculation prevents normal portfolio startup from requesting fewer
     bars than a strategy's longest indicator needs.
     """
-    required = 600  # preserve the certified baseline warm-up window
+    # The frozen Python EMA is seeded from the oldest available observation.
+    # Keep a deterministic warm-up large enough for the largest deployed EMA.
+    required = 2000
     for predicate in strategy.predicates:
         parts = predicate.feature.split(".")
         def integer(index):
@@ -169,7 +171,8 @@ def _common_oninit(ids):
 
 def _single_ea(s, blocks, portfolio_id):
     d = 1 if s.direction == "LONG" else -1
-    return _header() + f'''\ninput double InpRiskFraction={s.stop_atr and 0.01:.8f};\ninput long InpMagic={magic_number(s.canonical_hash)};\ninput string InpPortfolioId="{_cpp_string(portfolio_id)}";\n{blocks}\n{_common_oninit([s])}\nvoid OnTick() {{ static datetime last=0; datetime now=iTime(_Symbol,{_tf(s.timeframe)},0); if(now==last) return; last=now; MqlRates rates[]; if(!SQX_LoadRates(_Symbol,{_tf(s.timeframe)},rates,600)) return; int shift=1; if(!SQX_S0_Signal(rates,shift)) return; double atr=SQX_ATR(rates,{s.atr_period},shift); double stop=atr*{s.stop_atr:.17g}; double volume=SQX_RiskVolume(_Symbol,ACCOUNT_EQUITY(),InpRiskFraction,stop); SQX_RiskDecision decision=SQX_CheckPortfolioRisk(InpRiskFraction,InpRiskFraction,0.02); if(decision.action==SQX_REJECT) {{ SQX_Log("SQX_RISK_REJECT",InpPortfolioId,SQX_S0_ID,_Symbol,{_tf(s.timeframe)},0,volume,stop,InpRiskFraction,"RISK_LIMIT"); return; }} if(volume<=0) return; SQX_SendEntry(_Symbol,{"ORDER_TYPE_BUY" if d==1 else "ORDER_TYPE_SELL"},volume,stop,atr*{s.target_atr:.17g}/{s.stop_atr:.17g}*stop,InpMagic,InpPortfolioId,SQX_S0_ID); }}\n'''
+    warmup = _required_rate_count(s)
+    return _header() + f'''\ninput double InpRiskFraction={s.stop_atr and 0.01:.8f};\ninput long InpMagic={magic_number(s.canonical_hash)};\ninput string InpPortfolioId="{_cpp_string(portfolio_id)}";\n{blocks}\n{_common_oninit([s])}\nvoid OnTick() {{ static datetime last=0; datetime now=iTime(_Symbol,{_tf(s.timeframe)},0); if(now==last) return; last=now; MqlRates rates[]; if(!SQX_LoadRates(_Symbol,{_tf(s.timeframe)},rates,{warmup})) return; int shift=1; if(!SQX_S0_Signal(rates,shift)) return; double atr=SQX_ATR(rates,{s.atr_period},shift); double stop=atr*{s.stop_atr:.17g}; double volume=SQX_RiskVolume(_Symbol,ACCOUNT_EQUITY(),InpRiskFraction,stop); SQX_RiskDecision decision=SQX_CheckPortfolioRisk(InpRiskFraction,InpRiskFraction,0.02); if(decision.action==SQX_REJECT) {{ SQX_Log("SQX_RISK_REJECT",InpPortfolioId,SQX_S0_ID,_Symbol,{_tf(s.timeframe)},0,volume,stop,InpRiskFraction,"RISK_LIMIT"); return; }} if(volume<=0) return; SQX_SendEntry(_Symbol,{"ORDER_TYPE_BUY" if d==1 else "ORDER_TYPE_SELL"},volume,stop,atr*{s.target_atr:.17g}/{s.stop_atr:.17g}*stop,InpMagic,InpPortfolioId,SQX_S0_ID); }}\n'''
 
 def _portfolio_ea(p, blocks, strategies):
     calls = []

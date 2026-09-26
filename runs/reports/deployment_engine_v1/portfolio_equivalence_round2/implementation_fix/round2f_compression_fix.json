@@ -1,0 +1,10 @@
+{
+  "affected_predicates": [
+    "volatility.compression.20.2.1.5",
+    "volatility.compression.50.2.1.5"
+  ],
+  "root_dependency": "EMA seed/warmup used by Keltner middle",
+  "formula": "population Bollinger std (ddof=0), EMA Keltner middle, ATR true-range mean",
+  "python_reference": "src/sqx_engine/features/engine.py",
+  "static_check": "same frozen feature bank over exact MT5 OHLC"
+}

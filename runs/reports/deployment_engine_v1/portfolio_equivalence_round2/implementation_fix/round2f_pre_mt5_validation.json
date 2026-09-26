@@ -1,0 +1,15 @@
+{
+  "old_boolean_mismatches": 197,
+  "root_cause_rows": 11,
+  "static_corrected_python_predicate_mismatches": 0,
+  "structure_fixture_value": -0.0004300000000001525,
+  "structure_fixture_expected_result": true,
+  "ema_fixture_absolute_delta": 0.0,
+  "generated_portfolio_has_2000_warmup": true,
+  "generated_diagnostic_default_off": true,
+  "generated_ticket_close_preserved": true,
+  "structure_before_state_fix_present": true,
+  "ema_old_seed_removed": true,
+  "trading_semantics_changed": false,
+  "mt5_compile": "NOT_EXECUTED"
+}

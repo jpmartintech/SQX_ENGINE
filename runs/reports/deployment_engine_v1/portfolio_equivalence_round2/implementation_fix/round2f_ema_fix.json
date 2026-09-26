@@ -1,0 +1,9 @@
+{
+  "period": 200,
+  "bar": "2024-01-02T04:00:00Z",
+  "python_value": 1.1018050207633683,
+  "mql5_equivalent_oldest_seed": 1.1018050207633683,
+  "absolute_delta": 0.0,
+  "seed": "oldest_available_observation",
+  "warmup_rates": 2000
+}

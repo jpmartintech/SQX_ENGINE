@@ -9,7 +9,7 @@
 
 input double InpRiskFraction=0.01000000;
 input long InpMagic=1265801997;
-input string InpPortfolioId="";
+input string InpPortfolioId="SQX-PROP-02760ECAC8BA";
 // SQX-EURUSD-H1-1320ad51f2e8 canonical=1320ad51f2e8f9579ad8543f669926cd6fe2b79923be06d2b7b3d6dd9313e765
 #define SQX_S0_ID "SQX-EURUSD-H1-1320ad51f2e8"
 #define SQX_S0_MAGIC 1265801997
@@ -23,4 +23,4 @@ bool SQX_S0_Signal(const MqlRates &rates[], const int shift) { double atr=SQX_AT
 
 int OnInit() { SQX_Log("SQX_INIT", "", "", _Symbol, _Period, 0, 0, 0, 0, "NETTING_OR_HEDGING_ACCOUNT_MODE"); return INIT_SUCCEEDED; }
 
-void OnTick() { SQX_ManagePosition(_Symbol,InpMagic,PERIOD_H1,24,InpPortfolioId,SQX_S0_ID); static datetime last=0; datetime now=iTime(_Symbol,PERIOD_H1,0); if(now==last) return; last=now; MqlRates rates[]; if(!SQX_LoadRates(_Symbol,PERIOD_H1,rates,600)) return; int shift=1; if(!SQX_S0_Signal(rates,shift) || SQX_HasPosition(_Symbol,InpMagic)) return; double atr=SQX_ATR(rates,14,shift); double stop=atr*2; double volume=SQX_RiskVolume(_Symbol,AccountInfoDouble(ACCOUNT_EQUITY),InpRiskFraction,stop); SQX_RiskDecision decision=SQX_CheckPortfolioRisk(InpRiskFraction,InpRiskFraction,0.02); if(decision.action==SQX_REJECT) { SQX_Log("SQX_RISK_REJECT",InpPortfolioId,SQX_S0_ID,_Symbol,PERIOD_H1,0,volume,stop,InpRiskFraction,"RISK_LIMIT"); return; } if(volume<=0) return; SQX_SendEntry(_Symbol,ORDER_TYPE_BUY,volume,stop,atr*4,InpMagic,InpPortfolioId,SQX_S0_ID); }
+void OnTick() { SQX_ManagePosition(_Symbol,InpMagic,PERIOD_H1,24,InpPortfolioId,SQX_S0_ID); static datetime last=0; datetime now=iTime(_Symbol,PERIOD_H1,0); if(now==last) return; last=now; MqlRates rates[]; if(!SQX_LoadRates(_Symbol,PERIOD_H1,rates,2000)) return; int shift=1; if(!SQX_S0_Signal(rates,shift) || SQX_HasPosition(_Symbol,InpMagic)) return; double atr=SQX_ATR(rates,14,shift); double stop=atr*2; double volume=SQX_RiskVolume(_Symbol,AccountInfoDouble(ACCOUNT_EQUITY),InpRiskFraction,stop); SQX_RiskDecision decision=SQX_CheckPortfolioRisk(InpRiskFraction,InpRiskFraction,0.02); if(decision.action==SQX_REJECT) { SQX_Log("SQX_RISK_REJECT",InpPortfolioId,SQX_S0_ID,_Symbol,PERIOD_H1,0,volume,stop,InpRiskFraction,"RISK_LIMIT"); return; } if(volume<=0) return; SQX_SendEntry(_Symbol,ORDER_TYPE_BUY,volume,stop,atr*4,InpMagic,InpPortfolioId,SQX_S0_ID); }

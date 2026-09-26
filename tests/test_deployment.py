@@ -20,7 +20,7 @@ def test_strategy_export_deterministic(tmp_path):
     assert text==b.read_text() and "shift=1" in text
     assert "static bool SQX_S0_Signal" not in text
     assert re.search(r"bool SQX_S0_Signal\(const MqlRates &rates\[\]", text)
-    assert "SQX_LoadRates(_Symbol,PERIOD_H1,rates,600)" in text
+    assert "SQX_LoadRates(_Symbol,PERIOD_H1,rates,2000)" in text
     assert "ACCOUNT_EQUITY()" not in text
     assert "AccountInfoDouble(ACCOUNT_EQUITY)" in text
     assert "SQX_ManagePosition(_Symbol,InpMagic,PERIOD_H1,48" in text
@@ -55,10 +55,10 @@ def test_portfolio_loads_enough_rates_for_every_indicator():
     p=PortfolioDefinition.from_sqlite("data/prop_portfolio_library.sqlite","SQX-PROP-02760ECAC8BA")
     counts=[_required_rate_count(x.strategy) for x in p.strategies]
     assert len(counts)==20
-    assert counts[1]==803  # first runtime path: shift 1 + EMA seed 4*200 + slope offset 1
-    assert counts[13]==808  # shift 1 + slope offset 6 + EMA seed 4*200
-    assert max(counts)==808
-    assert all(x>=600 for x in counts)
+    assert counts[1]==2000
+    assert counts[13]==2000
+    assert max(counts)==2000
+    assert all(x>=2000 for x in counts)
 
 def test_indicator_helpers_guard_short_arrays_and_preserve_series_loading(tmp_path):
     p=PortfolioDefinition.from_sqlite("data/prop_portfolio_library.sqlite","SQX-PROP-02760ECAC8BA")
@@ -68,10 +68,10 @@ def test_indicator_helpers_guard_short_arrays_and_preserve_series_loading(tmp_pa
     assert "if(!SQX_RatesReady(a,s,z))return EMPTY_VALUE" in indicators
     assert "!SQX_RatesReady(a,s,s+n)" in indicators
     assert "if(d<=0||!SQX_RatesReady(a,j,j+2*d))return false" in indicators
-    assert "int start=450-d*2" in indicators
+    assert "int start=ArraySize(a)-1-2*d" in indicators
     assert "ArraySetAsSeries(a,true)" in indicators
     text=out.read_text()
-    assert "SQX_S13_TF,r13,808" in text
+    assert "SQX_S13_TF,r13,2000" in text
     assert "atr!=EMPTY_VALUE && atr>0" in text
     assert text.count("SQX_LoadRates(_Symbol") == 20
 
@@ -88,7 +88,7 @@ def test_portfolio_runtime_bounds_regression_covers_all_strategies():
     p=PortfolioDefinition.from_sqlite("data/prop_portfolio_library.sqlite","SQX-PROP-02760ECAC8BA")
     assert len(p.strategies)==20
     for item in p.strategies:
-        assert _required_rate_count(item.strategy)>=600
+        assert _required_rate_count(item.strategy)>=2000
 
 def test_mt5_log_compare(tmp_path):
     p=tmp_path/"log.csv"; fields=["timestamp","portfolio_id","strategy_id","event","symbol","timeframe","direction","price","volume","stop","requested_risk","balance","equity","floating_pnl","open_risk","message"]
