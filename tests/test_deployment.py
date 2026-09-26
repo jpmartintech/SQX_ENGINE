@@ -23,6 +23,9 @@ def test_strategy_export_deterministic(tmp_path):
     assert "SQX_LoadRates(_Symbol,PERIOD_H1,rates,600)" in text
     assert "ACCOUNT_EQUITY()" not in text
     assert "AccountInfoDouble(ACCOUNT_EQUITY)" in text
+    assert "SQX_ManagePosition(_Symbol,InpMagic,PERIOD_H1,48" in text
+    assert "atr*4/2*stop" not in text
+    assert "SQX_SendEntry(_Symbol,ORDER_TYPE_BUY,volume,stop,atr*2," in text
     assert magic_number(s.canonical_hash)==magic_number(s.canonical_hash)
 
 def test_ready_portfolio_loads_and_exports(tmp_path):
@@ -32,9 +35,18 @@ def test_ready_portfolio_loads_and_exports(tmp_path):
     assert "static bool SQX_S" not in text
     assert text.count("bool SQX_S") == 20
     assert "ACCOUNT_EQUITY()" not in text
+    assert "SQX_ManagePosition(_Symbol,SQX_S0_MAGIC,SQX_S0_TF,SQX_S0_TIME_EXIT" in text
+    assert "SQX_S0_TARGET_ATR/SQX_S0_STOP_ATR*stop" not in text
     indicators=(tmp_path/"Include/SQX/sqx_indicators.mqh").read_text()
     assert "bool SQX_LoadRates(string sym,ENUM_TIMEFRAMES tf,MqlRates &a[],int n)" in indicators
     assert "ArraySetAsSeries(a,true)" in indicators and "CopyRates(sym,tf,0,n,a)" in indicators
+
+def test_real_deployment_identity_is_preserved():
+    p=PortfolioDefinition.from_sqlite("data/prop_portfolio_library.sqlite","SQX-PROP-02760ECAC8BA")
+    first=p.strategies[0].strategy
+    assert first.readable_id=="SQX-EURUSD-H1-1320ad51f2e8"
+    assert first.canonical_hash=="1320ad51f2e8f9579ad8543f669926cd6fe2b79923be06d2b7b3d6dd9313e765"
+    assert p.portfolio_id=="SQX-PROP-02760ECAC8BA" and len(p.strategies)==20
 
 def test_mt5_log_compare(tmp_path):
     p=tmp_path/"log.csv"; fields=["timestamp","portfolio_id","strategy_id","event","symbol","timeframe","direction","price","volume","stop","requested_risk","balance","equity","floating_pnl","open_risk","message"]

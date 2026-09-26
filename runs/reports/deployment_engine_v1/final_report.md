@@ -63,3 +63,15 @@ Working tree: clean after report commit
 OPERATIONAL STATUS:
 
 READY_FOR_MT5_STRATEGY_TESTER
+
+REAL MT5 EXECUTION EQUIVALENCE ROUND 1
+
+Operator MetaEditor status: 0 errors / 0 warnings on baseline `6540ab5`.
+The 2024-01-01 to 2024-02-01 individual-EA run exposed a demonstrated
+exporter mismatch: Python defines `target_atr=4.0` and uses
+`entry + ATR(signal_bar) * target_atr`, while the pre-fix MQL5 call passed
+`atr*target_atr/stop_atr*stop`, producing near-entry TPs and an extra sixth
+trade. The exporter was corrected, the common time-exit manager is emitted,
+and both EAs/package were regenerated. New MetaEditor compilation is required.
+
+Equivalence artifacts: `runs/reports/deployment_engine_v1/mt5_equivalence_round1/`.

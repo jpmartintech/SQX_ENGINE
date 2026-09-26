@@ -1,0 +1,42 @@
+{
+  "market": "EURUSD",
+  "timeframe": "H1",
+  "direction": "LONG",
+  "logic": "AND",
+  "atr_period": 14,
+  "stop_atr": 2.0,
+  "target_atr": 4.0,
+  "time_exit": 24,
+  "strategy_id": "SQX-EURUSD-H1-1320ad51f2e8",
+  "grammar_version": "v1.7",
+  "canonical_hash": "1320ad51f2e8f9579ad8543f669926cd6fe2b79923be06d2b7b3d6dd9313e765",
+  "predicate_count": 4,
+  "predicates": [
+    {
+      "feature": "rsi_14",
+      "operator": ">",
+      "value": 30.0
+    },
+    {
+      "feature": "structure.fractal_low.5",
+      "operator": "==",
+      "value": 1.0
+    },
+    {
+      "feature": "trend.ema_slope.50.12",
+      "operator": "<",
+      "value": 0.0
+    },
+    {
+      "feature": "volatility.bb_middle.50.2",
+      "operator": ">",
+      "value": 0.0
+    }
+  ],
+  "exit_semantics": {
+    "take_profit_defined": true,
+    "take_profit_distance": "ATR(signal_bar) * target_atr",
+    "time_exit_bars": 24,
+    "python_priority": "STOP, TARGET, TIME"
+  }
+}
