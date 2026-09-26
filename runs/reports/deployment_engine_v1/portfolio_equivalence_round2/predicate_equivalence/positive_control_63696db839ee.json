@@ -1,0 +1,43 @@
+{
+  "strategy_id": "SQX-EURUSD-H1-63696db839ee",
+  "signal_bar_time": "2024-01-02T04:00:00+00:00",
+  "entry_bar_time": "2024-01-02T05:00:00+00:00",
+  "predicates": [
+    {
+      "predicate_id": "structure.last.2",
+      "python_original_result": true,
+      "python_mt5_result": true,
+      "mql5_result": true,
+      "python_mt5_value": 4.0,
+      "mql5_value": 4.0
+    },
+    {
+      "predicate_id": "trend.ema_pair.50.100",
+      "python_original_result": true,
+      "python_mt5_result": true,
+      "mql5_result": true,
+      "python_mt5_value": 0.0007887245553641,
+      "mql5_value": 0.0007908869015285
+    },
+    {
+      "predicate_id": "trend.ema_slope.200.1",
+      "python_original_result": false,
+      "python_mt5_result": true,
+      "mql5_result": true,
+      "python_mt5_value": 7.535601671548875e-07,
+      "mql5_value": 9.440197834553744e-07
+    },
+    {
+      "predicate_id": "volatility.bb_lower.20.2",
+      "python_original_result": true,
+      "python_mt5_result": true,
+      "mql5_result": true,
+      "python_mt5_value": -0.0003716976951892,
+      "mql5_value": -0.0003716976952101
+    }
+  ],
+  "python_original_raw_signal": false,
+  "python_mt5_raw_signal": true,
+  "mql5_raw_signal": true,
+  "classification": "DATA_FEED"
+}

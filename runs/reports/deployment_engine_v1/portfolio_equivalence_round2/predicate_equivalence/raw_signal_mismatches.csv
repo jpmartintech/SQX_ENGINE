@@ -1,0 +1,14 @@
+strategy_id,direction_x,python_raw_signal,has_position_before,position_gate,risk_gate,concurrent_gate,entry_admitted,reason_if_rejected,direction_y,mql5_raw_signal,_merge,raw_match,classification,signal_bar_time,first_differing_predicate,first_differing_layer
+SQX-EURUSD-H1-108300962057,LONG,False,True,False,NOT_EVALUATED,True,False,POSITION_EXISTS,LONG,True,both,False,RAW_SIGNAL,2024-01-10 18:00:00+00:00,trend.ema_slope.200.1,PREDICATE_BOOLEAN
+SQX-EURUSD-H1-108300962057,LONG,False,True,False,NOT_EVALUATED,True,False,POSITION_EXISTS,LONG,True,both,False,RAW_SIGNAL,2024-01-22 18:00:00+00:00,trend.ema_slope.50.3,PREDICATE_BOOLEAN
+SQX-EURUSD-H1-108300962057,LONG,False,True,False,NOT_EVALUATED,True,False,POSITION_EXISTS,LONG,True,both,False,RAW_SIGNAL,2024-01-25 13:00:00+00:00,trend.ema_slope.200.1,PREDICATE_BOOLEAN
+SQX-EURUSD-H1-108300962057,LONG,True,True,False,NOT_EVALUATED,True,False,POSITION_EXISTS,LONG,False,both,False,RAW_SIGNAL,2024-01-26 20:00:00+00:00,trend.ema_slope.50.3,PREDICATE_BOOLEAN
+SQX-EURUSD-H1-4c92b8eb8610,SHORT,True,False,True,NOT_EVALUATED,True,False,NO_SIGNAL,SHORT,False,both,False,RAW_SIGNAL,2024-01-03 05:00:00+00:00,structure.break_low.5,PREDICATE_BOOLEAN
+SQX-EURUSD-H1-4c92b8eb8610,SHORT,True,False,True,NOT_EVALUATED,True,False,NO_SIGNAL,SHORT,False,both,False,RAW_SIGNAL,2024-01-04 02:00:00+00:00,structure.break_low.5,PREDICATE_BOOLEAN
+SQX-EURUSD-H1-59d9b5d3a639,LONG,True,False,True,NOT_EVALUATED,True,False,NO_SIGNAL,LONG,False,both,False,RAW_SIGNAL,2024-01-08 20:00:00+00:00,structure.break_high.2,PREDICATE_BOOLEAN
+SQX-EURUSD-H1-636292a9084a,LONG,True,False,True,NOT_EVALUATED,True,False,NO_SIGNAL,LONG,False,both,False,RAW_SIGNAL,2024-01-08 20:00:00+00:00,structure.break_high.2,PREDICATE_BOOLEAN
+SQX-EURUSD-H1-6682b7a6ec07,LONG,True,False,True,NOT_EVALUATED,True,False,NO_SIGNAL,LONG,False,both,False,RAW_SIGNAL,2024-01-08 20:00:00+00:00,structure.break_high.2,PREDICATE_BOOLEAN
+SQX-EURUSD-H1-bdc6d699e26f,LONG,True,False,True,NOT_EVALUATED,True,False,NO_SIGNAL,LONG,False,both,False,RAW_SIGNAL,2024-01-15 03:00:00+00:00,volatility.compression.20.2.1.5,PREDICATE_BOOLEAN
+SQX-EURUSD-H1-bdc6d699e26f,LONG,True,False,True,NOT_EVALUATED,True,False,NO_SIGNAL,LONG,False,both,False,RAW_SIGNAL,2024-01-15 04:00:00+00:00,volatility.compression.20.2.1.5,PREDICATE_BOOLEAN
+SQX-EURUSD-H1-bdc6d699e26f,LONG,True,False,True,NOT_EVALUATED,True,False,NO_SIGNAL,LONG,False,both,False,RAW_SIGNAL,2024-01-15 05:00:00+00:00,volatility.compression.20.2.1.5,PREDICATE_BOOLEAN
+SQX-EURUSD-H1-bdc6d699e26f,LONG,True,True,False,NOT_EVALUATED,True,False,POSITION_EXISTS,LONG,False,both,False,RAW_SIGNAL,2024-01-22 19:00:00+00:00,volatility.compression.20.2.1.5,PREDICATE_BOOLEAN
