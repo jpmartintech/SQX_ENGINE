@@ -1,0 +1,8 @@
+{
+  "prop_ready_universe.json": "4730e633f5d3ba0ab4a6ca03650bb6080dc29d7ef03a0e9f6dd95d07dde8ea3e",
+  "raw_material_summary.json": "a117518594ce42dcda082c20f9bba56d97ebe72d6b94c2a6eb8a8f0c031f194a",
+  "rolling_5d_opportunity.parquet": "d98c350326de7f33111c102b789dfb1a63d66e5aacc8f4a968e4075d30af3f8a",
+  "oracle_5d_distribution.parquet": "a8992d90c9cf78dffe5446f7fd53d612b63ac96cb283ae3fb839ce3d8865bd12",
+  "random_portfolio_baseline.parquet": "9dc85987347729004a3aaaaeb1b3afcbd0e206f7950fc2e8ab61004488000291",
+  "bounded_search_probe.parquet": "1a259742569d5cbde6fe26505f6172edb977be188cdf8a1bc4007b1d4d372720"
+}

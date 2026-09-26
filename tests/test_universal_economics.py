@@ -2,7 +2,7 @@ import math
 from pathlib import Path
 import pandas as pd
 
-from sqx_engine.portfolio_factory.universal_economics import StrategyEconomicSpec, apply_profile_cost, geometry_from_atr
+from sqx_engine.portfolio_factory.universal_economics import StrategyEconomicSpec, apply_profile_cost, geometry_from_atr, build_prop_ready_metadata
 
 
 def test_long_and_short_geometry_and_target_formula():
@@ -54,3 +54,20 @@ def test_execution_profile_inventory_covers_all_markets_and_timeframes():
     profiles = pd.read_json(path)
     assert len(profiles) == 21
     assert set(profiles.execution_profile_id) >= {"EURUSD_H1", "GBPUSD_M15", "XAUUSD_H4"}
+
+
+def test_prop_ready_metadata_adapter_preserves_strategy_identity():
+    class S:
+        strategy_id = "s"
+        readable_id = "SQX-S"
+        canonical_hash = "abc"
+        market = "EURUSD"
+        timeframe = "H1"
+        direction = "LONG"
+        stop_atr = 2.0
+        target_atr = 4.0
+        time_exit = 24
+    result = build_prop_ready_metadata(S(), "EURUSD_H1", spread_model=.00008, slippage_model=0.0)
+    assert result["prop_ready"] is True
+    assert result["economic_spec"]["canonical_hash"] == "abc"
+    assert result["economic_spec"]["execution_profile_id"] == "EURUSD_H1"

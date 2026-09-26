@@ -12,6 +12,9 @@ def main():
     library = sub.add_parser('library'); library.add_argument('action',choices=['stats','list','import-v17']); library.add_argument('--db',default='library/strategies.sqlite'); library.add_argument('--market'); library.add_argument('--timeframe'); library.add_argument('--family'); library.add_argument('--limit',type=int,default=100); library.add_argument('--include-analysis',action='store_true')
     production = sub.add_parser('production'); production.add_argument('action',choices=['plan','run','resume','status']); production.add_argument('config',nargs='?'); production.add_argument('--jobs-db',default='runs/production/jobs.sqlite'); production.add_argument('--library-db',default='library/strategies.sqlite')
     factory = sub.add_parser('factory'); factory.add_argument('action',choices=['status'])
+    prop = sub.add_parser('prop'); prop_sub = prop.add_subparsers(dest='prop_action', required=True)
+    audit = prop_sub.add_parser('audit'); audit.add_argument('--profile', default='FTMO_2STEP_V1'); audit.add_argument('--seed', type=int, default=1301); audit.add_argument('--random-count', type=int, default=120); audit.add_argument('--probe-count', type=int, default=24)
+    discover = prop_sub.add_parser('discover'); discover.add_argument('--profile', default='FTMO_2STEP_V1'); discover.add_argument('--phase', choices=('challenge','verification'), required=True)
     deployment = sub.add_parser('deployment'); deployment.add_argument('deployment_args', nargs=argparse.REMAINDER)
     args=p.parse_args()
     if args.command=="run":
@@ -25,7 +28,7 @@ def main():
     elif args.command == 'deployment':
         from .deployment.cli import main as deployment_main
         deployment_main(args.deployment_args)
-    elif args.command in {'benchmark','data','library','production','factory'}:
+    elif args.command in {'benchmark','data','library','production','factory','prop'}:
         from .operations import dispatch
         result = dispatch(args)
         print(json.dumps(result,indent=2,default=str))

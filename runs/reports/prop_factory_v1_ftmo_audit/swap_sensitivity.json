@@ -1,0 +1,10 @@
+{
+  "generic_swap_status": "UNRESOLVED",
+  "scenarios": [
+    "NO_ADDITIONAL_SWAP",
+    "MODELED_ADVERSE_SWAP_LOW",
+    "MODELED_ADVERSE_SWAP_MEDIUM",
+    "MODELED_ADVERSE_SWAP_HIGH"
+  ],
+  "status": "DIAGNOSTIC_INTERFACE_ONLY"
+}

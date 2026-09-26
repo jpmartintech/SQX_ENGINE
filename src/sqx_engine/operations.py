@@ -12,6 +12,13 @@ from .production import ProductionFactory, VERSION, atomic_json
 
 def dispatch(args):
     root = EngineConfig({}).project_root
+    if args.command == 'prop':
+        if args.prop_action == 'audit':
+            from .prop_factory.audit import run_prop_audit
+            return run_prop_audit(root, seed=args.seed, random_count=args.random_count, probe_count=args.probe_count)
+        if args.prop_action == 'discover':
+            return {'status': 'PREPARED_NOT_LAUNCHED', 'profile': args.profile, 'phase': args.phase,
+                    'reason': 'bounded FTMO audit and exact-replay calibration must precede production discovery'}
     if args.command == 'benchmark':
         if args.mode == 'fast': result = fast_regression(root)
         elif args.mode == 'audit': result = audit_golden(root)

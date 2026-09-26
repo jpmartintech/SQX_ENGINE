@@ -1,0 +1,15 @@
+{
+  "active_strategies_p50_5d": 5374.0,
+  "certified": 8438,
+  "diagnosis": "MULTIPLE_LIMITATIONS",
+  "exact_mtM_status": "requires BAR_EQUITY_REPLAY per finalist",
+  "oracle_c_5d_challenge_upper_bound_at_1pct": 0.9986225895316805,
+  "oracle_c_5d_verification_upper_bound_at_1pct": 0.9986225895316805,
+  "prop_ready": 8438,
+  "random_portfolios": 120,
+  "runtime_seconds": 77.37893384000199,
+  "search_probe": 48,
+  "signals_p50_5d": 5815.0,
+  "trades": 857538,
+  "trades_per_day": 690.4492753623189
+}

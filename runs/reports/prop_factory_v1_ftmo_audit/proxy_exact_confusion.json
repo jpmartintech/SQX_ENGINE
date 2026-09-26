@@ -1,0 +1,5 @@
+{
+  "reason": "this bounded audit consumes universal trade geometry; MTM candidate-by-candidate calibration remains an Exact Equity Replay task",
+  "sample_size": 0,
+  "status": "PARTIAL"
+}

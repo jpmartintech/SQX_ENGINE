@@ -57,3 +57,32 @@ def apply_profile_cost(gross_pnl_price: float, spread: float, slippage: float) -
     """Apply the frozen V1.8 round-trip price cost exactly once."""
     return float(gross_pnl_price) - float(spread) - float(slippage)
 
+
+def build_prop_ready_metadata(strategy, execution_profile_id: str, *,
+                              spread_model: float | None, slippage_model: float | None,
+                              swap_status: str = "UNRESOLVED_GENERIC") -> dict:
+    """Create the immutable metadata contract attached to future promotions.
+
+    This is an adapter only: it reads economic fields from the frozen
+    StrategyDefinition and does not mutate, regenerate, or reinterpret it.
+    The caller supplies the versioned execution profile and an already
+    reconstructed R ledger before setting ``PROP_READY``.
+    """
+    spec = StrategyEconomicSpec(
+        strategy_id=str(strategy.readable_id if hasattr(strategy, "readable_id") else strategy.strategy_id),
+        canonical_hash=str(strategy.canonical_hash), market=str(strategy.market),
+        timeframe=str(strategy.timeframe), direction=str(strategy.direction),
+        stop_model="ATR_SIGNAL_BAR", target_model="ATR_SIGNAL_BAR",
+        time_exit_model="BARS", stop_atr=float(strategy.stop_atr),
+        target_atr=float(strategy.target_atr), time_exit_bars=int(strategy.time_exit),
+        execution_profile_id=str(execution_profile_id),
+        spread_status="PROFILE_MODEL" if spread_model is not None else "UNRESOLVED",
+        spread_model=spread_model, commission_status="PROFILE_MODEL",
+        commission_model="PROFILE_FRICTION_ONCE_PER_TRADE",
+        swap_status=str(swap_status), swap_model=None,
+        slippage_status="PROFILE_MODEL" if slippage_model is not None else "UNRESOLVED",
+        slippage_model=slippage_model,
+    )
+    return {"prop_ready": True, "economic_spec": spec.to_dict(),
+            "economic_spec_hash": spec.canonical_hash_value(),
+            "requires_r_ledger": True, "requires_execution_profile": True}

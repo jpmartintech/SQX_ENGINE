@@ -1,0 +1,7 @@
+{
+  "behavioral_components": "Use existing behavioral clusters; no new clustering in bounded audit",
+  "direction_count": 2,
+  "market_count": 7,
+  "strategies": 8438,
+  "timeframe_count": 3
+}

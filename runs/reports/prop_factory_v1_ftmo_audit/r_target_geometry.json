@@ -1,0 +1,37 @@
+[
+  {
+    "challenge_R": 20.0,
+    "risk_fraction": 0.005,
+    "verification_R": 10.0
+  },
+  {
+    "challenge_R": 13.333333333333334,
+    "risk_fraction": 0.0075,
+    "verification_R": 6.666666666666667
+  },
+  {
+    "challenge_R": 10.0,
+    "risk_fraction": 0.01,
+    "verification_R": 5.0
+  },
+  {
+    "challenge_R": 6.666666666666667,
+    "risk_fraction": 0.015,
+    "verification_R": 3.3333333333333335
+  },
+  {
+    "challenge_R": 5.0,
+    "risk_fraction": 0.02,
+    "verification_R": 2.5
+  },
+  {
+    "challenge_R": 4.0,
+    "risk_fraction": 0.025,
+    "verification_R": 2.0
+  },
+  {
+    "challenge_R": 3.3333333333333335,
+    "risk_fraction": 0.03,
+    "verification_R": 1.6666666666666667
+  }
+]

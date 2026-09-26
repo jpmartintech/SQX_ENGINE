@@ -1,0 +1,20 @@
+{
+  "commands": [
+    "sqx prop audit --profile FTMO_2STEP_V1",
+    "sqx prop discover --profile FTMO_2STEP_V1 --phase challenge",
+    "sqx prop discover --profile FTMO_2STEP_V1 --phase verification"
+  ],
+  "contracts": [
+    "PROP_READY",
+    "PORTFOLIO_INPUT",
+    "FAST_PROXY",
+    "BAR_EQUITY_REPLAY",
+    "MT5_VALIDATION"
+  ],
+  "modes": [
+    "FTMO_CHALLENGE",
+    "FTMO_VERIFICATION",
+    "FTMO_FUNDED_RESERVED"
+  ],
+  "profile": "FTMO_2STEP_V1"
+}
