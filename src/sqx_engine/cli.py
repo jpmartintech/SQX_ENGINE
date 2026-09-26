@@ -12,6 +12,7 @@ def main():
     library = sub.add_parser('library'); library.add_argument('action',choices=['stats','list','import-v17']); library.add_argument('--db',default='library/strategies.sqlite'); library.add_argument('--market'); library.add_argument('--timeframe'); library.add_argument('--family'); library.add_argument('--limit',type=int,default=100); library.add_argument('--include-analysis',action='store_true')
     production = sub.add_parser('production'); production.add_argument('action',choices=['plan','run','resume','status']); production.add_argument('config',nargs='?'); production.add_argument('--jobs-db',default='runs/production/jobs.sqlite'); production.add_argument('--library-db',default='library/strategies.sqlite')
     factory = sub.add_parser('factory'); factory.add_argument('action',choices=['status'])
+    deployment = sub.add_parser('deployment'); deployment.add_argument('deployment_args', nargs=argparse.REMAINDER)
     args=p.parse_args()
     if args.command=="run":
         config = EngineConfig.from_yaml(args.config)
@@ -21,6 +22,9 @@ def main():
     elif args.command=="validate":
         from .validation import ValidationFactory, json_safe
         print(json.dumps(json_safe(ValidationFactory(EngineConfig.from_yaml(args.config)).run()), indent=2, allow_nan=False))
+    elif args.command == 'deployment':
+        from .deployment.cli import main as deployment_main
+        deployment_main(args.deployment_args)
     elif args.command in {'benchmark','data','library','production','factory'}:
         from .operations import dispatch
         result = dispatch(args)

@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "strategy_factory_unchanged": true,
+  "library_unchanged": true,
+  "single_strategy_export": "PASS",
+  "portfolio_export": "PASS",
+  "coverage_total": 12289,
+  "coverage_supported": 12289,
+  "ready_for_paper_portfolios": 20,
+  "ready_for_paper_strategies": 20,
+  "mql5_compile": "NOT_EXECUTED",
+  "compile_reason": "MetaEditor is unavailable on Linux/WSL"
+}
