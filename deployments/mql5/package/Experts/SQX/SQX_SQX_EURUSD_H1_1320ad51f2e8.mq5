@@ -5,10 +5,11 @@
 #include <SQX/sqx_predicates.mqh>
 #include <SQX/sqx_risk.mqh>
 #include <SQX/sqx_execution.mqh>
+#include <SQX/sqx_diagnostic.mqh>
 
 input double InpRiskFraction=0.01000000;
 input long InpMagic=1265801997;
-input string InpPortfolioId="SQX-PROP-02760ECAC8BA";
+input string InpPortfolioId="";
 // SQX-EURUSD-H1-1320ad51f2e8 canonical=1320ad51f2e8f9579ad8543f669926cd6fe2b79923be06d2b7b3d6dd9313e765
 #define SQX_S0_ID "SQX-EURUSD-H1-1320ad51f2e8"
 #define SQX_S0_MAGIC 1265801997

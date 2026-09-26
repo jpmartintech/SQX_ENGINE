@@ -7,7 +7,7 @@ from pathlib import Path
 
 from ..strategy import StrategyDefinition
 from .models import PortfolioDefinition
-from .templates import INDICATORS, PREDICATES, RISK, EXECUTION
+from .templates import INDICATORS, PREDICATES, RISK, EXECUTION, DIAGNOSTIC
 
 
 class UnsupportedPredicateError(ValueError):
@@ -157,11 +157,12 @@ def _normalize_exit_translation(body, strategy, portfolio):
 
 def _write_includes(directory):
     for name, body in (("sqx_indicators.mqh", INDICATORS), ("sqx_predicates.mqh", PREDICATES),
-                       ("sqx_risk.mqh", RISK), ("sqx_execution.mqh", EXECUTION)):
+                       ("sqx_risk.mqh", RISK), ("sqx_execution.mqh", EXECUTION),
+                       ("sqx_diagnostic.mqh", DIAGNOSTIC)):
         (directory / name).write_text(body)
 
 def _header():
-    return '#property strict\n#include <Trade/Trade.mqh>\n#include <SQX/sqx_indicators.mqh>\n#include <SQX/sqx_predicates.mqh>\n#include <SQX/sqx_risk.mqh>\n#include <SQX/sqx_execution.mqh>\n'
+    return '#property strict\n#include <Trade/Trade.mqh>\n#include <SQX/sqx_indicators.mqh>\n#include <SQX/sqx_predicates.mqh>\n#include <SQX/sqx_risk.mqh>\n#include <SQX/sqx_execution.mqh>\n#include <SQX/sqx_diagnostic.mqh>\n'
 
 def _common_oninit(ids):
     return 'int OnInit() { SQX_Log("SQX_INIT", "", "", _Symbol, _Period, 0, 0, 0, 0, "NETTING_OR_HEDGING_ACCOUNT_MODE"); return INIT_SUCCEEDED; }\n'
@@ -174,9 +175,17 @@ def _portfolio_ea(p, blocks, strategies):
     calls = []
     for s, i in strategies:
         d = "ORDER_TYPE_BUY" if s.direction == "LONG" else "ORDER_TYPE_SELL"
-        body = f'''{{ MqlRates r{i}[]; if(SQX_LoadRates(_Symbol,SQX_S{i}_TF,r{i},{_required_rate_count(s)}) && SQX_S{i}_Signal(r{i},1)) {{ double atr=SQX_ATR(r{i},SQX_S{i}_ATR_PERIOD,1), stop=atr*SQX_S{i}_STOP_ATR; double requested=SQX_WEIGHTED_RISK({p.base_risk:.17g}, {dict((x.strategy.readable_id,x.weight) for x in p.strategies)[s.readable_id]:.17g}); SQX_RiskDecision rd=SQX_CheckPortfolioRisk(requested,requested,{p.max_open_risk:.17g}); if(rd.action==SQX_REJECT) SQX_Log("SQX_RISK_REJECT","{_cpp_string(p.portfolio_id)}",SQX_S{i}_ID,_Symbol,SQX_S{i}_TF,0,0,stop,requested,"RISK_LIMIT"); else {{ double v=SQX_RiskVolume(_Symbol,AccountInfoDouble(ACCOUNT_EQUITY),rd.risk,stop); if(v>0) SQX_SendEntry(_Symbol,{d},v,stop,atr*SQX_S{i}_TARGET_ATR/SQX_S{i}_STOP_ATR*stop,SQX_S{i}_MAGIC,"{_cpp_string(p.portfolio_id)}",SQX_S{i}_ID); }} }} }}'''
+        weight = dict((x.strategy.readable_id, x.weight) for x in p.strategies)[s.readable_id]
+        pred_args = []
+        for pred in s.predicates:
+            pred_args.extend([f'"{_cpp_string(pred.feature)}"', f'SQX_Feature(r{i},"{_cpp_string(pred.feature)}",1)', f'{float(pred.value):.17g}', f'SQX_Predicate(r{i},"{_cpp_string(pred.feature)}","{pred.operator}",{float(pred.value):.17g},1)'])
+        while len(pred_args) < 16:
+            pred_args.extend(['""', 'EMPTY_VALUE', 'EMPTY_VALUE', 'false'])
+        trace_call = f'SQX_TraceEvaluation(InpDiagnosticFile,now,r{i}[1].time,{i},SQX_S{i}_ID,"{s.direction}",has,open_before,{len(s.predicates)},"{s.logic}",' + ','.join(pred_args[:16]) + f',raw,!has,risk_gate,true,admitted,requested,v,open_after,reason);'
+        raw_call = f'if(InpDiagnosticTrace && raw)SQX_TraceRawSignal(InpDiagnosticRawFile,r{i}[1].time,r{i}[0].time,{i},SQX_S{i}_ID,"{s.direction}",has,risk_gate,admitted,reason);'
+        body = f'''{{ MqlRates r{i}[]; bool has=SQX_HasPosition(_Symbol,SQX_S{i}_MAGIC); bool loaded=false,raw=false; double open_before=SQX_OpenRisk(),open_after=open_before,requested=0.0,v=0.0; string risk_gate="NOT_EVALUATED",reason="NO_SIGNAL"; bool admitted=false; datetime now=iTime(_Symbol,SQX_S{i}_TF,0); if(!has || InpDiagnosticTrace){{ loaded=SQX_LoadRates(_Symbol,SQX_S{i}_TF,r{i},{_required_rate_count(s)}); if(loaded) raw=SQX_S{i}_Signal(r{i},1); }} if(!has && loaded && raw){{ requested=SQX_WEIGHTED_RISK({p.base_risk:.17g},{weight:.17g}); SQX_RiskDecision rd=SQX_CheckPortfolioRisk(requested,requested,{p.max_open_risk:.17g}); risk_gate=rd.action==SQX_REJECT?"REJECT_RISK_LIMIT":rd.action==SQX_ACCEPT_REDUCED?"ACCEPT_REDUCED":"ACCEPT_FULL"; if(rd.action==SQX_REJECT){{reason="RISK_LIMIT";SQX_Log("SQX_RISK_REJECT","{_cpp_string(p.portfolio_id)}",SQX_S{i}_ID,_Symbol,SQX_S{i}_TF,0,0,0,requested,"RISK_LIMIT");}} else {{v=SQX_RiskVolume(_Symbol,AccountInfoDouble(ACCOUNT_EQUITY),rd.risk, SQX_ATR(r{i},SQX_S{i}_ATR_PERIOD,1)*SQX_S{i}_STOP_ATR);if(v>0){{admitted=true;reason="ACCEPTED";SQX_SendEntry(_Symbol,{d},v,SQX_ATR(r{i},SQX_S{i}_ATR_PERIOD,1)*SQX_S{i}_STOP_ATR,SQX_ATR(r{i},SQX_S{i}_ATR_PERIOD,1)*SQX_S{i}_TARGET_ATR,SQX_S{i}_MAGIC,"{_cpp_string(p.portfolio_id)}",SQX_S{i}_ID);}}else reason="VOLUME_ZERO";}} open_after=SQX_OpenRisk(); }} else if(has) reason="POSITION_EXISTS"; else if(!loaded) reason="RATES_NOT_READY"; if(InpDiagnosticTrace && loaded){{ {trace_call} }} {raw_call} }}'''
         calls.append(f'if(iTime(_Symbol,SQX_S{i}_TF,0)!=last[{i}]){{last[{i}]=iTime(_Symbol,SQX_S{i}_TF,0);{body}}}')
     return _header() + f'''\ninput double InpBaseRisk={p.base_risk:.8f};\ninput double InpMaxOpenRisk={p.max_open_risk:.8f};\ninput double InpInternalDailyLimit=0.0;\ninput double InpInternalTotalLimit=0.0;\n{blocks}\n{_common_oninit([x.strategy for x in p.strategies])}\nvoid OnTick() {{ SQX_UpdatePropAccount(InpInternalDailyLimit,InpInternalTotalLimit); static datetime last[64]; int k=0; for(int i=0;i<{len(strategies)};i++) {{ datetime now=iTime(_Symbol,(i==i ? SQX_S{i}_TF : PERIOD_CURRENT),0); if(now==last[i]) continue; last[i]=now; }} for(int i=0;i<{len(strategies)};i++) {{ {calls[0] if len(calls)==1 else ''} }} }}\n'''.replace('for(int i=0;i<'+str(len(strategies))+';i++) { { '+(calls[0] if len(calls)==1 else '')+' } }', '\n'.join(calls)) if len(strategies)==1 else _portfolio_ea_impl(p, blocks, calls, strategies)
 
 def _portfolio_ea_impl(p, blocks, calls, strategies):
-    return _header() + f'''\ninput double InpBaseRisk={p.base_risk:.8f}; input double InpMaxOpenRisk={p.max_open_risk:.8f}; input double InpInternalDailyLimit=0.0; input double InpInternalTotalLimit=0.0;\n{blocks}\n{_common_oninit([x.strategy for x in p.strategies])}\nvoid OnTick() {{ static datetime last[64]; SQX_UpdatePropAccount(InpInternalDailyLimit,InpInternalTotalLimit);\n'''+"\n".join(calls)+"\n}\n"
+    return _header() + f'''\ninput double InpBaseRisk={p.base_risk:.8f}; input double InpMaxOpenRisk={p.max_open_risk:.8f}; input double InpInternalDailyLimit=0.0; input double InpInternalTotalLimit=0.0; input bool InpDiagnosticTrace=false; input string InpDiagnosticFile="SQX_portfolio_predicate_trace.csv"; input string InpDiagnosticRawFile="SQX_portfolio_raw_signals.csv";\n{blocks}\n{_common_oninit([x.strategy for x in p.strategies])}\nvoid OnTick() {{ static datetime last[64]; SQX_UpdatePropAccount(InpInternalDailyLimit,InpInternalTotalLimit);\n'''+"\n".join(calls)+"\n}\n"

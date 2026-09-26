@@ -37,7 +37,8 @@ def test_ready_portfolio_loads_and_exports(tmp_path):
     assert text.count("bool SQX_S") == 20
     assert "ACCOUNT_EQUITY()" not in text
     assert "SQX_ManagePosition(_Symbol,SQX_S0_MAGIC,SQX_S0_TF,SQX_S0_TIME_EXIT" in text
-    assert "!SQX_HasPosition(_Symbol,SQX_S0_MAGIC)" in text
+    assert "bool has=SQX_HasPosition(_Symbol,SQX_S0_MAGIC)" in text
+    assert "if(!has && loaded && raw)" in text
     assert "SQX_S0_TARGET_ATR/SQX_S0_STOP_ATR*stop" not in text
     indicators=(tmp_path/"Include/SQX/sqx_indicators.mqh").read_text()
     assert "bool SQX_LoadRates(string sym,ENUM_TIMEFRAMES tf,MqlRates &a[],int n)" in indicators

@@ -1,0 +1,14 @@
+{
+  "trace_file": "SQX_portfolio_predicate_trace.csv",
+  "raw_signal_file": "SQX_portfolio_raw_signals.csv",
+  "causality": {
+    "evaluation_shift": 1,
+    "signal_bar": "rates[1].time",
+    "entry_bar": "rates[0].time"
+  },
+  "predicate_fields": "Four fixed slots; unused slots are empty/false. Numeric value is SQX_Feature output used by SQX_Predicate; structure.last/fractal values are the actual structural state returned by the helper.",
+  "default_off": true,
+  "strategies": 20,
+  "evaluation_rows": 10560,
+  "raw_signal_rows_expected": 238
+}
