@@ -57,13 +57,52 @@ class MQL5Backend(DeploymentBackend):
 def _cpp_string(x): return str(x).replace('\\', '\\\\').replace('"', '\\"')
 def _tf(x): return {"M15":"PERIOD_M15", "H1":"PERIOD_H1", "H4":"PERIOD_H4"}.get(x, f"PERIOD_{x}")
 
+def _required_rate_count(strategy: StrategyDefinition, shift: int = 1) -> int:
+    """Return the largest causal rate buffer required by the V1.7 helpers.
+
+    The generated runtime still protects every helper against short arrays;
+    this calculation prevents normal portfolio startup from requesting fewer
+    bars than a strategy's longest indicator needs.
+    """
+    required = 600  # preserve the certified baseline warm-up window
+    for predicate in strategy.predicates:
+        parts = predicate.feature.split(".")
+        def integer(index):
+            return int(parts[index])
+        maximum = shift
+        if predicate.feature == "rsi_14":
+            maximum = shift + 14
+        elif parts[0] == "momentum" and parts[1] == "roc":
+            maximum = shift + integer(2)
+        elif parts[0] == "momentum" and parts[1] == "willr":
+            maximum = shift + integer(2) - 1
+        elif parts[0] == "trend" and parts[1] == "close_ema":
+            maximum = shift + integer(2) * 4
+        elif parts[0] == "trend" and parts[1] == "ema_slope":
+            maximum = shift + integer(2) * 4 + integer(3)
+        elif parts[0] == "trend" and parts[1] == "ema_pair":
+            maximum = max(shift + integer(2) * 4, shift + integer(3) * 4)
+        elif parts[0] == "trend" and parts[1] in {"breakout_high", "breakout_low"}:
+            maximum = shift + integer(2)
+        elif parts[0] == "volatility" and parts[1] == "atr_regime":
+            maximum = shift + integer(2) + integer(3)
+        elif parts[0] == "volatility" and parts[1] in {"bb_upper", "bb_lower", "bb_middle"}:
+            maximum = shift + integer(2) - 1
+        elif parts[0] == "volatility" and parts[1] == "compression":
+            maximum = shift + integer(2) * 4
+        elif parts[0] == "structure":
+            d = integer(2)
+            maximum = max(shift + 2 * d, 450)
+        required = max(required, maximum + 1)
+    return required
+
 def _predicate_expr(p):
     return f'SQX_Predicate(rates, {p.feature!r}, "{p.operator}", {float(p.value):.17g}, shift)'
 
 def _strategy_block(s, index):
     preds = [f'SQX_Predicate(rates, "{_cpp_string(p.feature)}", "{p.operator}", {float(p.value):.17g}, shift)' for p in s.predicates]
     join = " && " if s.logic == "AND" else " || "
-    return f'''// {s.readable_id} canonical={s.canonical_hash}\n#define SQX_S{index}_ID "{_cpp_string(s.readable_id)}"\n#define SQX_S{index}_MAGIC {magic_number(s.canonical_hash)}\n#define SQX_S{index}_TF {_tf(s.timeframe)}\n#define SQX_S{index}_ATR_PERIOD {s.atr_period}\n#define SQX_S{index}_STOP_ATR {s.stop_atr:.17g}\n#define SQX_S{index}_TARGET_ATR {s.target_atr:.17g}\n#define SQX_S{index}_TIME_EXIT {s.time_exit}\n#define SQX_S{index}_DIRECTION_{s.direction} 1\nbool SQX_S{index}_Signal(const MqlRates &rates[], const int shift) {{ return ({join.join(preds)}) && SQX_ATR(rates, {s.atr_period}, shift) > 0; }}\n'''
+    return f'''// {s.readable_id} canonical={s.canonical_hash}\n#define SQX_S{index}_ID "{_cpp_string(s.readable_id)}"\n#define SQX_S{index}_MAGIC {magic_number(s.canonical_hash)}\n#define SQX_S{index}_TF {_tf(s.timeframe)}\n#define SQX_S{index}_ATR_PERIOD {s.atr_period}\n#define SQX_S{index}_STOP_ATR {s.stop_atr:.17g}\n#define SQX_S{index}_TARGET_ATR {s.target_atr:.17g}\n#define SQX_S{index}_TIME_EXIT {s.time_exit}\n#define SQX_S{index}_DIRECTION_{s.direction} 1\nbool SQX_S{index}_Signal(const MqlRates &rates[], const int shift) {{ double atr=SQX_ATR(rates, {s.atr_period}, shift); return ({join.join(preds)}) && atr!=EMPTY_VALUE && atr>0; }}\n'''
 
 def _write_ea(strategy, portfolio, path, portfolio_id, include_dir):
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -111,10 +150,9 @@ def _normalize_exit_translation(body, strategy, portfolio):
             needle = f"last[{i}]=iTime(_Symbol,SQX_S{i}_TF,0);{{ MqlRates r{i}[];"
             replacement = f"last[{i}]=iTime(_Symbol,SQX_S{i}_TF,0);{{ SQX_ManagePosition(_Symbol,SQX_S{i}_MAGIC,SQX_S{i}_TF,SQX_S{i}_TIME_EXIT,\"{_cpp_string(portfolio.portfolio_id)}\",SQX_S{i}_ID); MqlRates r{i}[];"
             body = body.replace(needle, replacement)
-            body = body.replace(
-                f"if(SQX_LoadRates(_Symbol,SQX_S{i}_TF,r{i},600) && SQX_S{i}_Signal(r{i},1))",
-                f"if(!SQX_HasPosition(_Symbol,SQX_S{i}_MAGIC) && SQX_LoadRates(_Symbol,SQX_S{i}_TF,r{i},600) && SQX_S{i}_Signal(r{i},1))",
-            )
+            pattern = rf"if\(SQX_LoadRates\(_Symbol,SQX_S{i}_TF,r{i},(\d+)\) && SQX_S{i}_Signal\(r{i},1\)\)"
+            replacement = lambda m: f"if(!SQX_HasPosition(_Symbol,SQX_S{i}_MAGIC) && SQX_LoadRates(_Symbol,SQX_S{i}_TF,r{i},{m.group(1)}) && SQX_S{i}_Signal(r{i},1))"
+            body = re.sub(pattern, replacement, body)
     return body
 
 def _write_includes(directory):
@@ -136,7 +174,7 @@ def _portfolio_ea(p, blocks, strategies):
     calls = []
     for s, i in strategies:
         d = "ORDER_TYPE_BUY" if s.direction == "LONG" else "ORDER_TYPE_SELL"
-        body = f'''{{ MqlRates r{i}[]; if(SQX_LoadRates(_Symbol,SQX_S{i}_TF,r{i},600) && SQX_S{i}_Signal(r{i},1)) {{ double atr=SQX_ATR(r{i},SQX_S{i}_ATR_PERIOD,1), stop=atr*SQX_S{i}_STOP_ATR; double requested=SQX_WEIGHTED_RISK({p.base_risk:.17g}, {dict((x.strategy.readable_id,x.weight) for x in p.strategies)[s.readable_id]:.17g}); SQX_RiskDecision rd=SQX_CheckPortfolioRisk(requested,requested,{p.max_open_risk:.17g}); if(rd.action==SQX_REJECT) SQX_Log("SQX_RISK_REJECT","{_cpp_string(p.portfolio_id)}",SQX_S{i}_ID,_Symbol,SQX_S{i}_TF,0,0,stop,requested,"RISK_LIMIT"); else {{ double v=SQX_RiskVolume(_Symbol,ACCOUNT_EQUITY(),rd.risk,stop); if(v>0) SQX_SendEntry(_Symbol,{d},v,stop,atr*SQX_S{i}_TARGET_ATR/SQX_S{i}_STOP_ATR*stop,SQX_S{i}_MAGIC,"{_cpp_string(p.portfolio_id)}",SQX_S{i}_ID); }} }} }}'''
+        body = f'''{{ MqlRates r{i}[]; if(SQX_LoadRates(_Symbol,SQX_S{i}_TF,r{i},{_required_rate_count(s)}) && SQX_S{i}_Signal(r{i},1)) {{ double atr=SQX_ATR(r{i},SQX_S{i}_ATR_PERIOD,1), stop=atr*SQX_S{i}_STOP_ATR; double requested=SQX_WEIGHTED_RISK({p.base_risk:.17g}, {dict((x.strategy.readable_id,x.weight) for x in p.strategies)[s.readable_id]:.17g}); SQX_RiskDecision rd=SQX_CheckPortfolioRisk(requested,requested,{p.max_open_risk:.17g}); if(rd.action==SQX_REJECT) SQX_Log("SQX_RISK_REJECT","{_cpp_string(p.portfolio_id)}",SQX_S{i}_ID,_Symbol,SQX_S{i}_TF,0,0,stop,requested,"RISK_LIMIT"); else {{ double v=SQX_RiskVolume(_Symbol,AccountInfoDouble(ACCOUNT_EQUITY),rd.risk,stop); if(v>0) SQX_SendEntry(_Symbol,{d},v,stop,atr*SQX_S{i}_TARGET_ATR/SQX_S{i}_STOP_ATR*stop,SQX_S{i}_MAGIC,"{_cpp_string(p.portfolio_id)}",SQX_S{i}_ID); }} }} }}'''
         calls.append(f'if(iTime(_Symbol,SQX_S{i}_TF,0)!=last[{i}]){{last[{i}]=iTime(_Symbol,SQX_S{i}_TF,0);{body}}}')
     return _header() + f'''\ninput double InpBaseRisk={p.base_risk:.8f};\ninput double InpMaxOpenRisk={p.max_open_risk:.8f};\ninput double InpInternalDailyLimit=0.0;\ninput double InpInternalTotalLimit=0.0;\n{blocks}\n{_common_oninit([x.strategy for x in p.strategies])}\nvoid OnTick() {{ SQX_UpdatePropAccount(InpInternalDailyLimit,InpInternalTotalLimit); static datetime last[64]; int k=0; for(int i=0;i<{len(strategies)};i++) {{ datetime now=iTime(_Symbol,(i==i ? SQX_S{i}_TF : PERIOD_CURRENT),0); if(now==last[i]) continue; last[i]=now; }} for(int i=0;i<{len(strategies)};i++) {{ {calls[0] if len(calls)==1 else ''} }} }}\n'''.replace('for(int i=0;i<'+str(len(strategies))+';i++) { { '+(calls[0] if len(calls)==1 else '')+' } }', '\n'.join(calls)) if len(strategies)==1 else _portfolio_ea_impl(p, blocks, calls, strategies)
 

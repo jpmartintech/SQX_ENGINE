@@ -16,7 +16,7 @@ input double InpBaseRisk=0.01000000; input double InpMaxOpenRisk=0.02000000; inp
 #define SQX_S0_TARGET_ATR 4
 #define SQX_S0_TIME_EXIT 24
 #define SQX_S0_DIRECTION_LONG 1
-bool SQX_S0_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "rsi_14", ">", 30, shift) && SQX_Predicate(rates, "structure.fractal_low.5", "==", 1, shift) && SQX_Predicate(rates, "trend.ema_slope.50.12", "<", 0, shift) && SQX_Predicate(rates, "volatility.bb_middle.50.2", ">", 0, shift)) && SQX_ATR(rates, 14, shift) > 0; }
+bool SQX_S0_Signal(const MqlRates &rates[], const int shift) { double atr=SQX_ATR(rates, 14, shift); return (SQX_Predicate(rates, "rsi_14", ">", 30, shift) && SQX_Predicate(rates, "structure.fractal_low.5", "==", 1, shift) && SQX_Predicate(rates, "trend.ema_slope.50.12", "<", 0, shift) && SQX_Predicate(rates, "volatility.bb_middle.50.2", ">", 0, shift)) && atr!=EMPTY_VALUE && atr>0; }
 
 // SQX-EURUSD-H1-63696db839ee canonical=63696db839ee267494747cb44f0ec0aa5b5742833aa42f7396d2df099fb63813
 #define SQX_S1_ID "SQX-EURUSD-H1-63696db839ee"
@@ -27,7 +27,7 @@ bool SQX_S0_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predi
 #define SQX_S1_TARGET_ATR 4
 #define SQX_S1_TIME_EXIT 72
 #define SQX_S1_DIRECTION_LONG 1
-bool SQX_S1_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "structure.last.2", "==", 4, shift) && SQX_Predicate(rates, "trend.ema_pair.50.100", ">", 0, shift) && SQX_Predicate(rates, "trend.ema_slope.200.1", ">", 0, shift) && SQX_Predicate(rates, "volatility.bb_lower.20.2", "<", 0, shift)) && SQX_ATR(rates, 14, shift) > 0; }
+bool SQX_S1_Signal(const MqlRates &rates[], const int shift) { double atr=SQX_ATR(rates, 14, shift); return (SQX_Predicate(rates, "structure.last.2", "==", 4, shift) && SQX_Predicate(rates, "trend.ema_pair.50.100", ">", 0, shift) && SQX_Predicate(rates, "trend.ema_slope.200.1", ">", 0, shift) && SQX_Predicate(rates, "volatility.bb_lower.20.2", "<", 0, shift)) && atr!=EMPTY_VALUE && atr>0; }
 
 // SQX-EURUSD-H1-21e4d7fab033 canonical=21e4d7fab0339f182a471315f850f5a46bf52763dcd5b6d100049639a8e2cf93
 #define SQX_S2_ID "SQX-EURUSD-H1-21e4d7fab033"
@@ -38,7 +38,7 @@ bool SQX_S1_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predi
 #define SQX_S2_TARGET_ATR 3
 #define SQX_S2_TIME_EXIT 48
 #define SQX_S2_DIRECTION_LONG 1
-bool SQX_S2_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "trend.ema_pair.10.100", ">", 0, shift) && SQX_Predicate(rates, "trend.ema_slope.100.6", "<", 0, shift)) && SQX_ATR(rates, 14, shift) > 0; }
+bool SQX_S2_Signal(const MqlRates &rates[], const int shift) { double atr=SQX_ATR(rates, 14, shift); return (SQX_Predicate(rates, "trend.ema_pair.10.100", ">", 0, shift) && SQX_Predicate(rates, "trend.ema_slope.100.6", "<", 0, shift)) && atr!=EMPTY_VALUE && atr>0; }
 
 // SQX-EURUSD-H1-a27691004dcc canonical=a27691004dcca02611c202506bb9debd9d884ec6c6e8cfb511ff9411ad9a5ae5
 #define SQX_S3_ID "SQX-EURUSD-H1-a27691004dcc"
@@ -49,7 +49,7 @@ bool SQX_S2_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predi
 #define SQX_S3_TARGET_ATR 4
 #define SQX_S3_TIME_EXIT 72
 #define SQX_S3_DIRECTION_LONG 1
-bool SQX_S3_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "structure.break_low.3", "<", 0, shift) && SQX_Predicate(rates, "trend.ema_pair.10.50", ">", 0, shift)) && SQX_ATR(rates, 14, shift) > 0; }
+bool SQX_S3_Signal(const MqlRates &rates[], const int shift) { double atr=SQX_ATR(rates, 14, shift); return (SQX_Predicate(rates, "structure.break_low.3", "<", 0, shift) && SQX_Predicate(rates, "trend.ema_pair.10.50", ">", 0, shift)) && atr!=EMPTY_VALUE && atr>0; }
 
 // SQX-EURUSD-H1-ac5da82211be canonical=ac5da82211be876dbb1310bf07a1df1c27cb850a48af09668bc8f5a6e18c71a5
 #define SQX_S4_ID "SQX-EURUSD-H1-ac5da82211be"
@@ -60,7 +60,7 @@ bool SQX_S3_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predi
 #define SQX_S4_TARGET_ATR 4
 #define SQX_S4_TIME_EXIT 96
 #define SQX_S4_DIRECTION_SHORT 1
-bool SQX_S4_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "momentum.willr.14", ">", -20, shift) && SQX_Predicate(rates, "structure.last.3", "==", 3, shift) && SQX_Predicate(rates, "structure.last.5", "==", 3, shift) && SQX_Predicate(rates, "volatility.compression.50.2.1.5", "==", -1, shift)) && SQX_ATR(rates, 14, shift) > 0; }
+bool SQX_S4_Signal(const MqlRates &rates[], const int shift) { double atr=SQX_ATR(rates, 14, shift); return (SQX_Predicate(rates, "momentum.willr.14", ">", -20, shift) && SQX_Predicate(rates, "structure.last.3", "==", 3, shift) && SQX_Predicate(rates, "structure.last.5", "==", 3, shift) && SQX_Predicate(rates, "volatility.compression.50.2.1.5", "==", -1, shift)) && atr!=EMPTY_VALUE && atr>0; }
 
 // SQX-EURUSD-H1-07862d1ea899 canonical=07862d1ea899a3865b59f580e233b64d3b138d61fd0b5db6ea3450a161a9d988
 #define SQX_S5_ID "SQX-EURUSD-H1-07862d1ea899"
@@ -71,7 +71,7 @@ bool SQX_S4_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predi
 #define SQX_S5_TARGET_ATR 4
 #define SQX_S5_TIME_EXIT 24
 #define SQX_S5_DIRECTION_LONG 1
-bool SQX_S5_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "trend.ema_slope.100.3", ">", 0, shift) && SQX_Predicate(rates, "volatility.bb_lower.50.2", "<", 0, shift) && SQX_Predicate(rates, "volatility.bb_middle.50.2", "<", 0, shift)) && SQX_ATR(rates, 14, shift) > 0; }
+bool SQX_S5_Signal(const MqlRates &rates[], const int shift) { double atr=SQX_ATR(rates, 14, shift); return (SQX_Predicate(rates, "trend.ema_slope.100.3", ">", 0, shift) && SQX_Predicate(rates, "volatility.bb_lower.50.2", "<", 0, shift) && SQX_Predicate(rates, "volatility.bb_middle.50.2", "<", 0, shift)) && atr!=EMPTY_VALUE && atr>0; }
 
 // SQX-EURUSD-H1-6edd59636707 canonical=6edd59636707d7bbcf8bdf896089cca28c9ffe7ce78bdae268b1bf07a0f85cc4
 #define SQX_S6_ID "SQX-EURUSD-H1-6edd59636707"
@@ -82,7 +82,7 @@ bool SQX_S5_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predi
 #define SQX_S6_TARGET_ATR 4
 #define SQX_S6_TIME_EXIT 96
 #define SQX_S6_DIRECTION_LONG 1
-bool SQX_S6_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "structure.last.5", "==", 3, shift) && SQX_Predicate(rates, "volatility.atr_regime.14.50", "<", 0, shift) && SQX_Predicate(rates, "volatility.atr_regime.28.50", ">", 0, shift) && SQX_Predicate(rates, "volatility.bb_lower.20.2", "<", 0, shift)) && SQX_ATR(rates, 14, shift) > 0; }
+bool SQX_S6_Signal(const MqlRates &rates[], const int shift) { double atr=SQX_ATR(rates, 14, shift); return (SQX_Predicate(rates, "structure.last.5", "==", 3, shift) && SQX_Predicate(rates, "volatility.atr_regime.14.50", "<", 0, shift) && SQX_Predicate(rates, "volatility.atr_regime.28.50", ">", 0, shift) && SQX_Predicate(rates, "volatility.bb_lower.20.2", "<", 0, shift)) && atr!=EMPTY_VALUE && atr>0; }
 
 // SQX-EURUSD-H1-4c92b8eb8610 canonical=4c92b8eb861079ceb8f32e2f08409ed86ab61dd0390ecb58d208a66d36c276b7
 #define SQX_S7_ID "SQX-EURUSD-H1-4c92b8eb8610"
@@ -93,7 +93,7 @@ bool SQX_S6_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predi
 #define SQX_S7_TARGET_ATR 2
 #define SQX_S7_TIME_EXIT 96
 #define SQX_S7_DIRECTION_SHORT 1
-bool SQX_S7_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "structure.break_low.5", "<", 0, shift) && SQX_Predicate(rates, "structure.last.5", "==", 4, shift) && SQX_Predicate(rates, "trend.close_ema.10", ">", 0, shift) && SQX_Predicate(rates, "volatility.compression.50.2.1.5", "==", -1, shift)) && SQX_ATR(rates, 14, shift) > 0; }
+bool SQX_S7_Signal(const MqlRates &rates[], const int shift) { double atr=SQX_ATR(rates, 14, shift); return (SQX_Predicate(rates, "structure.break_low.5", "<", 0, shift) && SQX_Predicate(rates, "structure.last.5", "==", 4, shift) && SQX_Predicate(rates, "trend.close_ema.10", ">", 0, shift) && SQX_Predicate(rates, "volatility.compression.50.2.1.5", "==", -1, shift)) && atr!=EMPTY_VALUE && atr>0; }
 
 // SQX-EURUSD-H1-68567f217ec0 canonical=68567f217ec0c06824a4184673c1a34234e3a9f8d9bdbec88e36c2deb71425a4
 #define SQX_S8_ID "SQX-EURUSD-H1-68567f217ec0"
@@ -104,7 +104,7 @@ bool SQX_S7_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predi
 #define SQX_S8_TARGET_ATR 2
 #define SQX_S8_TIME_EXIT 24
 #define SQX_S8_DIRECTION_SHORT 1
-bool SQX_S8_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "structure.fractal_low.3", "==", 1, shift) && SQX_Predicate(rates, "structure.last.5", "==", 4, shift) && SQX_Predicate(rates, "trend.ema_slope.50.3", "<", 0, shift) && SQX_Predicate(rates, "volatility.bb_middle.20.2", "<", 0, shift)) && SQX_ATR(rates, 14, shift) > 0; }
+bool SQX_S8_Signal(const MqlRates &rates[], const int shift) { double atr=SQX_ATR(rates, 14, shift); return (SQX_Predicate(rates, "structure.fractal_low.3", "==", 1, shift) && SQX_Predicate(rates, "structure.last.5", "==", 4, shift) && SQX_Predicate(rates, "trend.ema_slope.50.3", "<", 0, shift) && SQX_Predicate(rates, "volatility.bb_middle.20.2", "<", 0, shift)) && atr!=EMPTY_VALUE && atr>0; }
 
 // SQX-EURUSD-H1-611b3b7f3ac5 canonical=611b3b7f3ac5862d89a71223c21d1ada241601b362131558c6ca17dbf87f659f
 #define SQX_S9_ID "SQX-EURUSD-H1-611b3b7f3ac5"
@@ -115,7 +115,7 @@ bool SQX_S8_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predi
 #define SQX_S9_TARGET_ATR 2
 #define SQX_S9_TIME_EXIT 72
 #define SQX_S9_DIRECTION_LONG 1
-bool SQX_S9_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "momentum.roc.4", ">", 0.0050000000000000001, shift) && SQX_Predicate(rates, "rsi_14", ">", 70, shift)) && SQX_ATR(rates, 14, shift) > 0; }
+bool SQX_S9_Signal(const MqlRates &rates[], const int shift) { double atr=SQX_ATR(rates, 14, shift); return (SQX_Predicate(rates, "momentum.roc.4", ">", 0.0050000000000000001, shift) && SQX_Predicate(rates, "rsi_14", ">", 70, shift)) && atr!=EMPTY_VALUE && atr>0; }
 
 // SQX-EURUSD-H1-6682b7a6ec07 canonical=6682b7a6ec07e31cc9de70e845ba38e1945c2cf0c3a0ff1b8994037947b24fa7
 #define SQX_S10_ID "SQX-EURUSD-H1-6682b7a6ec07"
@@ -126,7 +126,7 @@ bool SQX_S9_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predi
 #define SQX_S10_TARGET_ATR 2
 #define SQX_S10_TIME_EXIT 24
 #define SQX_S10_DIRECTION_LONG 1
-bool SQX_S10_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "structure.break_high.2", ">", 0, shift) && SQX_Predicate(rates, "trend.ema_slope.10.1", "<", 0, shift)) && SQX_ATR(rates, 14, shift) > 0; }
+bool SQX_S10_Signal(const MqlRates &rates[], const int shift) { double atr=SQX_ATR(rates, 14, shift); return (SQX_Predicate(rates, "structure.break_high.2", ">", 0, shift) && SQX_Predicate(rates, "trend.ema_slope.10.1", "<", 0, shift)) && atr!=EMPTY_VALUE && atr>0; }
 
 // SQX-EURUSD-H1-73f2fc6ba7b5 canonical=73f2fc6ba7b57859f412a94c95757990834d6ae387e12fbe13c7b363bdeb21eb
 #define SQX_S11_ID "SQX-EURUSD-H1-73f2fc6ba7b5"
@@ -137,7 +137,7 @@ bool SQX_S10_Signal(const MqlRates &rates[], const int shift) { return (SQX_Pred
 #define SQX_S11_TARGET_ATR 4
 #define SQX_S11_TIME_EXIT 96
 #define SQX_S11_DIRECTION_SHORT 1
-bool SQX_S11_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "momentum.willr.14", ">", -20, shift) && SQX_Predicate(rates, "momentum.willr.28", ">", -80, shift) && SQX_Predicate(rates, "structure.last.5", "==", 3, shift)) && SQX_ATR(rates, 14, shift) > 0; }
+bool SQX_S11_Signal(const MqlRates &rates[], const int shift) { double atr=SQX_ATR(rates, 14, shift); return (SQX_Predicate(rates, "momentum.willr.14", ">", -20, shift) && SQX_Predicate(rates, "momentum.willr.28", ">", -80, shift) && SQX_Predicate(rates, "structure.last.5", "==", 3, shift)) && atr!=EMPTY_VALUE && atr>0; }
 
 // SQX-EURUSD-H1-bdc6d699e26f canonical=bdc6d699e26fea301227e60266b7759f0f300407f4a5d47f287733969be92b10
 #define SQX_S12_ID "SQX-EURUSD-H1-bdc6d699e26f"
@@ -148,7 +148,7 @@ bool SQX_S11_Signal(const MqlRates &rates[], const int shift) { return (SQX_Pred
 #define SQX_S12_TARGET_ATR 4
 #define SQX_S12_TIME_EXIT 48
 #define SQX_S12_DIRECTION_LONG 1
-bool SQX_S12_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "structure.last.5", "==", 1, shift) && SQX_Predicate(rates, "volatility.compression.20.2.1.5", "==", 1, shift)) && SQX_ATR(rates, 14, shift) > 0; }
+bool SQX_S12_Signal(const MqlRates &rates[], const int shift) { double atr=SQX_ATR(rates, 14, shift); return (SQX_Predicate(rates, "structure.last.5", "==", 1, shift) && SQX_Predicate(rates, "volatility.compression.20.2.1.5", "==", 1, shift)) && atr!=EMPTY_VALUE && atr>0; }
 
 // SQX-EURUSD-H1-a18d86c3075c canonical=a18d86c3075cb282769464e4cffad790e2cd9b54d2dc9295fdd4f049e468eb83
 #define SQX_S13_ID "SQX-EURUSD-H1-a18d86c3075c"
@@ -159,7 +159,7 @@ bool SQX_S12_Signal(const MqlRates &rates[], const int shift) { return (SQX_Pred
 #define SQX_S13_TARGET_ATR 1.5
 #define SQX_S13_TIME_EXIT 48
 #define SQX_S13_DIRECTION_LONG 1
-bool SQX_S13_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "trend.breakout_low.100", "<", 0, shift) && SQX_Predicate(rates, "trend.ema_slope.100.6", "<", 0, shift) && SQX_Predicate(rates, "trend.ema_slope.200.6", "<", 0, shift)) && SQX_ATR(rates, 14, shift) > 0; }
+bool SQX_S13_Signal(const MqlRates &rates[], const int shift) { double atr=SQX_ATR(rates, 14, shift); return (SQX_Predicate(rates, "trend.breakout_low.100", "<", 0, shift) && SQX_Predicate(rates, "trend.ema_slope.100.6", "<", 0, shift) && SQX_Predicate(rates, "trend.ema_slope.200.6", "<", 0, shift)) && atr!=EMPTY_VALUE && atr>0; }
 
 // SQX-EURUSD-H1-59d9b5d3a639 canonical=59d9b5d3a6391a972689ccd2b4c7293e37748e1f6c1d6369d19f82833b6971cf
 #define SQX_S14_ID "SQX-EURUSD-H1-59d9b5d3a639"
@@ -170,7 +170,7 @@ bool SQX_S13_Signal(const MqlRates &rates[], const int shift) { return (SQX_Pred
 #define SQX_S14_TARGET_ATR 1.5
 #define SQX_S14_TIME_EXIT 48
 #define SQX_S14_DIRECTION_LONG 1
-bool SQX_S14_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "structure.break_high.2", ">", 0, shift) && SQX_Predicate(rates, "trend.ema_slope.10.1", "<", 0, shift) && SQX_Predicate(rates, "volatility.compression.50.2.1.5", "==", -1, shift)) && SQX_ATR(rates, 14, shift) > 0; }
+bool SQX_S14_Signal(const MqlRates &rates[], const int shift) { double atr=SQX_ATR(rates, 14, shift); return (SQX_Predicate(rates, "structure.break_high.2", ">", 0, shift) && SQX_Predicate(rates, "trend.ema_slope.10.1", "<", 0, shift) && SQX_Predicate(rates, "volatility.compression.50.2.1.5", "==", -1, shift)) && atr!=EMPTY_VALUE && atr>0; }
 
 // SQX-EURUSD-H1-636292a9084a canonical=636292a9084a77e34bc4e89c3164fa3a71e2e63c8f817a49c32aa5e9f3c19463
 #define SQX_S15_ID "SQX-EURUSD-H1-636292a9084a"
@@ -181,7 +181,7 @@ bool SQX_S14_Signal(const MqlRates &rates[], const int shift) { return (SQX_Pred
 #define SQX_S15_TARGET_ATR 3
 #define SQX_S15_TIME_EXIT 24
 #define SQX_S15_DIRECTION_LONG 1
-bool SQX_S15_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "structure.break_high.2", ">", 0, shift) && SQX_Predicate(rates, "trend.close_ema.10", "<", 0, shift)) && SQX_ATR(rates, 14, shift) > 0; }
+bool SQX_S15_Signal(const MqlRates &rates[], const int shift) { double atr=SQX_ATR(rates, 14, shift); return (SQX_Predicate(rates, "structure.break_high.2", ">", 0, shift) && SQX_Predicate(rates, "trend.close_ema.10", "<", 0, shift)) && atr!=EMPTY_VALUE && atr>0; }
 
 // SQX-EURUSD-H1-4c5f2833ce74 canonical=4c5f2833ce743c2809f5dbc7da8ff855d63ad9c435aefcd5a82abab82676a6f0
 #define SQX_S16_ID "SQX-EURUSD-H1-4c5f2833ce74"
@@ -192,7 +192,7 @@ bool SQX_S15_Signal(const MqlRates &rates[], const int shift) { return (SQX_Pred
 #define SQX_S16_TARGET_ATR 4
 #define SQX_S16_TIME_EXIT 96
 #define SQX_S16_DIRECTION_SHORT 1
-bool SQX_S16_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "momentum.willr.14", ">", -20, shift) && SQX_Predicate(rates, "structure.last.5", "==", 3, shift) && SQX_Predicate(rates, "trend.ema_slope.50.3", "<", 0, shift) && SQX_Predicate(rates, "volatility.bb_middle.20.2", ">", 0, shift)) && SQX_ATR(rates, 14, shift) > 0; }
+bool SQX_S16_Signal(const MqlRates &rates[], const int shift) { double atr=SQX_ATR(rates, 14, shift); return (SQX_Predicate(rates, "momentum.willr.14", ">", -20, shift) && SQX_Predicate(rates, "structure.last.5", "==", 3, shift) && SQX_Predicate(rates, "trend.ema_slope.50.3", "<", 0, shift) && SQX_Predicate(rates, "volatility.bb_middle.20.2", ">", 0, shift)) && atr!=EMPTY_VALUE && atr>0; }
 
 // SQX-EURUSD-H1-108300962057 canonical=1083009620579eed05429c98c9f4e4abff85767b508ea27fd711548b83a3a0e3
 #define SQX_S17_ID "SQX-EURUSD-H1-108300962057"
@@ -203,7 +203,7 @@ bool SQX_S16_Signal(const MqlRates &rates[], const int shift) { return (SQX_Pred
 #define SQX_S17_TARGET_ATR 4
 #define SQX_S17_TIME_EXIT 48
 #define SQX_S17_DIRECTION_LONG 1
-bool SQX_S17_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "trend.ema_slope.200.1", "<", 0, shift) && SQX_Predicate(rates, "trend.ema_slope.50.3", ">", 0, shift)) && SQX_ATR(rates, 14, shift) > 0; }
+bool SQX_S17_Signal(const MqlRates &rates[], const int shift) { double atr=SQX_ATR(rates, 14, shift); return (SQX_Predicate(rates, "trend.ema_slope.200.1", "<", 0, shift) && SQX_Predicate(rates, "trend.ema_slope.50.3", ">", 0, shift)) && atr!=EMPTY_VALUE && atr>0; }
 
 // SQX-EURUSD-H1-6d1cb5fa1910 canonical=6d1cb5fa19108db822b3a0868bca737deb76b47f32d472de68773c8cddff5960
 #define SQX_S18_ID "SQX-EURUSD-H1-6d1cb5fa1910"
@@ -214,7 +214,7 @@ bool SQX_S17_Signal(const MqlRates &rates[], const int shift) { return (SQX_Pred
 #define SQX_S18_TARGET_ATR 3
 #define SQX_S18_TIME_EXIT 96
 #define SQX_S18_DIRECTION_LONG 1
-bool SQX_S18_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "structure.last.5", "==", 1, shift) && SQX_Predicate(rates, "trend.ema_pair.20.100", "<", 0, shift) && SQX_Predicate(rates, "trend.ema_slope.10.3", "<", 0, shift) && SQX_Predicate(rates, "volatility.bb_middle.20.2", ">", 0, shift)) && SQX_ATR(rates, 14, shift) > 0; }
+bool SQX_S18_Signal(const MqlRates &rates[], const int shift) { double atr=SQX_ATR(rates, 14, shift); return (SQX_Predicate(rates, "structure.last.5", "==", 1, shift) && SQX_Predicate(rates, "trend.ema_pair.20.100", "<", 0, shift) && SQX_Predicate(rates, "trend.ema_slope.10.3", "<", 0, shift) && SQX_Predicate(rates, "volatility.bb_middle.20.2", ">", 0, shift)) && atr!=EMPTY_VALUE && atr>0; }
 
 // SQX-EURUSD-H1-0cc329175f76 canonical=0cc329175f76bbbbb2965ec2ba36f28d1df5f65dcd1e7cb3dd325f0b5ef81e27
 #define SQX_S19_ID "SQX-EURUSD-H1-0cc329175f76"
@@ -225,13 +225,13 @@ bool SQX_S18_Signal(const MqlRates &rates[], const int shift) { return (SQX_Pred
 #define SQX_S19_TARGET_ATR 2
 #define SQX_S19_TIME_EXIT 48
 #define SQX_S19_DIRECTION_LONG 1
-bool SQX_S19_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "momentum.roc.4", ">", 0.0050000000000000001, shift) && SQX_Predicate(rates, "rsi_14", ">", 25, shift) && SQX_Predicate(rates, "structure.fractal_low.2", "==", 1, shift)) && SQX_ATR(rates, 14, shift) > 0; }
+bool SQX_S19_Signal(const MqlRates &rates[], const int shift) { double atr=SQX_ATR(rates, 14, shift); return (SQX_Predicate(rates, "momentum.roc.4", ">", 0.0050000000000000001, shift) && SQX_Predicate(rates, "rsi_14", ">", 25, shift) && SQX_Predicate(rates, "structure.fractal_low.2", "==", 1, shift)) && atr!=EMPTY_VALUE && atr>0; }
 
 int OnInit() { SQX_Log("SQX_INIT", "", "", _Symbol, _Period, 0, 0, 0, 0, "NETTING_OR_HEDGING_ACCOUNT_MODE"); return INIT_SUCCEEDED; }
 
 void OnTick() { static datetime last[64]; SQX_UpdatePropAccount(InpInternalDailyLimit,InpInternalTotalLimit);
 if(iTime(_Symbol,SQX_S0_TF,0)!=last[0]){last[0]=iTime(_Symbol,SQX_S0_TF,0);{ SQX_ManagePosition(_Symbol,SQX_S0_MAGIC,SQX_S0_TF,SQX_S0_TIME_EXIT,"SQX-PROP-02760ECAC8BA",SQX_S0_ID); MqlRates r0[]; if(!SQX_HasPosition(_Symbol,SQX_S0_MAGIC) && SQX_LoadRates(_Symbol,SQX_S0_TF,r0,600) && SQX_S0_Signal(r0,1)) { double atr=SQX_ATR(r0,SQX_S0_ATR_PERIOD,1), stop=atr*SQX_S0_STOP_ATR; double requested=SQX_WEIGHTED_RISK(0.01, 0.042419467771515229); SQX_RiskDecision rd=SQX_CheckPortfolioRisk(requested,requested,0.02); if(rd.action==SQX_REJECT) SQX_Log("SQX_RISK_REJECT","SQX-PROP-02760ECAC8BA",SQX_S0_ID,_Symbol,SQX_S0_TF,0,0,stop,requested,"RISK_LIMIT"); else { double v=SQX_RiskVolume(_Symbol,AccountInfoDouble(ACCOUNT_EQUITY),rd.risk,stop); if(v>0) SQX_SendEntry(_Symbol,ORDER_TYPE_BUY,v,stop,atr*SQX_S0_TARGET_ATR,SQX_S0_MAGIC,"SQX-PROP-02760ECAC8BA",SQX_S0_ID); } } }}
-if(iTime(_Symbol,SQX_S1_TF,0)!=last[1]){last[1]=iTime(_Symbol,SQX_S1_TF,0);{ SQX_ManagePosition(_Symbol,SQX_S1_MAGIC,SQX_S1_TF,SQX_S1_TIME_EXIT,"SQX-PROP-02760ECAC8BA",SQX_S1_ID); MqlRates r1[]; if(!SQX_HasPosition(_Symbol,SQX_S1_MAGIC) && SQX_LoadRates(_Symbol,SQX_S1_TF,r1,600) && SQX_S1_Signal(r1,1)) { double atr=SQX_ATR(r1,SQX_S1_ATR_PERIOD,1), stop=atr*SQX_S1_STOP_ATR; double requested=SQX_WEIGHTED_RISK(0.01, 0.047180325768977675); SQX_RiskDecision rd=SQX_CheckPortfolioRisk(requested,requested,0.02); if(rd.action==SQX_REJECT) SQX_Log("SQX_RISK_REJECT","SQX-PROP-02760ECAC8BA",SQX_S1_ID,_Symbol,SQX_S1_TF,0,0,stop,requested,"RISK_LIMIT"); else { double v=SQX_RiskVolume(_Symbol,AccountInfoDouble(ACCOUNT_EQUITY),rd.risk,stop); if(v>0) SQX_SendEntry(_Symbol,ORDER_TYPE_BUY,v,stop,atr*SQX_S1_TARGET_ATR,SQX_S1_MAGIC,"SQX-PROP-02760ECAC8BA",SQX_S1_ID); } } }}
+if(iTime(_Symbol,SQX_S1_TF,0)!=last[1]){last[1]=iTime(_Symbol,SQX_S1_TF,0);{ SQX_ManagePosition(_Symbol,SQX_S1_MAGIC,SQX_S1_TF,SQX_S1_TIME_EXIT,"SQX-PROP-02760ECAC8BA",SQX_S1_ID); MqlRates r1[]; if(!SQX_HasPosition(_Symbol,SQX_S1_MAGIC) && SQX_LoadRates(_Symbol,SQX_S1_TF,r1,803) && SQX_S1_Signal(r1,1)) { double atr=SQX_ATR(r1,SQX_S1_ATR_PERIOD,1), stop=atr*SQX_S1_STOP_ATR; double requested=SQX_WEIGHTED_RISK(0.01, 0.047180325768977675); SQX_RiskDecision rd=SQX_CheckPortfolioRisk(requested,requested,0.02); if(rd.action==SQX_REJECT) SQX_Log("SQX_RISK_REJECT","SQX-PROP-02760ECAC8BA",SQX_S1_ID,_Symbol,SQX_S1_TF,0,0,stop,requested,"RISK_LIMIT"); else { double v=SQX_RiskVolume(_Symbol,AccountInfoDouble(ACCOUNT_EQUITY),rd.risk,stop); if(v>0) SQX_SendEntry(_Symbol,ORDER_TYPE_BUY,v,stop,atr*SQX_S1_TARGET_ATR,SQX_S1_MAGIC,"SQX-PROP-02760ECAC8BA",SQX_S1_ID); } } }}
 if(iTime(_Symbol,SQX_S2_TF,0)!=last[2]){last[2]=iTime(_Symbol,SQX_S2_TF,0);{ SQX_ManagePosition(_Symbol,SQX_S2_MAGIC,SQX_S2_TF,SQX_S2_TIME_EXIT,"SQX-PROP-02760ECAC8BA",SQX_S2_ID); MqlRates r2[]; if(!SQX_HasPosition(_Symbol,SQX_S2_MAGIC) && SQX_LoadRates(_Symbol,SQX_S2_TF,r2,600) && SQX_S2_Signal(r2,1)) { double atr=SQX_ATR(r2,SQX_S2_ATR_PERIOD,1), stop=atr*SQX_S2_STOP_ATR; double requested=SQX_WEIGHTED_RISK(0.01, 0.046754135923797076); SQX_RiskDecision rd=SQX_CheckPortfolioRisk(requested,requested,0.02); if(rd.action==SQX_REJECT) SQX_Log("SQX_RISK_REJECT","SQX-PROP-02760ECAC8BA",SQX_S2_ID,_Symbol,SQX_S2_TF,0,0,stop,requested,"RISK_LIMIT"); else { double v=SQX_RiskVolume(_Symbol,AccountInfoDouble(ACCOUNT_EQUITY),rd.risk,stop); if(v>0) SQX_SendEntry(_Symbol,ORDER_TYPE_BUY,v,stop,atr*SQX_S2_TARGET_ATR,SQX_S2_MAGIC,"SQX-PROP-02760ECAC8BA",SQX_S2_ID); } } }}
 if(iTime(_Symbol,SQX_S3_TF,0)!=last[3]){last[3]=iTime(_Symbol,SQX_S3_TF,0);{ SQX_ManagePosition(_Symbol,SQX_S3_MAGIC,SQX_S3_TF,SQX_S3_TIME_EXIT,"SQX-PROP-02760ECAC8BA",SQX_S3_ID); MqlRates r3[]; if(!SQX_HasPosition(_Symbol,SQX_S3_MAGIC) && SQX_LoadRates(_Symbol,SQX_S3_TF,r3,600) && SQX_S3_Signal(r3,1)) { double atr=SQX_ATR(r3,SQX_S3_ATR_PERIOD,1), stop=atr*SQX_S3_STOP_ATR; double requested=SQX_WEIGHTED_RISK(0.01, 0.024904481239335193); SQX_RiskDecision rd=SQX_CheckPortfolioRisk(requested,requested,0.02); if(rd.action==SQX_REJECT) SQX_Log("SQX_RISK_REJECT","SQX-PROP-02760ECAC8BA",SQX_S3_ID,_Symbol,SQX_S3_TF,0,0,stop,requested,"RISK_LIMIT"); else { double v=SQX_RiskVolume(_Symbol,AccountInfoDouble(ACCOUNT_EQUITY),rd.risk,stop); if(v>0) SQX_SendEntry(_Symbol,ORDER_TYPE_BUY,v,stop,atr*SQX_S3_TARGET_ATR,SQX_S3_MAGIC,"SQX-PROP-02760ECAC8BA",SQX_S3_ID); } } }}
 if(iTime(_Symbol,SQX_S4_TF,0)!=last[4]){last[4]=iTime(_Symbol,SQX_S4_TF,0);{ SQX_ManagePosition(_Symbol,SQX_S4_MAGIC,SQX_S4_TF,SQX_S4_TIME_EXIT,"SQX-PROP-02760ECAC8BA",SQX_S4_ID); MqlRates r4[]; if(!SQX_HasPosition(_Symbol,SQX_S4_MAGIC) && SQX_LoadRates(_Symbol,SQX_S4_TF,r4,600) && SQX_S4_Signal(r4,1)) { double atr=SQX_ATR(r4,SQX_S4_ATR_PERIOD,1), stop=atr*SQX_S4_STOP_ATR; double requested=SQX_WEIGHTED_RISK(0.01, 0.049153946345625789); SQX_RiskDecision rd=SQX_CheckPortfolioRisk(requested,requested,0.02); if(rd.action==SQX_REJECT) SQX_Log("SQX_RISK_REJECT","SQX-PROP-02760ECAC8BA",SQX_S4_ID,_Symbol,SQX_S4_TF,0,0,stop,requested,"RISK_LIMIT"); else { double v=SQX_RiskVolume(_Symbol,AccountInfoDouble(ACCOUNT_EQUITY),rd.risk,stop); if(v>0) SQX_SendEntry(_Symbol,ORDER_TYPE_SELL,v,stop,atr*SQX_S4_TARGET_ATR,SQX_S4_MAGIC,"SQX-PROP-02760ECAC8BA",SQX_S4_ID); } } }}
@@ -243,11 +243,11 @@ if(iTime(_Symbol,SQX_S9_TF,0)!=last[9]){last[9]=iTime(_Symbol,SQX_S9_TF,0);{ SQX
 if(iTime(_Symbol,SQX_S10_TF,0)!=last[10]){last[10]=iTime(_Symbol,SQX_S10_TF,0);{ SQX_ManagePosition(_Symbol,SQX_S10_MAGIC,SQX_S10_TF,SQX_S10_TIME_EXIT,"SQX-PROP-02760ECAC8BA",SQX_S10_ID); MqlRates r10[]; if(!SQX_HasPosition(_Symbol,SQX_S10_MAGIC) && SQX_LoadRates(_Symbol,SQX_S10_TF,r10,600) && SQX_S10_Signal(r10,1)) { double atr=SQX_ATR(r10,SQX_S10_ATR_PERIOD,1), stop=atr*SQX_S10_STOP_ATR; double requested=SQX_WEIGHTED_RISK(0.01, 0.092953749683592948); SQX_RiskDecision rd=SQX_CheckPortfolioRisk(requested,requested,0.02); if(rd.action==SQX_REJECT) SQX_Log("SQX_RISK_REJECT","SQX-PROP-02760ECAC8BA",SQX_S10_ID,_Symbol,SQX_S10_TF,0,0,stop,requested,"RISK_LIMIT"); else { double v=SQX_RiskVolume(_Symbol,AccountInfoDouble(ACCOUNT_EQUITY),rd.risk,stop); if(v>0) SQX_SendEntry(_Symbol,ORDER_TYPE_BUY,v,stop,atr*SQX_S10_TARGET_ATR,SQX_S10_MAGIC,"SQX-PROP-02760ECAC8BA",SQX_S10_ID); } } }}
 if(iTime(_Symbol,SQX_S11_TF,0)!=last[11]){last[11]=iTime(_Symbol,SQX_S11_TF,0);{ SQX_ManagePosition(_Symbol,SQX_S11_MAGIC,SQX_S11_TF,SQX_S11_TIME_EXIT,"SQX-PROP-02760ECAC8BA",SQX_S11_ID); MqlRates r11[]; if(!SQX_HasPosition(_Symbol,SQX_S11_MAGIC) && SQX_LoadRates(_Symbol,SQX_S11_TF,r11,600) && SQX_S11_Signal(r11,1)) { double atr=SQX_ATR(r11,SQX_S11_ATR_PERIOD,1), stop=atr*SQX_S11_STOP_ATR; double requested=SQX_WEIGHTED_RISK(0.01, 0.026135939430595782); SQX_RiskDecision rd=SQX_CheckPortfolioRisk(requested,requested,0.02); if(rd.action==SQX_REJECT) SQX_Log("SQX_RISK_REJECT","SQX-PROP-02760ECAC8BA",SQX_S11_ID,_Symbol,SQX_S11_TF,0,0,stop,requested,"RISK_LIMIT"); else { double v=SQX_RiskVolume(_Symbol,AccountInfoDouble(ACCOUNT_EQUITY),rd.risk,stop); if(v>0) SQX_SendEntry(_Symbol,ORDER_TYPE_SELL,v,stop,atr*SQX_S11_TARGET_ATR,SQX_S11_MAGIC,"SQX-PROP-02760ECAC8BA",SQX_S11_ID); } } }}
 if(iTime(_Symbol,SQX_S12_TF,0)!=last[12]){last[12]=iTime(_Symbol,SQX_S12_TF,0);{ SQX_ManagePosition(_Symbol,SQX_S12_MAGIC,SQX_S12_TF,SQX_S12_TIME_EXIT,"SQX-PROP-02760ECAC8BA",SQX_S12_ID); MqlRates r12[]; if(!SQX_HasPosition(_Symbol,SQX_S12_MAGIC) && SQX_LoadRates(_Symbol,SQX_S12_TF,r12,600) && SQX_S12_Signal(r12,1)) { double atr=SQX_ATR(r12,SQX_S12_ATR_PERIOD,1), stop=atr*SQX_S12_STOP_ATR; double requested=SQX_WEIGHTED_RISK(0.01, 0.039374644924383237); SQX_RiskDecision rd=SQX_CheckPortfolioRisk(requested,requested,0.02); if(rd.action==SQX_REJECT) SQX_Log("SQX_RISK_REJECT","SQX-PROP-02760ECAC8BA",SQX_S12_ID,_Symbol,SQX_S12_TF,0,0,stop,requested,"RISK_LIMIT"); else { double v=SQX_RiskVolume(_Symbol,AccountInfoDouble(ACCOUNT_EQUITY),rd.risk,stop); if(v>0) SQX_SendEntry(_Symbol,ORDER_TYPE_BUY,v,stop,atr*SQX_S12_TARGET_ATR,SQX_S12_MAGIC,"SQX-PROP-02760ECAC8BA",SQX_S12_ID); } } }}
-if(iTime(_Symbol,SQX_S13_TF,0)!=last[13]){last[13]=iTime(_Symbol,SQX_S13_TF,0);{ SQX_ManagePosition(_Symbol,SQX_S13_MAGIC,SQX_S13_TF,SQX_S13_TIME_EXIT,"SQX-PROP-02760ECAC8BA",SQX_S13_ID); MqlRates r13[]; if(!SQX_HasPosition(_Symbol,SQX_S13_MAGIC) && SQX_LoadRates(_Symbol,SQX_S13_TF,r13,600) && SQX_S13_Signal(r13,1)) { double atr=SQX_ATR(r13,SQX_S13_ATR_PERIOD,1), stop=atr*SQX_S13_STOP_ATR; double requested=SQX_WEIGHTED_RISK(0.01, 0.043248425616940235); SQX_RiskDecision rd=SQX_CheckPortfolioRisk(requested,requested,0.02); if(rd.action==SQX_REJECT) SQX_Log("SQX_RISK_REJECT","SQX-PROP-02760ECAC8BA",SQX_S13_ID,_Symbol,SQX_S13_TF,0,0,stop,requested,"RISK_LIMIT"); else { double v=SQX_RiskVolume(_Symbol,AccountInfoDouble(ACCOUNT_EQUITY),rd.risk,stop); if(v>0) SQX_SendEntry(_Symbol,ORDER_TYPE_BUY,v,stop,atr*SQX_S13_TARGET_ATR,SQX_S13_MAGIC,"SQX-PROP-02760ECAC8BA",SQX_S13_ID); } } }}
+if(iTime(_Symbol,SQX_S13_TF,0)!=last[13]){last[13]=iTime(_Symbol,SQX_S13_TF,0);{ SQX_ManagePosition(_Symbol,SQX_S13_MAGIC,SQX_S13_TF,SQX_S13_TIME_EXIT,"SQX-PROP-02760ECAC8BA",SQX_S13_ID); MqlRates r13[]; if(!SQX_HasPosition(_Symbol,SQX_S13_MAGIC) && SQX_LoadRates(_Symbol,SQX_S13_TF,r13,808) && SQX_S13_Signal(r13,1)) { double atr=SQX_ATR(r13,SQX_S13_ATR_PERIOD,1), stop=atr*SQX_S13_STOP_ATR; double requested=SQX_WEIGHTED_RISK(0.01, 0.043248425616940235); SQX_RiskDecision rd=SQX_CheckPortfolioRisk(requested,requested,0.02); if(rd.action==SQX_REJECT) SQX_Log("SQX_RISK_REJECT","SQX-PROP-02760ECAC8BA",SQX_S13_ID,_Symbol,SQX_S13_TF,0,0,stop,requested,"RISK_LIMIT"); else { double v=SQX_RiskVolume(_Symbol,AccountInfoDouble(ACCOUNT_EQUITY),rd.risk,stop); if(v>0) SQX_SendEntry(_Symbol,ORDER_TYPE_BUY,v,stop,atr*SQX_S13_TARGET_ATR,SQX_S13_MAGIC,"SQX-PROP-02760ECAC8BA",SQX_S13_ID); } } }}
 if(iTime(_Symbol,SQX_S14_TF,0)!=last[14]){last[14]=iTime(_Symbol,SQX_S14_TF,0);{ SQX_ManagePosition(_Symbol,SQX_S14_MAGIC,SQX_S14_TF,SQX_S14_TIME_EXIT,"SQX-PROP-02760ECAC8BA",SQX_S14_ID); MqlRates r14[]; if(!SQX_HasPosition(_Symbol,SQX_S14_MAGIC) && SQX_LoadRates(_Symbol,SQX_S14_TF,r14,600) && SQX_S14_Signal(r14,1)) { double atr=SQX_ATR(r14,SQX_S14_ATR_PERIOD,1), stop=atr*SQX_S14_STOP_ATR; double requested=SQX_WEIGHTED_RISK(0.01, 0.099209794068159163); SQX_RiskDecision rd=SQX_CheckPortfolioRisk(requested,requested,0.02); if(rd.action==SQX_REJECT) SQX_Log("SQX_RISK_REJECT","SQX-PROP-02760ECAC8BA",SQX_S14_ID,_Symbol,SQX_S14_TF,0,0,stop,requested,"RISK_LIMIT"); else { double v=SQX_RiskVolume(_Symbol,AccountInfoDouble(ACCOUNT_EQUITY),rd.risk,stop); if(v>0) SQX_SendEntry(_Symbol,ORDER_TYPE_BUY,v,stop,atr*SQX_S14_TARGET_ATR,SQX_S14_MAGIC,"SQX-PROP-02760ECAC8BA",SQX_S14_ID); } } }}
 if(iTime(_Symbol,SQX_S15_TF,0)!=last[15]){last[15]=iTime(_Symbol,SQX_S15_TF,0);{ SQX_ManagePosition(_Symbol,SQX_S15_MAGIC,SQX_S15_TF,SQX_S15_TIME_EXIT,"SQX-PROP-02760ECAC8BA",SQX_S15_ID); MqlRates r15[]; if(!SQX_HasPosition(_Symbol,SQX_S15_MAGIC) && SQX_LoadRates(_Symbol,SQX_S15_TF,r15,600) && SQX_S15_Signal(r15,1)) { double atr=SQX_ATR(r15,SQX_S15_ATR_PERIOD,1), stop=atr*SQX_S15_STOP_ATR; double requested=SQX_WEIGHTED_RISK(0.01, 0.076766396818941707); SQX_RiskDecision rd=SQX_CheckPortfolioRisk(requested,requested,0.02); if(rd.action==SQX_REJECT) SQX_Log("SQX_RISK_REJECT","SQX-PROP-02760ECAC8BA",SQX_S15_ID,_Symbol,SQX_S15_TF,0,0,stop,requested,"RISK_LIMIT"); else { double v=SQX_RiskVolume(_Symbol,AccountInfoDouble(ACCOUNT_EQUITY),rd.risk,stop); if(v>0) SQX_SendEntry(_Symbol,ORDER_TYPE_BUY,v,stop,atr*SQX_S15_TARGET_ATR,SQX_S15_MAGIC,"SQX-PROP-02760ECAC8BA",SQX_S15_ID); } } }}
 if(iTime(_Symbol,SQX_S16_TF,0)!=last[16]){last[16]=iTime(_Symbol,SQX_S16_TF,0);{ SQX_ManagePosition(_Symbol,SQX_S16_MAGIC,SQX_S16_TF,SQX_S16_TIME_EXIT,"SQX-PROP-02760ECAC8BA",SQX_S16_ID); MqlRates r16[]; if(!SQX_HasPosition(_Symbol,SQX_S16_MAGIC) && SQX_LoadRates(_Symbol,SQX_S16_TF,r16,600) && SQX_S16_Signal(r16,1)) { double atr=SQX_ATR(r16,SQX_S16_ATR_PERIOD,1), stop=atr*SQX_S16_STOP_ATR; double requested=SQX_WEIGHTED_RISK(0.01, 0.049533247243096427); SQX_RiskDecision rd=SQX_CheckPortfolioRisk(requested,requested,0.02); if(rd.action==SQX_REJECT) SQX_Log("SQX_RISK_REJECT","SQX-PROP-02760ECAC8BA",SQX_S16_ID,_Symbol,SQX_S16_TF,0,0,stop,requested,"RISK_LIMIT"); else { double v=SQX_RiskVolume(_Symbol,AccountInfoDouble(ACCOUNT_EQUITY),rd.risk,stop); if(v>0) SQX_SendEntry(_Symbol,ORDER_TYPE_SELL,v,stop,atr*SQX_S16_TARGET_ATR,SQX_S16_MAGIC,"SQX-PROP-02760ECAC8BA",SQX_S16_ID); } } }}
-if(iTime(_Symbol,SQX_S17_TF,0)!=last[17]){last[17]=iTime(_Symbol,SQX_S17_TF,0);{ SQX_ManagePosition(_Symbol,SQX_S17_MAGIC,SQX_S17_TF,SQX_S17_TIME_EXIT,"SQX-PROP-02760ECAC8BA",SQX_S17_ID); MqlRates r17[]; if(!SQX_HasPosition(_Symbol,SQX_S17_MAGIC) && SQX_LoadRates(_Symbol,SQX_S17_TF,r17,600) && SQX_S17_Signal(r17,1)) { double atr=SQX_ATR(r17,SQX_S17_ATR_PERIOD,1), stop=atr*SQX_S17_STOP_ATR; double requested=SQX_WEIGHTED_RISK(0.01, 0.027883350678061674); SQX_RiskDecision rd=SQX_CheckPortfolioRisk(requested,requested,0.02); if(rd.action==SQX_REJECT) SQX_Log("SQX_RISK_REJECT","SQX-PROP-02760ECAC8BA",SQX_S17_ID,_Symbol,SQX_S17_TF,0,0,stop,requested,"RISK_LIMIT"); else { double v=SQX_RiskVolume(_Symbol,AccountInfoDouble(ACCOUNT_EQUITY),rd.risk,stop); if(v>0) SQX_SendEntry(_Symbol,ORDER_TYPE_BUY,v,stop,atr*SQX_S17_TARGET_ATR,SQX_S17_MAGIC,"SQX-PROP-02760ECAC8BA",SQX_S17_ID); } } }}
+if(iTime(_Symbol,SQX_S17_TF,0)!=last[17]){last[17]=iTime(_Symbol,SQX_S17_TF,0);{ SQX_ManagePosition(_Symbol,SQX_S17_MAGIC,SQX_S17_TF,SQX_S17_TIME_EXIT,"SQX-PROP-02760ECAC8BA",SQX_S17_ID); MqlRates r17[]; if(!SQX_HasPosition(_Symbol,SQX_S17_MAGIC) && SQX_LoadRates(_Symbol,SQX_S17_TF,r17,803) && SQX_S17_Signal(r17,1)) { double atr=SQX_ATR(r17,SQX_S17_ATR_PERIOD,1), stop=atr*SQX_S17_STOP_ATR; double requested=SQX_WEIGHTED_RISK(0.01, 0.027883350678061674); SQX_RiskDecision rd=SQX_CheckPortfolioRisk(requested,requested,0.02); if(rd.action==SQX_REJECT) SQX_Log("SQX_RISK_REJECT","SQX-PROP-02760ECAC8BA",SQX_S17_ID,_Symbol,SQX_S17_TF,0,0,stop,requested,"RISK_LIMIT"); else { double v=SQX_RiskVolume(_Symbol,AccountInfoDouble(ACCOUNT_EQUITY),rd.risk,stop); if(v>0) SQX_SendEntry(_Symbol,ORDER_TYPE_BUY,v,stop,atr*SQX_S17_TARGET_ATR,SQX_S17_MAGIC,"SQX-PROP-02760ECAC8BA",SQX_S17_ID); } } }}
 if(iTime(_Symbol,SQX_S18_TF,0)!=last[18]){last[18]=iTime(_Symbol,SQX_S18_TF,0);{ SQX_ManagePosition(_Symbol,SQX_S18_MAGIC,SQX_S18_TF,SQX_S18_TIME_EXIT,"SQX-PROP-02760ECAC8BA",SQX_S18_ID); MqlRates r18[]; if(!SQX_HasPosition(_Symbol,SQX_S18_MAGIC) && SQX_LoadRates(_Symbol,SQX_S18_TF,r18,600) && SQX_S18_Signal(r18,1)) { double atr=SQX_ATR(r18,SQX_S18_ATR_PERIOD,1), stop=atr*SQX_S18_STOP_ATR; double requested=SQX_WEIGHTED_RISK(0.01, 0.043323063713566395); SQX_RiskDecision rd=SQX_CheckPortfolioRisk(requested,requested,0.02); if(rd.action==SQX_REJECT) SQX_Log("SQX_RISK_REJECT","SQX-PROP-02760ECAC8BA",SQX_S18_ID,_Symbol,SQX_S18_TF,0,0,stop,requested,"RISK_LIMIT"); else { double v=SQX_RiskVolume(_Symbol,AccountInfoDouble(ACCOUNT_EQUITY),rd.risk,stop); if(v>0) SQX_SendEntry(_Symbol,ORDER_TYPE_BUY,v,stop,atr*SQX_S18_TARGET_ATR,SQX_S18_MAGIC,"SQX-PROP-02760ECAC8BA",SQX_S18_ID); } } }}
 if(iTime(_Symbol,SQX_S19_TF,0)!=last[19]){last[19]=iTime(_Symbol,SQX_S19_TF,0);{ SQX_ManagePosition(_Symbol,SQX_S19_MAGIC,SQX_S19_TF,SQX_S19_TIME_EXIT,"SQX-PROP-02760ECAC8BA",SQX_S19_ID); MqlRates r19[]; if(!SQX_HasPosition(_Symbol,SQX_S19_MAGIC) && SQX_LoadRates(_Symbol,SQX_S19_TF,r19,600) && SQX_S19_Signal(r19,1)) { double atr=SQX_ATR(r19,SQX_S19_ATR_PERIOD,1), stop=atr*SQX_S19_STOP_ATR; double requested=SQX_WEIGHTED_RISK(0.01, 0.05112363987623391); SQX_RiskDecision rd=SQX_CheckPortfolioRisk(requested,requested,0.02); if(rd.action==SQX_REJECT) SQX_Log("SQX_RISK_REJECT","SQX-PROP-02760ECAC8BA",SQX_S19_ID,_Symbol,SQX_S19_TF,0,0,stop,requested,"RISK_LIMIT"); else { double v=SQX_RiskVolume(_Symbol,AccountInfoDouble(ACCOUNT_EQUITY),rd.risk,stop); if(v>0) SQX_SendEntry(_Symbol,ORDER_TYPE_BUY,v,stop,atr*SQX_S19_TARGET_ATR,SQX_S19_MAGIC,"SQX-PROP-02760ECAC8BA",SQX_S19_ID); } } }}
 }

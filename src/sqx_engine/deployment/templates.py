@@ -1,29 +1,30 @@
 INDICATORS = r'''#property strict
-double SQX_SMA(const MqlRates &a[],int n,int s){double x=0;for(int i=s;i<s+n;i++)x+=a[i].close;return x/n;}
-double SQX_EMA(const MqlRates &a[],int n,int s){int z=s+n*4;double e=a[z].close,k=2.0/(n+1.0);for(int i=z-1;i>=s;i--)e=a[i].close*k+e*(1-k);return e;}
-double SQX_TR(const MqlRates &a[],int i){double p=a[i+1].close;return MathMax(a[i].high-a[i].low,MathMax(MathAbs(a[i].high-p),MathAbs(a[i].low-p)));}
-double SQX_ATR(const MqlRates &a[],int n,int s){double x=0;for(int i=s;i<s+n;i++)x+=SQX_TR(a,i);return x/n;}
-double SQX_ROC(const MqlRates &a[],int n,int s){return a[s+n].close==0?0:a[s].close/a[s+n].close-1;}
-double SQX_RSI(const MqlRates &a[],int n,int s){double g=0,l=0;for(int i=s;i<s+n;i++){double d=a[i].close-a[i+1].close;if(d>0)g+=d;else l-=d;}return l==0?100:100-100/(1+g/l);}
-double SQX_WILLR(const MqlRates &a[],int n,int s){double h=a[s].high,l=a[s].low;for(int i=s+1;i<s+n;i++){h=MathMax(h,a[i].high);l=MathMin(l,a[i].low);}return h==l?EMPTY_VALUE:-100*(h-a[s].close)/(h-l);}
-double SQX_BB(const MqlRates &a[],int n,double m,int s,int w){double x=SQX_SMA(a,n,s),v=0;for(int i=s;i<s+n;i++)v+=(a[i].close-x)*(a[i].close-x);double d=MathSqrt(v/n);return w==0?x+m*d:w==1?x-m*d:x;}
-bool SQX_LoadRates(string sym,ENUM_TIMEFRAMES tf,MqlRates &a[],int n){ArraySetAsSeries(a,true);return CopyRates(sym,tf,0,n,a)>=n;}
-bool SQX_PivotHigh(const MqlRates&a[],int d,int j){for(int k=1;k<=d;k++)if(a[j+d].high<=a[j+d-k].high||a[j+d].high<=a[j+d+k].high)return false;return true;}
-bool SQX_PivotLow(const MqlRates&a[],int d,int j){for(int k=1;k<=d;k++)if(a[j+d].low>=a[j+d-k].low||a[j+d].low>=a[j+d+k].low)return false;return true;}
-double SQX_Structure(const MqlRates&a[],int d,int s,int mode){double lastH=EMPTY_VALUE,lastL=EMPTY_VALUE,state=EMPTY_VALUE;for(int j=450-d*2;j>=s;j--){bool h=SQX_PivotHigh(a,d,j),l=SQX_PivotLow(a,d,j);if(h&&l)state=0;else if(h&&lastH!=EMPTY_VALUE)state=a[j+d].high>lastH?1:3;else if(l&&lastL!=EMPTY_VALUE)state=a[j+d].low>lastL?2:4;if(h)lastH=a[j+d].high;if(l)lastL=a[j+d].low;}if(mode==0)return state;if(mode==1)return a[s].close-lastH;if(mode==2)return a[s].close-lastL;return EMPTY_VALUE;}
+bool SQX_RatesReady(const MqlRates &a[],int first,int last){return first>=0&&last>=first&&last<ArraySize(a);}
+double SQX_SMA(const MqlRates &a[],int n,int s){if(n<=0||!SQX_RatesReady(a,s,s+n-1))return EMPTY_VALUE;double x=0;for(int i=s;i<s+n;i++)x+=a[i].close;return x/n;}
+double SQX_EMA(const MqlRates &a[],int n,int s){if(n<=0||s<0)return EMPTY_VALUE;int z=s+n*4;if(!SQX_RatesReady(a,s,z))return EMPTY_VALUE;double e=a[z].close,k=2.0/(n+1.0);for(int i=z-1;i>=s;i--)e=a[i].close*k+e*(1-k);return e;}
+double SQX_TR(const MqlRates &a[],int i){if(!SQX_RatesReady(a,i,i+1))return EMPTY_VALUE;double p=a[i+1].close;return MathMax(a[i].high-a[i].low,MathMax(MathAbs(a[i].high-p),MathAbs(a[i].low-p)));}
+double SQX_ATR(const MqlRates &a[],int n,int s){if(n<=0||!SQX_RatesReady(a,s,s+n))return EMPTY_VALUE;double x=0;for(int i=s;i<s+n;i++){double tr=SQX_TR(a,i);if(tr==EMPTY_VALUE)return EMPTY_VALUE;x+=tr;}return x/n;}
+double SQX_ROC(const MqlRates &a[],int n,int s){if(n<=0||!SQX_RatesReady(a,s,s+n))return EMPTY_VALUE;return a[s+n].close==0?0:a[s].close/a[s+n].close-1;}
+double SQX_RSI(const MqlRates &a[],int n,int s){if(n<=0||!SQX_RatesReady(a,s,s+n))return EMPTY_VALUE;double g=0,l=0;for(int i=s;i<s+n;i++){double d=a[i].close-a[i+1].close;if(d>0)g+=d;else l-=d;}return l==0?100:100-100/(1+g/l);}
+double SQX_WILLR(const MqlRates &a[],int n,int s){if(n<=0||!SQX_RatesReady(a,s,s+n-1))return EMPTY_VALUE;double h=a[s].high,l=a[s].low;for(int i=s+1;i<s+n;i++){h=MathMax(h,a[i].high);l=MathMin(l,a[i].low);}return h==l?EMPTY_VALUE:-100*(h-a[s].close)/(h-l);}
+double SQX_BB(const MqlRates &a[],int n,double m,int s,int w){double x=SQX_SMA(a,n,s);if(x==EMPTY_VALUE)return EMPTY_VALUE;double v=0;for(int i=s;i<s+n;i++)v+=(a[i].close-x)*(a[i].close-x);double d=MathSqrt(v/n);return w==0?x+m*d:w==1?x-m*d:x;}
+bool SQX_LoadRates(string sym,ENUM_TIMEFRAMES tf,MqlRates &a[],int n){int copied=CopyRates(sym,tf,0,n,a);if(copied<n)return false;ArraySetAsSeries(a,true);return true;}
+bool SQX_PivotHigh(const MqlRates&a[],int d,int j){if(d<=0||!SQX_RatesReady(a,j,j+2*d))return false;for(int k=1;k<=d;k++)if(a[j+d].high<=a[j+d-k].high||a[j+d].high<=a[j+d+k].high)return false;return true;}
+bool SQX_PivotLow(const MqlRates&a[],int d,int j){if(d<=0||!SQX_RatesReady(a,j,j+2*d))return false;for(int k=1;k<=d;k++)if(a[j+d].low>=a[j+d-k].low||a[j+d].low>=a[j+d+k].low)return false;return true;}
+double SQX_Structure(const MqlRates&a[],int d,int s,int mode){if(d<=0||s<0||!SQX_RatesReady(a,s,s+2*d))return EMPTY_VALUE;int start=450-d*2;if(start>ArraySize(a)-1-2*d)start=ArraySize(a)-1-2*d;if(start<s)return EMPTY_VALUE;double lastH=EMPTY_VALUE,lastL=EMPTY_VALUE,state=EMPTY_VALUE;for(int j=start;j>=s;j--){bool h=SQX_PivotHigh(a,d,j),l=SQX_PivotLow(a,d,j);if(h&&l)state=0;else if(h&&lastH!=EMPTY_VALUE)state=a[j+d].high>lastH?1:3;else if(l&&lastL!=EMPTY_VALUE)state=a[j+d].low>lastL?2:4;if(h)lastH=a[j+d].high;if(l)lastL=a[j+d].low;}if(mode==0)return state;if(mode==1)return a[s].close-lastH;if(mode==2)return a[s].close-lastL;return EMPTY_VALUE;}
 '''
 
 PREDICATES = r'''#property strict
-double SQX_Feature(const MqlRates &a[],string f,int s){string p[];int n=StringSplit(f,'.',p);if(f=="rsi_14")return SQX_RSI(a,14,s);
+double SQX_Feature(const MqlRates &a[],string f,int s){if(s<0||s>=ArraySize(a))return EMPTY_VALUE;string p[];int n=StringSplit(f,'.',p);if(f=="rsi_14")return SQX_RSI(a,14,s);
 if(n>=3&&p[0]=="momentum"&&p[1]=="roc")return SQX_ROC(a,(int)StringToInteger(p[2]),s);
 if(n>=3&&p[0]=="momentum"&&p[1]=="willr")return SQX_WILLR(a,(int)StringToInteger(p[2]),s);
-if(n>=3&&p[0]=="trend"&&p[1]=="close_ema"){int x=(int)StringToInteger(p[2]);return a[s].close-SQX_EMA(a,x,s);}
-if(n>=4&&p[0]=="trend"&&p[1]=="ema_slope"){int x=(int)StringToInteger(p[2]),k=(int)StringToInteger(p[3]);return SQX_EMA(a,x,s)-SQX_EMA(a,x,s+k);}
-if(n>=4&&p[0]=="trend"&&p[1]=="ema_pair"){int x=(int)StringToInteger(p[2]),y=(int)StringToInteger(p[3]);return SQX_EMA(a,x,s)-SQX_EMA(a,y,s);}
-if(n>=3&&p[0]=="trend"&&(p[1]=="breakout_high"||p[1]=="breakout_low")){int x=(int)StringToInteger(p[2]);double z=p[1]=="breakout_high"?-DBL_MAX:DBL_MAX;for(int i=s+1;i<s+x+1;i++)z=p[1]=="breakout_high"?MathMax(z,a[i].high):MathMin(z,a[i].low);return a[s].close-z;}
-if(n>=4&&p[0]=="volatility"&&p[1]=="atr_regime"){int x=(int)StringToInteger(p[2]),b=(int)StringToInteger(p[3]);double now=SQX_ATR(a,x,s)/a[s].close,avg=0;for(int i=s+1;i<s+b+1;i++)avg+=SQX_ATR(a,x,i)/a[i].close;return avg==0?EMPTY_VALUE:now/(avg/b)-1;}
-if(n>=4&&p[0]=="volatility"&&StringFind(p[1],"bb_")==0){int x=(int)StringToInteger(p[2]);return a[s].close-SQX_BB(a,x,StringToDouble(p[3]),s,p[1]=="bb_upper"?0:p[1]=="bb_lower"?1:2);}
-if(n>=5&&p[0]=="volatility"&&p[1]=="compression"){int x=(int)StringToInteger(p[2]);double u=SQX_BB(a,x,StringToDouble(p[3]),s,0),l=SQX_BB(a,x,StringToDouble(p[3]),s,1),m=SQX_EMA(a,x,s),q=SQX_ATR(a,x,s);return(u<m+StringToDouble(p[4])*q&&l>m-StringToDouble(p[4])*q)?1:(u>m+StringToDouble(p[4])*q&&l<m-StringToDouble(p[4])*q)?-1:0;}
+if(n>=3&&p[0]=="trend"&&p[1]=="close_ema"){int x=(int)StringToInteger(p[2]);double e=SQX_EMA(a,x,s);return e==EMPTY_VALUE?EMPTY_VALUE:a[s].close-e;}
+if(n>=4&&p[0]=="trend"&&p[1]=="ema_slope"){int x=(int)StringToInteger(p[2]),k=(int)StringToInteger(p[3]);double e0=SQX_EMA(a,x,s),e1=SQX_EMA(a,x,s+k);return e0==EMPTY_VALUE||e1==EMPTY_VALUE?EMPTY_VALUE:e0-e1;}
+if(n>=4&&p[0]=="trend"&&p[1]=="ema_pair"){int x=(int)StringToInteger(p[2]),y=(int)StringToInteger(p[3]);double ex=SQX_EMA(a,x,s),ey=SQX_EMA(a,y,s);return ex==EMPTY_VALUE||ey==EMPTY_VALUE?EMPTY_VALUE:ex-ey;}
+if(n>=3&&p[0]=="trend"&&(p[1]=="breakout_high"||p[1]=="breakout_low")){int x=(int)StringToInteger(p[2]);if(!SQX_RatesReady(a,s+1,s+x))return EMPTY_VALUE;double z=p[1]=="breakout_high"?-DBL_MAX:DBL_MAX;for(int i=s+1;i<s+x+1;i++)z=p[1]=="breakout_high"?MathMax(z,a[i].high):MathMin(z,a[i].low);return a[s].close-z;}
+if(n>=4&&p[0]=="volatility"&&p[1]=="atr_regime"){int x=(int)StringToInteger(p[2]),b=(int)StringToInteger(p[3]);double atr_now=SQX_ATR(a,x,s);if(atr_now==EMPTY_VALUE||a[s].close==0)return EMPTY_VALUE;double now=atr_now/a[s].close,avg=0;for(int i=s+1;i<s+b+1;i++){double atr_i=SQX_ATR(a,x,i);if(atr_i==EMPTY_VALUE||a[i].close==0)return EMPTY_VALUE;avg+=atr_i/a[i].close;}return avg==0?EMPTY_VALUE:now/(avg/b)-1;}
+if(n>=4&&p[0]=="volatility"&&StringFind(p[1],"bb_")==0){int x=(int)StringToInteger(p[2]);double b=SQX_BB(a,x,StringToDouble(p[3]),s,p[1]=="bb_upper"?0:p[1]=="bb_lower"?1:2);return b==EMPTY_VALUE?EMPTY_VALUE:a[s].close-b;}
+if(n>=5&&p[0]=="volatility"&&p[1]=="compression"){int x=(int)StringToInteger(p[2]);double u=SQX_BB(a,x,StringToDouble(p[3]),s,0),l=SQX_BB(a,x,StringToDouble(p[3]),s,1),m=SQX_EMA(a,x,s),q=SQX_ATR(a,x,s);if(u==EMPTY_VALUE||l==EMPTY_VALUE||m==EMPTY_VALUE||q==EMPTY_VALUE)return EMPTY_VALUE;return(u<m+StringToDouble(p[4])*q&&l>m-StringToDouble(p[4])*q)?1:(u>m+StringToDouble(p[4])*q&&l<m-StringToDouble(p[4])*q)?-1:0;}
 if(n>=3&&p[0]=="structure"){int d=(int)StringToInteger(p[2]);if(p[1]=="last")return SQX_Structure(a,d,s,0);if(p[1]=="break_high")return SQX_Structure(a,d,s,1);if(p[1]=="break_low")return SQX_Structure(a,d,s,2);if(p[1]=="fractal_high")return SQX_PivotHigh(a,d,s)?1:0;if(p[1]=="fractal_low")return SQX_PivotLow(a,d,s)?1:0;}
 return EMPTY_VALUE;}
 bool SQX_Predicate(const MqlRates&a[],string f,string op,double v,int s){double x=SQX_Feature(a,f,s);if(x==EMPTY_VALUE||!MathIsValidNumber(x))return false;return op==">"?x>v:op=="<"?x<v:MathAbs(x-v)<1e-10;}

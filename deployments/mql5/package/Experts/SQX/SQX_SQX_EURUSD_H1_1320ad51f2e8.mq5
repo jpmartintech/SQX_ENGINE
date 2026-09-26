@@ -18,7 +18,7 @@ input string InpPortfolioId="SQX-PROP-02760ECAC8BA";
 #define SQX_S0_TARGET_ATR 4
 #define SQX_S0_TIME_EXIT 24
 #define SQX_S0_DIRECTION_LONG 1
-bool SQX_S0_Signal(const MqlRates &rates[], const int shift) { return (SQX_Predicate(rates, "rsi_14", ">", 30, shift) && SQX_Predicate(rates, "structure.fractal_low.5", "==", 1, shift) && SQX_Predicate(rates, "trend.ema_slope.50.12", "<", 0, shift) && SQX_Predicate(rates, "volatility.bb_middle.50.2", ">", 0, shift)) && SQX_ATR(rates, 14, shift) > 0; }
+bool SQX_S0_Signal(const MqlRates &rates[], const int shift) { double atr=SQX_ATR(rates, 14, shift); return (SQX_Predicate(rates, "rsi_14", ">", 30, shift) && SQX_Predicate(rates, "structure.fractal_low.5", "==", 1, shift) && SQX_Predicate(rates, "trend.ema_slope.50.12", "<", 0, shift) && SQX_Predicate(rates, "volatility.bb_middle.50.2", ">", 0, shift)) && atr!=EMPTY_VALUE && atr>0; }
 
 int OnInit() { SQX_Log("SQX_INIT", "", "", _Symbol, _Period, 0, 0, 0, 0, "NETTING_OR_HEDGING_ACCOUNT_MODE"); return INIT_SUCCEEDED; }
 

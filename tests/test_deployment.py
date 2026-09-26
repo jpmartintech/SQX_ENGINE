@@ -4,7 +4,7 @@ from pathlib import Path
 from dataclasses import replace
 from sqx_engine.strategy import Predicate, StrategyDefinition
 from sqx_engine.deployment import MQL5Backend, PortfolioDefinition, UnsupportedPredicateError
-from sqx_engine.deployment.backend import magic_number
+from sqx_engine.deployment.backend import magic_number, _required_rate_count
 from sqx_engine.deployment.compare import compare_mt5_log
 
 def test_mapping_rejects_unknown_predicate(tmp_path):
@@ -49,6 +49,36 @@ def test_real_deployment_identity_is_preserved():
     assert first.readable_id=="SQX-EURUSD-H1-1320ad51f2e8"
     assert first.canonical_hash=="1320ad51f2e8f9579ad8543f669926cd6fe2b79923be06d2b7b3d6dd9313e765"
     assert p.portfolio_id=="SQX-PROP-02760ECAC8BA" and len(p.strategies)==20
+
+def test_portfolio_loads_enough_rates_for_every_indicator():
+    p=PortfolioDefinition.from_sqlite("data/prop_portfolio_library.sqlite","SQX-PROP-02760ECAC8BA")
+    counts=[_required_rate_count(x.strategy) for x in p.strategies]
+    assert len(counts)==20
+    assert counts[1]==803  # first runtime path: shift 1 + EMA seed 4*200 + slope offset 1
+    assert counts[13]==808  # shift 1 + slope offset 6 + EMA seed 4*200
+    assert max(counts)==808
+    assert all(x>=600 for x in counts)
+
+def test_indicator_helpers_guard_short_arrays_and_preserve_series_loading(tmp_path):
+    p=PortfolioDefinition.from_sqlite("data/prop_portfolio_library.sqlite","SQX-PROP-02760ECAC8BA")
+    out=tmp_path/"p.mq5"; MQL5Backend().export_portfolio(p,out,include_dir=tmp_path/"Include/SQX")
+    indicators=(tmp_path/"Include/SQX/sqx_indicators.mqh").read_text()
+    assert "bool SQX_RatesReady" in indicators
+    assert "if(!SQX_RatesReady(a,s,z))return EMPTY_VALUE" in indicators
+    assert "!SQX_RatesReady(a,s,s+n)" in indicators
+    assert "if(d<=0||!SQX_RatesReady(a,j,j+2*d))return false" in indicators
+    assert "int start=450-d*2" in indicators
+    assert "ArraySetAsSeries(a,true)" in indicators
+    text=out.read_text()
+    assert "SQX_S13_TF,r13,808" in text
+    assert "atr!=EMPTY_VALUE && atr>0" in text
+    assert text.count("SQX_LoadRates(_Symbol") == 20
+
+def test_portfolio_runtime_bounds_regression_covers_all_strategies():
+    p=PortfolioDefinition.from_sqlite("data/prop_portfolio_library.sqlite","SQX-PROP-02760ECAC8BA")
+    assert len(p.strategies)==20
+    for item in p.strategies:
+        assert _required_rate_count(item.strategy)>=600
 
 def test_mt5_log_compare(tmp_path):
     p=tmp_path/"log.csv"; fields=["timestamp","portfolio_id","strategy_id","event","symbol","timeframe","direction","price","volume","stop","requested_risk","balance","equity","floating_pnl","open_risk","message"]
