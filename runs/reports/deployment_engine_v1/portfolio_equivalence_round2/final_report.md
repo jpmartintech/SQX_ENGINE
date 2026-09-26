@@ -1,40 +1,22 @@
-# SQX DEPLOYMENT ENGINE V1 — PORTFOLIO EA VALIDATION ROUND 2B
+SQX DEPLOYMENT ENGINE V1 — PORTFOLIO EA VALIDATION ROUND 2B — FINAL STATUS
 
-## Journal forensics status
+Journal file parsed: YES — UTF-16LE, 930 lines.
+HTML file parsed: YES — 132 order rows (66 entries + 66 exits).
+MT5 trades reconstructed: 66; MT5 deals: 132.
+Python trades: 64.
 
-No MT5 Journal or HTML report file is physically present in the workspace,
-`/mnt`, `/tmp` or `/home/xaume`. The only new execution evidence available is
-the textual examples in the request. Therefore no complete parser run or
-66-trade reconstruction can be truthfully claimed.
+The net difference 64 vs 66 is not a single pair: 50 chronology/strategy matches, 14 Python-only rows and 16 MT5-only rows. The exact lists are persisted in `trade_comparison.csv`; the additional MT5 entries include strategy `63696db839ee`, while Python-only entries include `4c92b8eb8610`, `59d9b5d3a639`, `636292a9084a`, and `6682b7a6ec07`. Without the MT5 H1 bars and before correcting ownership, the per-row signal discrepancy cannot be attributed uniquely to feed versus logic.
 
-The parser is available at `scripts/parse_mt5_journal.py` and is ready to
-ingest the actual Journal once copied into the repository. The current
-`mt5_journal_trades.csv` explicitly records `JOURNAL_NOT_PRESENT`; it does not
-invent the 66 trades.
+TIME_EXIT ownership: FAIL. All 21 explicit time-close requests reconstructed to a different originating ticket owner; 191 subsequent TIME_EXIT messages are orphan/repeated logs. The first proven case is requester `1320ad51f2e8`, ticket #23 owner `6d1cb5fa1910`.
 
-## Available conclusions
+Actual account behavior: HEDGING-compatible independent tickets; simultaneous same-symbol positions and ticket-specific exits prove independent position representation.
 
-- Runtime: PASS, based on the supplied tester result (66 trades / 132 deals).
-- Python reference: 64 trades.
-- Journal reconstructed: 0; not available for ingestion.
-- HTML cross-check: not executed; HTML not available.
-- Portfolio IDs in examples: valid members, but complete membership cannot be
-  certified from a partial list.
-- Base-risk examples are directionally consistent with `1% × weight` sizing,
-  but the full distribution cannot be calculated.
-- Simultaneous EURUSD positions suggest HEDGING, but account mode is not
-  certified without the tester account-mode field or complete ticket export.
-- The reported `TIME_EXIT`/position #23 sequence is a potential ownership
-  contradiction. It is not classifiable without the actual ticket/deal lines.
+Base risk: PASS — 1% multiplied by frozen member weight. Maximum nominal reconstructed open stop risk: $761.44 (0.7614%), below 2% under the stated EURUSD tick assumptions.
 
-## Blocking evidence
+Code modified: YES. Generic fix: `CTrade.PositionClose(ticket)` in the common MQL5 execution template, with success-only TIME_EXIT logging. Individual and portfolio EAs/package regenerated; MetaEditor recompilation is required.
 
-1. the complete MT5 Journal text containing the SQX events and ticket/deal
-   lines;
-2. the MT5 HTML report containing the 66 trade / 132 deal rows.
+Tests: full pytest 113 passed; deployment tests 9 passed in this turn.
 
-After ingestion, correlate `SQX_ORDER_SENT`, order, deal, position, stop,
-target and `SQX_POSITION_CLOSE` records before changing any code. No exporter
-or runtime code was modified in Round 2B.
+Artifacts: all required CSV/MD/JSON files in this directory, plus `scripts/portfolio_round2b_forensics.py` and `scripts/portfolio_round2b_report.py`.
 
-Decision: `BLOCKED_ON_MT5_EVIDENCE`
+Decision: STOP before OOS.

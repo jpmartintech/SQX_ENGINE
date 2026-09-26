@@ -74,6 +74,15 @@ def test_indicator_helpers_guard_short_arrays_and_preserve_series_loading(tmp_pa
     assert "atr!=EMPTY_VALUE && atr>0" in text
     assert text.count("SQX_LoadRates(_Symbol") == 20
 
+def test_time_exit_closes_the_selected_ticket_not_another_strategy_symbol_position(tmp_path):
+    p=PortfolioDefinition.from_sqlite("data/prop_portfolio_library.sqlite","SQX-PROP-02760ECAC8BA")
+    out=tmp_path/"p.mq5"; MQL5Backend().export_portfolio(p,out,include_dir=tmp_path/"Include/SQX")
+    common=(tmp_path/"Include/SQX/sqx_execution.mqh").read_text()
+    assert "ulong ticket=PositionGetTicket(i)" in common
+    assert "SQX_Trade.PositionClose(ticket)" in common
+    assert "SQX_Trade.PositionClose(sym)" not in common
+    assert "if(closed)SQX_Log(\"SQX_POSITION_CLOSE\"" in common
+
 def test_portfolio_runtime_bounds_regression_covers_all_strategies():
     p=PortfolioDefinition.from_sqlite("data/prop_portfolio_library.sqlite","SQX-PROP-02760ECAC8BA")
     assert len(p.strategies)==20

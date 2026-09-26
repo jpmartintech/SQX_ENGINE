@@ -1,12 +1,9 @@
-# Position ownership audit — Round 2B
+# Position ownership audit
 
-The source filters `SQX_HasPosition` and `SQX_ManagePosition` by symbol and
-strategy-specific magic. However, the prompt's example says strategy
-`SQX-EURUSD-H1-1320ad51f2e8` logged `TIME_EXIT` while a market sell appeared
-to close position #23 opened by `SQX-EURUSD-H1-6d1cb5fa1910`.
+The real Journal reconstructs 21 explicit time-close requests. All 21 close requests close a ticket whose originating strategy differs from the strategy printed by `SQX_POSITION_CLOSE`; the first is ticket #23 (`6d1cb5fa1910`) closed after the `1320ad51f2e8` TIME_EXIT log.
 
-That is a potential ownership contradiction, but the actual Journal/ticket
-lines are not present in the workspace. It cannot yet be classified as
-incorrect selection, misleading logging, magic collision, or netting behavior.
-The gate is `UNRESOLVED`; do not advance until the complete ticket/deal chain
-is parsed.
+Root cause is reproducible in `src/sqx_engine/deployment/templates.py`: `SQX_ManagePosition` filtered a selected position by magic, then called `CTrade.PositionClose(sym)`, which is symbol-scoped. The selected ticket was not passed. The generated fix calls `PositionClose(ticket)` and logs only a successful ticket close.
+
+Observed cross-strategy closes: 21; orphan repeated TIME_EXIT logs: 191.
+
+Gate: **FAIL — corrected generically; new EA requires MetaEditor recompile and a fresh MT5 run.**

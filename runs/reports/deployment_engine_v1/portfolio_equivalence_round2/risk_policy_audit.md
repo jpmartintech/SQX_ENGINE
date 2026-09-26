@@ -1,13 +1,9 @@
-# Portfolio risk policy audit
+# Risk policy audit
 
-The frozen portfolio contains 20 members and weights
-sum to 1.000000000000. The generated MQL5
-policy requests `base_risk × strategy_weight`, i.e. 1% is the total weighted
-portfolio budget, not 1% per strategy. The common risk manager compares the
-requested risk with remaining `max_open_risk` capacity and passes the reduced
-risk into volume sizing.
+Base risk is implemented as `InpBaseRisk * portfolio member weight`; the frozen Python weights and the MQL5 requested-risk formula agree. Nominal MT5 stop risk uses EURUSD tick size 0.00001 and tick value $1 per lot.
 
-The Python reference ledger contains 64 independently
-replayed strategy trades. The MT5 ledger supplied only aggregate PnL and trade
-counts, so actual volume, tick value, equity-at-entry and open-risk-before/
-after cannot be reconstructed. No claim of empirical 2% compliance is made.
+Reconstructed median MT5/Python intended risk ratio: 0.9635; P5: 0.5368; P95: 1.5750; maximum absolute deviation: 1.7719.
+
+Maximum reconstructed aggregate initial-stop risk: $761.44 (0.7614%) at 2024-01-30 15:00:00. This nominal interval reconstruction is not a substitute for runtime equity/tick-value telemetry, but it is below the configured 2% cap: PASS.
+
+Risk gate: PASS nominally; portfolio advancement remains blocked by the proven position-ownership defect.

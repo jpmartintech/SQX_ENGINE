@@ -23,7 +23,9 @@ FIELDS = ["record_type", "timestamp", "strategy_id", "order_id", "deal_id",
 
 def parse(path: Path):
     rows = []
-    for line in path.read_text(errors="replace").splitlines():
+    raw = path.read_bytes()
+    encoding = "utf-16" if raw.startswith((b"\xff\xfe", b"\xfe\xff")) else "utf-8"
+    for line in raw.decode(encoding, errors="replace").splitlines():
         if "SQX_" not in line and not re.search(r"market (buy|sell)", line, re.I):
             continue
         ts = EVENT.search(line)
