@@ -1,29 +1,40 @@
-# SQX DEPLOYMENT ENGINE V1 — PORTFOLIO EA VALIDATION ROUND 2
+# SQX DEPLOYMENT ENGINE V1 — PORTFOLIO EA VALIDATION ROUND 2B
 
-## Evidence status
+## Journal forensics status
 
-Python reference trades: **64** across the 20 frozen members.
-MT5 trades: **66 aggregate only**; 132 deals, 48 long and 18 short. No
-trade-level MT5 CSV, HTML or execution log exists in the repository.
+No MT5 Journal or HTML report file is physically present in the workspace,
+`/mnt`, `/tmp` or `/home/xaume`. The only new execution evidence available is
+the textual examples in the request. Therefore no complete parser run or
+66-trade reconstruction can be truthfully claimed.
 
-Matched: **not determinable**. Python-only and MT5-only: **not determinable**.
-Trade comparison rows are retained as `AMBIGUOUS`, never as fabricated
-matches. Fourteen observed strategy IDs are confirmed portfolio members; six
-members are `UNRESOLVED` between inactive and missing evidence.
+The parser is available at `scripts/parse_mt5_journal.py` and is ready to
+ingest the actual Journal once copied into the repository. The current
+`mt5_journal_trades.csv` explicitly records `JOURNAL_NOT_PRESENT`; it does not
+invent the 66 trades.
 
-Portfolio runtime: **PASS**. The tester completed with no runtime crash.
-MQL5 compilation: **PASS** from the external MetaEditor evidence.
+## Available conclusions
 
-The source audit confirms deterministic S0→S19 evaluation, weighted base-risk
-semantics (`1% × strategy weight`) and magic-number ownership filters. Actual
-January signal, exit, volume and 2% open-risk equivalence cannot be certified
-without the MT5 trade/deal ledger and signal/order log.
+- Runtime: PASS, based on the supplied tester result (66 trades / 132 deals).
+- Python reference: 64 trades.
+- Journal reconstructed: 0; not available for ingestion.
+- HTML cross-check: not executed; HTML not available.
+- Portfolio IDs in examples: valid members, but complete membership cannot be
+  certified from a partial list.
+- Base-risk examples are directionally consistent with `1% × weight` sizing,
+  but the full distribution cannot be calculated.
+- Simultaneous EURUSD positions suggest HEDGING, but account mode is not
+  certified without the tester account-mode field or complete ticket export.
+- The reported `TIME_EXIT`/position #23 sequence is a potential ownership
+  contradiction. It is not classifiable without the actual ticket/deal lines.
 
-## Required next evidence
+## Blocking evidence
 
-Export from MT5 Strategy Tester the deal/order report or `SQX_execution.csv`
-with timestamp, strategy ID/comment, magic, direction, volume, entry/exit,
-SL/TP, retcode, balance/equity and open risk. Also export the account mode
-(HEDGING or NETTING) and EURUSD H1 OHLC/tick data used by the tester.
+1. the complete MT5 Journal text containing the SQX events and ticket/deal
+   lines;
+2. the MT5 HTML report containing the 66 trade / 132 deal rows.
+
+After ingestion, correlate `SQX_ORDER_SENT`, order, deal, position, stop,
+target and `SQX_POSITION_CLOSE` records before changing any code. No exporter
+or runtime code was modified in Round 2B.
 
 Decision: `BLOCKED_ON_MT5_EVIDENCE`

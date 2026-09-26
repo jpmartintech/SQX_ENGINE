@@ -1,0 +1,2 @@
+record_type,timestamp,strategy_id,order_id,deal_id,position_id,direction,volume,price,stop,target,entry_time,entry_price,exit_time,exit_price,exit_reason,source,notes
+JOURNAL_NOT_PRESENT,UNRESOLVED,UNRESOLVED,UNRESOLVED,UNRESOLVED,UNRESOLVED,UNRESOLVED,UNRESOLVED,UNRESOLVED,UNRESOLVED,UNRESOLVED,UNRESOLVED,UNRESOLVED,UNRESOLVED,UNRESOLVED,UNRESOLVED,NOT_INGESTED,"No MT5 Journal file exists in workspace; only prompt examples are available."

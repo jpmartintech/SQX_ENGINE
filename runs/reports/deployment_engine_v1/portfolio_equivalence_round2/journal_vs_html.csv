@@ -1,0 +1,2 @@
+comparison_scope,journal_records,html_trades,html_deals,count_match,timestamp_match,identity_match,price_match,status,notes
+FULL_MT5_EXPORT,UNRESOLVED,UNRESOLVED,UNRESOLVED,UNRESOLVED,UNRESOLVED,UNRESOLVED,UNRESOLVED,BLOCKED,"Neither the complete Journal nor the HTML report is present in the workspace."
