@@ -1,0 +1,2 @@
+status,strategy_id,evaluation_timestamp,signal_bar_timestamp,predicate_id,mt5_value,mt5_result,combined_result,raw_signal,notes
+PENDING_MT5_EXPORT,SQX-EURUSD-H1-63696db839ee,,,,,,,,"The corrected EA journal contains trades, not indicator/predicate values."

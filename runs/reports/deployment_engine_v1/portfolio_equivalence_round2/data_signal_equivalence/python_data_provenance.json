@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "canonical_replay_source": "data/derived/EURUSD_H1_11d571e8bb3d_143197.csv",
+  "canonical_replay_sha256": "d05762f0ee04a9359c754ff18be4e95575c67bf04b76f202edb184a8963ab21a",
+  "canonical_replay_rows": 143197,
+  "reference_slice": {
+    "from": "2023-12-01T00:00:00+00:00",
+    "to": "2024-02-02T00:00:00+00:00",
+    "rows": 1041
+  },
+  "timestamp_convention": "UTC-aware bar-open timestamps; available_at is bar close",
+  "ohlc_definition": "open/high/low/close of the frozen derived H1 frame; volume is summed source volume",
+  "h1_provenance": {
+    "source_m15": "data/cloud/EURUSD_M15.csv",
+    "source_m15_sha256": "11d571e8bb3d676ae234af48878e607e88a1bf1d25c88c0a514135539fcb058b",
+    "method": "complete_utc_open_buckets_v1",
+    "source_native_h1_reference": "data/cloud/EURUSD_1H.csv",
+    "source_native_h1_sha256": "7afd8f9af21360ee01deeef78aeba3ff8fcd62c3764c2b6f01244f84ee1c212c",
+    "note": "The canonical portfolio replay uses the derived H1 file, not the native H1 file."
+  },
+  "python_native_h1_crosscheck": {
+    "overlap_rows": 143197,
+    "all_ohlcv_exactly_equal": true
+  },
+  "strategy_id": "SQX-EURUSD-H1-63696db839ee",
+  "portfolio_id": "SQX-PROP-02760ECAC8BA",
+  "mt5_timestamp_convention": "PENDING_EXACT_MT5_EXPORT"
+}

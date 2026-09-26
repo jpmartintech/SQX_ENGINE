@@ -1,0 +1,5 @@
+{
+  "status": "UNRESOLVED",
+  "bars_compared": 0,
+  "reason": "Exact MT5 H1 OHLC export is not present in the workspace; trade journal/HTML do not contain historical bars."
+}
