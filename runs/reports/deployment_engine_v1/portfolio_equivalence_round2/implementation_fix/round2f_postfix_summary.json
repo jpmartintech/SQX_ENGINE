@@ -1,0 +1,92 @@
+{
+  "postfix_predicate_sha256": "3284b24f502aa99e002c7adc077c1975068d3409255398d96eccd38dd9254e96",
+  "postfix_raw_sha256": "114f96e66d5075ebe363bcb234d40eb05319b601aa20b9a856b4f67ca8df57d2",
+  "strategies": 20,
+  "predicate": {
+    "comparable_strategy_bars": 10540,
+    "expected_strategy_bars": 10560,
+    "missing_python_strategy_bars": 20,
+    "missing_mql5_strategy_bars": 20,
+    "comparable_predicates": 32147,
+    "predicate_id_mismatches": 0,
+    "boolean_matches": 32032,
+    "boolean_mismatches": 115,
+    "boolean_match_rate": 0.9964226832985971,
+    "threshold_mismatches": 0,
+    "numeric_comparisons": 32147,
+    "numeric_mae": 0.007745668344678941,
+    "numeric_max_abs_delta": 2.0
+  },
+  "raw": {
+    "python_raw_signals": 238,
+    "mql5_raw_signals": 234,
+    "comparable_rows": 10540,
+    "raw_matches": 10536,
+    "python_only": 4,
+    "mql5_only": 0,
+    "raw_match_rate": 0.9996204933586338,
+    "sparse_complete_trace_key_match": true,
+    "sparse_rows_not_in_complete_trace": 0,
+    "complete_trace_rows_not_in_sparse": 0
+  },
+  "pre_fix_boolean_mismatches": 197,
+  "pre_fix_family_counts": {
+    "structure": 66,
+    "ema": 16,
+    "compression": 115
+  },
+  "post_fix_family_mismatches": {
+    "structure": 0,
+    "ema": 0,
+    "compression": 115,
+    "other": 0
+  },
+  "post_fix_boolean_mismatches": 115,
+  "post_fix_raw_mismatches": 4,
+  "round2d_unresolved_before": 3,
+  "round2d_unresolved_after": 3,
+  "positive_control": {
+    "strategy_id": "SQX-EURUSD-H1-63696db839ee",
+    "signal_bar_time": "2024-01-02T04:00:00+00:00",
+    "entry_bar_time": "2024-01-02T05:00:00+00:00",
+    "predicates": [
+      {
+        "predicate_id": "structure.last.2",
+        "python_original_result": true,
+        "python_mt5_result": true,
+        "mql5_result": true,
+        "python_mt5_value": 4.0,
+        "mql5_value": 4.0
+      },
+      {
+        "predicate_id": "trend.ema_pair.50.100",
+        "python_original_result": true,
+        "python_mt5_result": true,
+        "mql5_result": true,
+        "python_mt5_value": 0.0007887245553641,
+        "mql5_value": 0.0007887245532751
+      },
+      {
+        "predicate_id": "trend.ema_slope.200.1",
+        "python_original_result": false,
+        "python_mt5_result": true,
+        "mql5_result": true,
+        "python_mt5_value": 7.535601671548875e-07,
+        "mql5_value": 7.532360100093172e-07
+      },
+      {
+        "predicate_id": "volatility.bb_lower.20.2",
+        "python_original_result": true,
+        "python_mt5_result": true,
+        "mql5_result": true,
+        "python_mt5_value": -0.0003716976951892,
+        "mql5_value": -0.0003716976952101
+      }
+    ],
+    "python_original_raw_signal": false,
+    "python_mt5_raw_signal": true,
+    "mql5_raw_signal": true,
+    "classification": "DATA_FEED"
+  },
+  "trading_logic_modified_after_retest": "NO"
+}

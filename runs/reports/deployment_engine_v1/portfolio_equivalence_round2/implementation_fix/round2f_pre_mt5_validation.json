@@ -10,6 +10,7 @@
   "generated_ticket_close_preserved": true,
   "structure_before_state_fix_present": true,
   "ema_old_seed_removed": true,
+  "compression_decimal_multiplier_fix_present": true,
   "trading_semantics_changed": false,
   "mt5_compile": "NOT_EXECUTED"
 }

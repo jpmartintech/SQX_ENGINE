@@ -3,7 +3,9 @@
     "volatility.compression.20.2.1.5",
     "volatility.compression.50.2.1.5"
   ],
-  "root_dependency": "EMA seed/warmup used by Keltner middle",
+  "root_dependency": "EMA seed/warmup used by Keltner middle and decimal multiplier parsing",
+  "proven_postfix_defect": "MQL5 StringSplit yielded p[4]=1 and p[5]=5; using only p[4] applied 1.0 instead of 1.5",
+  "fix": "reconstruct multiplier from p[4] + '.' + p[5]",
   "formula": "population Bollinger std (ddof=0), EMA Keltner middle, ATR true-range mean",
   "python_reference": "src/sqx_engine/features/engine.py",
   "static_check": "same frozen feature bank over exact MT5 OHLC"

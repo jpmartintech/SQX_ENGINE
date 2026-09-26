@@ -19,8 +19,10 @@ CURRENT_CONFIRMATION_STATE_ORDERING           structure.break_low.5             
 
 The structure fix uses prior swing state for break predicates. EMA now uses
 oldest-seed `adjust=False` recursion and a 2000-bar warmup; compression uses
-the corrected EMA dependency. Static exact-feed checks produce zero predicted
-predicate mismatches, but this is not a substitute for the required MT5 run.
+the corrected EMA dependency and reconstructs the encoded decimal multiplier
+`1.5` from the split feature components. Static exact-feed checks produce zero
+predicted predicate mismatches, but this is not a substitute for the required
+MT5 run.
 
 Position ownership, TIME_EXIT, risk, concurrency, and diagnostic mode are
 preserved. Trading logic semantics changed: NO. MQL5 implementation changed:
@@ -40,6 +42,7 @@ Pre-MT5 validation:
   "generated_ticket_close_preserved": true,
   "structure_before_state_fix_present": true,
   "ema_old_seed_removed": true,
+  "compression_decimal_multiplier_fix_present": true,
   "trading_semantics_changed": false,
   "mt5_compile": "NOT_EXECUTED"
 }

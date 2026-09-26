@@ -1,0 +1,5 @@
+strategy_id,direction_x,python_raw_signal,has_position_before,position_gate,risk_gate,concurrent_gate,entry_admitted,reason_if_rejected,direction_y,mql5_raw_signal,_merge,raw_match,classification,signal_bar_time,first_differing_predicate,first_differing_layer
+SQX-EURUSD-H1-bdc6d699e26f,LONG,True,False,True,NOT_EVALUATED,True,False,NO_SIGNAL,LONG,False,both,False,RAW_SIGNAL,2024-01-15 03:00:00+00:00,volatility.compression.20.2.1.5,PREDICATE_BOOLEAN
+SQX-EURUSD-H1-bdc6d699e26f,LONG,True,False,True,NOT_EVALUATED,True,False,NO_SIGNAL,LONG,False,both,False,RAW_SIGNAL,2024-01-15 04:00:00+00:00,volatility.compression.20.2.1.5,PREDICATE_BOOLEAN
+SQX-EURUSD-H1-bdc6d699e26f,LONG,True,False,True,NOT_EVALUATED,True,False,NO_SIGNAL,LONG,False,both,False,RAW_SIGNAL,2024-01-15 05:00:00+00:00,volatility.compression.20.2.1.5,PREDICATE_BOOLEAN
+SQX-EURUSD-H1-bdc6d699e26f,LONG,True,True,False,NOT_EVALUATED,True,False,POSITION_EXISTS,LONG,False,both,False,RAW_SIGNAL,2024-01-22 19:00:00+00:00,volatility.compression.20.2.1.5,PREDICATE_BOOLEAN

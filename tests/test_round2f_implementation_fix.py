@@ -55,3 +55,9 @@ def test_common_runtime_preserves_ownership_and_diagnostic_contract():
     assert "InpDiagnosticTrace=false" in generated
     assert "SQX_Trade.PositionClose(ticket)" in (ROOT / "deployments/mql5/Include/SQX/sqx_execution.mqh").read_text()
     assert "SQX_LoadRates(_Symbol,SQX_S0_TF,r0,2000)" in generated
+
+
+def test_compression_reconstructs_decimal_keltner_multiplier():
+    source = INDICATORS.read_text()
+    assert 'double multiplier=n>=6?StringToDouble(p[4]+"."+p[5]):StringToDouble(p[4])' in source
+    assert 'StringToDouble(p[4])*q' not in source

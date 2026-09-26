@@ -1,0 +1,31 @@
+strategy_id,status_round2d,causal_signal_bar,python_original_feed_raw_signal,python_mt5_feed_raw_signal,mql5_postfix_raw_signal,predicate_equivalence,position_state,risk_state,admission_state,final_classification,evidence
+SQX-EURUSD-H1-a27691004dcc,PYTHON_ONLY,2024-01-22T12:00:00+00:00,True,False,False,MATCH,False,NOT_EVALUATED,False,FEED,post-fix same-feed trace available
+SQX-EURUSD-H1-4c92b8eb8610,PYTHON_ONLY,2024-01-03T05:00:00+00:00,True,True,True,MATCH,False,ACCEPT_FULL,True,POSITION_STATE,post-fix same-feed trace available
+SQX-EURUSD-H1-4c92b8eb8610,PYTHON_ONLY,2024-01-04T02:00:00+00:00,True,True,True,MATCH,False,ACCEPT_FULL,True,POSITION_STATE,post-fix same-feed trace available
+SQX-EURUSD-H1-68567f217ec0,PYTHON_ONLY,2024-01-10T06:00:00+00:00,True,False,False,MATCH,False,NOT_EVALUATED,False,FEED,post-fix same-feed trace available
+SQX-EURUSD-H1-6682b7a6ec07,PYTHON_ONLY,2024-01-08T20:00:00+00:00,True,True,True,MATCH,False,ACCEPT_FULL,True,POSITION_STATE,post-fix same-feed trace available
+SQX-EURUSD-H1-6682b7a6ec07,PYTHON_ONLY,2024-01-25T14:00:00+00:00,True,False,False,MATCH,False,NOT_EVALUATED,False,FEED,post-fix same-feed trace available
+SQX-EURUSD-H1-73f2fc6ba7b5,PYTHON_ONLY,2024-01-08T15:00:00+00:00,True,True,True,MATCH,True,NOT_EVALUATED,False,POSITION_STATE,post-fix same-feed trace available
+SQX-EURUSD-H1-73f2fc6ba7b5,PYTHON_ONLY,2024-01-10T10:00:00+00:00,True,True,True,MATCH,True,NOT_EVALUATED,False,POSITION_STATE,post-fix same-feed trace available
+SQX-EURUSD-H1-73f2fc6ba7b5,PYTHON_ONLY,2024-01-30T12:00:00+00:00,True,True,True,MATCH,True,NOT_EVALUATED,False,POSITION_STATE,post-fix same-feed trace available
+SQX-EURUSD-H1-bdc6d699e26f,PYTHON_ONLY,2024-01-15T03:00:00+00:00,True,True,False,MISMATCH,False,NOT_EVALUATED,False,PREDICATE_LOGIC,post-fix same-feed trace available
+SQX-EURUSD-H1-a18d86c3075c,PYTHON_ONLY,2024-01-03T13:00:00+00:00,True,True,True,MATCH,True,NOT_EVALUATED,False,POSITION_STATE,post-fix same-feed trace available
+SQX-EURUSD-H1-a18d86c3075c,PYTHON_ONLY,2024-01-16T11:00:00+00:00,True,True,True,MATCH,True,NOT_EVALUATED,False,POSITION_STATE,post-fix same-feed trace available
+SQX-EURUSD-H1-59d9b5d3a639,PYTHON_ONLY,2024-01-08T20:00:00+00:00,True,True,True,MATCH,False,ACCEPT_FULL,True,POSITION_STATE,post-fix same-feed trace available
+SQX-EURUSD-H1-59d9b5d3a639,PYTHON_ONLY,2024-01-25T14:00:00+00:00,True,False,False,MATCH,False,NOT_EVALUATED,False,FEED,post-fix same-feed trace available
+SQX-EURUSD-H1-636292a9084a,PYTHON_ONLY,2024-01-08T20:00:00+00:00,True,True,True,MATCH,False,ACCEPT_FULL,True,POSITION_STATE,post-fix same-feed trace available
+SQX-EURUSD-H1-636292a9084a,PYTHON_ONLY,2024-01-25T14:00:00+00:00,True,False,False,MATCH,False,NOT_EVALUATED,False,FEED,post-fix same-feed trace available
+SQX-EURUSD-H1-4c5f2833ce74,PYTHON_ONLY,2024-01-30T12:00:00+00:00,True,True,True,MATCH,True,NOT_EVALUATED,False,POSITION_STATE,post-fix same-feed trace available
+SQX-EURUSD-H1-63696db839ee,MT5_ONLY,2024-01-02T04:00:00+00:00,False,True,True,MATCH,False,ACCEPT_FULL,True,FEED,post-fix same-feed trace available
+SQX-EURUSD-H1-a18d86c3075c,MT5_ONLY,2024-01-03T12:00:00+00:00,True,True,True,MATCH,False,ACCEPT_FULL,True,POSITION_STATE,post-fix same-feed trace available
+SQX-EURUSD-H1-a18d86c3075c,MT5_ONLY,2024-01-03T17:00:00+00:00,True,True,True,MATCH,False,ACCEPT_FULL,True,POSITION_STATE,post-fix same-feed trace available
+SQX-EURUSD-H1-73f2fc6ba7b5,MT5_ONLY,2024-01-05T17:00:00+00:00,True,True,True,MATCH,False,ACCEPT_FULL,True,POSITION_STATE,post-fix same-feed trace available
+SQX-EURUSD-H1-ac5da82211be,MT5_ONLY,2024-01-10T10:00:00+00:00,False,True,True,MATCH,False,ACCEPT_FULL,True,FEED,post-fix same-feed trace available
+SQX-EURUSD-H1-a18d86c3075c,MT5_ONLY,2024-01-16T10:00:00+00:00,True,True,True,MATCH,False,ACCEPT_FULL,True,POSITION_STATE,post-fix same-feed trace available
+SQX-EURUSD-H1-21e4d7fab033,MT5_ONLY,2024-01-22T15:00:00+00:00,True,True,True,MATCH,False,ACCEPT_FULL,True,POSITION_STATE,post-fix same-feed trace available
+SQX-EURUSD-H1-a27691004dcc,MT5_ONLY,2024-01-22T17:00:00+00:00,True,True,True,MATCH,False,ACCEPT_FULL,True,POSITION_STATE,post-fix same-feed trace available
+SQX-EURUSD-H1-4c5f2833ce74,MT5_ONLY,2024-01-26T12:00:00+00:00,True,True,True,MATCH,False,ACCEPT_FULL,True,POSITION_STATE,post-fix same-feed trace available
+SQX-EURUSD-H1-73f2fc6ba7b5,MT5_ONLY,2024-01-26T13:00:00+00:00,True,True,True,MATCH,False,ACCEPT_FULL,True,POSITION_STATE,post-fix same-feed trace available
+SQX-EURUSD-H1-ac5da82211be,MT5_ONLY,2024-01-29T23:05:00+00:00,,,,UNAVAILABLE,,,,UNRESOLVED,no H1 trace row for candidate causal timestamp
+SQX-EURUSD-H1-73f2fc6ba7b5,MT5_ONLY,2024-01-29T23:05:00+00:00,,,,UNAVAILABLE,,,,UNRESOLVED,no H1 trace row for candidate causal timestamp
+SQX-EURUSD-H1-4c5f2833ce74,MT5_ONLY,2024-01-29T23:05:00+00:00,,,,UNAVAILABLE,,,,UNRESOLVED,no H1 trace row for candidate causal timestamp

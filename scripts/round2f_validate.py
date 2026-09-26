@@ -67,13 +67,16 @@ def main():
     }, indent=2) + "\n")
     (OUT / "round2f_compression_fix.json").write_text(json.dumps({
         "affected_predicates": ["volatility.compression.20.2.1.5", "volatility.compression.50.2.1.5"],
-        "root_dependency": "EMA seed/warmup used by Keltner middle",
+        "root_dependency": "EMA seed/warmup used by Keltner middle and decimal multiplier parsing",
+        "proven_postfix_defect": "MQL5 StringSplit yielded p[4]=1 and p[5]=5; using only p[4] applied 1.0 instead of 1.5",
+        "fix": "reconstruct multiplier from p[4] + '.' + p[5]",
         "formula": "population Bollinger std (ddof=0), EMA Keltner middle, ATR true-range mean",
         "python_reference": "src/sqx_engine/features/engine.py",
         "static_check": "same frozen feature bank over exact MT5 OHLC",
     }, indent=2) + "\n")
     generated = (ROOT / "deployments/mql5/Experts/SQX/SQX_SQX_PROP_02760ECAC8BA.mq5").read_text()
     include = (ROOT / "deployments/mql5/Include/SQX/sqx_indicators.mqh").read_text()
+    predicates = (ROOT / "deployments/mql5/Include/SQX/sqx_predicates.mqh").read_text()
     validation = {
         "old_boolean_mismatches": int(len(old)),
         "root_cause_rows": int(len(counts)),
@@ -86,6 +89,7 @@ def main():
         "generated_ticket_close_preserved": "SQX_Trade.PositionClose(ticket)" in (ROOT / "deployments/mql5/Include/SQX/sqx_execution.mqh").read_text(),
         "structure_before_state_fix_present": "beforeH=lastH;beforeL=lastL" in include,
         "ema_old_seed_removed": "int z=s+n*4" not in include,
+        "compression_decimal_multiplier_fix_present": 'double multiplier=n>=6?StringToDouble(p[4]+"."+p[5]):StringToDouble(p[4])' in predicates,
         "trading_semantics_changed": False,
         "mt5_compile": "NOT_EXECUTED",
     }
@@ -123,8 +127,10 @@ Root-cause counts:
 
 The structure fix uses prior swing state for break predicates. EMA now uses
 oldest-seed `adjust=False` recursion and a 2000-bar warmup; compression uses
-the corrected EMA dependency. Static exact-feed checks produce zero predicted
-predicate mismatches, but this is not a substitute for the required MT5 run.
+the corrected EMA dependency and reconstructs the encoded decimal multiplier
+`1.5` from the split feature components. Static exact-feed checks produce zero
+predicted predicate mismatches, but this is not a substitute for the required
+MT5 run.
 
 Position ownership, TIME_EXIT, risk, concurrency, and diagnostic mode are
 preserved. Trading logic semantics changed: NO. MQL5 implementation changed:
