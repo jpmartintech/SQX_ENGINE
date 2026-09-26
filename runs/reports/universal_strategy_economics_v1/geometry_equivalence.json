@@ -1,0 +1,8 @@
+{
+  "existing_rows": 13861,
+  "comparable_rows": 9832,
+  "exact_matches": 9832,
+  "tolerance_matches": 9832,
+  "mismatches": 0,
+  "max_stop_delta": 2.220446049250313e-16
+}

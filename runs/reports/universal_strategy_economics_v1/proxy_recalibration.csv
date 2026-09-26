@@ -1,0 +1,2 @@
+sample,proxy_vs_bar_status,return_abs_diff,balance_dd_abs_diff,equity_dd_abs_diff
+MT5_REFERENCE,CALIBRATION_ONLY,0.00027160000000792106,0.0003687999999974906,-0.0004489000000025105

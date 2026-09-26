@@ -1,0 +1,50 @@
+{
+  "benchmarks": [
+    {
+      "portfolio_size": 5,
+      "replay_status": "SUPPORTED_BY_BAR_EQUITY_REPLAY",
+      "bars_per_second": 13319.94,
+      "seconds": 0.04707,
+      "source": "exact_equity_replay_v1/performance_benchmark.json"
+    },
+    {
+      "portfolio_size": 20,
+      "replay_status": "SUPPORTED_BY_BAR_EQUITY_REPLAY",
+      "bars_per_second": 13319.94,
+      "seconds": 0.04707,
+      "source": "exact_equity_replay_v1/performance_benchmark.json"
+    },
+    {
+      "portfolio_size": 50,
+      "replay_status": "SUPPORTED_BY_BAR_EQUITY_REPLAY",
+      "bars_per_second": 20028.7,
+      "seconds": 0.08717,
+      "source": "exact_equity_replay_v1/performance_benchmark.json"
+    },
+    {
+      "portfolio_size": 100,
+      "replay_status": "SUPPORTED_BY_BAR_EQUITY_REPLAY",
+      "bars_per_second": 21141.99,
+      "seconds": 0.15287,
+      "source": "exact_equity_replay_v1/performance_benchmark.json"
+    },
+    {
+      "portfolio_search": 1000,
+      "estimated_method": "FAST_PROXY_then_exact_finalists",
+      "run": false
+    },
+    {
+      "portfolio_search": 10000,
+      "estimated_method": "FAST_PROXY_then_exact_finalists",
+      "run": false
+    },
+    {
+      "portfolio_search": 50000,
+      "estimated_method": "FAST_PROXY_then_exact_finalists",
+      "run": false
+    }
+  ],
+  "runtime_seconds": 18.623040113998286,
+  "peak_rss_mib": 1240.7734375,
+  "geometry_parquet_bytes": 36807949
+}

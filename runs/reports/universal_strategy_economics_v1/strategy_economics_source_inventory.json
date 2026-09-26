@@ -1,0 +1,11 @@
+{
+  "strategy_definition": "library/strategies.sqlite.strategy_json / src/sqx_engine/strategy/definition.py",
+  "atr": "src/sqx_engine/features/engine.py prepare_features: True Range rolling(14,min_periods=14), signal bar",
+  "stop": "src/sqx_engine/backtest/fast.py and numba_core.py: ATR(signal_bar) * stop_atr",
+  "target": "src/sqx_engine/backtest/fast.py and numba_core.py: ATR(signal_bar) * target_atr / stop_atr * stop_distance = ATR * target_atr",
+  "time_exit": "src/sqx_engine/backtest/fast.py: held >= time_exit, close of causal exit bar",
+  "cost": "runs/reports/production_02/execution_profiles.json: net_pnl = gross_pnl - (spread + slippage) * cost_multiplier once per trade",
+  "commission": "not separately represented by frozen V1.8 profile; represented through profile friction",
+  "swap": "not present in generic replay; MT5 ledger only for broker-exact finalist validation",
+  "slippage": "execution profile price-unit model"
+}
