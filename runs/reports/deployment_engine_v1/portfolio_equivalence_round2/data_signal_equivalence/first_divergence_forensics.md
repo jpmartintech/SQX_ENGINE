@@ -1,7 +1,11 @@
-# First divergence forensics
+# First divergence: SQX-EURUSD-H1-63696db839ee
 
-Primary case: `SQX-EURUSD-H1-63696db839ee`; MT5-only entry at `2024-01-02 05:00`.
+MT5 entry: `2024-01-02 05:00`; under next-bar causality its signal bar is `2024-01-02 04:00`. Empirical alignment is MT5 timestamp + 0 hours = Python UTC timestamp; the selected offset is 0 hours.
 
-The Python reference trace is available in `python_predicate_trace_63696db839ee.csv`. The existing MT5 journal/HTML establishes the trade and its entry, but contains no H1 OHLC, indicator values, predicate values, or raw-signal decision. Consequently the first differing layer is **UNRESOLVED_MT5_INPUT**. It is not valid to call this a feed difference or an exporter bug yet.
+Strategy: LONG, AND, ATR(14), stop_atr=2.5, target_atr=4.0, time_exit=72.
 
-Required next evidence: MT5/server-time H1 bars covering at least 2023-11-01 through 2024-02-02, followed by an MT5 predicate trace if aligned OHLC does not explain the divergence.
+Predicates: `structure.last.2 == 4`, `trend.ema_pair.50.100 > 0`, `trend.ema_slope.200.1 > 0`, `volatility.bb_lower.20.2 < 0`.
+
+At the causal bar, frozen Python logic on the Python feed gives `raw_signal=False`. Frozen Python logic on the MT5 OHLC feed gives `raw_signal=True`. The observed MQL5 EA executed the next-bar entry at 05:00, so the three-way result is Python+Python feed=NO SIGNAL, Python+MT5 feed=SIGNAL, observed MQL5+MT5 feed=SIGNAL.
+
+The first differing layer is therefore **FEED** for this primary case, not an MQL5 implementation mismatch. MQL5 predicate instrumentation is not required for this case.

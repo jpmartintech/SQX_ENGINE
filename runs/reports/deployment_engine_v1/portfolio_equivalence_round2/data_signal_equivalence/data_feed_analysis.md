@@ -1,15 +1,9 @@
-# Round 2D data and signal analysis
+# Round 2D MT5 data analysis
 
-## Python reference
+The exact MT5 export is intact and hashes to `93f48d125d5971ab83a6af248beeb91f2b01571f3f851263fa1bcf1732a8d33b`. The best empirical timestamp mapping is **MT5 timestamp + 0 hours = Python UTC timestamp**, with 1560 overlapping bars. It is not a timezone assumption: it is the offset that minimizes OHLC error and maximizes exact matches.
 
-The frozen replay source is `data/derived/EURUSD_H1_11d571e8bb3d_143197.csv` (SHA256 `d05762f0ee04a9359c754ff18be4e95575c67bf04b76f202edb184a8963ab21a`). It contains 143197 UTC bar-open H1 rows from 2003-05-05 03:00:00+00:00 through 2026-04-14 02:00:00+00:00. The canonical derived file was produced from `data/cloud/EURUSD_M15.csv` using `complete_utc_open_buckets_v1`; no timezone shift was applied. `available_at` is the close of each H1 bar. The repository's native H1 file was cross-checked over 143197 rows and is exactly equal for OHLCV, so there is no Python-internal native-vs-derived resampling discrepancy.
+After alignment, 31 bars (1.987%) are exact and 1529 (98.013%) differ in OHLC. Close MAE is 0.00004729; P95 absolute component error is 0.00017000; maximum component error is 0.00668000. This is a legitimate broker/feed difference, not a timestamp shift.
 
-## MT5 data status
+The Python control experiment ran all 20 frozen portfolio members on both feeds. Python logic on MT5 OHLC explains the primary MT5-only signal for `SQX-EURUSD-H1-63696db839ee` at the 2024-01-02 04:00 causal bar. See `feed_induced_signal_differences.csv` for the complete raw-signal difference set.
 
-No exact MT5 H1 OHLC dump or predicate trace exists in the workspace. The corrected journal and HTML provide execution evidence, but not the OHLC input used by `CopyRates`, indicator values, or predicate truth values. Therefore timestamp alignment, timezone/server offset, DST, resampling, and indicator equivalence cannot yet be measured.
-
-The generic non-trading exporter and operator instructions are ready in `deployments/mql5/package/Scripts/SQX_ExportH1Data.mq5` and `mt5_data_export_instructions.md`.
-
-## Implication
-
-The 47 causal-bar matches, 17 Python-only trades, and 13 MT5-only trades are real ledger observations, but the first differing layer is not proven. No feed-equivalent match or true logical mismatch is counted until the MT5 bars are aligned. Ownership, time-exit, risk, and concurrency regressions remain PASS from Round 2C.
+The corrected ownership, time-exit, risk, and concurrency gates remain inherited PASS results. No trading logic was modified.

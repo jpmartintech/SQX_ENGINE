@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "path": "runs/reports/deployment_engine_v1/portfolio_equivalence_round2/data_signal_equivalence/mt5_h1_reference.csv",
+  "sha256": "93f48d125d5971ab83a6af248beeb91f2b01571f3f851263fa1bcf1732a8d33b",
+  "rows": 1561,
+  "raw_timestamp_format": "YYYY.MM.DD HH:MM:SS",
+  "raw_timestamps_preserved": true,
+  "first": "2023.11.01 00:00:00",
+  "last": "2024.02.02 00:00:00",
+  "columns": [
+    "time",
+    "open",
+    "high",
+    "low",
+    "close",
+    "tick_volume",
+    "spread",
+    "real_volume"
+  ],
+  "monotonic": true,
+  "duplicates": 0,
+  "ohlc_valid": true,
+  "selected_mapping": "MT5 timestamp + 0h = Python UTC timestamp",
+  "note": "Timestamp offset is an empirical label alignment; raw MT5 timestamps were not rewritten."
+}
