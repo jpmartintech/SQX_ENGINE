@@ -5,7 +5,7 @@
   "direction_analysis.json": "164cf2b3dbd7f2a1ce60db9aa80f689f792bc716290732970215044b0cf56aff",
   "downside_forensics.json": "7156ea26c39fd069f7472207159336256ab212db180d2b99b1ad95dd7e8d4c42",
   "exit_geometry_analysis.json": "26d53478491976b5185fc7ad759bda6c4a9d6d76e678207ca2b3cca97a3689a9",
-  "experiment_ledger.json": "72695feac0f10ca2d38256dfba2ca0681d5cb965ca101425f704228579200642",
+  "experiment_ledger.json": "3f968aee6ba54b818086fd5c0461b8194c36bd3279ef9c62880f9dc0b280cd7c",
   "factory_readiness_report.md": "f08e793a183b1c7f5c770b7989452714f7a3c69d7602ee835d7392222bcf8091",
   "fitness_attribution.json": "eac2ad126dd4bffd223271e71acbe44eed00b3da32417dafcdd19a52477a4d3d",
   "forensics_eur/full_fitness_results.parquet": "817445ff53acb46c858b4b887e5aa37d591d6076cb82096fb8df8f851ad6c47f",
