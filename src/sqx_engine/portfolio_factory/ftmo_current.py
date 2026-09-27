@@ -86,6 +86,8 @@ class CurrentFtmoEvaluator:
         x = _frame(events)
         start = pd.Timestamp(start).tz_convert("UTC") if pd.Timestamp(start).tzinfo else pd.Timestamp(start, tz="UTC")
         end = pd.Timestamp(end).tz_convert("UTC") if pd.Timestamp(end).tzinfo else pd.Timestamp(end, tz="UTC")
+        if x.empty:
+            return self._result("ALIVE", [], [], None, None, 0.0, self.initial_capital)
         x = x[(x.entry_timestamp >= start) & (x.entry_timestamp < end)].copy()
         if x.empty:
             return self._result("ALIVE", [], [], None, None, 0.0, 0.0)
