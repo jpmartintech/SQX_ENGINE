@@ -1,0 +1,7 @@
+{
+  "REUSE_UNCHANGED": ["canonical StrategyDefinition", "canonical hashing", "causal loading", "temporal isolation", "EconomicSpec", "R normalization", "ExecutionProfile", "checkpointing"],
+  "REUSE_WITH_PROP_ADAPTER": ["genetic infrastructure", "feature engine", "fast evaluator", "quality funnel", "Strategy Library", "behavioral clustering", "MQL5 exporter"],
+  "CLONE_AND_SPECIALIZE": ["Prop grammar configuration", "Prop exit configuration"],
+  "PROP_NEW": ["short-horizon metrics", "5D opportunity vector", "timing novelty", "marginal portfolio utility", "Prop promotion reason codes"],
+  "NOT_REQUIRED": ["payout mode", "future asset-class abstractions"]
+}

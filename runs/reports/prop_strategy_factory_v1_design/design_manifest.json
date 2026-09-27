@@ -1,0 +1,13 @@
+{
+  "design": "SQX PROP STRATEGY FACTORY V1",
+  "status": "DESIGN_ONLY",
+  "baseline_commit": "2d252291001d59bf6dff8a1db5047a25c4f198b6",
+  "lineage": "PROP_V1",
+  "profile": "FTMO_2STEP_V1",
+  "challenge_target": 0.10,
+  "verification_target": 0.05,
+  "preferred_horizon_trading_days": 5,
+  "existing_prop_ready": 8438,
+  "strategy_logic_modified": false,
+  "mql5_logic_modified": false
+}

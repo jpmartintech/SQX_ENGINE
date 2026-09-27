@@ -1,0 +1,12 @@
+{
+  "horizons_trading_days": [1, 2, 3, 5, 10, 20],
+  "metric_vectors": [
+    "trade_count", "signals_per_day", "active_day_fraction", "net_R", "positive_R", "negative_R",
+    "positive_window_fraction", "negative_window_fraction", "P50", "P75", "P90", "P95", "P99",
+    "maximum_favorable_contribution", "maximum_adverse_contribution", "loss_cluster_length",
+    "holding_duration", "signal_timing", "long_short_distribution", "risk_capacity_compatibility",
+    "cost_sensitivity", "drawdown_overlap", "R_series_correlation", "economic_novelty"
+  ],
+  "frequency_buckets": [0, 1, 2, 3, 5],
+  "opportunity_vector": ["frequency", "positive_tail", "temporal_coverage", "independent_timing", "downside", "duration", "risk_capacity", "cost_sensitivity"]
+}

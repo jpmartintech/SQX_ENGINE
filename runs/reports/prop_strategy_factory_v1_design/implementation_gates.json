@@ -1,0 +1,11 @@
+{
+  "metrics_deterministic": "required",
+  "split_isolation": "required",
+  "economic_handoff_without_backfill": "required",
+  "reference_pool_versioned": "required",
+  "mql5_parity_for_new_semantics": "required",
+  "general_factory_unchanged": true,
+  "strategy_logic_modified": false,
+  "mql5_logic_modified": false,
+  "design_only": true
+}

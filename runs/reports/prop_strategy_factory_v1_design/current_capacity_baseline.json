@@ -1,0 +1,20 @@
+{
+  "strategy_library": 12289,
+  "prop_ready": 8438,
+  "reconstructed_trades": 857538,
+  "episodes": {"development_overlapping": 433, "calibration_overlapping": 144, "validation_overlapping": 145, "non_overlapping": 145},
+  "validation": {
+    "challenge_pass_5d": 0.0,
+    "verification_pass_5d": 0.0,
+    "max_intraperiod_p95": 0.02522,
+    "max_intraperiod_p99": 0.03338,
+    "max_intraperiod_max": 0.04066,
+    "coverage_ge_3": 0.025,
+    "coverage_ge_4": 0.0013,
+    "coverage_ge_5": 0.0,
+    "coverage_ge_8": 0.0,
+    "coverage_ge_9": 0.0,
+    "coverage_ge_10": 0.0
+  },
+  "diagnosis": "CURRENT_LIBRARY_SHORT_HORIZON_CAPACITY_LIMITED"
+}

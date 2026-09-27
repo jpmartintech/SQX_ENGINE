@@ -1,0 +1,12 @@
+{
+  "status": "DESIGN_ONLY",
+  "campaign_id": "PROP_V1_FIRST_AB_001",
+  "markets": ["EURUSD", "GBPUSD", "NZDUSD", "USDCAD", "USDCHF", "USDJPY", "XAUUSD"],
+  "timeframes": ["M15", "H1", "H4"],
+  "candidate_budget": 10000,
+  "seeds": [4101, 4102, 4103],
+  "split_policy": "DEVELOPMENT -> CALIBRATION -> VALIDATION -> OOS",
+  "funnel": ["GENERATED", "CAUSAL", "BASIC_EDGE", "SHORT_HORIZON_QUALITY", "COST_ROBUST", "TEMPORAL_STABLE", "NOVEL", "PORTFOLIO_USEFUL", "PROP_READY"],
+  "purpose": "measure movement in 5D opportunity distribution against General baseline",
+  "not_launched": true
+}

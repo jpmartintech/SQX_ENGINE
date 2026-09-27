@@ -1,0 +1,20 @@
+{
+  "capacity_evidence": {
+    "p95_5d": 0.02522,
+    "p99_5d": 0.03338,
+    "max_5d": 0.04066,
+    "challenge_pass": 0.0,
+    "verification_pass": 0.0,
+    "mean_peak_open_risk": 0.00675,
+    "p95_peak_open_risk": 0.01001,
+    "idle_fraction": 0.099
+  },
+  "requirements": [
+    {"limitation": "short_horizon_tail_magnitude", "design_response": "5D upper-tail vector and target-distance fitness"},
+    {"limitation": "usable_signal_density", "design_response": "active-day, inter-signal, and admitted-opportunity metrics"},
+    {"limitation": "short_holding_horizon", "design_response": "versioned Prop exit-family configuration"},
+    {"limitation": "low_risk_capacity_utilization", "design_response": "risk-capacity-compatible marginal utility"},
+    {"limitation": "redundancy_and_clustering", "design_response": "timing, drawdown, and behavioral novelty"},
+    {"limitation": "market_timeframe_direction_coverage", "design_response": "coverage descriptors and diverse reference pools"}
+  ]
+}
