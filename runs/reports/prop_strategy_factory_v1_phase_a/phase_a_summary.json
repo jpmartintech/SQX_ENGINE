@@ -1,0 +1,18 @@
+{
+  "five_day_net_R_P50": 0.0,
+  "five_day_net_R_P95": 1.1916965324657756,
+  "five_day_net_R_P99": 1.586876794188301,
+  "horizons": [
+    1,
+    2,
+    3,
+    5,
+    10,
+    20
+  ],
+  "lineage_existing": "GENERAL",
+  "lineage_future": "PROP_V1",
+  "no_promotion_decision": true,
+  "sample_strategies": 200,
+  "sample_trades": 15647
+}

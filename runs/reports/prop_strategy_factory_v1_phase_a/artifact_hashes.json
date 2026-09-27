@@ -1,0 +1,18 @@
+{
+  "cost_sensitivity.parquet": "ceb124fd37e7e381fa3d8126a958c9493ec29fec152cfe638627180342569c7c",
+  "determinism.json": "fd3b08e556d358e2fdad05275844baf1a9e2494c9e5f7e3947191ec19d235b55",
+  "direction_metrics.parquet": "4b99b4d30f0631ffbc6ac6dac27933e872df3a1dda0ee1ad0e866673414e29c5",
+  "factory_readiness_report.md": "9a114df7d04fe825514c0ea457f02f581d3a0158b3744a48d5d1369bcd4dc0a8",
+  "five_day_metrics.parquet": "b805fe4cc9ae6e42cd76c4c8067769935fd8e605bdd0e1fb6243c95e4396fd2c",
+  "holding_duration.parquet": "425ab3c532b9d6a79c4e9a9c602791a60c7d3e2cddf63cf73e81d9df9bdf6a2c",
+  "library_compatibility.json": "38b4693986edf348d0a5f159bdf52e857a7265414c0f84eb73f81c0830c26cf6",
+  "lineage_schema.json": "5cb07b714a88063d7082a6b127a1aca27d4f16ff60e09a2bae112cd4ac4ce2c8",
+  "loss_clustering.parquet": "69c896fb33597a212ddea6df4f02fa0f3754fb0459332a8a1ef3ae1bdfbce96f",
+  "metric_relationships.json": "06a469158a748ba8d963162b0f176f1fb0b060c5675f86a07bb586b01da0e376",
+  "metrics_schema.json": "b76b157b978078e82ff209a9ca60f5d83f42f535344440d59a7f23d18edbaec2",
+  "performance.json": "a96bbc6a7ea0ee0cbe7d0521fe98f0458970ac7a2ba4fa3010687f3e9c25dd1d",
+  "phase_a_summary.json": "e3e7e88ddfe54db814e81cb061f57c46d7ba79ce6551a25996f3293dfbb0ca22",
+  "sample_manifest.json": "f5f0f978993b9010d54c9928c9c10eefb38d3a7329f1b23af6511f9846f2e707",
+  "sample_metrics.parquet": "0bde093006f394b2ec7d88cbdba5fd37bba19d347dd0fc2dca577b325041ea58",
+  "signal_timing.parquet": "40516329057501aa56b7bbd3f233b7c960a0b17f17e14f6e2c368d635188a90f"
+}

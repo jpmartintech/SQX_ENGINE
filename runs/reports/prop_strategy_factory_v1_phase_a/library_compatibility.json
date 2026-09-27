@@ -1,0 +1,21 @@
+{
+  "canonical_hashes_mutated": false,
+  "general_lineage_default": "GENERAL",
+  "prop_v1_synthetic_contract": {
+    "canonical_strategy_id": "SYNTHETIC-PROP-V1",
+    "created_at": "2026-09-27T14:15:32+00:00",
+    "data_provenance_id": "UNSPECIFIED",
+    "economic_spec_version": "UNIVERSAL_ECONOMICS_V1",
+    "execution_profile_id": "UNSPECIFIED",
+    "factory_lineage": "PROP_V1",
+    "factory_version": "PROP_FACTORY_V1_PHASE_A",
+    "fitness_version": "NOT_IMPLEMENTED",
+    "generation_campaign_id": "UNSPECIFIED",
+    "generation_seed": null,
+    "grammar_version": "NOT_IMPLEMENTED",
+    "lineage_schema_version": "PROP_LINEAGE_SCHEMA_V1",
+    "metrics_version": "PROP_METRICS_V1"
+  },
+  "sidecar_storage": "phase_a Parquet and versioned schemas",
+  "strategy_library_mutated": false
+}

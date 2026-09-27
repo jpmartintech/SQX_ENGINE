@@ -1,0 +1,9 @@
+{
+  "estimated_50k_seconds": 24717.88179275245,
+  "estimated_8438_seconds": 4171.389681982473,
+  "peak_rss_mib": 1011.9375,
+  "runtime_seconds": 98.87149720800517,
+  "sample_strategies": 200,
+  "strategies_per_second": 2.0228276123361173,
+  "trades": 15647
+}

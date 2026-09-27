@@ -1,0 +1,19 @@
+{
+  "backward_default": "GENERAL",
+  "fields": [
+    "factory_lineage",
+    "factory_version",
+    "grammar_version",
+    "fitness_version",
+    "metrics_version",
+    "economic_spec_version",
+    "generation_campaign_id",
+    "generation_seed",
+    "data_provenance_id",
+    "execution_profile_id",
+    "created_at",
+    "canonical_strategy_id",
+    "lineage_schema_version"
+  ],
+  "schema_version": "PROP_LINEAGE_SCHEMA_V1"
+}

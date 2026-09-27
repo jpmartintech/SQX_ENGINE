@@ -1,0 +1,580 @@
+{
+  "method": "Spearman descriptive only",
+  "strong_pairs": [
+    {
+      "a": "signals_per_window",
+      "b": "window_0_fraction",
+      "rho": -0.9967026219158607
+    },
+    {
+      "a": "signals_per_window",
+      "b": "window_ge_1_fraction",
+      "rho": 0.9967026219158607
+    },
+    {
+      "a": "signals_per_window",
+      "b": "window_ge_2_fraction",
+      "rho": 0.9550230329375939
+    },
+    {
+      "a": "signals_per_window",
+      "b": "window_ge_3_fraction",
+      "rho": 0.8125338428724664
+    },
+    {
+      "a": "signals_per_window",
+      "b": "worst_window_net_R",
+      "rho": -0.8852191407500505
+    },
+    {
+      "a": "active_day_fraction",
+      "b": "signals_per_window",
+      "rho": 0.9967026219158607
+    },
+    {
+      "a": "active_day_fraction",
+      "b": "window_0_fraction",
+      "rho": -1.0
+    },
+    {
+      "a": "active_day_fraction",
+      "b": "window_ge_1_fraction",
+      "rho": 1.0
+    },
+    {
+      "a": "active_day_fraction",
+      "b": "window_ge_2_fraction",
+      "rho": 0.9413340345772782
+    },
+    {
+      "a": "active_day_fraction",
+      "b": "active_days_P95",
+      "rho": 0.9594455508344728
+    },
+    {
+      "a": "active_day_fraction",
+      "b": "active_days_ge_1_fraction",
+      "rho": 1.0
+    },
+    {
+      "a": "active_day_fraction",
+      "b": "active_days_ge_2_fraction",
+      "rho": 0.9232259054855834
+    },
+    {
+      "a": "active_day_fraction",
+      "b": "positive_window_fraction",
+      "rho": 0.9846451740425334
+    },
+    {
+      "a": "active_day_fraction",
+      "b": "negative_window_fraction",
+      "rho": 0.9830816870202063
+    },
+    {
+      "a": "active_day_fraction",
+      "b": "flat_window_fraction",
+      "rho": -1.0
+    },
+    {
+      "a": "active_day_fraction",
+      "b": "worst_window_net_R",
+      "rho": -0.8700865537118619
+    },
+    {
+      "a": "active_day_fraction",
+      "b": "maximum_consecutive_negative_windows",
+      "rho": 0.9666736638965212
+    },
+    {
+      "a": "P90_time_between_signals_days",
+      "b": "signals_per_day",
+      "rho": -0.8720563752969218
+    },
+    {
+      "a": "window_0_fraction",
+      "b": "window_ge_1_fraction",
+      "rho": -1.0
+    },
+    {
+      "a": "window_0_fraction",
+      "b": "window_ge_2_fraction",
+      "rho": -0.9413340345772782
+    },
+    {
+      "a": "window_0_fraction",
+      "b": "worst_window_net_R",
+      "rho": 0.8700865537118619
+    },
+    {
+      "a": "window_ge_1_fraction",
+      "b": "window_ge_2_fraction",
+      "rho": 0.9413340345772782
+    },
+    {
+      "a": "window_ge_1_fraction",
+      "b": "worst_window_net_R",
+      "rho": -0.8700865537118619
+    },
+    {
+      "a": "window_ge_2_fraction",
+      "b": "window_ge_3_fraction",
+      "rho": 0.8521903254131661
+    },
+    {
+      "a": "window_ge_2_fraction",
+      "b": "worst_window_net_R",
+      "rho": -0.878044879742354
+    },
+    {
+      "a": "active_days_P95",
+      "b": "signals_per_window",
+      "rho": 0.9666527877407418
+    },
+    {
+      "a": "active_days_P95",
+      "b": "window_0_fraction",
+      "rho": -0.9594455508344728
+    },
+    {
+      "a": "active_days_P95",
+      "b": "window_ge_1_fraction",
+      "rho": 0.9594455508344728
+    },
+    {
+      "a": "active_days_P95",
+      "b": "window_ge_2_fraction",
+      "rho": 0.9233022587139381
+    },
+    {
+      "a": "active_days_P95",
+      "b": "active_days_ge_1_fraction",
+      "rho": 0.9594455508344728
+    },
+    {
+      "a": "active_days_P95",
+      "b": "active_days_ge_2_fraction",
+      "rho": 0.8974831158749366
+    },
+    {
+      "a": "active_days_P95",
+      "b": "positive_window_fraction",
+      "rho": 0.9481318827691632
+    },
+    {
+      "a": "active_days_P95",
+      "b": "negative_window_fraction",
+      "rho": 0.941078235113922
+    },
+    {
+      "a": "active_days_P95",
+      "b": "flat_window_fraction",
+      "rho": -0.9594455508344728
+    },
+    {
+      "a": "active_days_P95",
+      "b": "worst_window_net_R",
+      "rho": -0.8675843214150293
+    },
+    {
+      "a": "active_days_P95",
+      "b": "maximum_consecutive_negative_windows",
+      "rho": 0.9468957321011058
+    },
+    {
+      "a": "active_days_ge_1_fraction",
+      "b": "signals_per_window",
+      "rho": 0.9967026219158607
+    },
+    {
+      "a": "active_days_ge_1_fraction",
+      "b": "window_0_fraction",
+      "rho": -1.0
+    },
+    {
+      "a": "active_days_ge_1_fraction",
+      "b": "window_ge_1_fraction",
+      "rho": 1.0
+    },
+    {
+      "a": "active_days_ge_1_fraction",
+      "b": "window_ge_2_fraction",
+      "rho": 0.9413340345772782
+    },
+    {
+      "a": "active_days_ge_1_fraction",
+      "b": "active_days_ge_2_fraction",
+      "rho": 0.9232259054855834
+    },
+    {
+      "a": "active_days_ge_1_fraction",
+      "b": "positive_window_fraction",
+      "rho": 0.9846451740425334
+    },
+    {
+      "a": "active_days_ge_1_fraction",
+      "b": "negative_window_fraction",
+      "rho": 0.9830816870202063
+    },
+    {
+      "a": "active_days_ge_1_fraction",
+      "b": "flat_window_fraction",
+      "rho": -1.0
+    },
+    {
+      "a": "active_days_ge_1_fraction",
+      "b": "worst_window_net_R",
+      "rho": -0.8700865537118619
+    },
+    {
+      "a": "active_days_ge_1_fraction",
+      "b": "maximum_consecutive_negative_windows",
+      "rho": 0.9666736638965212
+    },
+    {
+      "a": "active_days_ge_2_fraction",
+      "b": "signals_per_window",
+      "rho": 0.9328398387084307
+    },
+    {
+      "a": "active_days_ge_2_fraction",
+      "b": "window_0_fraction",
+      "rho": -0.9232259054855834
+    },
+    {
+      "a": "active_days_ge_2_fraction",
+      "b": "window_ge_1_fraction",
+      "rho": 0.9232259054855834
+    },
+    {
+      "a": "active_days_ge_2_fraction",
+      "b": "window_ge_2_fraction",
+      "rho": 0.9563150595556267
+    },
+    {
+      "a": "active_days_ge_2_fraction",
+      "b": "window_ge_3_fraction",
+      "rho": 0.8490230620553308
+    },
+    {
+      "a": "active_days_ge_2_fraction",
+      "b": "active_days_ge_3_fraction",
+      "rho": 0.8181653598279675
+    },
+    {
+      "a": "active_days_ge_2_fraction",
+      "b": "positive_window_fraction",
+      "rho": 0.9108745202112005
+    },
+    {
+      "a": "active_days_ge_2_fraction",
+      "b": "negative_window_fraction",
+      "rho": 0.8981760342519585
+    },
+    {
+      "a": "active_days_ge_2_fraction",
+      "b": "flat_window_fraction",
+      "rho": -0.9232259054855834
+    },
+    {
+      "a": "active_days_ge_2_fraction",
+      "b": "worst_window_net_R",
+      "rho": -0.8074481680689265
+    },
+    {
+      "a": "active_days_ge_2_fraction",
+      "b": "maximum_consecutive_negative_windows",
+      "rho": 0.9162586575749043
+    },
+    {
+      "a": "active_days_ge_3_fraction",
+      "b": "window_ge_3_fraction",
+      "rho": 0.9046929510383585
+    },
+    {
+      "a": "active_days_ge_5_fraction",
+      "b": "window_ge_5_fraction",
+      "rho": 0.835850528254288
+    },
+    {
+      "a": "positive_window_fraction",
+      "b": "signals_per_window",
+      "rho": 0.9822085153843233
+    },
+    {
+      "a": "positive_window_fraction",
+      "b": "window_0_fraction",
+      "rho": -0.9846451740425334
+    },
+    {
+      "a": "positive_window_fraction",
+      "b": "window_ge_1_fraction",
+      "rho": 0.9846451740425334
+    },
+    {
+      "a": "positive_window_fraction",
+      "b": "window_ge_2_fraction",
+      "rho": 0.928080279792749
+    },
+    {
+      "a": "positive_window_fraction",
+      "b": "worst_window_net_R",
+      "rho": -0.8430280438584856
+    },
+    {
+      "a": "negative_window_fraction",
+      "b": "signals_per_window",
+      "rho": 0.9793705364756538
+    },
+    {
+      "a": "negative_window_fraction",
+      "b": "window_0_fraction",
+      "rho": -0.9830816870202063
+    },
+    {
+      "a": "negative_window_fraction",
+      "b": "window_ge_1_fraction",
+      "rho": 0.9830816870202063
+    },
+    {
+      "a": "negative_window_fraction",
+      "b": "window_ge_2_fraction",
+      "rho": 0.9215914149008945
+    },
+    {
+      "a": "negative_window_fraction",
+      "b": "positive_window_fraction",
+      "rho": 0.9427250593286401
+    },
+    {
+      "a": "negative_window_fraction",
+      "b": "worst_window_net_R",
+      "rho": -0.8826851758634022
+    },
+    {
+      "a": "flat_window_fraction",
+      "b": "signals_per_window",
+      "rho": -0.9967026219158607
+    },
+    {
+      "a": "flat_window_fraction",
+      "b": "window_0_fraction",
+      "rho": 1.0
+    },
+    {
+      "a": "flat_window_fraction",
+      "b": "window_ge_1_fraction",
+      "rho": -1.0
+    },
+    {
+      "a": "flat_window_fraction",
+      "b": "window_ge_2_fraction",
+      "rho": -0.9413340345772782
+    },
+    {
+      "a": "flat_window_fraction",
+      "b": "positive_window_fraction",
+      "rho": -0.9846451740425334
+    },
+    {
+      "a": "flat_window_fraction",
+      "b": "negative_window_fraction",
+      "rho": -0.9830816870202063
+    },
+    {
+      "a": "flat_window_fraction",
+      "b": "worst_window_net_R",
+      "rho": 0.8700865537118619
+    },
+    {
+      "a": "flat_window_fraction",
+      "b": "maximum_consecutive_negative_windows",
+      "rho": -0.9666736638965212
+    },
+    {
+      "a": "mean_R",
+      "b": "net_R_total",
+      "rho": 0.8696983230048498
+    },
+    {
+      "a": "maximum_consecutive_negative_windows",
+      "b": "signals_per_window",
+      "rho": 0.9702087378437844
+    },
+    {
+      "a": "maximum_consecutive_negative_windows",
+      "b": "window_0_fraction",
+      "rho": -0.9666736638965212
+    },
+    {
+      "a": "maximum_consecutive_negative_windows",
+      "b": "window_ge_1_fraction",
+      "rho": 0.9666736638965212
+    },
+    {
+      "a": "maximum_consecutive_negative_windows",
+      "b": "window_ge_2_fraction",
+      "rho": 0.9280881956377087
+    },
+    {
+      "a": "maximum_consecutive_negative_windows",
+      "b": "positive_window_fraction",
+      "rho": 0.9453566855365865
+    },
+    {
+      "a": "maximum_consecutive_negative_windows",
+      "b": "negative_window_fraction",
+      "rho": 0.9633068503257839
+    },
+    {
+      "a": "maximum_consecutive_negative_windows",
+      "b": "worst_window_net_R",
+      "rho": -0.8892864719070942
+    },
+    {
+      "a": "holding_P25_hours",
+      "b": "holding_P50_hours",
+      "rho": 0.9193345736825103
+    },
+    {
+      "a": "holding_P25_hours",
+      "b": "holding_P75_hours",
+      "rho": 0.84001423916044
+    },
+    {
+      "a": "holding_P50_hours",
+      "b": "holding_P75_hours",
+      "rho": 0.9271832970569109
+    },
+    {
+      "a": "holding_P50_hours",
+      "b": "holding_P90_hours",
+      "rho": 0.8648927869653218
+    },
+    {
+      "a": "holding_P50_hours",
+      "b": "holding_P95_hours",
+      "rho": 0.8230039311301168
+    },
+    {
+      "a": "holding_P75_hours",
+      "b": "holding_P90_hours",
+      "rho": 0.9488356905942219
+    },
+    {
+      "a": "holding_P75_hours",
+      "b": "holding_P95_hours",
+      "rho": 0.9138385981157435
+    },
+    {
+      "a": "holding_P90_hours",
+      "b": "holding_P95_hours",
+      "rho": 0.9748335930782954
+    },
+    {
+      "a": "holding_MAX_hours",
+      "b": "holding_P75_hours",
+      "rho": 0.8582909769605869
+    },
+    {
+      "a": "holding_MAX_hours",
+      "b": "holding_P90_hours",
+      "rho": 0.9196974938432054
+    },
+    {
+      "a": "holding_MAX_hours",
+      "b": "holding_P95_hours",
+      "rho": 0.9639966171529001
+    },
+    {
+      "a": "closed_within_24h_fraction",
+      "b": "holding_P25_hours",
+      "rho": -0.8697826423390334
+    },
+    {
+      "a": "closed_within_24h_fraction",
+      "b": "holding_P50_hours",
+      "rho": -0.9378065627136801
+    },
+    {
+      "a": "closed_within_24h_fraction",
+      "b": "holding_P75_hours",
+      "rho": -0.9362139998604266
+    },
+    {
+      "a": "closed_within_24h_fraction",
+      "b": "holding_P90_hours",
+      "rho": -0.8932578927825149
+    },
+    {
+      "a": "closed_within_24h_fraction",
+      "b": "holding_P95_hours",
+      "rho": -0.8624148193769952
+    },
+    {
+      "a": "closed_within_24h_fraction",
+      "b": "holding_MAX_hours",
+      "rho": -0.8075836066051381
+    },
+    {
+      "a": "closed_within_24h_fraction",
+      "b": "closed_within_48h_fraction",
+      "rho": 0.932574304644973
+    },
+    {
+      "a": "closed_within_48h_fraction",
+      "b": "holding_P25_hours",
+      "rho": -0.8222370755953259
+    },
+    {
+      "a": "closed_within_48h_fraction",
+      "b": "holding_P50_hours",
+      "rho": -0.9010444139746064
+    },
+    {
+      "a": "closed_within_48h_fraction",
+      "b": "holding_P75_hours",
+      "rho": -0.9410799588279491
+    },
+    {
+      "a": "closed_within_48h_fraction",
+      "b": "holding_P90_hours",
+      "rho": -0.9253350487831544
+    },
+    {
+      "a": "closed_within_48h_fraction",
+      "b": "holding_P95_hours",
+      "rho": -0.8930792485725522
+    },
+    {
+      "a": "closed_within_48h_fraction",
+      "b": "holding_MAX_hours",
+      "rho": -0.8304116748239109
+    },
+    {
+      "a": "closed_within_48h_fraction",
+      "b": "closed_within_5d_fraction",
+      "rho": 0.8244933560946994
+    },
+    {
+      "a": "closed_within_5d_fraction",
+      "b": "holding_P75_hours",
+      "rho": -0.8500322107547675
+    },
+    {
+      "a": "closed_within_5d_fraction",
+      "b": "holding_P90_hours",
+      "rho": -0.8804748769156967
+    },
+    {
+      "a": "closed_within_5d_fraction",
+      "b": "holding_P95_hours",
+      "rho": -0.8750352960999254
+    },
+    {
+      "a": "closed_within_5d_fraction",
+      "b": "holding_MAX_hours",
+      "rho": -0.8553320486069005
+    }
+  ]
+}
