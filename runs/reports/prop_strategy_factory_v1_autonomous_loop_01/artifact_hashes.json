@@ -36,7 +36,8 @@
   "experiment_04_split_fix_xau/prop_candidates_replay.parquet": "fa97d38dab4da4484ae66b1ee5a75d245432a6fc7acaae5556ca20da5b40e926",
   "experiment_04_split_fix_xau/signal_timing.parquet": "65db0e19b58622da4363de457dfc765324f6bc7f46e5f09992bf0ebedd83392c",
   "experiment_04_split_fix_xau/summary.json": "e8c2cb01a982c0788af31dc64cc7c449180a06edbbcbc5e157d0bd8338008a48",
-  "experiment_ledger.jsonl": "adee38838ba24688936ce7cd083625ac3ccd0af3a80124efb609bc4c1e00fd09",
+  "experiment_ledger.jsonl": "49e8d09e24ffed27c5b60df35b88372a177cff604787d6b57d354af0a2aac877",
+  "factory_readiness_report.md": "a736aca585ab74ff545f6a3687d2f6ecbe3a09a9fb15b84198bda53e3b08cb8d",
   "general_vs_prop_corrected.json": "3aa4634266581a3ab5dd0184691da0a830459ef48185c285dde62c0fb1e69a2b",
   "metric_semantics.json": "a7a5955bd1414431347e2b4ad02c6a08f4142b6d37e487c471566d2fbcd3a27c",
   "policy_forensics.json": "eb86f4eb74d5e30422eaf534b6799fa0c26cf5f23da0376c8effd777b65e1258"
