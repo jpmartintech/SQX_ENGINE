@@ -1,0 +1,20 @@
+{
+  "comparison_is_descriptive": true,
+  "general_sample": {
+    "net_R_P50": 0.0,
+    "net_R_P95": 1.8943589078868222,
+    "net_R_P99": 2.3832335465786096,
+    "signals_per_day": 0.08016032064128256,
+    "strategies": 200,
+    "trades_5d": 40.0
+  },
+  "prop_pilot_development": {
+    "net_R_P50": null,
+    "net_R_P95": 7.2911510867853035,
+    "net_R_P99": 9.656945583407847,
+    "signals_per_day": 2.9893381098601157,
+    "strategies": 600,
+    "trades_5d_estimate": 14.946690549300579
+  },
+  "prop_trade_count_note": "Phase B fitness sidecar carries signals_per_day; five-day estimate is descriptive only."
+}

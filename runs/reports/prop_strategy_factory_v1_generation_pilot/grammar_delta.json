@@ -1,0 +1,18 @@
+{
+  "canonical_grammar": "v1.7",
+  "changes": "bounded shorter existing trend/momentum/structure/volatility parameter subset; no new indicators or semantics",
+  "families": [
+    "Trend",
+    "Momentum",
+    "Volatility",
+    "Structure"
+  ],
+  "general_grammar": "V1.7",
+  "predicate_counts": {
+    "Momentum": 48,
+    "Structure": 16,
+    "Trend": 46,
+    "Volatility": 16
+  },
+  "prop_grammar": "PROP_GRAMMAR_V1"
+}

@@ -46,11 +46,17 @@ def _window_rows(x: pd.DataFrame, start: pd.Timestamp, end: pd.Timestamp, horizo
     """
     days = pd.date_range(start, end - pd.Timedelta(days=horizon), freq="D", tz=LOCAL_TZ)
     calendar = pd.date_range(start, end - pd.Timedelta(days=1), freq="D", tz=LOCAL_TZ)
-    daily = x.groupby("local_day", sort=True).agg(
+    # Precompute sign partitions so the per-strategy rolling aggregation uses
+    # native groupby reductions rather than Python callbacks. Values and
+    # window semantics are unchanged.
+    work = x[["local_day", "net_R"]].copy()
+    work["positive_R"] = work.net_R.clip(lower=0.0)
+    work["negative_R"] = work.net_R.clip(upper=0.0)
+    work["positive_winners"] = (work.net_R > 0).astype(float)
+    daily = work.groupby("local_day", sort=True).agg(
         trade_count=("net_R", "size"), net_R=("net_R", "sum"),
-        positive_R=("net_R", lambda v: float(v[v > 0].sum())),
-        negative_R=("net_R", lambda v: float(v[v < 0].sum())),
-        positive_winners=("net_R", lambda v: int((v > 0).sum())),
+        positive_R=("positive_R", "sum"), negative_R=("negative_R", "sum"),
+        positive_winners=("positive_winners", "sum"),
     ).reindex(calendar, fill_value=0.0)
     values = {}
     for column in ("trade_count", "net_R", "positive_R", "negative_R", "positive_winners"):

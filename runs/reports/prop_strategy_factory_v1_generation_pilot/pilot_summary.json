@@ -1,0 +1,12 @@
+{
+  "cheap_evaluated": 2000,
+  "cheap_survivors": 600,
+  "combinations": 2,
+  "final_oos_accesses": 0,
+  "full_evaluated": 600,
+  "no_general_mutation": true,
+  "pending_phase_d": 600,
+  "pilot_scope": "EURUSD M15/H1, seed 4101; XAUUSD and seed 4102 deferred",
+  "prop_candidates": 0,
+  "unique_total": 2000
+}

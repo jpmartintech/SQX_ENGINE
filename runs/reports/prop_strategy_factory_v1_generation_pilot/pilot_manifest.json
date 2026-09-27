@@ -1,0 +1,18 @@
+{
+  "campaign": "PROP_V1_GENERATION_PILOT",
+  "full_target_deferred": true,
+  "general_library_mutated": false,
+  "markets_timeframes": [
+    "EURUSD_H1",
+    "EURUSD_M15"
+  ],
+  "observed_combinations": 2,
+  "oos_accesses": 0,
+  "phase_d": "NOT_IMPLEMENTED",
+  "requested_mode": "MINIMUM_FALLBACK",
+  "seeds": [
+    4101
+  ],
+  "survivor_width": 0.3,
+  "target_per_combination": 1000
+}

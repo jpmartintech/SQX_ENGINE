@@ -1,0 +1,9 @@
+{
+  "economic_spec_status": "READY_FROM_LEDGER",
+  "execution_profile_resolved": true,
+  "final_prop_ready": false,
+  "geometry_available_for_cheap_survivors": true,
+  "phase_e": "PENDING_PHASE_E",
+  "portfolio_useful": "PENDING_PHASE_D",
+  "survivor_count": 0
+}

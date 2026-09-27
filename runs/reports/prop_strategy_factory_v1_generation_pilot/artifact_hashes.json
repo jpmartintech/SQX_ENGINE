@@ -1,0 +1,19 @@
+{
+  "campaign_results.json": "6542ae5eff1adc3ef751528b2bfc4066333c92a75c8c9728cf25e035424afa74",
+  "cheap_fitness_results.parquet": "bf7d116526d8621452c8d5bf452bacfb4d77282426b845863e4cbc1a6c9d9094",
+  "determinism.json": "325edb07950eb77505f3a1a741a01870bf98f8985d94d588269bc01da6a45088",
+  "economic_handoff.json": "c1d4f49ea982fcf0cdba3fb90217740275118895bd82c9b862939392202cab4c",
+  "exit_space.json": "df748ff500e884d31b93338c28d62ad4d5bf3cd368dec83ca183522f26a3c613",
+  "factory_readiness_report.md": "649a83ae8edf7df2d207d0ed5444181756d7297128d71c82a7181b2da3cce64c",
+  "failure_analysis.json": "088638587bd9ff3aafeb09257323d42d0061bdcd5834aad7e96c55edd2c9d3f4",
+  "full_fitness_results.parquet": "958826ad96802367ada512f394484e2a84d4aa2152ed88ae57112435999bd249",
+  "funnel_results.parquet": "fb21e8610af8b395e5050126d17eda42d776305cc27c19bf07687934aa9ed92e",
+  "general_vs_prop.json": "ecdf1e38d6fb20e1d905b973fff15b829532d3f1ff556ec475fcfaf5d4f228e8",
+  "generation_counts.json": "6542ae5eff1adc3ef751528b2bfc4066333c92a75c8c9728cf25e035424afa74",
+  "grammar_delta.json": "144a466575a41edc72fe0fdfdff6910f52aa06bbef095bc8615975aa02b62a24",
+  "performance.json": "348db72682ff6494ffc95d9e39696233798b77c7bfd5c53bed3a07fc68953f71",
+  "pilot_manifest.json": "d80a7832a3a1b905f9fdd15f91bc969b6b045616b73e9911cfaec38c5b24ca1a",
+  "pilot_summary.json": "51ec4cc9b3c1f846d25e118248a035962851dc5b826746e8f37aa85a6b2952fa",
+  "prop_candidates.parquet": "16afbceabbacda58c9b8db926c979034549062277315d3b97bb0560e297ce4e3",
+  "short_horizon_capacity.json": "ecdf1e38d6fb20e1d905b973fff15b829532d3f1ff556ec475fcfaf5d4f228e8"
+}

@@ -159,7 +159,8 @@ def evaluate_funnel(
         common_sid.update({"strategy_id": sid, "execution_profile_id": row.get("execution_profile_id", common["execution_profile_id"])})
 
         records.append(_stage_row(sid, "GENERATED", PASS, ["ANALYSIS_MODE_GENERAL"] if mode == "ANALYSIS" else [], common_sid, {"canonical_strategy_id": sid}))
-        causal_reasons = [] if str(row.get("data_provenance_id", "")).startswith("certified_") else ["CAUSALITY_FAIL"]
+        causal_evidence = str(lineage.get("causal_evidence", ""))
+        causal_reasons = [] if causal_evidence == "PASS" or str(row.get("data_provenance_id", "")).startswith("certified_") else ["CAUSALITY_FAIL"]
         records.append(_stage_row(sid, "CAUSAL", PASS if not causal_reasons else UNAVAILABLE, causal_reasons, common_sid, {"source": row.get("data_provenance_id", "UNKNOWN")}))
 
         basic_reasons = []

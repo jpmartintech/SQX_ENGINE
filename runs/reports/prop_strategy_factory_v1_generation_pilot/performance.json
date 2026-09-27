@@ -1,0 +1,11 @@
+{
+  "estimated_10k_seconds": 2768.30604274,
+  "estimated_250k_seconds": 69207.6510685,
+  "estimated_50k_seconds": 13841.5302137,
+  "generation_backtest_cheap_full_funnel": "included in campaign_results",
+  "peak_rss_mib": 285.00390625,
+  "reporting_runtime_seconds": 0.24643942700640764,
+  "strategies_per_second": 3.612317368675846,
+  "total_runtime_seconds": 553.661208548,
+  "unique_strategies": 2000
+}

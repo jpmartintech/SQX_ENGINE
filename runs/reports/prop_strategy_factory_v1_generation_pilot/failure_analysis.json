@@ -1,0 +1,38 @@
+{
+  "classification": "SHORT_HORIZON_SELECTION_LIMITATION",
+  "evidence": "All selected pilot strategies failed SHORT_HORIZON_QUALITY; no threshold retuning or Phase D utility was applied.",
+  "no_general_mutation": true,
+  "stage_counts": {
+    "BASIC_EDGE": {
+      "FAIL": 396,
+      "PASS": 204
+    },
+    "CAUSAL": {
+      "PASS": 600
+    },
+    "COST_ROBUST": {
+      "PASS": 600
+    },
+    "GENERATED": {
+      "PASS": 600
+    },
+    "NOVEL": {
+      "FAIL": 28,
+      "PASS": 572
+    },
+    "PORTFOLIO_USEFUL": {
+      "PENDING": 600
+    },
+    "PROP_READY": {
+      "PENDING": 600
+    },
+    "SHORT_HORIZON_QUALITY": {
+      "FAIL": 600
+    },
+    "TEMPORAL_STABLE": {
+      "FAIL": 130,
+      "PASS": 432,
+      "UNAVAILABLE": 38
+    }
+  }
+}

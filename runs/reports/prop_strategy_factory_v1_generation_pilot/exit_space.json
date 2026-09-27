@@ -1,0 +1,21 @@
+{
+  "atr_period": 14,
+  "design_status": "PILOT_CONFIG_CALIBRATION_REQUIRED",
+  "stop_atr": [
+    1.0,
+    1.5,
+    2.0
+  ],
+  "target_atr": [
+    1.0,
+    1.5,
+    2.0,
+    3.0
+  ],
+  "time_exit_bars": [
+    4,
+    8,
+    12,
+    24
+  ]
+}
