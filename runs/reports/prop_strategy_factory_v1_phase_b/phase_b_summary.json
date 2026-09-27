@@ -1,0 +1,9 @@
+{
+  "cheap_front_1": 96,
+  "cheap_full_retention": 0.6193548387096774,
+  "full_front_1": 155,
+  "no_generation": true,
+  "no_portfolio_search": true,
+  "profit_factor_status": "AVAILABLE_FROM_CERTIFIED_LEDGER_WHEN_SUPPLIED",
+  "sample_strategies": 200
+}

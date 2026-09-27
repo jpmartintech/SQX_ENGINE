@@ -1,0 +1,17 @@
+{
+  "cheap_full_comparison.json": "5eaa6c2cf8ac5570b253291e2e90f393b72a9ff1181d9dc7abd20e10fa32ee24",
+  "determinism.json": "ce6066508f375cad2a44f2834da44c0676b38bff5fb9cca19ce5156f4eafcb7b",
+  "factory_readiness_report.md": "6d7d67b810bc77f4c417fb670fc67de397c9f35c3fe2461d01c2733e525d77c5",
+  "fitness_objectives.json": "a693c0a1047d8d9b4c484cbc92be64286920dd129eaafc8149eb7abe03e10635",
+  "horizon_fitness.parquet": "0c5c18173632656c1ff9c777b3e7f428fbb9cbfe478128fbc745a4fe7942d0ae",
+  "missing_data_policy.json": "58e5ebbb8c9e7d45807009ef8407adc48f90498809ee56c735465291ecdabc4d",
+  "objective_relationships.json": "da1392d502ba99fa1872a752ce075f67f1b8b31c0328216f5f33131231256433",
+  "pareto_fronts.parquet": "80053ce5a63af6d11fbedc7719dfd17cbe06f039ef9a468f43e234f3a8e0eacd",
+  "performance.json": "1d640cf64d139657fb570b0b61167a6206276a4b5ca562d41c4d1666fe22af13",
+  "phase_b_manifest.json": "e98374b4b9998a96d046f541f0a8b960474153b220d322ebf6cc7ccce7e73439",
+  "phase_b_summary.json": "c6ee373720512356a3f31bf4df55e4a2d423262d38ead959794dfc848de2e50e",
+  "phase_c_interface.json": "1e4717f07e2b8ff0dadc8027d604a4c98e292afa1df6a4efc68a79d242f7d3e1",
+  "sample_cheap_fitness.parquet": "cc25f8b9989800dfd63c7c227b15e0aaffc2701e2a5a7f1267aea33db01221a5",
+  "sample_fitness.parquet": "66c74c7becb63e154abc82664ddbe32ff665df1e389229cc132ab8c4e237b234",
+  "temporal_consistency.parquet": "ab9f13e14a26eff0670d14e69ee4bf7aa903f16577a7648a1654cf1b32306573"
+}

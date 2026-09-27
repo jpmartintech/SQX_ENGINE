@@ -1,0 +1,11 @@
+{
+  "cheap_front_retention_of_full_front": 0.6193548387096774,
+  "full_front_size": 155,
+  "kendall_compatibility_score": 0.7258291457286432,
+  "portfolio_pass_probability": "NOT_USED",
+  "profit_factor_status": "AVAILABLE_FROM_CERTIFIED_LEDGER_WHEN_SUPPLIED",
+  "spearman_compatibility_score": 0.8993639840996026,
+  "strategies": 200,
+  "top_10_percent_overlap": 0.75,
+  "top_20_percent_overlap": 0.825
+}

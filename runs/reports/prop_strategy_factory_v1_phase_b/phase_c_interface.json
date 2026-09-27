@@ -1,0 +1,9 @@
+{
+  "compare_fitness": "sqx_engine.prop_factory_v1.fitness.dominates(a, b)",
+  "evaluate_cheap": "sqx_engine.prop_factory_v1.fitness.evaluate_cheap(candidate_statistics, horizon_days=5, split='DEVELOPMENT')",
+  "evaluate_full": "sqx_engine.prop_factory_v1.fitness.evaluate_full(metrics, costs, horizon_days=5, split='DEVELOPMENT', profit_factor_by_strategy_split=optional_map)",
+  "fitness_vector": "sqx_engine.prop_factory_v1.fitness.fitness_vector(frame, strategy_id)",
+  "general_factory_wiring": "not performed",
+  "pareto_rank": "sqx_engine.prop_factory_v1.fitness.pareto_rank(frame)",
+  "portfolio_simulation": "not performed"
+}

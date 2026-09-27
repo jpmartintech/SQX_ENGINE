@@ -1,0 +1,13 @@
+{
+  "cheap_evaluations_per_second": 6582.927440343013,
+  "cheap_runtime_seconds": 0.03038162000302691,
+  "estimated_250k_cheap_seconds": 37.97702500378364,
+  "full_evaluations_per_second": 317.0163692486996,
+  "full_runtime_seconds": 0.6308822489954764,
+  "pareto_runtime_seconds": 18.42736826199689,
+  "peak_rss_mib": 379.8359375,
+  "sample_strategies": 200,
+  "serialization_seconds": 4.615508341012173,
+  "sidecar_loading_seconds": 0.04121035100251902,
+  "total_runtime_seconds": 23.745350823010085
+}

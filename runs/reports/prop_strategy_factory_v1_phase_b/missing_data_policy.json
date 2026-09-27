@@ -1,0 +1,8 @@
+{
+  "available": "numeric Phase A sidecar value",
+  "insufficient_sample": "explicit INSUFFICIENT_SAMPLE status when supplied by upstream",
+  "missing_provenance": "UNKNOWN status/value, never favorable default",
+  "profit_factor": "UNAVAILABLE_IN_PHASE_A_SCHEMA unless the optional certified trade-ledger aggregate is supplied; no approximation is substituted",
+  "unavailable": "null value plus <objective>__status=UNAVAILABLE",
+  "unsupported_cost_component": "preserve Phase A cost status; never replace with zero"
+}
