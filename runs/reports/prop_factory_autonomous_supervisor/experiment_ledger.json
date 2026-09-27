@@ -1,0 +1,46 @@
+[
+  {
+    "experiment_id": "SUPERVISOR_01_V1_FREEZE",
+    "parent": "LOOP_02",
+    "hypothesis": "PROP_V1 is high-opportunity but high-clustered-downside material",
+    "falsification_criterion": "A legitimate candidate survives all pre-Phase-D stages",
+    "factory_version": "PROP_V1",
+    "strategy_count": 6000,
+    "oos_accesses": 0,
+    "result": "0 PROP_CANDIDATE; LOSS_CLUSTERING_DOMINANT",
+    "decision": "freeze V1"
+  },
+  {
+    "experiment_id": "SUPERVISOR_02_CAUSAL_STATE",
+    "parent": "SUPERVISOR_01_V1_FREEZE",
+    "hypothesis": "Existing causal market or prior-performance state predicts future loss clusters",
+    "falsification_criterion": "No state retains adverse direction from Development to Validation",
+    "factory_version": "DIAGNOSTIC",
+    "strategy_count": 97,
+    "oos_accesses": 0,
+    "result": "Prior loss/signal state weakly reproducible; market-state effects weak",
+    "decision": "run cooldown falsification"
+  },
+  {
+    "experiment_id": "SUPERVISOR_03_DIVERSIFICATION",
+    "parent": "SUPERVISOR_01_V1_FREEZE",
+    "hypothesis": "Cross-market/timeframe diversification rescues clustered standalone downside",
+    "falsification_criterion": "Validation exact replay remains below target-scale capacity",
+    "factory_version": "DIAGNOSTIC",
+    "strategy_count": 18,
+    "oos_accesses": 0,
+    "result": "No robust Challenge rescue; low utilization and weak upper tails",
+    "decision": "do not promote raw material"
+  },
+  {
+    "experiment_id": "SUPERVISOR_04_COOLDOWN",
+    "parent": "SUPERVISOR_02_CAUSAL_STATE",
+    "hypothesis": "Suppressing entries after two consecutive losses reduces future clustered downside",
+    "falsification_criterion": "Validation downside improves without disproportionate upper-tail loss",
+    "factory_version": "DIAGNOSTIC_COOLDOWN",
+    "strategy_count": 18,
+    "oos_accesses": 0,
+    "result": "Downside improved modestly but upper tail and opportunity also fell; no target attainment",
+    "decision": "falsified as sufficient V2 mechanism"
+  }
+]

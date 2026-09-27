@@ -1,0 +1,22 @@
+{
+  "result": "HIGH_OPPORTUNITY_HIGH_CLUSTERED_DOWNSIDE",
+  "factory_version": "PROP_V1",
+  "generated": 6000,
+  "full_evaluated": 1800,
+  "prop_candidates": 0,
+  "oos_accesses": 0,
+  "evidence": {
+    "signals_per_day_final_median": 3.018,
+    "holding_p50_hours": 2.0,
+    "holding_p95_hours": 7.0,
+    "positive_tail_p95_R": 6.168,
+    "positive_tail_p99_R": 8.280,
+    "negative_tail_p05_R": -5.213,
+    "negative_tail_p01_R": -7.583,
+    "worst_window_R": -12.0,
+    "median_max_consecutive_losses": 13,
+    "cost_robust_survivors": "all evaluated survivors",
+    "validation_stability": "415 PASS / 172 FAIL / 13 UNAVAILABLE"
+  },
+  "interpretation": "PROP_V1 manufactured high-frequency, short-duration, positive-tail components, but repeated bounded losses remained clustered and no strategy passed the legitimate pre-portfolio funnel."
+}

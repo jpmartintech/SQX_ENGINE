@@ -1,0 +1,16 @@
+{
+  "starting_commit": "542d60da9cc6c049041696d3616d9213ab3bfc99",
+  "product_result": "NEGATIVE",
+  "final_classification": "PROP_FACTORY_NEGATIVE_RESULT",
+  "prop_v1_result": "HIGH_OPPORTUNITY_HIGH_CLUSTERED_DOWNSIDE",
+  "phase_d_executed": false,
+  "phase_e_executed": false,
+  "portfolio_factory_production_search": false,
+  "deployment_engine_invoked": false,
+  "oos_accesses": 0,
+  "binding_limitation": "MULTIPLE: clustered downside plus insufficient independent positive 5D capacity",
+  "causal_state": "prior loss/signal state weakly predictive; market-state descriptors weak",
+  "diversification": "not a robust rescue",
+  "cooldown": "falsified as sufficient mechanism",
+  "next": "separate human review of a fundamentally new causal-information Prop Factory design"
+}
