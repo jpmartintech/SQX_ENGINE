@@ -232,6 +232,99 @@ class BarEquityReplay:
         return worst
 
 
+class FtmoEpisodeEvaluator:
+    """Normalized, flat-start FTMO episode evaluator.
+
+    Events carry ``net_R`` and ``allocated_risk``.  One R is therefore
+    ``allocated_risk / 0.01`` normalized account units; ``initial_capital``
+    only changes the reporting currency.  The evaluator keeps balance and
+    floating equity separate, marks open positions on M15 bars, uses
+    Europe/Paris daily floors, and never force-closes positions at the
+    episode boundary.  It is intentionally conservative at bar resolution.
+    """
+    def __init__(self, profile: Ftmo2StepProfile | None = None, initial_capital: float = 1.0):
+        self.profile = profile or Ftmo2StepProfile()
+        self.initial_capital = float(initial_capital)
+
+    @staticmethod
+    def _normal_events(events, start, end):
+        frame = events.copy() if isinstance(events, pd.DataFrame) else pd.DataFrame(events)
+        if frame.empty:
+            return frame
+        for c in ("entry_timestamp", "exit_timestamp"):
+            frame[c] = pd.to_datetime(frame[c], utc=True)
+        frame = frame[(frame.entry_timestamp >= start) & (frame.entry_timestamp < end)].copy()
+        for c, value in (("allocated_risk", 0.0), ("net_R", 0.0), ("market", "UNKNOWN"), ("direction", "LONG")):
+            if c not in frame:
+                frame[c] = value
+        frame["allocated_risk"] = frame.allocated_risk.astype(float)
+        frame["net_R"] = frame.net_R.astype(float)
+        frame["_row"] = np.arange(len(frame))
+        return frame.sort_values(["entry_timestamp", "strategy_id", "exit_timestamp"] if "strategy_id" in frame else ["entry_timestamp", "exit_timestamp"]).reset_index(drop=True)
+
+    def evaluate(self, events, bars_by_market, start, end, target=0.10):
+        start = pd.Timestamp(start); end = pd.Timestamp(end)
+        if start.tzinfo is None: start = start.tz_localize("UTC")
+        else: start = start.tz_convert("UTC")
+        if end.tzinfo is None: end = end.tz_localize("UTC")
+        else: end = end.tz_convert("UTC")
+        frame = self._normal_events(events, start, end)
+        if frame.empty:
+            return {"status":"ALIVE", "target_hit":False, "target_hit_timestamp":None, "telemetry":pd.DataFrame(), "positions_open_end":0, "trading_days":0}
+        clocks=[]
+        for market, group in frame.groupby("market", sort=True):
+            bars = bars_by_market.get(market)
+            if bars is None: continue
+            b = bars.copy(); b["timestamp"] = pd.to_datetime(b["timestamp"], utc=True)
+            b = b[(b.timestamp >= start) & (b.timestamp <= end)].copy()
+            if len(b):
+                b["market"] = market; clocks.append(b[["timestamp","open","high","low","close","market"]])
+        if not clocks:
+            return {"status":"ALIVE", "target_hit":False, "target_hit_timestamp":None, "telemetry":pd.DataFrame(), "positions_open_end":len(frame), "trading_days":0}
+        clock = pd.concat(clocks, ignore_index=True).sort_values(["timestamp","market"]).reset_index(drop=True)
+        by_market = {m:list(x.itertuples(index=False)) for m,x in frame.groupby("market", sort=False)}
+        entry_ptr = {m:0 for m in by_market}; entered=[]; closed=set(); open_positions=[]
+        balance=self.initial_capital; realized=0.0; daily_start={}; current_day=None; target_hit=False; target_ts=None; pass_ts=None; first_breach=None; peak=self.initial_capital; rows=[]
+        for bar in clock.itertuples(index=False):
+            ts=pd.Timestamp(bar.timestamp); day=_local_day(ts, self.profile.timezone)
+            if day != current_day:
+                current_day=day; daily_start[day]=balance
+            market_positions=by_market.get(bar.market, [])
+            while entry_ptr.get(bar.market,0) < len(market_positions) and market_positions[entry_ptr[bar.market]].entry_timestamp <= ts:
+                p=market_positions[entry_ptr[bar.market]]; entered.append(p); open_positions.append(p); entry_ptr[bar.market]+=1
+            realized_delta=0.0
+            for p in list(open_positions):
+                if p.market == bar.market and p.exit_timestamp <= ts:
+                    pnl=float(p.net_R*p.allocated_risk)*self.initial_capital
+                    balance += pnl; realized += pnl; realized_delta += pnl; closed.add(id(p)); open_positions.remove(p)
+            floating=0.0; adverse=0.0; favorable=0.0
+            for p in open_positions:
+                if p.market != bar.market: continue
+                sign=1.0 if str(p.direction).upper() in {"LONG","BUY"} else -1.0
+                denom=max(abs(float(p.entry_price)-float(p.stop_price)), 1e-12) if hasattr(p,"stop_price") and pd.notna(p.stop_price) else 1.0
+                mark=float(bar.close); bad=float(bar.low) if sign>0 else float(bar.high); good=float(bar.high) if sign>0 else float(bar.low)
+                floating += sign*(mark-float(p.entry_price))/denom*float(p.allocated_risk)*self.initial_capital
+                adverse += sign*(bad-float(p.entry_price))/denom*float(p.allocated_risk)*self.initial_capital
+                favorable += sign*(good-float(p.entry_price))/denom*float(p.allocated_risk)*self.initial_capital
+            equity=balance+floating; equity_adverse=balance+adverse; equity_favorable=balance+favorable
+            floor=daily_start[day]-self.profile.daily_loss_fraction*self.initial_capital
+            total_floor=self.profile.maximum_loss_limit*self.initial_capital
+            if equity_adverse < total_floor: first_breach=first_breach or "MAX_LOSS"
+            elif equity_adverse < floor: first_breach=first_breach or "DAILY_LOSS"
+            target_level=self.initial_capital*(1+target)
+            if (equity >= target_level-1e-10*max(1.0,self.initial_capital) or equity_favorable >= target_level-1e-10*max(1.0,self.initial_capital)) and target_ts is None:
+                target_hit=True; target_ts=ts
+            # Positions already active at the target must be closed; future
+            # signals in the episode do not invalidate a causal pass.
+            if target_hit and not open_positions and first_breach is None:
+                pass_ts=target_ts
+            peak=max(peak,equity); rows.append({"timestamp":ts,"balance":balance,"floating_pnl":floating,"equity":equity,"equity_adverse":equity_adverse,"equity_favorable":equity_favorable,"realized_pnl":realized,"realized_pnl_delta":realized_delta,"open_positions":len(open_positions),"open_initial_risk":float(sum(p.allocated_risk for p in open_positions)*self.initial_capital),"daily_floor":floor,"total_loss_floor":total_floor,"target_level":self.initial_capital*(1+target),"date_ftmo":day,"daily_breach":equity_adverse<floor,"maximum_loss_breach":equity_adverse<total_floor})
+        telemetry=pd.DataFrame(rows)
+        all_closed=len(closed)==len(frame)
+        status="PASS" if pass_ts is not None else "FAIL" if first_breach else "ALIVE"
+        return {"status":status,"target_hit":target_hit,"target_hit_timestamp":target_ts,"target_hit_equity":float(telemetry.loc[telemetry.timestamp==target_ts,"equity"].iloc[0]) if target_ts is not None and len(telemetry.loc[telemetry.timestamp==target_ts]) else None,"telemetry":telemetry,"positions_open_end":len(open_positions),"trading_days":len({p.entry_timestamp.tz_convert(self.profile.timezone).date() for p in entered}),"balance":balance,"equity":float(telemetry.equity.iloc[-1]) if len(telemetry) else balance,"max_drawdown":float((telemetry.equity.cummax()-telemetry.equity).max()) if len(telemetry) else 0.0,"first_breach":first_breach,"intrabar_target_observation":target_ts is not None}
+
+
 def inventory_dataset(path: str | Path, market: str, timeframe: str, kind: str = "native") -> dict:
     frame = load_ohlc(path)
     return {"market": market, "timeframe": timeframe, "path": str(path), "kind": kind,

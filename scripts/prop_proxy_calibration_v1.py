@@ -10,6 +10,7 @@ import argparse, hashlib, json, random, resource, time
 from pathlib import Path
 import numpy as np
 import pandas as pd
+from sqx_engine.portfolio_factory.exact_equity import FtmoEpisodeEvaluator
 
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/"runs/reports/prop_factory_v1_proxy_calibration"
@@ -115,6 +116,13 @@ def exact_episode(events,start,end,target,bar_map):
             target_day=target_day or day if len(opened_days)>=4 else target_day
     status="PASS" if target_day is not None and len(closed)==len(rows) else "FAIL" if max_fail or daily_fail else "ALIVE"
     return status,target_day,float(balance),float(peak-min_eq),float(daily_fail or max_fail)
+
+# The bridge and calibration tools share the authoritative common evaluator;
+# this compatibility adapter preserves their compact tuple contract.
+def exact_episode(events,start,end,target,bar_map):
+    result=FtmoEpisodeEvaluator().evaluate(events, bar_map, start, end, target=target)
+    telemetry=result.get("telemetry", pd.DataFrame())
+    return result["status"], result.get("target_hit_timestamp"), float(result.get("balance",1.0)), float(result.get("max_drawdown",0.0)), float(bool(result.get("first_breach")))
 
 def classify(stream,by_starts,bar_map,target):
     proxy=[]; exact=[]

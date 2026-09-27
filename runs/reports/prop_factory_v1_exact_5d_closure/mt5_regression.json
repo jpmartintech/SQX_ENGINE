@@ -1,0 +1,15 @@
+{
+  "intrabar_ambiguous": 4,
+  "mt5_balance_dd": 0.0286917,
+  "mt5_equity_dd": 0.0295094,
+  "mt5_return": 0.051946099999999995,
+  "mt5_trades": 1481,
+  "period": "2024-01-01/2026-04-14",
+  "portfolio": "SQX-PROP-02760ECAC8BA",
+  "python_balance_dd": 0.02906049999999749,
+  "python_equity_dd": 0.02906049999999749,
+  "python_replay_trades": 1481,
+  "python_return": 0.052217700000007916,
+  "return_abs_diff": 0.00027160000000792106,
+  "status": "CALIBRATION_ONLY"
+}

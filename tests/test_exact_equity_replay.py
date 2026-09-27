@@ -1,6 +1,6 @@
 import pandas as pd
 
-from sqx_engine.portfolio_factory.exact_equity import BarEquityReplay
+from sqx_engine.portfolio_factory.exact_equity import BarEquityReplay, FtmoEpisodeEvaluator
 
 
 def bars(rows):
@@ -65,3 +65,52 @@ def test_opposing_positions_are_supported():
         ("2024-01-01T01:00Z", 100, 101, 99, 100),
     ]))
     assert result["positions"] == 2
+
+
+def ftmo_event(net_r, day, risk=.01, exit_hour=12):
+    return {"strategy_id": f"s-{day}", "market":"EURUSD", "direction":"LONG",
+            "entry_timestamp":f"2024-01-{day:02d}T09:00Z", "exit_timestamp":f"2024-01-{day:02d}T{exit_hour:02d}:00Z",
+            "entry_price":100., "stop_price":99., "target_price":110., "net_R":net_r, "allocated_risk":risk}
+
+
+def ftmo_bars(days=6, close=100.):
+    return {"EURUSD": pd.DataFrame({"timestamp":pd.date_range("2024-01-01T00:00Z", periods=days*24+2, freq="h", tz="UTC"),
+                                     "open":close,"high":close,"low":close,"close":close})}
+
+
+def test_ftmo_r_scaling_and_synthetic_passes():
+    evaluator=FtmoEpisodeEvaluator(initial_capital=100000.)
+    events=pd.DataFrame([ftmo_event(2.5,d) for d in (1,2,3,4)])
+    result=evaluator.evaluate(events,ftmo_bars(),"2024-01-01T00:00Z","2024-01-06T00:00Z",target=.10)
+    assert result["status"] == "PASS"
+    assert abs(result["balance"]-110000.) < 1e-9
+    assert result["target_hit"] is True
+
+
+def test_ftmo_verification_daily_and_max_loss_cases():
+    evaluator=FtmoEpisodeEvaluator(initial_capital=100000.)
+    verification=evaluator.evaluate(pd.DataFrame([ftmo_event(5,d) for d in (1,2,3,4)]),ftmo_bars(),"2024-01-01T00:00Z","2024-01-06T00:00Z",target=.05)
+    daily=evaluator.evaluate(pd.DataFrame([ftmo_event(-6,1)]),ftmo_bars(),"2024-01-01T00:00Z","2024-01-06T00:00Z",target=.10)
+    maximum=evaluator.evaluate(pd.DataFrame([ftmo_event(-11,1)]),ftmo_bars(),"2024-01-01T00:00Z","2024-01-06T00:00Z",target=.10)
+    assert verification["status"] == "PASS"
+    assert daily["status"] == "FAIL" and maximum["status"] == "FAIL"
+
+
+def test_ftmo_equity_identity_and_open_end_is_not_forced_closed():
+    evaluator=FtmoEpisodeEvaluator(initial_capital=1.)
+    result=evaluator.evaluate(pd.DataFrame([ftmo_event(1,1,exit_hour=23)]),ftmo_bars(days=1),"2024-01-01T00:00Z","2024-01-01T12:00Z",target=.10)
+    assert result["status"] == "ALIVE"
+    telemetry=result["telemetry"]
+    assert (telemetry.balance == 1.0).all()
+    assert (telemetry.equity == telemetry.balance + telemetry.floating_pnl).all()
+    assert result["positions_open_end"] >= 1
+
+
+def test_ftmo_target_before_later_breach_is_pass_and_breach_first_fails():
+    evaluator=FtmoEpisodeEvaluator(initial_capital=100000.)
+    before=pd.DataFrame([ftmo_event(10,1), ftmo_event(-6,2)])
+    after=pd.DataFrame([ftmo_event(-6,1), ftmo_event(10,2)])
+    target_before=evaluator.evaluate(before,ftmo_bars(),"2024-01-01T00:00Z","2024-01-06T00:00Z",target=.10)
+    breach_before=evaluator.evaluate(after,ftmo_bars(),"2024-01-01T00:00Z","2024-01-06T00:00Z",target=.10)
+    assert target_before["status"] == "PASS"
+    assert breach_before["status"] == "FAIL"

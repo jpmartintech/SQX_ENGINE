@@ -1,0 +1,11 @@
+{
+  "challenge": {
+    "best_balance_return": 0.056064003603006896,
+    "note": "no PASS in fixed sample",
+    "p_pass_5d": 0.0
+  },
+  "verification": {
+    "best_balance_return": 0.056064003603006896,
+    "p_pass_5d": 0.0
+  }
+}

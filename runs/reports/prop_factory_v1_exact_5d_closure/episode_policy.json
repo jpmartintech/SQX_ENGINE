@@ -1,0 +1,11 @@
+{
+  "end": "open positions retained",
+  "horizons": [
+    5,
+    10,
+    15,
+    20
+  ],
+  "overlapping_windows": true,
+  "start": "flat"
+}

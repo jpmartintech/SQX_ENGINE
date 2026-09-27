@@ -1,0 +1,9 @@
+{
+  "account_identity": "equity = balance + floating_pnl",
+  "authority": "BAR_EQUITY_REPLAY",
+  "daily_timezone": "Europe/Paris",
+  "end_policy": "open positions are retained; no forced liquidation for PASS/FAIL/ALIVE",
+  "risk_formula": "currency_pnl = net_R * allocated_risk_fraction * initial_capital",
+  "start_policy": "flat account; only entries in [start,end) are admitted",
+  "target_tolerance": "1e-10*max(1,initial_capital)"
+}

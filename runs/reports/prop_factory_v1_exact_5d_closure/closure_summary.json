@@ -1,0 +1,11 @@
+{
+  "best_5d_balance_return": 0.056064003603006896,
+  "challenge_p_pass_5d": 0.0,
+  "challenge_passes": 0,
+  "decision": "EXACT_5D_EVALUATOR_FIXED_AND_VALIDATED",
+  "evaluator_correctness": "VALIDATED",
+  "sample_episodes": 12,
+  "sample_portfolios": 30,
+  "verification_p_pass_5d": 0.002777777777777778,
+  "verification_passes": 1
+}

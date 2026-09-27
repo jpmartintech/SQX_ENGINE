@@ -1,0 +1,47 @@
+{
+  "portfolios": 30,
+  "summary": [
+    {
+      "maximum_open_risk": 0.013499999999999998,
+      "mean_open_risk": 0.00265,
+      "p95_open_risk": 0.005,
+      "portfolio_size": 5,
+      "rejected_signals": 0.0
+    },
+    {
+      "maximum_open_risk": 0.0045,
+      "mean_open_risk": 0.0015091297591297594,
+      "p95_open_risk": 0.002829166666666667,
+      "portfolio_size": 10,
+      "rejected_signals": 0.0
+    },
+    {
+      "maximum_open_risk": 0.019500000000000003,
+      "mean_open_risk": 0.004397148228233755,
+      "p95_open_risk": 0.008270833333333333,
+      "portfolio_size": 20,
+      "rejected_signals": 0.6666666666666666
+    },
+    {
+      "maximum_open_risk": 0.009000000000000001,
+      "mean_open_risk": 0.002322265974765975,
+      "p95_open_risk": 0.0046770833333333334,
+      "portfolio_size": 30,
+      "rejected_signals": 0.0
+    },
+    {
+      "maximum_open_risk": 0.008750000000000004,
+      "mean_open_risk": 0.0032281818181818193,
+      "p95_open_risk": 0.006002083333333335,
+      "portfolio_size": 40,
+      "rejected_signals": 0.0
+    },
+    {
+      "maximum_open_risk": 0.010799999999999999,
+      "mean_open_risk": 0.003161132423984086,
+      "p95_open_risk": 0.0061041666666666675,
+      "portfolio_size": 50,
+      "rejected_signals": 0.0
+    }
+  ]
+}

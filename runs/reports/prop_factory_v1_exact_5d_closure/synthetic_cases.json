@@ -1,0 +1,9 @@
+{
+  "alive": "ALIVE",
+  "breach_before_target": "FAIL",
+  "challenge_pass": "PASS",
+  "daily_loss_fail": "FAIL",
+  "maximum_loss_fail": "FAIL",
+  "target_before_breach": "PASS",
+  "verification_pass": "PASS"
+}

@@ -1,0 +1,18 @@
+{
+  "artifact_hashes.json": "dc22a7537a18419968c78d13fc2a0f390b77ae1bf0dfd519ddb602ce62b574ea",
+  "best_observed_windows.json": "f02e587554d0f76c23f8b05d235a11ade977e488ebae2f1586ef252a7257a758",
+  "closure_summary.json": "be5522a6c22b7c92efc667910ae427d411748aa00ebf7d507c2f18b3a5219356",
+  "daily_reset_validation.json": "9acffaff7409c73d9105b69d7804e23021bfe892ef71bc4c08ddac77888f7e06",
+  "episode_policy.json": "21ee7ce7b6bfcd64085beff80f8ff38734b55bd17f279bc4f7ab6c34e1055030",
+  "evaluator_semantics.json": "9a1b10a4a600e9e79e0d328cd1736edff5b63ece65d1dad9f93109ec8e3afc79",
+  "event_ordering.json": "5ce78e1b032b76569418fe56c424446e25661dbb699ba31aca653240fa897840",
+  "factory_readiness_report.md": "29ed39a545ced36b435fa6c616c7d95119bf7434673c8b09a99de136b9e35e00",
+  "hand_audited_episodes.parquet": "8c3e35011e217c402c917de65a9ea3df0b5aad798f55106677359693801b2cf2",
+  "max_open_risk_audit.json": "732ba67281c4af1e05d9c478181302b16e51550ece6cddb59505ca5db9ec0c80",
+  "mt5_regression.json": "ed2c4c3a14ba2a6a507d0b28b6557a8ccf25986c46f9c8aa56e94efd4c319d5d",
+  "postfix_comparison.json": "6af2c5d1f18105bb3f0cf4057239e24b549ed8018cb431a1603b4a080f996a4d",
+  "return_5d_distribution.parquet": "e8e4aba1b5f669e39123bb36a2ba5e91beab58930421de8dd243cf1dd2890688",
+  "risk_scaling.json": "341748eddc1d398273f9f633832e695ae9e608487e6ebea9e0fd4ad967ba171a",
+  "synthetic_cases.json": "8f79808f185ca65d21367d2f0786a5654a86047322008ee490c1239b9ee8d78d",
+  "target_distance_distribution.parquet": "1533d771a7dfb1fadea1368303e833ccba9024e90c8b7c51c7b31f5fbe8fc60f"
+}

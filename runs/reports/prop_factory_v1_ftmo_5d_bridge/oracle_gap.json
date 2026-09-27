@@ -1,6 +1,6 @@
 {
   "best_exact_challenge": 0.0,
-  "best_exact_verification": 0.0,
+  "best_exact_verification": 0.08333333333333333,
   "interpretation": "oracle is a retrospective ceiling; constructed probabilities are sample diagnostics",
   "oracle_source": {
     "constraints": "diagnostic positive-event and capped normalized R; not P(PASS)",

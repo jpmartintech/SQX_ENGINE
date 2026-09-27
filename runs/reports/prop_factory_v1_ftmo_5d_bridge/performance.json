@@ -2,7 +2,7 @@
   "cached_exact_speed": "bounded M15 replay; measured end-to-end",
   "episodes_per_portfolio": 12,
   "fast_proxy_speed": "not separately instrumented",
-  "peak_rss_mib": 907.4609375,
-  "runtime_seconds": 106.675026626006,
+  "peak_rss_mib": 975.22265625,
+  "runtime_seconds": 86.74311344500165,
   "sample": 30
 }

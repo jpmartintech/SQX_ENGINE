@@ -1,0 +1,12 @@
+{
+  "intrabar": "M15 adverse low/high probe; no invented ticks",
+  "order": [
+    "daily reset",
+    "new entries",
+    "scheduled exits/realized PnL",
+    "floating MTM",
+    "adverse breach check",
+    "target check",
+    "state snapshot"
+  ]
+}

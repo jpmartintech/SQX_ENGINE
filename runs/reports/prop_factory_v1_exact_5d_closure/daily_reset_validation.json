@@ -1,0 +1,8 @@
+{
+  "autumn_transition": "timezone-aware",
+  "fixed_UTC_midnight": false,
+  "normal_CEST": "validated by _local_day",
+  "normal_CET": "validated by _local_day",
+  "spring_transition": "timezone-aware",
+  "timezone": "Europe/Paris"
+}

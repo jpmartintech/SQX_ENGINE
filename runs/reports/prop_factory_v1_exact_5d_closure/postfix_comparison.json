@@ -1,0 +1,13 @@
+{
+  "after": {
+    "challenge_p_pass_5d": 0.0,
+    "verification_p_pass_5d": 0.002777777777777778
+  },
+  "before": {
+    "challenge_p_pass_5d": 0.0,
+    "verification_p_pass_5d": 0.0
+  },
+  "defect_fixed": "R-to-currency scaling and target floating tolerance",
+  "remaining": "challenge remains zero; verification has bounded positive observation",
+  "sample": "same 30 portfolios / 12 episodes from bridge"
+}
