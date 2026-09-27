@@ -1,0 +1,20 @@
+{
+  "cached_exact_validation.json": "101246bcf98f9ecfe8124ac52162176bcb667cf4da4d7c4b66945848449b27cd",
+  "candidate_pools.json": "84397577d7d98a9be3a7ac108f6c36d3ad0712f7b0cf0c26d30302594712a7f8",
+  "challenge_construction_path.parquet": "a9302b796478b8e03b166df2419eb688b6934131c6c60d2e0765e8dcf5e1e4cb",
+  "development_results.parquet": "0cd1f9ef7120b4c12d77b75a484636df097ff1a7664c4f30fcf9700551a2d1d8",
+  "episode_partitions.json": "dcf306744528a19618ad78fc61d05b5c77ba76b357897ec3fb7d15757d573f10",
+  "factory_readiness_report.md": "0c3edf09bb38c76cd535396aa143acd72af3f64814577efbde91cc386f7dda40",
+  "final_summary.json": "66ff22131ba68ac1e2ba3aca53bab1ec35a2f9ad0066d07115ac8cd97799c675",
+  "frozen_candidate_manifest.json": "ca3e23f5583c1769fac4d76c4258ab7eac47a500211df4278533c1b4f205c423",
+  "marginal_contributions.parquet": "f59971502797222596f966721d1716fbdaa8b9a76121a9cecb4d70bf1c67c557",
+  "nonoverlap_results.parquet": "f88702d7622395165f10109807ecc6e1723dd4791a33c7dd5f560f41d1d7cf3d",
+  "performance.json": "8bc92853ec74fc2c35c3c67adeb3cb9118883c170baadf39f105f6069fee41fd",
+  "portfolio_capacity_diagnosis.json": "e081da8664ff6bb38a0ef22d5679e8b89cae3ff0dab6767f7c2fc9fb2baf33f7",
+  "portfolio_size_frontier.parquet": "00c2febe61fc66ca41ed1d2504607542f9b1cd394fd550820ed38fcaec689d0d",
+  "prior_method_comparison.json": "f6b873ff08d6d2d85559c22393cbd2042a34b5e65e201b9f0f7a1c9b62b3a575",
+  "prop_strategy_factory_requirements.json": "e081da8664ff6bb38a0ef22d5679e8b89cae3ff0dab6767f7c2fc9fb2baf33f7",
+  "risk_frontier.parquet": "00c2febe61fc66ca41ed1d2504607542f9b1cd394fd550820ed38fcaec689d0d",
+  "validation_results.parquet": "7b2ba048d7ad7c8a16d8d54b44c8f0859944b7ff0fcdd385373b1741c084ad1f",
+  "verification_construction_path.parquet": "03a5873c962c3b5081ac17dc1bf03e9d4668947121489c213a48c4bbddc1056c"
+}

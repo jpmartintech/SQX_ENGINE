@@ -1,0 +1,17 @@
+{
+  "diagnosis": "CURRENT_LIBRARY_SHORT_HORIZON_CAPACITY_LIMITED",
+  "evidence": {
+    "challenge_pass": 0.0,
+    "validation_best_max_intraperiod": 0.04066341583995947,
+    "validation_best_p95_max_intraperiod": 0.0345024197768549,
+    "validation_best_p99_max_intraperiod": 0.040292123319162716,
+    "verification_pass": 0.0
+  },
+  "requirements": [
+    "increase independent positive 5D tail magnitude",
+    "increase usable short-horizon signal density",
+    "reduce holding duration for evaluation horizon",
+    "improve risk-capacity utilization with positive incremental utility",
+    "increase cross-market/timeframe and LONG/SHORT opportunity coverage"
+  ]
+}

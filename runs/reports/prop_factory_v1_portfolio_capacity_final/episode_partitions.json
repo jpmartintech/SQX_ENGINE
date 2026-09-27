@@ -1,0 +1,24 @@
+{
+  "boundaries": {
+    "CALIBRATION": {
+      "count": 144,
+      "first": 433,
+      "last": 576
+    },
+    "DEVELOPMENT": {
+      "count": 433,
+      "first": 0,
+      "last": 432
+    },
+    "VALIDATION": {
+      "count": 145,
+      "first": 577,
+      "last": 721
+    }
+  },
+  "calibration": 144,
+  "development": 433,
+  "non_overlapping_view": 145,
+  "total_overlapping": 722,
+  "validation": 145
+}
