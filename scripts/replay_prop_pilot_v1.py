@@ -4,7 +4,7 @@ This consumes the previously generated deterministic strategy manifest and
 does not generate new strategies or inspect OOS data.
 """
 from __future__ import annotations
-import importlib.util, json, time
+import argparse, importlib.util, json, time
 from pathlib import Path
 import pandas as pd
 from sqx_engine.backtest.fast import FastEvaluator
@@ -20,6 +20,8 @@ OUT = ROOT / "runs/reports/prop_strategy_factory_v1_autonomous_loop_01/experimen
 DATA = {
     ("EURUSD", "M15"): ROOT / "data/cloud/EURUSD_M15.csv",
     ("EURUSD", "H1"): ROOT / "data/derived/EURUSD_H1_11d571e8bb3d_143197.csv",
+    ("XAUUSD", "M15"): ROOT / "data/cloud/XAUUSD_M15.csv",
+    ("XAUUSD", "H1"): ROOT / "data/derived/XAUUSD_H1_ace62dd3d22f_136885.csv",
 }
 
 def load_pilot_module():
@@ -27,15 +29,24 @@ def load_pilot_module():
     module = importlib.util.module_from_spec(spec); spec.loader.exec_module(module); return module
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--source", type=Path, default=SOURCE)
+    parser.add_argument("--out", type=Path, default=OUT)
+    parser.add_argument("--markets", nargs="+", default=["EURUSD_M15", "EURUSD_H1", "XAUUSD_M15", "XAUUSD_H1"])
+    args = parser.parse_args()
     pilot = load_pilot_module()
-    OUT.mkdir(parents=True, exist_ok=True)
-    definitions = pd.read_parquet(SOURCE / "prop_candidates.parquet")
-    old_full = pd.read_parquet(SOURCE / "full_fitness_results.parquet")
-    cheap = pd.read_parquet(SOURCE / "cheap_fitness_results.parquet")
+    out = args.out; out.mkdir(parents=True, exist_ok=True)
+    source = args.source
+    definitions = pd.read_parquet(source / "prop_candidates.parquet")
+    old_full = pd.read_parquet(source / "full_fitness_results.parquet")
+    cheap = pd.read_parquet(source / "cheap_fitness_results.parquet")
     selected_ids = set(old_full.strategy_id)
     rows, full_rows, funnel_rows, timings = [], [], [], []
     started = time.perf_counter()
+    selected_markets = {tuple(x.split("_", 1)) for x in args.markets}
     for (market, timeframe), path in DATA.items():
+        if (market, timeframe) not in selected_markets:
+            continue
         frame = load_ohlcv(path); dev, val = pilot.development_validation(frame)
         features = prepare_features(dev, grammar_version="v1.7")
         dev_eval = FastEvaluator(dev, features, initial_capital=10000, spread=0.0, slippage=0.0, cache_size=0, engine="auto")
@@ -66,10 +77,10 @@ def main():
         f = evaluate_funnel(pd.concat([dm, vm], ignore_index=True), pd.concat([full, val_full], ignore_index=True), cheap[cheap.strategy_id.isin(set(group.strategy_id))], pd.concat([dc, vc], ignore_index=True), timing, FunnelPolicy(), mode="PILOT_REPLAY", lineage=lineage)
         rows.append(pd.concat([dm, vm], ignore_index=True)); full_rows.append(full); funnel_rows.append(f); timings.append(timing)
     metrics = pd.concat(rows, ignore_index=True); full = pd.concat(full_rows, ignore_index=True); funnel = pd.concat(funnel_rows, ignore_index=True); timing = pd.concat(timings, ignore_index=True)
-    metrics.to_parquet(OUT / "phase_a_metrics_complete.parquet", index=False); full.to_parquet(OUT / "full_fitness_results.parquet", index=False); funnel.to_parquet(OUT / "funnel_results.parquet", index=False); timing.to_parquet(OUT / "signal_timing.parquet", index=False)
+    metrics.to_parquet(out / "phase_a_metrics_complete.parquet", index=False); full.to_parquet(out / "full_fitness_results.parquet", index=False); funnel.to_parquet(out / "funnel_results.parquet", index=False); timing.to_parquet(out / "signal_timing.parquet", index=False)
     eligible = {sid for sid, g in funnel.groupby("strategy_id") if all(g[g.stage == s].status.eq("PASS").all() for s in ("GENERATED","CAUSAL","BASIC_EDGE","SHORT_HORIZON_QUALITY","COST_ROBUST","TEMPORAL_STABLE","NOVEL"))}
-    definitions = definitions.copy(); definitions["semantic_replay_status"] = definitions.strategy_id.map(lambda x: "PROP_CANDIDATE" if x in eligible else "NOT_PROMOTED"); definitions.to_parquet(OUT / "prop_candidates_replay.parquet", index=False)
+    definitions = definitions.copy(); definitions["semantic_replay_status"] = definitions.strategy_id.map(lambda x: "PROP_CANDIDATE" if x in eligible else "NOT_PROMOTED"); definitions.to_parquet(out / "prop_candidates_replay.parquet", index=False)
     summary = {"source_experiment":"PROP_V1_GENERATION_PILOT", "semantic_fix":"shared development/validation calendar boundaries; complete Phase A metrics retained in FULL sidecar", "strategies_replayed": int(full.strategy_id.nunique()), "prop_candidates": len(eligible), "oos_accesses": 0, "runtime_seconds": time.perf_counter()-started, "stage_counts": {stage:{status:int(n) for status,n in g.status.value_counts().items()} for stage,g in funnel.groupby("stage")}}
-    (OUT / "summary.json").write_text(json.dumps(summary, indent=2, sort_keys=True)+"\n")
+    (out / "summary.json").write_text(json.dumps(summary, indent=2, sort_keys=True)+"\n")
 
 if __name__ == "__main__": main()

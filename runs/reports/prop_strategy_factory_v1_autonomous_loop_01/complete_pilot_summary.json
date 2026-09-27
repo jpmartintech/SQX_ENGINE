@@ -1,0 +1,54 @@
+{
+  "classification": "PROP_FACTORY_DOWNSIDE_TOO_HIGH",
+  "experiments": [
+    "experiment_04_split_fix_eur",
+    "experiment_04_split_fix_xau"
+  ],
+  "full_survivors_replayed": 1199,
+  "generated": 4000,
+  "markets": [
+    "EURUSD",
+    "XAUUSD"
+  ],
+  "oos_accesses": 0,
+  "prop_candidates": 0,
+  "seed": 4101,
+  "stage_counts": {
+    "BASIC_EDGE": {
+      "FAIL": 726,
+      "PASS": 473
+    },
+    "CAUSAL": {
+      "PASS": 1199
+    },
+    "COST_ROBUST": {
+      "PASS": 1199
+    },
+    "GENERATED": {
+      "PASS": 1199
+    },
+    "NOVEL": {
+      "FAIL": 79,
+      "PASS": 1120
+    },
+    "PORTFOLIO_USEFUL": {
+      "PENDING": 1199
+    },
+    "PROP_READY": {
+      "PENDING": 1199
+    },
+    "SHORT_HORIZON_QUALITY": {
+      "FAIL": 1199
+    },
+    "TEMPORAL_STABLE": {
+      "FAIL": 282,
+      "PASS": 831,
+      "UNAVAILABLE": 86
+    }
+  },
+  "timeframes": [
+    "M15",
+    "H1"
+  ],
+  "unique_generated": 4000
+}

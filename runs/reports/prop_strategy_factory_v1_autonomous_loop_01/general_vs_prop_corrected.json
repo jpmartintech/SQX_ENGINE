@@ -1,0 +1,72 @@
+{
+  "definitions_identical": true,
+  "general_development": {
+    "holding_P50_hours": 20.0,
+    "holding_P95_hours": 108.77499999999998,
+    "negative_tail_P01": null,
+    "negative_tail_P05": null,
+    "positive_tail_P95": null,
+    "positive_tail_P99": null,
+    "positive_window_fraction": 0.14646464646464646,
+    "signals_per_day": 0.08016032064128256,
+    "trade_count": 40.0
+  },
+  "prop_by_execution_profile": {
+    "EURUSD_H1": {
+      "holding_P50_hours": 3.0,
+      "holding_P95_hours": 11.0,
+      "negative_tail_P01": -6.2641225287774525,
+      "negative_tail_P05": -4.365165558866618,
+      "positive_tail_P95": 5.048225887309838,
+      "positive_tail_P99": 6.934108586806126,
+      "positive_window_fraction": 0.4827620565962535,
+      "signals_per_day": 1.6553166069295102,
+      "trade_count": 8313.0
+    },
+    "EURUSD_M15": {
+      "holding_P50_hours": 0.75,
+      "holding_P95_hours": 1.75,
+      "negative_tail_P01": -11.206770236828632,
+      "negative_tail_P05": -7.888059237713571,
+      "positive_tail_P95": 9.333332252384647,
+      "positive_tail_P99": 12.370163588577874,
+      "positive_window_fraction": 0.4855520127540853,
+      "signals_per_day": 6.756969334926325,
+      "trade_count": 33933.5
+    },
+    "XAUUSD_H1": {
+      "holding_P50_hours": 3.0,
+      "holding_P95_hours": 13.0,
+      "negative_tail_P01": -5.666666666666657,
+      "negative_tail_P05": -3.9175320018935453,
+      "positive_tail_P95": 4.794610515070142,
+      "positive_tail_P99": 6.364064849361019,
+      "positive_window_fraction": 0.4806574463820405,
+      "signals_per_day": 1.4648507911075506,
+      "trade_count": 7314.0
+    },
+    "XAUUSD_M15": {
+      "holding_P50_hours": 0.75,
+      "holding_P95_hours": 1.75,
+      "negative_tail_P01": -10.991333584601517,
+      "negative_tail_P05": -7.416735674000124,
+      "positive_tail_P95": 8.683528911241417,
+      "positive_tail_P99": 11.590790837710376,
+      "positive_window_fraction": 0.48123865241073227,
+      "signals_per_day": 5.8601088490223745,
+      "trade_count": 29072.0
+    }
+  },
+  "prop_corrected_development": {
+    "holding_P50_hours": 2.0,
+    "holding_P95_hours": 4.0,
+    "negative_tail_P01": -8.142806076880442,
+    "negative_tail_P05": -5.708697411962241,
+    "positive_tail_P95": 6.888849414291226,
+    "positive_tail_P99": 9.079348608537048,
+    "positive_window_fraction": 0.48286169788760464,
+    "signals_per_day": 2.7584627638391077,
+    "trade_count": 13754.0
+  },
+  "split_policy": "60/80 Phase A policy; OOS not loaded"
+}

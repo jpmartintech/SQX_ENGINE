@@ -41,7 +41,9 @@ def write_json(name, value):
 
 def development_validation(frame):
     # Do not materialize or inspect the OOS slice.
-    a, b = int(len(frame) * .70), int(len(frame) * .85)
+    # Match the frozen Phase A split policy: 60% Development, 20%
+    # Validation, with the final 20% never loaded by the pilot.
+    a, b = int(len(frame) * .60), int(len(frame) * .80)
     return frame.iloc[:a].reset_index(drop=True), frame.iloc[a:b].reset_index(drop=True)
 
 
@@ -165,12 +167,18 @@ def generate_batch(market, timeframe, seed, dev_data, val_data):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--minimum", action="store_true", help="run the authorized EURUSD M15/H1 seed-4101 minimum")
+    parser.add_argument("--remaining", action="store_true", help="run only the remaining XAUUSD M15/H1 seed-4101 pilot")
     args = parser.parse_args()
+    global OUT
+    if args.remaining:
+        OUT = ROOT / "runs/reports/prop_strategy_factory_v1_autonomous_loop_01/experiment_03_xau_pilot"
     started = time.perf_counter(); OUT.mkdir(parents=True, exist_ok=True)
     batches = []; campaign_rows = []; all_cheap = []; all_full = []; all_funnel = []; candidates = []
     combinations = [(key, seed) for key in DATA for seed in SEEDS]
     if args.minimum:
         combinations = [(("EURUSD", "M15"), 4101), (("EURUSD", "H1"), 4101)]
+    if args.remaining:
+        combinations = [(("XAUUSD", "M15"), 4101), (("XAUUSD", "H1"), 4101)]
     for (market, timeframe), seed in combinations:
         path = DATA[(market, timeframe)]
         frame = load_ohlcv(path); dev, val = development_validation(frame)

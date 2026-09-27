@@ -1,0 +1,19 @@
+{
+  "EQUIVALENCE": "PASS",
+  "GENERAL_METRIC_SEMANTICS": {
+    "active_day": "entry day in Europe/Paris",
+    "cost": "profile model with explicit status",
+    "r": "net trade P/L divided by initial risk",
+    "split": "60% Development / 20% Validation / final 20% inaccessible",
+    "trade_inclusion": "authoritative closed-trade ledger",
+    "window": "Europe/Paris calendar [start,end)"
+  },
+  "PROP_METRIC_SEMANTICS": {
+    "active_day": "same",
+    "cost": "same profile model",
+    "r": "same",
+    "split": "same",
+    "trade_inclusion": "same evaluator ledger",
+    "window": "same"
+  }
+}

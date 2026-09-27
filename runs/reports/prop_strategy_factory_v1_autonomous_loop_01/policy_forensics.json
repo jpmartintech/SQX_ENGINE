@@ -1,0 +1,21 @@
+{
+  "change": "none",
+  "decision": "VALID_SAFETY_GATE_WITH_PROP_DOWNSIDE_FAILURE",
+  "policy_version": "PROP_POLICY_VERSION_1_UNCHANGED",
+  "rule_counts": {
+    "holding_P95_above_floor": 0,
+    "negative_tail_P05_below_floor": 1088,
+    "positive_window_fraction_below_floor": 768,
+    "worst_window_below_floor": 1088
+  },
+  "rules": {
+    "max_holding_P95_hours": 240.0,
+    "max_negative_tail_P05": -1.5,
+    "max_worst_window_net_R": -2.5,
+    "min_positive_window_fraction": 0.5
+  },
+  "short_stage_reason_counts": {
+    "NEGATIVE_TAIL_EXCESSIVE": 1088,
+    "SHORT_HORIZON_OPPORTUNITY_LOW": 768
+  }
+}

@@ -41,7 +41,9 @@ def test_pilot_split_exposes_only_development_and_validation():
     import pandas as pd
     frame = pd.DataFrame({"value": range(10)})
     development, validation = development_validation(frame)
-    assert development.value.tolist() == list(range(7))
-    assert validation.value.tolist() == [7]
+    assert development.value.tolist() == list(range(6))
+    assert validation.value.tolist() == [6, 7]
+    assert 8 not in development.value.tolist()
+    assert 8 not in validation.value.tolist()
     assert 9 not in development.value.tolist()
     assert 9 not in validation.value.tolist()
