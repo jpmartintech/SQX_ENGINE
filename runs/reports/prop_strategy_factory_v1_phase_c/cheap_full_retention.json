@@ -1,0 +1,30 @@
+{
+  "provisional_range": "20%-40%; calibration only, not production approval",
+  "widths": {
+    "10%": {
+      "cheap_count": 20,
+      "full_pareto_retention": 0.12903225806451613,
+      "full_top_10_retention": 0.75
+    },
+    "20%": {
+      "cheap_count": 40,
+      "full_pareto_retention": 0.24516129032258063,
+      "full_top_10_retention": 0.95
+    },
+    "30%": {
+      "cheap_count": 60,
+      "full_pareto_retention": 0.3741935483870968,
+      "full_top_10_retention": 0.95
+    },
+    "40%": {
+      "cheap_count": 80,
+      "full_pareto_retention": 0.5032258064516129,
+      "full_top_10_retention": 1.0
+    },
+    "50%": {
+      "cheap_count": 100,
+      "full_pareto_retention": 0.6,
+      "full_top_10_retention": 1.0
+    }
+  }
+}

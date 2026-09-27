@@ -1,0 +1,9 @@
+{
+  "estimated_10k_seconds": 84.27789800043683,
+  "estimated_250k_seconds": 2106.947450010921,
+  "estimated_50k_seconds": 421.3894900021842,
+  "peak_rss_mib": 263.90234375,
+  "runtime_seconds": 1.6855579600087367,
+  "strategies": 200,
+  "strategies_per_second": 118.65507134442493
+}

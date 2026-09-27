@@ -1,0 +1,25 @@
+{
+  "input": {
+    "active_days_P50": 0.0,
+    "holding_P50_hours": 20.0,
+    "holding_P95_hours": 108.77499999999998,
+    "negative_tail_P05": -1.0608273099411285,
+    "net_R_P50": 0.0,
+    "net_R_P95": 1.8943589078868222,
+    "net_R_P99": 2.3832335465786096,
+    "signals_per_day": 0.08016032064128256,
+    "trades_per_5d": 40.0
+  },
+  "survivor_count": 0,
+  "survivors": {
+    "active_days_P50": null,
+    "holding_P50_hours": null,
+    "holding_P95_hours": null,
+    "negative_tail_P05": null,
+    "net_R_P50": null,
+    "net_R_P95": null,
+    "net_R_P99": null,
+    "signals_per_day": null,
+    "trades_per_5d": null
+  }
+}

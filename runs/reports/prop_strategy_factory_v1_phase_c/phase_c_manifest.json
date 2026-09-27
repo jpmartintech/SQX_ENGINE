@@ -1,0 +1,10 @@
+{
+  "general_library_mutated": false,
+  "mode": "ANALYSIS",
+  "phase": "C",
+  "phase_a_reference": "/home/xaume/SQX_ENGINE/runs/reports/prop_strategy_factory_v1_phase_a",
+  "phase_b_reference": "/home/xaume/SQX_ENGINE/runs/reports/prop_strategy_factory_v1_phase_b",
+  "policy_version": "PROP_ANALYSIS_POLICY_V1",
+  "prop_ready_granted": false,
+  "sample_size": 200
+}

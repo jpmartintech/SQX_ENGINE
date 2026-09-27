@@ -1,0 +1,120 @@
+{
+  "direction": [
+    {
+      "direction": "LONG",
+      "input": 114,
+      "survival_fraction": 0.0,
+      "survivors": 0
+    },
+    {
+      "direction": "SHORT",
+      "input": 86,
+      "survival_fraction": 0.0,
+      "survivors": 0
+    }
+  ],
+  "frequency_bucket": [
+    {
+      "frequency_bucket": "LOW",
+      "input": 67,
+      "survival_fraction": 0.0,
+      "survivors": 0
+    },
+    {
+      "frequency_bucket": "MEDIUM",
+      "input": 66,
+      "survival_fraction": 0.0,
+      "survivors": 0
+    },
+    {
+      "frequency_bucket": "HIGH",
+      "input": 67,
+      "survival_fraction": 0.0,
+      "survivors": 0
+    }
+  ],
+  "holding_bucket": [
+    {
+      "holding_bucket": "SHORT",
+      "input": 67,
+      "survival_fraction": 0.0,
+      "survivors": 0
+    },
+    {
+      "holding_bucket": "MEDIUM",
+      "input": 66,
+      "survival_fraction": 0.0,
+      "survivors": 0
+    },
+    {
+      "holding_bucket": "LONG",
+      "input": 67,
+      "survival_fraction": 0.0,
+      "survivors": 0
+    }
+  ],
+  "market": [
+    {
+      "input": 64,
+      "market": "EURUSD",
+      "survival_fraction": 0.0,
+      "survivors": 0
+    },
+    {
+      "input": 41,
+      "market": "GBPUSD",
+      "survival_fraction": 0.0,
+      "survivors": 0
+    },
+    {
+      "input": 9,
+      "market": "NZDUSD",
+      "survival_fraction": 0.0,
+      "survivors": 0
+    },
+    {
+      "input": 18,
+      "market": "USDCAD",
+      "survival_fraction": 0.0,
+      "survivors": 0
+    },
+    {
+      "input": 13,
+      "market": "USDCHF",
+      "survival_fraction": 0.0,
+      "survivors": 0
+    },
+    {
+      "input": 30,
+      "market": "USDJPY",
+      "survival_fraction": 0.0,
+      "survivors": 0
+    },
+    {
+      "input": 25,
+      "market": "XAUUSD",
+      "survival_fraction": 0.0,
+      "survivors": 0
+    }
+  ],
+  "timeframe": [
+    {
+      "input": 68,
+      "survival_fraction": 0.0,
+      "survivors": 0,
+      "timeframe": "H1"
+    },
+    {
+      "input": 103,
+      "survival_fraction": 0.0,
+      "survivors": 0,
+      "timeframe": "H4"
+    },
+    {
+      "input": 29,
+      "survival_fraction": 0.0,
+      "survivors": 0,
+      "timeframe": "M15"
+    }
+  ]
+}

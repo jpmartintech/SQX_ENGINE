@@ -1,0 +1,8 @@
+{
+  "input_count": 200,
+  "no_generation": true,
+  "no_portfolio_search": true,
+  "portfolio_useful": "PENDING_PHASE_D",
+  "prop_ready": "PENDING_PHASE_D_AND_PHASE_E",
+  "survivor_count_before_phase_d": 0
+}

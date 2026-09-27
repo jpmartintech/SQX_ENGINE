@@ -1,0 +1,15 @@
+{
+  "PROP_READY_allowed_in_phase_c": false,
+  "required": [
+    "strategy_id",
+    "PROP_V1_lineage",
+    "funnel_record",
+    "phase_a_metrics_reference",
+    "phase_b_fitness_reference",
+    "phase_d_utility_reference",
+    "economic_spec_reference",
+    "execution_profile_reference",
+    "data_provenance"
+  ],
+  "schema_version": "PROP_PHASE_E_HANDOFF_SCHEMA_V1"
+}

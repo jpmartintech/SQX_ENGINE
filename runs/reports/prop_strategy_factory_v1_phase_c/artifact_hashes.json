@@ -1,0 +1,19 @@
+{
+  "cheap_full_retention.json": "5ef27c9bc46483e179b3d9dec17c7a7eccc279e4fc46d9f21fff351874062cdc",
+  "determinism.json": "5136861be8bf6e7d0578f0800d0ffd175510677752de1b89117850b02727f770",
+  "diversity_report.json": "67a7384c54507f45d3f9ae452ccdc16ed8f8deb7944e46ee5b8cec071c2d6faa",
+  "factory_readiness_report.md": "be6eedb7cc363438bfe4a9d3764b752868a0f5ab711669bc97727161d4d574c0",
+  "funnel_policy.json": "ba2a03828f3446826107e9517298382e02af6d72d22c3ca90e6ed54d63dfb5f3",
+  "funnel_schema.json": "8d817431ed5e8ea1d6762c7ccc9d0fb4760518a3c772fd058ada64a3e1a9f856",
+  "performance.json": "8ea999416026f2e243bd0baf962ee9dec366228cc55fae64bf4ba1f54fdab94f",
+  "phase_c_manifest.json": "b5566c1ef926f4fb85d75c72533f163420ef62f2b66661ffcef65fb7a9b395b3",
+  "phase_c_summary.json": "f6ebdc5614a4f6b40d77281a3555a85c47d4bc9c9ec2b1b991b30e2f0ec68d2b",
+  "phase_d_contract.json": "dee33f665c68c4a1bb1fe4181b6b11f32bd6f5022e43532343adc603ad62d252",
+  "phase_e_contract.json": "be499c4253f054f20c94f50bba27ce6214fce3e2db14f8910a457c70627d30b0",
+  "reason_codes.json": "4644cc27633d0fcb3c144db145b64e47335d05bdbbef4662f2431e66c88920a5",
+  "rejection_reasons.json": "3629dd852d051d75b14ed4d17e13ece6b4b6001e1d07c17588f4e4715dee3281",
+  "sample_funnel_results.parquet": "a685e1f645db5eaeedff30800266fe1b3ad0f6234c3c6c82a1f7ee7bb09df7fa",
+  "stage_counts.json": "510ba4fff6aab433f68a673eb04a311e9665f0500004cf6d82c0f31cdc95225f",
+  "survival_by_group.json": "524a3658c09365d8a1e65e86abd9efb523717d2ba5c6b1f78431292c76b536ec",
+  "survivor_quality.json": "b645426ed1f9dc0ee65a34f7e71eff66acb3a658a1cbad038d5330bdad977a2b"
+}

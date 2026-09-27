@@ -1,0 +1,65 @@
+{
+  "BASIC_EDGE": {
+    "FAIL": 53,
+    "PARTIAL": 0,
+    "PASS": 147,
+    "PENDING": 0,
+    "UNAVAILABLE": 0
+  },
+  "CAUSAL": {
+    "FAIL": 0,
+    "PARTIAL": 0,
+    "PASS": 200,
+    "PENDING": 0,
+    "UNAVAILABLE": 0
+  },
+  "COST_ROBUST": {
+    "FAIL": 183,
+    "PARTIAL": 0,
+    "PASS": 17,
+    "PENDING": 0,
+    "UNAVAILABLE": 0
+  },
+  "GENERATED": {
+    "FAIL": 0,
+    "PARTIAL": 0,
+    "PASS": 200,
+    "PENDING": 0,
+    "UNAVAILABLE": 0
+  },
+  "NOVEL": {
+    "FAIL": 2,
+    "PARTIAL": 0,
+    "PASS": 198,
+    "PENDING": 0,
+    "UNAVAILABLE": 0
+  },
+  "PORTFOLIO_USEFUL": {
+    "FAIL": 0,
+    "PARTIAL": 0,
+    "PASS": 0,
+    "PENDING": 200,
+    "UNAVAILABLE": 0
+  },
+  "PROP_READY": {
+    "FAIL": 0,
+    "PARTIAL": 0,
+    "PASS": 0,
+    "PENDING": 200,
+    "UNAVAILABLE": 0
+  },
+  "SHORT_HORIZON_QUALITY": {
+    "FAIL": 200,
+    "PARTIAL": 0,
+    "PASS": 0,
+    "PENDING": 0,
+    "UNAVAILABLE": 0
+  },
+  "TEMPORAL_STABLE": {
+    "FAIL": 200,
+    "PARTIAL": 0,
+    "PASS": 0,
+    "PENDING": 0,
+    "UNAVAILABLE": 0
+  }
+}

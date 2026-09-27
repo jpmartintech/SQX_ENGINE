@@ -1,0 +1,15 @@
+{
+  "max_cost_degradation_2x_R": -0.5,
+  "max_holding_P95_hours": 240.0,
+  "max_negative_tail_P05": -1.5,
+  "max_worst_window_net_R": -2.5,
+  "min_mean_R": 0.0,
+  "min_positive_window_fraction": 0.5,
+  "min_trade_count": 20,
+  "near_duplicate_distance": 0.05,
+  "policy_version": "PROP_ANALYSIS_POLICY_V1",
+  "production_approved": false,
+  "signal_duplicate_exact": true,
+  "validation_edge_ratio_floor": 0.25,
+  "validation_opportunity_ratio_floor": 0.25
+}

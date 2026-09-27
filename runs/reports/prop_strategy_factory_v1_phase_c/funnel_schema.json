@@ -1,0 +1,32 @@
+{
+  "deterministic_fields": [
+    "strategy_id",
+    "stage",
+    "status",
+    "reason_codes_json",
+    "details_json"
+  ],
+  "schema_version": "PROP_FUNNEL_SCHEMA_V1",
+  "stages": [
+    "GENERATED",
+    "CAUSAL",
+    "BASIC_EDGE",
+    "SHORT_HORIZON_QUALITY",
+    "COST_ROBUST",
+    "TEMPORAL_STABLE",
+    "NOVEL",
+    "PORTFOLIO_USEFUL",
+    "PROP_READY"
+  ],
+  "statuses": [
+    "PASS",
+    "FAIL",
+    "PARTIAL",
+    "UNAVAILABLE",
+    "PENDING"
+  ],
+  "versions": {
+    "funnel": "PROP_FUNNEL_V1_PHASE_C",
+    "policy": "PROP_ANALYSIS_POLICY_V1"
+  }
+}

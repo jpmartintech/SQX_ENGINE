@@ -1,0 +1,15 @@
+{
+  "fields": [
+    "strategy_id",
+    "reference_portfolio_set_version",
+    "delta_5d_upper_tail",
+    "delta_target_distance",
+    "delta_active_day_coverage",
+    "delta_risk_utilization",
+    "delta_signal_overlap",
+    "delta_downside",
+    "delta_cost_robustness",
+    "evaluation_provenance"
+  ],
+  "schema_version": "PROP_PHASE_D_UTILITY_SCHEMA_V1"
+}
