@@ -57,13 +57,14 @@ def ledger_from_result(strategy, result, timeframe, market):
     return pd.DataFrame(rows)
 
 
-def metrics_for_partition(ledger, split, profile_id):
+def metrics_for_partition(ledger, split, profile_id, partition_start, partition_end):
     from sqx_engine.prop_factory_v1.metrics import HORIZONS, LOCAL_TZ, _metric_row
     if ledger.empty:
         return pd.DataFrame(), pd.DataFrame()
     xall = ledger.copy(); xall["entry_timestamp"] = pd.to_datetime(xall.entry_timestamp, utc=True); xall["exit_timestamp"] = pd.to_datetime(xall.exit_timestamp, utc=True)
     xall["local_day"] = xall.entry_timestamp.dt.tz_convert(LOCAL_TZ).dt.normalize()
-    start = xall.local_day.min().normalize(); end = (xall.local_day.max() + pd.Timedelta(days=1)).normalize()
+    start = pd.Timestamp(partition_start).tz_convert(LOCAL_TZ).normalize() if pd.Timestamp(partition_start).tzinfo else pd.Timestamp(partition_start, tz=LOCAL_TZ).normalize()
+    end = pd.Timestamp(partition_end).tz_convert(LOCAL_TZ).normalize() if pd.Timestamp(partition_end).tzinfo else pd.Timestamp(partition_end, tz=LOCAL_TZ).normalize()
     rows, costs = [], []
     for sid, raw in xall.groupby("strategy_id", sort=True):
         x = raw.copy(); x["split_start"] = start; x["split_end"] = end
@@ -139,8 +140,12 @@ def generate_batch(market, timeframe, seed, dev_data, val_data):
         del rich_result
     val_ledger = pd.concat(val_parts, ignore_index=True) if val_parts else pd.DataFrame()
     profile = f"{market}_{timeframe}"
-    dev_metrics, dev_cost = metrics_for_partition(dev_ledger, "DEVELOPMENT", profile)
-    val_metrics, val_cost = metrics_for_partition(val_ledger, "VALIDATION", profile)
+    dev_start = pd.Timestamp(dev_data.timestamp.iloc[0]).tz_convert("Europe/Paris").normalize()
+    dev_end = (pd.Timestamp(dev_data.timestamp.iloc[-1]).tz_convert("Europe/Paris").normalize() + pd.Timedelta(days=1))
+    val_start = pd.Timestamp(val_data.timestamp.iloc[0]).tz_convert("Europe/Paris").normalize()
+    val_end = (pd.Timestamp(val_data.timestamp.iloc[-1]).tz_convert("Europe/Paris").normalize() + pd.Timedelta(days=1))
+    dev_metrics, dev_cost = metrics_for_partition(dev_ledger, "DEVELOPMENT", profile, dev_start, dev_end)
+    val_metrics, val_cost = metrics_for_partition(val_ledger, "VALIDATION", profile, val_start, val_end)
     metrics = pd.concat([dev_metrics, val_metrics], ignore_index=True); costs = pd.concat([dev_cost, val_cost], ignore_index=True)
     pf_map = {}
     for sid, x in dev_ledger.groupby("strategy_id"):

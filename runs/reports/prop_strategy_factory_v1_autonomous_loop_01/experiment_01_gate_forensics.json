@@ -1,0 +1,37 @@
+{
+  "experiment_id": "01_gate_forensics",
+  "parent_experiment": null,
+  "hypothesis": "The zero SHORT_HORIZON_QUALITY result may be caused by policy calibration, semantic mismatch, or genuine downside.",
+  "source_commit": "14208a6ebf2b9c30f91e6c53d11f421d9e432cb5",
+  "strategies": 600,
+  "markets": ["EURUSD"],
+  "timeframes": ["M15", "H1"],
+  "seeds": [4101],
+  "oos_accesses": 0,
+  "short_horizon_stage": {
+    "pass": 0,
+    "fail": 600,
+    "reason_counts": {
+      "NEGATIVE_TAIL_EXCESSIVE": 559,
+      "SHORT_HORIZON_OPPORTUNITY_LOW": 400
+    }
+  },
+  "policy": {
+    "min_positive_window_fraction": 0.5,
+    "max_negative_tail_P05": -1.5,
+    "max_worst_window_net_R": -2.5,
+    "max_holding_P95_hours": 240.0
+  },
+  "pilot_medians": {
+    "signals_per_day": 2.9893381098601157,
+    "positive_window_fraction": 0.4825025606008875,
+    "positive_tail_P95": 7.2911510867853035,
+    "positive_tail_P99": 9.656945583407847,
+    "negative_tail_P01": -8.716715655212116,
+    "negative_tail_P05": -6.0,
+    "worst_window_net_R": -13.993365,
+    "holding_P50_hours": 2.0,
+    "holding_P95_hours": 3.0
+  },
+  "interpretation": "The initial pilot sidecar used strategy-local calendar bounds and omitted complete rolling distributions from FULL output. Semantic correction is required before policy calibration. The observed downside is also materially beyond the current policy floor and cannot be treated as a reporting-only failure."
+}

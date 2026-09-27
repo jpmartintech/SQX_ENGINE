@@ -31,6 +31,8 @@ def test_cheap_and_full_are_deterministic_and_preserve_missing_pf():
     assert set(full.level) == {"FULL"}
     assert full.profit_factor_R.isna().all()
     assert set(full.profit_factor_R__status) == {"UNAVAILABLE"}
+    assert "positive_tail_json" in full.columns
+    assert "negative_tail_json" in full.columns
 
 
 def test_pareto_direction_and_frequency_without_edge():

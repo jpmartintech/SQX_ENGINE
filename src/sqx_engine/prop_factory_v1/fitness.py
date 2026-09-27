@@ -174,6 +174,12 @@ def _base_frame(metrics: pd.DataFrame, costs: pd.DataFrame | None, *, level: str
         }
         item.update({name: value.value for name, value in objectives.items()})
         item.update({f"{name}__status": value.status for name, value in objectives.items()})
+        # Retain the complete authoritative Phase A row alongside the
+        # objective vector.  This keeps FULL sidecars auditable and prevents
+        # downstream funnel stages from silently losing distribution fields.
+        for name, value in row.items():
+            if name not in item and not str(name).endswith("__status"):
+                item[name] = value
         output.append(item)
     return pd.DataFrame(output)
 
