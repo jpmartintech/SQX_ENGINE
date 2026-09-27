@@ -115,7 +115,7 @@ def main():
         pools={"EDGE":stats.sort_values(["mean","strategy_id"],ascending=[False,True]).strategy_id.head(15).tolist()}
         manifest[name]={"available":int(frame.strategy_id.nunique()),"eligible":int(len(ids)),"portfolios":{k:len(v) for k,v in pools.items()},"oos_accesses":0}
         for method,members in pools.items():
-            for prof_name,profile in (("1STEP",ftmo_1step_current_profile()),("2STEP",ftmo_2step_current_profile())):
+            for prof_name,profile in (("1STEP",ftmo_1step_current_profile()),("2STEP_CHALLENGE",ftmo_2step_current_profile(.10)),("2STEP_VERIFICATION",ftmo_2step_current_profile(.05))):
                 for h in HORIZONS:
                     # development selects the best risk/capacity point; validation is frozen.
                     dev=[]
@@ -132,9 +132,9 @@ def main():
     result=pd.DataFrame(allrows); result.to_parquet(OUT/"frontier_results.parquet",index=False)
     # Required named views are deterministic copies of the same exact result.
     result[result.profile=="1STEP"].to_parquet(OUT/"one_step_frontier.parquet",index=False)
-    result[result.profile=="2STEP"].to_parquet(OUT/"two_step_challenge_frontier.parquet",index=False)
-    result[result.profile=="2STEP"].to_parquet(OUT/"two_step_verification_frontier.parquet",index=False)
-    result[result.profile=="2STEP"].to_parquet(OUT/"two_step_funded_frontier.parquet",index=False)
+    result[result.profile=="2STEP_CHALLENGE"].to_parquet(OUT/"two_step_challenge_frontier.parquet",index=False)
+    result[result.profile=="2STEP_VERIFICATION"].to_parquet(OUT/"two_step_verification_frontier.parquet",index=False)
+    result[result.profile.str.startswith("2STEP")].to_parquet(OUT/"two_step_funded_frontier.parquet",index=False)
     result.to_parquet(OUT/"general_frontier.parquet",index=False)
     result[result.universe=="PROP_V1"].to_parquet(OUT/"prop_v1_frontier.parquet",index=False)
     result[result.universe=="HYBRID"].to_parquet(OUT/"hybrid_frontier.parquet",index=False)
