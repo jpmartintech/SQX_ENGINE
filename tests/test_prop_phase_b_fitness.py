@@ -68,3 +68,14 @@ def test_optional_certified_ledger_profit_factor_is_explicit():
     value = full.loc[full.strategy_id == "a", "profit_factor_R"].iloc[0]
     assert value == 2.5
     assert full.loc[full.strategy_id == "a", "profit_factor_R__status"].iloc[0] == "AVAILABLE"
+
+
+def test_direct_rolling_tail_fields_override_trade_tail_fallback():
+    frame = rows()
+    frame["positive_tail_P95"] = [4.0, 5.0]
+    frame["positive_tail_P99"] = [6.0, 7.0]
+    frame["negative_tail_P01"] = [-4.0, -5.0]
+    frame["negative_tail_P05"] = [-2.0, -3.0]
+    result = evaluate_cheap(frame)
+    assert result.loc[result.strategy_id == "a", "positive_tail_P95"].iloc[0] == 4.0
+    assert result.loc[result.strategy_id == "a", "negative_tail_P05"].iloc[0] == -2.0

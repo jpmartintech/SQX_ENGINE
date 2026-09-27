@@ -1,0 +1,13 @@
+{
+  "directional_conclusion": "No direction or cell eliminates downside; H1 has less severe downside than M15, but both remain below policy floor.",
+  "exit_conclusion": "Exit geometry groups are descriptive; no stop/target semantics changed.",
+  "markets": [
+    "EURUSD",
+    "XAUUSD"
+  ],
+  "predicate_conclusion": "Association only; family results are diagnostic and not causal proof.",
+  "timeframes": [
+    "M15",
+    "H1"
+  ]
+}

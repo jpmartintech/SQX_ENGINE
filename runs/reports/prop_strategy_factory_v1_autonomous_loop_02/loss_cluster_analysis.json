@@ -1,0 +1,12 @@
+{
+  "interpretation": "LOSS_CLUSTERING_DOMINANT: repeated bounded losses and adverse rolling windows dominate more than isolated extreme trade losses; exact trade-level fields are persisted in the forensic ledgers.",
+  "loss_count_total": 17194658,
+  "median_largest_loss_R": -1.0000000000002613,
+  "median_loss_R": -0.8032681761549872,
+  "median_loss_cluster_max_days": 5.333333333333333,
+  "median_max_consecutive_trade_losses": 13.0,
+  "stop_exits_total": 12015488,
+  "strategies": 1199,
+  "target_exits_total": 10202428,
+  "time_exits_total": 11337364
+}

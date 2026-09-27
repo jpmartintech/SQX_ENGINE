@@ -1,0 +1,62 @@
+[
+  {
+    "holding_P50_median": 3.0,
+    "holding_P95_median": 11.0,
+    "market": "EURUSD",
+    "max_loss_streak_median": 13.0,
+    "negative_tail_P01_median": -6.2641225287774525,
+    "negative_tail_P05_median": -4.365165558866618,
+    "positive_tail_P95_median": 5.048225887309838,
+    "positive_tail_P99_median": 6.934108586806126,
+    "positive_window_fraction_median": 0.4827620565962535,
+    "signals_per_day_median": 1.6553166069295102,
+    "strategies": 300,
+    "timeframe": "H1",
+    "worst_window_median": -9.999999999999929
+  },
+  {
+    "holding_P50_median": 0.75,
+    "holding_P95_median": 1.75,
+    "market": "EURUSD",
+    "max_loss_streak_median": 14.0,
+    "negative_tail_P01_median": -11.206770236828632,
+    "negative_tail_P05_median": -7.888059237713571,
+    "positive_tail_P95_median": 9.333332252384647,
+    "positive_tail_P99_median": 12.370163588577874,
+    "positive_window_fraction_median": 0.4855520127540853,
+    "signals_per_day_median": 6.756969334926325,
+    "strategies": 300,
+    "timeframe": "M15",
+    "worst_window_median": -18.277334896934835
+  },
+  {
+    "holding_P50_median": 3.0,
+    "holding_P95_median": 13.0,
+    "market": "XAUUSD",
+    "max_loss_streak_median": 12.0,
+    "negative_tail_P01_median": -5.666666666666657,
+    "negative_tail_P05_median": -3.9175320018935453,
+    "positive_tail_P95_median": 4.794610515070142,
+    "positive_tail_P99_median": 6.364064849361019,
+    "positive_window_fraction_median": 0.4806574463820405,
+    "signals_per_day_median": 1.4648507911075506,
+    "strategies": 299,
+    "timeframe": "H1",
+    "worst_window_median": -9.260038155066738
+  },
+  {
+    "holding_P50_median": 0.75,
+    "holding_P95_median": 1.75,
+    "market": "XAUUSD",
+    "max_loss_streak_median": 14.0,
+    "negative_tail_P01_median": -10.991333584601517,
+    "negative_tail_P05_median": -7.416735674000124,
+    "positive_tail_P95_median": 8.683528911241417,
+    "positive_tail_P99_median": 11.590790837710376,
+    "positive_window_fraction_median": 0.48123865241073227,
+    "signals_per_day_median": 5.8601088490223745,
+    "strategies": 300,
+    "timeframe": "M15",
+    "worst_window_median": -17.628368705061803
+  }
+]

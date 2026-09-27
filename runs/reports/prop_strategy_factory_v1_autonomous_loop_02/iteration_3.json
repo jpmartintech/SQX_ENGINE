@@ -1,0 +1,54 @@
+{
+  "change": "target_atr={1.0,1.5,2.0}; time_exit={8,12,24}; wider stops retained",
+  "classification": "NO_ADDITIONAL_MATERIAL_IMPROVEMENT",
+  "hypothesis": "remove fragile high-target/short-time combinations",
+  "result": {
+    "candidates": 0,
+    "generated": 2000,
+    "holding_P50_hours": 2.0,
+    "holding_P95_hours": 7.0,
+    "negative_tail_P01": -7.583054498529439,
+    "negative_tail_P05": -5.213258838070119,
+    "oos_accesses": 0,
+    "positive_tail_P95": 6.167916406650999,
+    "positive_tail_P99": 8.279560974180136,
+    "positive_window_fraction": 0.49704280245745136,
+    "seed": 4104,
+    "signals_per_day": 3.0180889445941164,
+    "stage_counts": {
+      "BASIC_EDGE": {
+        "FAIL": 337,
+        "PASS": 263
+      },
+      "CAUSAL": {
+        "PASS": 600
+      },
+      "COST_ROBUST": {
+        "PASS": 600
+      },
+      "GENERATED": {
+        "PASS": 600
+      },
+      "NOVEL": {
+        "FAIL": 5,
+        "PASS": 595
+      },
+      "PORTFOLIO_USEFUL": {
+        "PENDING": 600
+      },
+      "PROP_READY": {
+        "PENDING": 600
+      },
+      "SHORT_HORIZON_QUALITY": {
+        "FAIL": 600
+      },
+      "TEMPORAL_STABLE": {
+        "FAIL": 172,
+        "PASS": 415,
+        "UNAVAILABLE": 13
+      }
+    },
+    "worst_window_net_R": -11.99999999999996
+  },
+  "version": "PROP_EXIT_V3_STABLE_EXIT"
+}

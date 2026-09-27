@@ -1,0 +1,16 @@
+{
+  "estimated_10k_seconds": {
+    "1": 2651.3,
+    "2": 2734.0,
+    "3": 2629.7
+  },
+  "forensic_replay_seconds": 1028.3758760890046,
+  "iteration_seconds": {
+    "1": 530.2609558710101,
+    "2": 546.7977922249993,
+    "3": 525.9326949730021
+  },
+  "oos_accesses": 0,
+  "peak_rss_mib_max": 4545.0,
+  "total_bounded_seconds": 2631.366
+}

@@ -40,7 +40,7 @@ OBJECTIVE_DIRECTIONS = {
 
 CHEAP_OBJECTIVES = (
     "edge_mean_R", "edge_median_R", "profit_factor_R", "signals_per_day", "active_day_fraction",
-    "positive_window_fraction", "negative_tail_P05", "worst_window_net_R",
+    "positive_window_fraction", "positive_tail_P95", "positive_tail_P99", "negative_tail_P05", "worst_window_net_R",
     "holding_P50_hours", "maximum_consecutive_negative_windows",
 )
 FULL_OBJECTIVES = tuple(OBJECTIVE_DIRECTIONS)
@@ -87,6 +87,13 @@ def _json_tail(row: pd.Series, column: str, key: str) -> float | None:
         return None
 
 
+def _tail_value(row: pd.Series, json_column: str, direct_column: str, key: str) -> float | None:
+    direct = row.get(direct_column)
+    if direct is not None and not (isinstance(direct, float) and np.isnan(direct)):
+        return float(direct)
+    return _json_tail(row, json_column, key)
+
+
 def _value(value: Any, source: str = "phase_a_sidecar") -> FitnessValue:
     if value is None or (isinstance(value, float) and not np.isfinite(value)):
         return FitnessValue(None, MISSING, source)
@@ -99,12 +106,12 @@ def _row_to_objectives(row: pd.Series, level: str, cost_row: pd.Series | None = 
         "edge_mean_R": _value(row.get("mean_R")),
         "edge_median_R": _value(row.get("median_R")),
         "positive_window_fraction": _value(row.get("positive_window_fraction")),
-        "positive_tail_P95": _value(_json_tail(row, "positive_tail_json", "P95")),
-        "positive_tail_P99": _value(_json_tail(row, "positive_tail_json", "P99")),
+        "positive_tail_P95": _value(_tail_value(row, "positive_tail_json", "positive_tail_P95", "P95")),
+        "positive_tail_P99": _value(_tail_value(row, "positive_tail_json", "positive_tail_P99", "P99")),
         "active_day_fraction": _value(row.get("active_day_fraction")),
         "signals_per_day": _value(row.get("signals_per_day")),
-        "negative_tail_P01": _value(_json_tail(row, "negative_tail_json", "P01")),
-        "negative_tail_P05": _value(_json_tail(row, "negative_tail_json", "P05")),
+        "negative_tail_P01": _value(_tail_value(row, "negative_tail_json", "negative_tail_P01", "P01")),
+        "negative_tail_P05": _value(_tail_value(row, "negative_tail_json", "negative_tail_P05", "P05")),
         "worst_window_net_R": _value(row.get("worst_window_net_R")),
         "maximum_consecutive_negative_windows": _value(row.get("maximum_consecutive_negative_windows")),
         "holding_P50_hours": _value(row.get("holding_P50_hours")),
@@ -185,7 +192,7 @@ def _base_frame(metrics: pd.DataFrame, costs: pd.DataFrame | None, *, level: str
 
 
 def evaluate_cheap(candidate_statistics: pd.DataFrame, *, horizon_days: int = 5,
-                   split: str = "DEVELOPMENT") -> pd.DataFrame:
+                   split: str = "DEVELOPMENT", fitness_version: str = PROP_FITNESS_VERSION) -> pd.DataFrame:
     """Return inexpensive individual vectors from Phase A rows.
 
     No replay is performed.  Missing fields remain null with an explicit
@@ -197,15 +204,21 @@ def evaluate_cheap(candidate_statistics: pd.DataFrame, *, horizon_days: int = 5,
     keep = ["strategy_id", "level", "split", "horizon_days", "metrics_version", "data_provenance_id", "execution_profile_id", "missing_objectives_json"]
     keep += [x for x in CHEAP_OBJECTIVES if x in result]
     keep += [f"{x}__status" for x in CHEAP_OBJECTIVES if f"{x}__status" in result]
-    return result[keep].sort_values("strategy_id").reset_index(drop=True)
+    result = result[keep].sort_values("strategy_id").reset_index(drop=True)
+    if not result.empty:
+        result["fitness_version"] = fitness_version
+    return result
 
 
 def evaluate_full(metrics: pd.DataFrame, costs: pd.DataFrame | None = None, *,
                   horizon_days: int = 5, split: str = "DEVELOPMENT",
-                  profit_factor_by_strategy_split: Mapping[tuple[str, str], float] | None = None) -> pd.DataFrame:
+                  profit_factor_by_strategy_split: Mapping[tuple[str, str], float] | None = None,
+                  fitness_version: str = PROP_FITNESS_VERSION) -> pd.DataFrame:
     """Return the complete Phase A-derived vector for one horizon/split."""
     result = _base_frame(metrics, costs, level="FULL", horizon_days=horizon_days, split=split,
                          profit_factor_by_strategy_split=profit_factor_by_strategy_split)
+    if not result.empty:
+        result["fitness_version"] = fitness_version
     return result.sort_values("strategy_id").reset_index(drop=True) if not result.empty else result
 
 

@@ -13,14 +13,15 @@ from ..generators.genetic import GeneticGenerator
 from ..grammar import CATALOG
 
 PROP_FACTORY_VERSION = "PROP_FACTORY_V1_PILOT"
+PROP_FITNESS_VERSION = "PROP_FITNESS_V2_DOWNSIDE"
 PROP_GRAMMAR_VERSION = "PROP_GRAMMAR_V1"
-PROP_EXIT_VERSION = "PROP_EXIT_V1"
+PROP_EXIT_VERSION = "PROP_EXIT_V3_STABLE_EXIT"
 PROP_CANONICAL_GRAMMAR = "v1.7"
 PROP_SURVIVOR_WIDTH = 0.30
 PROP_EXIT_SPACE = {
-    "stop_atr": (1.0, 1.5, 2.0),
-    "target_atr": (1.0, 1.5, 2.0, 3.0),
-    "time_exit_bars": (4, 8, 12, 24),
+    "stop_atr": (1.5, 2.0),
+    "target_atr": (1.0, 1.5, 2.0),
+    "time_exit_bars": (8, 12, 24),
     "atr_period": 14,
     "design_status": "PILOT_CONFIG_CALIBRATION_REQUIRED",
 }

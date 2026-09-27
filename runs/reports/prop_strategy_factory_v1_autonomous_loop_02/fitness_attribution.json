@@ -1,0 +1,11 @@
+{
+  "change_candidate": "add causal 5D rolling net-R P01/P05/P95/P99, positive-window fraction and negative-window streak to Cheap Prop fitness",
+  "cheap_v1_selection": {
+    "downside_fields": "individual-trade tail before Loop 02; not authoritative 5D rolling tail",
+    "full_stage": "authoritative 5D downside arrives after selection",
+    "population_sources": "pilot cheap sidecars",
+    "selected": 1199
+  },
+  "fitness_effect": "downside becomes visible before survivor selection; General fitness unchanged",
+  "hypothesis": "CHEAP_DOWNSIDE_UNDERWEIGHTED and LOSS_CLUSTERING_NOT_VISIBLE_TO_GENETIC"
+}

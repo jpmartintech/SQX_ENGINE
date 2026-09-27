@@ -19,7 +19,7 @@ from sqx_engine.prop_factory_v1.fitness import evaluate_cheap, evaluate_full, no
 from sqx_engine.prop_factory_v1.funnel import evaluate_funnel, FunnelPolicy
 from sqx_engine.prop_factory_v1.generator import (
     PROP_CANONICAL_GRAMMAR, PROP_EXIT_SPACE, PROP_FACTORY_VERSION,
-    PROP_GRAMMAR_VERSION, PROP_EXIT_VERSION, PROP_SURVIVOR_WIDTH,
+    PROP_GRAMMAR_VERSION, PROP_EXIT_VERSION, PROP_SURVIVOR_WIDTH, PROP_FITNESS_VERSION,
     PropGeneticGenerator, prop_predicate_catalog,
 )
 
@@ -79,21 +79,42 @@ def metrics_for_partition(ledger, split, profile_id, partition_start, partition_
     return pd.DataFrame(rows), pd.DataFrame(costs)
 
 
-def cheap_rows(strategies, results, market, timeframe):
+def cheap_rows(strategies, results, market, timeframe, partition_start, partition_end):
     from sqx_engine.prop_factory_v1.metrics import _distribution
     rows = []
+    start = pd.Timestamp(partition_start).tz_convert("Europe/Paris").normalize()
+    end = pd.Timestamp(partition_end).tz_convert("Europe/Paris").normalize() + pd.Timedelta(days=1)
+    calendar = pd.date_range(start, end - pd.Timedelta(days=1), freq="D", tz="Europe/Paris")
+    windows = pd.date_range(start, end - pd.Timedelta(days=5), freq="D", tz="Europe/Paris")
     for strategy, result in zip(strategies, results):
-        rs = pd.Series([float(t["r"]) for t in result.trades])
-        dist = _distribution(rs)
+        trade_frame = pd.DataFrame({"entry": pd.to_datetime([t["entry_time"] for t in result.trades], utc=True), "r": [float(t["r"]) for t in result.trades]})
+        if len(trade_frame):
+            trade_frame["day"] = trade_frame.entry.dt.tz_convert("Europe/Paris").dt.normalize()
+            daily = trade_frame.groupby("day", sort=True).r.agg(["sum", "size"]).reindex(calendar, fill_value=0.0)
+        else:
+            daily = pd.DataFrame({"sum": 0.0, "size": 0.0}, index=calendar)
+        net = daily["sum"].to_numpy(dtype=float); count = daily["size"].to_numpy(dtype=float)
+        cnet = pd.Series(net).rolling(5).sum().dropna().to_numpy(dtype=float)
+        ccount = pd.Series(count).rolling(5).sum().dropna().to_numpy(dtype=float)
+        if len(cnet) != len(windows):
+            cnet = cnet[-len(windows):] if len(windows) else cnet; ccount = ccount[-len(windows):] if len(windows) else ccount
+        rs = trade_frame.r if len(trade_frame) else pd.Series(dtype=float)
+        dist = _distribution(cnet)
+        positive = cnet[cnet > 0]
+        positive_tail = {k: float(pd.Series(positive).quantile(q)) if len(positive) else 0.0 for k, q in {"P75": .75, "P90": .90, "P95": .95, "P99": .99}.items()}
+        negative_tail = {k: float(pd.Series(cnet).quantile(q)) if len(cnet) else 0.0 for k, q in {"P01": .01, "P05": .05, "P10": .10}.items()}
+        negative = cnet < 0
+        longest = 0; current = 0
+        for value in negative:
+            current = current + 1 if value else 0; longest = max(longest, current)
         rows.append({"strategy_id": strategy.readable_id, "split": "DEVELOPMENT", "horizon_days": 5,
                      "trade_count": result.trade_count, "mean_R": result.expectancy_r, "median_R": float(rs.median()) if len(rs) else None,
-                     "positive_window_fraction": float((rs > 0).mean()) if len(rs) else 0., "negative_window_fraction": float((rs < 0).mean()) if len(rs) else 1.,
-                     "active_day_fraction": float(bool(len(rs))), "signals_per_day": result.trade_count / 100.,
-                     "worst_window_net_R": dist["MIN"], "maximum_consecutive_negative_windows": 0,
+                     "positive_window_fraction": float((cnet > 0).mean()) if len(cnet) else 0., "negative_window_fraction": float((cnet < 0).mean()) if len(cnet) else 1.,
+                     "flat_window_fraction": float((cnet == 0).mean()) if len(cnet) else 1., "active_day_fraction": float((count > 0).mean()) if len(count) else 0., "signals_per_day": result.trade_count / max(len(calendar), 1), "signals_per_window": float(ccount.mean()) if len(ccount) else 0.,
+                     "window_count": int(len(cnet)), "positive_tail_P95": positive_tail["P95"], "positive_tail_P99": positive_tail["P99"], "negative_tail_P01": negative_tail["P01"], "negative_tail_P05": negative_tail["P05"], "negative_tail_P10": negative_tail["P10"], "worst_window_net_R": dist["MIN"], "maximum_consecutive_negative_windows": longest,
                      "holding_P50_hours": float(np.median([t.get("bars_held", 0) for t in result.trades])) * ({"M15": .25, "H1": 1}[timeframe]) if result.trades else 0.,
                      "holding_P95_hours": float(np.percentile([t.get("bars_held", 0) for t in result.trades], 95)) * ({"M15": .25, "H1": 1}[timeframe]) if result.trades else 0.,
-                     "positive_tail_json": json.dumps({"P75": dist["P75"], "P90": dist["P90"], "P95": dist["P95"], "P99": dist["P99"]}, sort_keys=True),
-                     "negative_tail_json": json.dumps({"P01": dist["P01"], "P05": dist["P05"], "P10": dist["P10"]}, sort_keys=True),
+                     "positive_tail_json": json.dumps(positive_tail, sort_keys=True), "negative_tail_json": json.dumps(negative_tail, sort_keys=True),
                      "net_R_distribution_json": json.dumps(dist, sort_keys=True), "market": market, "timeframe": timeframe, "direction": strategy.direction,
                      "data_provenance_id": "PROP_PILOT_DEVELOPMENT", "execution_profile_id": f"{market}_{timeframe}", "metrics_version": "PROP_METRICS_V1"})
     return pd.DataFrame(rows)
@@ -118,9 +139,9 @@ def generate_batch(market, timeframe, seed, dev_data, val_data):
         if strategy.canonical_hash in seen:
             duplicates += 1; continue
         seen.add(strategy.canonical_hash); strategies.append(strategy); result = evaluator.evaluate(strategy, rich=False); results.append(result); generator.tell(strategy, result)
-    cheap_raw = cheap_rows(strategies, results, market, timeframe)
-    cheap_fit = evaluate_cheap(cheap_raw, horizon_days=5, split="DEVELOPMENT")
-    scored = normalize_objectives(cheap_fit, tuple(x for x in ("edge_mean_R", "signals_per_day", "active_day_fraction", "positive_window_fraction", "negative_tail_P05", "worst_window_net_R") if x in cheap_fit))
+    cheap_raw = cheap_rows(strategies, results, market, timeframe, dev_data.timestamp.iloc[0], dev_data.timestamp.iloc[-1])
+    cheap_fit = evaluate_cheap(cheap_raw, horizon_days=5, split="DEVELOPMENT", fitness_version=PROP_FITNESS_VERSION)
+    scored = normalize_objectives(cheap_fit, tuple(x for x in ("edge_mean_R", "signals_per_day", "active_day_fraction", "positive_window_fraction", "positive_tail_P95", "negative_tail_P05", "worst_window_net_R", "maximum_consecutive_negative_windows") if x in cheap_fit))
     scored["cheap_score"] = scored[[c for c in scored if c.endswith("__normalized")]].mean(axis=1)
     keep_n = max(1, int(np.ceil(len(strategies) * PROP_SURVIVOR_WIDTH)))
     survivor_ids = set(scored.sort_values(["cheap_score", "strategy_id"], ascending=[False, True]).head(keep_n).strategy_id)
@@ -153,14 +174,14 @@ def generate_batch(market, timeframe, seed, dev_data, val_data):
     for sid, x in dev_ledger.groupby("strategy_id"):
         neg = x.net_R[x.net_R < 0].sum()
         if neg < 0: pf_map[(sid, "DEVELOPMENT")] = float(x.net_R[x.net_R > 0].sum() / abs(neg))
-    full = evaluate_full(dev_metrics, dev_cost, horizon_days=5, split="DEVELOPMENT", profit_factor_by_strategy_split=pf_map)
-    val_full = evaluate_full(val_metrics, val_cost, horizon_days=5, split="VALIDATION")
+    full = evaluate_full(dev_metrics, dev_cost, horizon_days=5, split="DEVELOPMENT", profit_factor_by_strategy_split=pf_map, fitness_version=PROP_FITNESS_VERSION)
+    val_full = evaluate_full(val_metrics, val_cost, horizon_days=5, split="VALIDATION", fitness_version=PROP_FITNESS_VERSION)
     full_for_funnel = pd.concat([full, val_full], ignore_index=True)
     cheap_selected = cheap_fit[cheap_fit.strategy_id.isin(survivor_ids)]
     timing = timing_from_ledger(pd.concat([dev_ledger, val_ledger], ignore_index=True))
-    funnel = evaluate_funnel(metrics, full_for_funnel, cheap_selected, costs, timing, FunnelPolicy(), mode="PILOT", lineage={"factory_lineage": "PROP_V1", "factory_version": PROP_FACTORY_VERSION, "metrics_version": "PROP_METRICS_V1", "fitness_version": "PROP_FITNESS_V1", "data_provenance_id": f"{market}_{timeframe}_DEVELOPMENT_VALIDATION", "execution_profile_id": profile, "generation_campaign_id": f"PROP_PILOT_{market}_{timeframe}_{seed}", "causal_evidence": "PASS"})
+    funnel = evaluate_funnel(metrics, full_for_funnel, cheap_selected, costs, timing, FunnelPolicy(), mode="PILOT", lineage={"factory_lineage": "PROP_V1", "factory_version": PROP_FACTORY_VERSION, "metrics_version": "PROP_METRICS_V1", "fitness_version": PROP_FITNESS_VERSION, "data_provenance_id": f"{market}_{timeframe}_DEVELOPMENT_VALIDATION", "execution_profile_id": profile, "generation_campaign_id": f"PROP_PILOT_{market}_{timeframe}_{seed}", "causal_evidence": "PASS"})
     eligible = set(sid for sid, g in funnel.groupby("strategy_id") if all(g[g.stage == stage].status.eq("PASS").all() for stage in ("GENERATED", "CAUSAL", "BASIC_EDGE", "SHORT_HORIZON_QUALITY", "COST_ROBUST", "TEMPORAL_STABLE", "NOVEL")))
-    definitions = pd.DataFrame([{"strategy_id": s.readable_id, "canonical_hash": s.canonical_hash, "strategy_json": s.to_json(), "factory_lineage": "PROP_V1", "factory_version": PROP_FACTORY_VERSION, "grammar_version": PROP_GRAMMAR_VERSION, "fitness_version": "PROP_FITNESS_V1", "metrics_version": "PROP_METRICS_V1", "funnel_version": "PROP_FUNNEL_V1_PHASE_C", "campaign_id": f"PROP_PILOT_{market}_{timeframe}_{seed}", "generation_seed": seed, "market": market, "timeframe": timeframe, "direction": s.direction, "data_provenance_id": f"{market}_{timeframe}_DEVELOPMENT_VALIDATION", "execution_profile_id": profile, "economic_spec_status": "READY_FROM_LEDGER" if s.readable_id in survivor_ids else "NOT_EVALUATED", "portfolio_useful": "PENDING_PHASE_D", "phase_e_handoff": "PENDING_PHASE_E", "status": "PROP_CANDIDATE" if s.readable_id in eligible else "NOT_PROMOTED"} for s in strategies])
+    definitions = pd.DataFrame([{"strategy_id": s.readable_id, "canonical_hash": s.canonical_hash, "strategy_json": s.to_json(), "factory_lineage": "PROP_V1", "factory_version": PROP_FACTORY_VERSION, "grammar_version": PROP_GRAMMAR_VERSION, "fitness_version": PROP_FITNESS_VERSION, "metrics_version": "PROP_METRICS_V1", "funnel_version": "PROP_FUNNEL_V1_PHASE_C", "campaign_id": f"PROP_PILOT_{market}_{timeframe}_{seed}", "generation_seed": seed, "market": market, "timeframe": timeframe, "direction": s.direction, "data_provenance_id": f"{market}_{timeframe}_DEVELOPMENT_VALIDATION", "execution_profile_id": profile, "economic_spec_status": "READY_FROM_LEDGER" if s.readable_id in survivor_ids else "NOT_EVALUATED", "portfolio_useful": "PENDING_PHASE_D", "phase_e_handoff": "PENDING_PHASE_E", "status": "PROP_CANDIDATE" if s.readable_id in eligible else "NOT_PROMOTED"} for s in strategies])
     return {"market": market, "timeframe": timeframe, "seed": seed, "attempts": attempts, "duplicates": duplicates, "unique": len(strategies), "cheap_fit": cheap_fit, "full": full, "funnel": funnel, "definitions": definitions, "candidate_ids": eligible, "runtime": evaluator.cache_stats()}
 
 
@@ -168,10 +189,18 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--minimum", action="store_true", help="run the authorized EURUSD M15/H1 seed-4101 minimum")
     parser.add_argument("--remaining", action="store_true", help="run only the remaining XAUUSD M15/H1 seed-4101 pilot")
+    parser.add_argument("--iteration1", action="store_true", help="run bounded Loop 02 fitness iteration 1")
+    parser.add_argument("--iteration1-retry", action="store_true", help="rerun Loop 02 iteration 1 after an implementation correction")
+    parser.add_argument("--iteration2", action="store_true", help="run bounded Loop 02 exit iteration 2")
+    parser.add_argument("--iteration3", action="store_true", help="run bounded Loop 02 exit iteration 3")
     args = parser.parse_args()
     global OUT
     if args.remaining:
         OUT = ROOT / "runs/reports/prop_strategy_factory_v1_autonomous_loop_01/experiment_03_xau_pilot"
+    if args.iteration1 or args.iteration1_retry or args.iteration2 or args.iteration3:
+        OUT = ROOT / "runs/reports/prop_strategy_factory_v1_autonomous_loop_02/iteration_3" if args.iteration3 else (ROOT / "runs/reports/prop_strategy_factory_v1_autonomous_loop_02/iteration_2" if args.iteration2 else (ROOT / "runs/reports/prop_strategy_factory_v1_autonomous_loop_02/iteration_1_retry" if args.iteration1_retry else ROOT / "runs/reports/prop_strategy_factory_v1_autonomous_loop_02/iteration_1"))
+        global TARGET
+        TARGET = 500
     started = time.perf_counter(); OUT.mkdir(parents=True, exist_ok=True)
     batches = []; campaign_rows = []; all_cheap = []; all_full = []; all_funnel = []; candidates = []
     combinations = [(key, seed) for key in DATA for seed in SEEDS]
@@ -179,6 +208,12 @@ def main():
         combinations = [(("EURUSD", "M15"), 4101), (("EURUSD", "H1"), 4101)]
     if args.remaining:
         combinations = [(("XAUUSD", "M15"), 4101), (("XAUUSD", "H1"), 4101)]
+    if args.iteration1 or args.iteration1_retry:
+        combinations = [(("EURUSD", "M15"), 4102), (("EURUSD", "H1"), 4102), (("XAUUSD", "M15"), 4102), (("XAUUSD", "H1"), 4102)]
+    if args.iteration2:
+        combinations = [(("EURUSD", "M15"), 4103), (("EURUSD", "H1"), 4103), (("XAUUSD", "M15"), 4103), (("XAUUSD", "H1"), 4103)]
+    if args.iteration3:
+        combinations = [(("EURUSD", "M15"), 4104), (("EURUSD", "H1"), 4104), (("XAUUSD", "M15"), 4104), (("XAUUSD", "H1"), 4104)]
     for (market, timeframe), seed in combinations:
         path = DATA[(market, timeframe)]
         frame = load_ohlcv(path); dev, val = development_validation(frame)

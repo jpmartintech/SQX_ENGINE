@@ -1,0 +1,30 @@
+[
+  {
+    "direction": "LONG",
+    "holding_P50_median": 2.0,
+    "holding_P95_median": 5.75,
+    "max_loss_streak_median": 13.0,
+    "negative_tail_P01_median": -7.5352392839128335,
+    "negative_tail_P05_median": -5.118942985602468,
+    "positive_tail_P95_median": 6.371389471510465,
+    "positive_tail_P99_median": 8.455351506957658,
+    "positive_window_fraction_median": 0.4858232998616727,
+    "signals_per_day_median": 2.18145403564991,
+    "strategies": 758,
+    "worst_window_median": -11.999999999999995
+  },
+  {
+    "direction": "SHORT",
+    "holding_P50_median": 1.25,
+    "holding_P95_median": 2.75,
+    "max_loss_streak_median": 14.0,
+    "negative_tail_P01_median": -9.27462584242437,
+    "negative_tail_P05_median": -6.335240016256928,
+    "positive_tail_P95_median": 7.643961734946328,
+    "positive_tail_P99_median": 10.315074172295903,
+    "positive_window_fraction_median": 0.47664862697935456,
+    "signals_per_day_median": 4.771604938271605,
+    "strategies": 441,
+    "worst_window_median": -15.098302038683244
+  }
+]

@@ -1,0 +1,171 @@
+{
+  "ab": false,
+  "baseline": {
+    "holding_P50_hours": 2.0,
+    "holding_P95_hours": 4.0,
+    "negative_tail_P01": -8.142806076880442,
+    "negative_tail_P05": -5.708697411962241,
+    "positive_tail_P95": 6.888849414291226,
+    "positive_tail_P99": 9.079348608537048,
+    "positive_window_fraction": 0.48286169788760464,
+    "signals_per_day": 2.7584627638391077,
+    "worst_window_net_R": -13.053027402822437
+  },
+  "candidates": 0,
+  "final_classification": "PROP_FACTORY_DOWNSIDE_TOO_HIGH",
+  "general_factory_modified": false,
+  "generated_per_iteration": 2000,
+  "iterations": {
+    "1": {
+      "candidates": 0,
+      "generated": 2000,
+      "holding_P50_hours": 1.75,
+      "holding_P95_hours": 4.0,
+      "negative_tail_P01": -8.65215726770277,
+      "negative_tail_P05": -5.980460947062539,
+      "oos_accesses": 0,
+      "positive_tail_P95": 7.384048195664118,
+      "positive_tail_P99": 9.873137508106229,
+      "positive_window_fraction": 0.483160621761658,
+      "seed": 4102,
+      "signals_per_day": 3.5510836576270615,
+      "stage_counts": {
+        "BASIC_EDGE": {
+          "FAIL": 369,
+          "PASS": 231
+        },
+        "CAUSAL": {
+          "PASS": 600
+        },
+        "COST_ROBUST": {
+          "PASS": 600
+        },
+        "GENERATED": {
+          "PASS": 600
+        },
+        "NOVEL": {
+          "FAIL": 6,
+          "PASS": 594
+        },
+        "PORTFOLIO_USEFUL": {
+          "PENDING": 600
+        },
+        "PROP_READY": {
+          "PENDING": 600
+        },
+        "SHORT_HORIZON_QUALITY": {
+          "FAIL": 600
+        },
+        "TEMPORAL_STABLE": {
+          "FAIL": 126,
+          "PASS": 459,
+          "UNAVAILABLE": 15
+        }
+      },
+      "worst_window_net_R": -13.874839019884206
+    },
+    "2": {
+      "candidates": 0,
+      "generated": 2000,
+      "holding_P50_hours": 2.0,
+      "holding_P95_hours": 4.0,
+      "negative_tail_P01": -7.257885788425048,
+      "negative_tail_P05": -5.011620517459349,
+      "oos_accesses": 0,
+      "positive_tail_P95": 6.16004227491489,
+      "positive_tail_P99": 8.328624091231312,
+      "positive_window_fraction": 0.4905569654595231,
+      "seed": 4103,
+      "signals_per_day": 3.187000510391968,
+      "stage_counts": {
+        "BASIC_EDGE": {
+          "FAIL": 335,
+          "PASS": 265
+        },
+        "CAUSAL": {
+          "PASS": 600
+        },
+        "COST_ROBUST": {
+          "PASS": 600
+        },
+        "GENERATED": {
+          "PASS": 600
+        },
+        "NOVEL": {
+          "FAIL": 6,
+          "PASS": 594
+        },
+        "PORTFOLIO_USEFUL": {
+          "PENDING": 600
+        },
+        "PROP_READY": {
+          "PENDING": 600
+        },
+        "SHORT_HORIZON_QUALITY": {
+          "FAIL": 600
+        },
+        "TEMPORAL_STABLE": {
+          "FAIL": 129,
+          "PASS": 456,
+          "UNAVAILABLE": 15
+        }
+      },
+      "worst_window_net_R": -11.600147468741099
+    },
+    "3": {
+      "candidates": 0,
+      "generated": 2000,
+      "holding_P50_hours": 2.0,
+      "holding_P95_hours": 7.0,
+      "negative_tail_P01": -7.583054498529439,
+      "negative_tail_P05": -5.213258838070119,
+      "oos_accesses": 0,
+      "positive_tail_P95": 6.167916406650999,
+      "positive_tail_P99": 8.279560974180136,
+      "positive_window_fraction": 0.49704280245745136,
+      "seed": 4104,
+      "signals_per_day": 3.0180889445941164,
+      "stage_counts": {
+        "BASIC_EDGE": {
+          "FAIL": 337,
+          "PASS": 263
+        },
+        "CAUSAL": {
+          "PASS": 600
+        },
+        "COST_ROBUST": {
+          "PASS": 600
+        },
+        "GENERATED": {
+          "PASS": 600
+        },
+        "NOVEL": {
+          "FAIL": 5,
+          "PASS": 595
+        },
+        "PORTFOLIO_USEFUL": {
+          "PENDING": 600
+        },
+        "PROP_READY": {
+          "PENDING": 600
+        },
+        "SHORT_HORIZON_QUALITY": {
+          "FAIL": 600
+        },
+        "TEMPORAL_STABLE": {
+          "FAIL": 172,
+          "PASS": 415,
+          "UNAVAILABLE": 13
+        }
+      },
+      "worst_window_net_R": -11.99999999999996
+    }
+  },
+  "iterations_executed": 3,
+  "mql5_modified": false,
+  "oos_accesses": 0,
+  "phase_d": false,
+  "phase_e": false,
+  "starting_commit": "d4aa732e6a1b2721ee2d4a15fe92265bf7915347",
+  "total_generated": 6000
+}
