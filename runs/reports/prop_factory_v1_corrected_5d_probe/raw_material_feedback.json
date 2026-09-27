@@ -1,0 +1,14 @@
+{
+  "diagnosis": "SHORT_HORIZON_TARGET_CAPACITY_LIMITED_IN_BOUNDED_SAMPLE",
+  "evidence": {
+    "challenge_pass_5d": 0.0,
+    "max_target_ladder": 0.023159072880924114,
+    "verification_pass_5d": 0.0
+  },
+  "requested_dimensions": [
+    "higher positive tail",
+    "more independent intraday signals",
+    "shorter holding horizons",
+    "higher usable 5D opportunity"
+  ]
+}

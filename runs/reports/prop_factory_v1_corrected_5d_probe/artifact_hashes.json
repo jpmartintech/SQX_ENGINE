@@ -1,0 +1,18 @@
+{
+  "artifact_hashes.json": "f20d72683bd7f3bc29dc17ffd88b3b5b0fe107d2ea9dcf35cbb9561a64158da8",
+  "best_portfolios.json": "546134827a2b7275c060506e48a9e443f3f620368e11bd08295f05bea146043b",
+  "episode_split.json": "3cfa02e56a4d4648c970bc2351a1de1fd0ab0889415362750a77a463dea7f08d",
+  "factory_readiness_report.md": "0d72ceb4a77c2127d554fc6e1cdd7b9670cdfeeb0474ff17ea7d682d0d8bb5b3",
+  "method_comparison.json": "874048d736d13ebbd4dce599d4bbf2a9728d2e5f6bf3ba4af47e7332a9d3aac2",
+  "performance.json": "714e68820e0beae624ec60453c577872bf79460cdf137da286e9cca609e73f2b",
+  "portfolio_manifest.parquet": "29045e968733b96a762a18ff27802ba8f9b4e2c7e11bef90edf20538a04f53e4",
+  "portfolio_results_development.parquet": "70f05d6a59534a4b046de4f27b6a8aec2956519653775a589e090f81c2ab3677",
+  "portfolio_results_validation.parquet": "f72af4be55868e35c8cd5a1967da230eaa22d6a28ebb297d5518925745cffb68",
+  "portfolio_size_frontier.parquet": "91640bf37e47dc2eab223f9512af2a4c43154c40ebbe1121a508d5ccbbb9cca4",
+  "probe_summary.json": "005390dc4acaa32504f21b5fe890aee08288431261905f477d7343f9f60f8535",
+  "raw_material_feedback.json": "e35e0a6c936aaf0f2b92f040840dc10e918ca7ae9ca40000021d85dc179f5747",
+  "risk_frontier.parquet": "86fc7b4e34950f837a31ca261f892a9dd66571a2dae48d1688a102626397629e",
+  "risk_utilization.parquet": "86fc7b4e34950f837a31ca261f892a9dd66571a2dae48d1688a102626397629e",
+  "strategy_contribution.parquet": "9afa8522a670d93f4d2cab488ac24a8d504638d1d6aa1849c39918a3cf30b207",
+  "target_ladder.parquet": "cc7cbcb46df3c4f6620ae72d56bde88aab551149705a9bc7aa1c03f3228a1c84"
+}

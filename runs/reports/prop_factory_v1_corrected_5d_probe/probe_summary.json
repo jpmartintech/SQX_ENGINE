@@ -1,0 +1,36 @@
+{
+  "best_validation_max_intraperiod_return": 0.023159072880924114,
+  "challenge_target_ladder": {
+    "0.01": 0.04583333333333333,
+    "0.02": 0.008333333333333333,
+    "0.03": 0.0,
+    "0.04": 0.0,
+    "0.05": 0.0,
+    "0.06": 0.0,
+    "0.07": 0.0,
+    "0.08": 0.0,
+    "0.09": 0.0,
+    "0.1": 0.0
+  },
+  "challenge_validation_pass": 0,
+  "decision": "PORTFOLIO_FACTORY_IMPROVEMENT_REQUIRED",
+  "development_episodes": 4,
+  "methods": {
+    "CUMULATIVE_R_GREEDY": 20,
+    "DIVERSITY_GREEDY": 20,
+    "FIVE_DAY_RETURN_GREEDY": 20,
+    "FREQUENCY_RISK_GREEDY": 20,
+    "GENETIC_LOCAL": 20,
+    "RANDOM": 20
+  },
+  "portfolios": 120,
+  "validation_episodes": 2,
+  "verification_target_ladder": {
+    "0.01": 0.04583333333333333,
+    "0.02": 0.008333333333333333,
+    "0.03": 0.0,
+    "0.04": 0.0,
+    "0.05": 0.0
+  },
+  "verification_validation_pass": 0
+}

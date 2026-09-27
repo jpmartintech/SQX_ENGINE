@@ -1,0 +1,8 @@
+{
+  "episodes": 6,
+  "exact_evaluations": 1440,
+  "note": "bounded corrected replay; no production search launched",
+  "peak_rss_mib": 974.3828125,
+  "portfolios": 120,
+  "runtime_seconds": 141.08318543399218
+}

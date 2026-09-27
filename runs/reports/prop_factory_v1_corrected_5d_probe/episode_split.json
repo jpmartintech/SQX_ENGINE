@@ -1,0 +1,50 @@
+{
+  "total_overlapping_windows": 722,
+  "selected_windows": [
+    {
+      "horizon": 5,
+      "start": "2022-11-18 00:00:00+01:00",
+      "end": "2022-12-22 00:00:00+01:00",
+      "index": 0,
+      "split": "DEVELOPMENT"
+    },
+    {
+      "horizon": 5,
+      "start": "2024-05-29 00:00:00+02:00",
+      "end": "2024-06-04 00:00:00+02:00",
+      "index": 144,
+      "split": "DEVELOPMENT"
+    },
+    {
+      "horizon": 5,
+      "start": "2024-11-14 00:00:00+01:00",
+      "end": "2024-11-20 00:00:00+01:00",
+      "index": 288,
+      "split": "DEVELOPMENT"
+    },
+    {
+      "horizon": 5,
+      "start": "2025-05-03 00:00:00+02:00",
+      "end": "2025-05-09 00:00:00+02:00",
+      "index": 432,
+      "split": "DEVELOPMENT"
+    },
+    {
+      "horizon": 5,
+      "start": "2025-10-18 00:00:00+02:00",
+      "end": "2025-10-24 00:00:00+02:00",
+      "index": 576,
+      "split": "VALIDATION"
+    },
+    {
+      "horizon": 5,
+      "start": "2026-04-09 00:00:00+02:00",
+      "end": "2026-04-15 00:00:00+02:00",
+      "index": 721,
+      "split": "VALIDATION"
+    }
+  ],
+  "development_count": 4,
+  "validation_count": 2,
+  "selection": "six evenly spaced windows from the deterministic rolling inventory"
+}
