@@ -1,0 +1,13 @@
+{
+  "challenge_rank": {
+    "spearman": 0.0,
+    "top10": 1.0,
+    "top5": 1.0
+  },
+  "same_sample": true,
+  "verification_rank": {
+    "spearman": 0.0,
+    "top10": 1.0,
+    "top5": 1.0
+  }
+}

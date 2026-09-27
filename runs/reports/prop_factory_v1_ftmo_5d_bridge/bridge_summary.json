@@ -1,0 +1,51 @@
+{
+  "best_challenge": {
+    "exact_daily_or_max_breach": 0.0,
+    "exact_median_return_5d": 1.005585520368011,
+    "exact_p_alive_5d": 1.0,
+    "exact_p_fail_5d": 0.0,
+    "exact_p_pass_5d": 0.0,
+    "max_open_risk": 0.03,
+    "method": "GREEDY",
+    "pareto": true,
+    "phase": "CHALLENGE",
+    "portfolio_id": "fbcd933b0383b860da10b2fd503140107fe0c774904004b77252fd0cec1cacb0",
+    "portfolio_size": 30,
+    "proxy_median_return_5d": 0.14797916422934665,
+    "proxy_p_alive_5d": 0.8333333333333334,
+    "proxy_p_fail_5d": 0.0,
+    "proxy_p_pass_5d": 0.16666666666666666,
+    "risk_fraction": 0.005
+  },
+  "best_verification": {
+    "exact_daily_or_max_breach": 0.0,
+    "exact_median_return_5d": 1.005585520368011,
+    "exact_p_alive_5d": 1.0,
+    "exact_p_fail_5d": 0.0,
+    "exact_p_pass_5d": 0.0,
+    "max_open_risk": 0.03,
+    "method": "GREEDY",
+    "pareto": true,
+    "phase": "VERIFICATION",
+    "portfolio_id": "fbcd933b0383b860da10b2fd503140107fe0c774904004b77252fd0cec1cacb0",
+    "portfolio_size": 30,
+    "proxy_median_return_5d": 0.14797916422934665,
+    "proxy_p_alive_5d": 0.8333333333333334,
+    "proxy_p_fail_5d": 0.0,
+    "proxy_p_pass_5d": 0.16666666666666666,
+    "risk_fraction": 0.005
+  },
+  "episodes": 12,
+  "proxy_rank_challenge": {
+    "spearman": 0.0,
+    "top10": 1.0,
+    "top5": 1.0
+  },
+  "proxy_rank_verification": {
+    "spearman": 0.0,
+    "top10": 1.0,
+    "top5": 1.0
+  },
+  "sample": 30,
+  "status": "PARTIAL_BRIDGE"
+}

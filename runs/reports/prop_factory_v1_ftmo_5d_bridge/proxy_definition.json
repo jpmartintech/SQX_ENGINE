@@ -1,0 +1,11 @@
+{
+  "authority": "BAR_EQUITY_REPLAY",
+  "features": [
+    "rolling_5d_return",
+    "rolling_5d_downside",
+    "trade_frequency",
+    "idle_days",
+    "concurrency_pressure"
+  ],
+  "score": "P_PASS_5D proxy with breach penalties; exact metrics retained"
+}

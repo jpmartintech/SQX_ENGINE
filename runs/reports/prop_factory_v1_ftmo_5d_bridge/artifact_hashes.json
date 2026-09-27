@@ -1,0 +1,19 @@
+{
+  "bridge_summary.json": "923defe579032f4168493999266159f7ee4b02d4c3304a84812887725ff0f26d",
+  "challenge_verification_comparison.json": "ab8101d782af414fb393b7a920a91bf589e1ff6a706db545d4aa25e04a42f6ab",
+  "episode_manifest.json": "1567f198f75839d9c800e2cfbff06b238defa5b5b325ea17cb23778159c924a0",
+  "exact_frontier_challenge.parquet": "4ad1611a7b6951e9533f4ece5dd204edd1dcf9a221a880b0c8f03328f0771237",
+  "exact_frontier_verification.parquet": "ebd4046a2fd711effa840a7cb43dcaf70c3ed2449218936848e7dad9a4819289",
+  "exact_seed_portfolios.parquet": "627489882f05683f427d1125e16c7db978844db9da80031ff7fb1e1e0bae89aa",
+  "genetic_probe_results.parquet": "52083fa1bf7cb6e04786796d05d72c4d5bb30fbabb15dffbeff83707705c950e",
+  "greedy_results.parquet": "24bacb57bfe0fe1b0c6058fdafbf8fff67f2c5056b20ad241c20c37334c1c49c",
+  "local_search_results.parquet": "03e9f476d4d55068332088cfeef465f3d169ec9b5c7b0c2aad9e716213968966",
+  "oracle_gap.json": "e0f21a976fe3feec9b67a3bbdb2cd768b4f2d6161fad626f72b3196806fbf8e9",
+  "portfolio_size_frontier.parquet": "023c09557ad9f54c5fd49801fd97198c3deaa30648c1b366a03a0a241331d8c7",
+  "proxy_calibration.parquet": "102dbc55ef31e79421ba0cc7961b2b0c7143813851fa56653e5f6ea2d489a28c",
+  "proxy_definition.json": "8689946797cf457cb73fce43508e6a84af2f2b9e6dd6273aee41eaf385723ad2",
+  "proxy_validation.parquet": "102dbc55ef31e79421ba0cc7961b2b0c7143813851fa56653e5f6ea2d489a28c",
+  "retention_curve_challenge.json": "dbfa104cb8fea58fbb5c9ba553ae346b924c8c3eba8ff0a8b0a7c92454252684",
+  "retention_curve_verification.json": "b4417a0b94d483dbf07c5f4acdfe4601034e9ae937bfef5db5a33240348d58d3",
+  "risk_frontier.parquet": "befd762fe03223b55b95cbf7da048e19e25e701ee7c7a0a7e027c7f3e62ca902"
+}

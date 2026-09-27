@@ -1,0 +1,20 @@
+{
+  "available_windows_10d": 717,
+  "available_windows_15d": 712,
+  "available_windows_20d": 707,
+  "available_windows_5d": 722,
+  "coverage_end": "2026-04-14 02:00:00+00:00",
+  "coverage_start": "2022-11-18 16:00:00+00:00",
+  "markets": [
+    "EURUSD",
+    "GBPUSD",
+    "NZDUSD",
+    "USDCAD",
+    "USDCHF",
+    "USDJPY",
+    "XAUUSD"
+  ],
+  "non_overlapping_5d": 145,
+  "overlapping_5d": 722,
+  "seed": 2501
+}
