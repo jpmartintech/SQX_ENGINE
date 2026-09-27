@@ -1,4 +1,11 @@
 {
+  "causal_state_predictability.json": "a9a709bc6927e72c34ef5b608afc89d2a9b316069d427a517eb0ed75aa86b3ff",
+  "cooldown_performance.json": "8327bb3d53c260d1fb0983aa46da334e05f9da8a2b6f173b2ade6bf3f190bb04",
+  "cooldown_probe.json": "dfff486a9ae0728512b54d34b0c402d0fe188a8fc8101304f8befdeb7cb667f1",
+  "diversification_performance.json": "826ef2cfd8d08a02d051221286650a1ed38613b309d6f216950c20ca78c05d40",
+  "diversification_summary.json": "2301d23693c84c684b9b5ac90a017030f70d300d818b3eca8320221a0d28fdc5",
+  "loss_state_summary.json": "cead307ec2d1a748e13913c3abc8acf21a1895ebc8fffb47ef513a4c58dc4ff9",
+  "performance.json": "5d202727114655ebb3cecea969052c899fd708598acb8a72e3f0b601a6cbaf69",
   "PROP_FACTORY_NEGATIVE_RESULT.md": "a548f5910e41d6dce144551ba924b5b5868e162452a1254896bcb33f789e9264",
   "PROP_V1_RESULT.json": "22f383e2ab884f2126c42e532a0c7aa863c483ef1a1e7ef2b0370381069177e4",
   "decision_log.md": "ba86bd356e682ed6a7a90ea6675313b8d129af8dfdcabacf1a10b2324d42bce2",
