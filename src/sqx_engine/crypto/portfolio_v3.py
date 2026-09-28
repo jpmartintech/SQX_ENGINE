@@ -47,9 +47,14 @@ def replay_concurrent(events: pd.DataFrame, bars_by_asset: dict[str, pd.DataFram
         return PortfolioReplay(empty, pd.DataFrame(), initial_equity, 0.0, 0.0, 0.0, 0.0, 0, 0.0, initial_equity, True)
     e = events.copy()
     for c in ("entry_time", "exit_time"): e[c] = pd.to_datetime(e[c], utc=True)
-    e = e.sort_values(["entry_time", "exit_time", "hash"], kind="mergesort").reset_index(drop=True)
+    # ``strategy_key`` is optional for backward compatibility, but is required
+    # by multi-asset product runs when the same definition hash exists on more
+    # than one market.
+    if "strategy_key" not in e.columns:
+        e["strategy_key"] = e["hash"].astype(str)
+    e = e.sort_values(["entry_time", "exit_time", "strategy_key"], kind="mergesort").reset_index(drop=True)
     entries_by_time = {t: g.to_dict("records") for t, g in e.groupby("entry_time", sort=False)}
-    weights = weights or {h: 1.0 for h in e.hash.unique()}
+    weights = weights or {h: 1.0 for h in e.strategy_key.unique()}
     weight_sum = float(sum(weights.values())) or 1.0
     weights = {k: float(v) / weight_sum for k, v in weights.items()}
     times = set(e.entry_time.tolist()) | set(e.exit_time.tolist())
@@ -76,7 +81,7 @@ def replay_concurrent(events: pd.DataFrame, bars_by_asset: dict[str, pd.DataFram
         floating = sum(p["risk_budget"] * _r_at_price(p["event"], price_at(p["event"]["asset"], t)) for p in positions)
         equity = cash + floating
         for ev in entries_by_time.get(t, []):
-            budget = max(0.0, equity) * total_risk * weights.get(ev["hash"], 0.0)
+            budget = max(0.0, equity) * total_risk * weights.get(ev.get("strategy_key", ev["hash"]), 0.0)
             positions.append({"event":ev,"risk_budget":budget,"entry_equity":equity})
         floating = sum(p["risk_budget"] * _r_at_price(p["event"], price_at(p["event"]["asset"], t)) for p in positions)
         equity = cash + floating; peak=max(peak,equity)

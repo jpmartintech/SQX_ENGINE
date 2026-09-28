@@ -1,0 +1,7 @@
+{
+  "status": "NOT_REACHED",
+  "reason": "portfolio gate failed",
+  "lockbox_access_count": 0,
+  "library_sha256": "090c9ce0b3783501ba757ed92edf84521da36066b4cc8e97f8b651e41835a4ec",
+  "portfolio_sha256": "416dd3573ce58ba652afec7d0cfb581dcdd1044497b25af7ac4501fa16bade59"
+}

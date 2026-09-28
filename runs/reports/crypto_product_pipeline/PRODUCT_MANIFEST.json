@@ -1,0 +1,12 @@
+{
+  "product": "SQX Crypto Product Pipeline",
+  "starting_commit": "efc2c26",
+  "strategy_factory": "frozen V1.2 / v1.7 PRICE_ONLY",
+  "library_count": 63,
+  "portfolio_candidates": 11,
+  "pareto_candidates": 0,
+  "protected_v2_lockbox_access": 0,
+  "real_orders": 0,
+  "terminal": "CRYPTO_PRODUCT_PORTFOLIO_NOT_FOUND",
+  "search_note": "bounded stratified true-concurrent candidates; no protected data"
+}

@@ -1,0 +1,17 @@
+{
+  "source_population": 7017,
+  "admitted": 63,
+  "rejected": 6954,
+  "by_asset": {
+    "BTC": 26,
+    "TRX": 13,
+    "ADA": 11,
+    "ETH": 10,
+    "AVAX": 3
+  },
+  "by_direction": {
+    "SHORT": 44,
+    "LONG": 19
+  },
+  "gates": "DEV active>=4, positive windows>=0.5, median/worst expectancy, DEV trades>=40, VAL trades>=10, VAL PF>1 and expectancy>0, non-catastrophic DD"
+}

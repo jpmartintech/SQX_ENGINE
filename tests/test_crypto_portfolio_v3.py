@@ -38,3 +38,14 @@ def test_negative_equity_is_not_economically_valid():
     out = replay_concurrent(e, bars(), total_risk=.01)
     assert not out.economically_valid
     assert out.minimum_equity < 0
+
+
+def test_composite_strategy_keys_prevent_cross_asset_weight_collision():
+    b = {"BTC": bars()["BTC"], "ETH": bars()["BTC"].assign(close=[100, 99, 101, 102, 103])}
+    e = pd.DataFrame([
+        {**event("same", "2025-01-01 00:00", "2025-01-01 01:00", r=1.0), "strategy_key": "BTC:same"},
+        {**event("same", "2025-01-01 00:00", "2025-01-01 01:00", direction="SHORT", r=1.0), "asset": "ETH", "strategy_key": "ETH:same"},
+    ])
+    out = replay_concurrent(e, b, total_risk=.01, weights={"BTC:same": .5, "ETH:same": .5})
+    assert len(out.trades) == 2
+    assert out.final_equity > 1.0

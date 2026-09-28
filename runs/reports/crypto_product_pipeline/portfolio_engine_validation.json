@@ -1,0 +1,11 @@
+{
+  "chronological": true,
+  "floating_equity": true,
+  "fees": true,
+  "slippage": true,
+  "same_asset_concurrency": true,
+  "cross_asset_concurrency": true,
+  "ruin_detection": true,
+  "golden_tests": "PASS",
+  "protected_access": 0
+}
