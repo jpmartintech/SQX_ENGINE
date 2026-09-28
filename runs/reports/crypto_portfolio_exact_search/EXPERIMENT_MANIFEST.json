@@ -1,0 +1,10 @@
+{
+  "starting_commit": "f7efcfe",
+  "library": 63,
+  "grammar": "v1.7 PRICE_ONLY",
+  "total_risk": 0.01,
+  "protected_lockbox_access": 0,
+  "random": 50000,
+  "genetic": 25000,
+  "exact": true
+}

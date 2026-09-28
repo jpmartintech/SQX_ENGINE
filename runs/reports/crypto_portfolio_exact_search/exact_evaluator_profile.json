@@ -1,0 +1,4 @@
+{
+  "precompute_seconds": 12.292026437004097,
+  "implementation": "Numba chronological concurrent replay"
+}

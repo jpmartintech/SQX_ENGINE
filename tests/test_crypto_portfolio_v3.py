@@ -49,3 +49,10 @@ def test_composite_strategy_keys_prevent_cross_asset_weight_collision():
     out = replay_concurrent(e, b, total_risk=.01, weights={"BTC:same": .5, "ETH:same": .5})
     assert len(out.trades) == 2
     assert out.final_equity > 1.0
+
+
+def test_same_event_entry_and_exit_is_realized_immediately():
+    e = pd.DataFrame([event("instant", "2025-01-01 01:00", "2025-01-01 01:00", r=2.0)])
+    out = replay_concurrent(e, bars(), total_risk=.01)
+    assert len(out.trades) == 1
+    assert out.final_equity == pytest.approx(1.02)

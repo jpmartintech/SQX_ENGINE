@@ -1,0 +1,22 @@
+{
+  "library_hash": "fe6c9e56a4a749c61d5692dfbe6ba47e04657ed7293c4c54cb66a67b36e9fedc",
+  "periods": {
+    "DEV": {
+      "events": 7797,
+      "timestamps": 12867,
+      "assets": 5
+    },
+    "VAL": {
+      "events": 1479,
+      "timestamps": 3542,
+      "assets": 5
+    },
+    "OOS": {
+      "events": 1076,
+      "timestamps": 3278,
+      "assets": 5
+    }
+  },
+  "mark_cadence": "daily sampled closed-bar marks plus event timestamps",
+  "protected_lockbox_access": 0
+}

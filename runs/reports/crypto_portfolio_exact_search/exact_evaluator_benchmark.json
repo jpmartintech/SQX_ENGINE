@@ -1,0 +1,7 @@
+{
+  "warm_seconds_per_portfolio": 0.31472937839862425,
+  "portfolios_per_second": 3.1773328727305463,
+  "estimated_75k_seconds": 23604.70337989682,
+  "estimated_100k_seconds": 31472.937839862425,
+  "periods": "VAL benchmark; same evaluator all periods"
+}

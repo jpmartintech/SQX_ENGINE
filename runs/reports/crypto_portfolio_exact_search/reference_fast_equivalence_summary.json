@@ -1,0 +1,7 @@
+{
+  "portfolios": 100,
+  "pass": 100,
+  "fail": 0,
+  "max_abs_delta": 1.8189894035458565e-12,
+  "tolerance": 1e-09
+}

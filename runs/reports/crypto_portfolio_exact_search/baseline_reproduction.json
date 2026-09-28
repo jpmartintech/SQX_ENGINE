@@ -1,0 +1,9 @@
+{
+  "library": 63,
+  "prior_random": 50000,
+  "prior_greedy_paths": 180,
+  "prior_genetic": 25000,
+  "prior_exact_finalists": 26,
+  "prior_valid": 0,
+  "protected_lockbox_access": 0
+}

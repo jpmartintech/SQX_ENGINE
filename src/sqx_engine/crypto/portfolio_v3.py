@@ -83,6 +83,16 @@ def replay_concurrent(events: pd.DataFrame, bars_by_asset: dict[str, pd.DataFram
         for ev in entries_by_time.get(t, []):
             budget = max(0.0, equity) * total_risk * weights.get(ev.get("strategy_key", ev["hash"]), 0.0)
             positions.append({"event":ev,"risk_budget":budget,"entry_equity":equity})
+        # A frozen strategy can legitimately enter and exit on the same
+        # timestamp when the next-bar trade is resolved inside that bar.  The
+        # event is realized immediately; otherwise it would remain open until
+        # the final force-close and distort concurrency, PF, and expectancy.
+        for pos in list(positions):
+            if pos["event"]["exit_time"] == t:
+                pnl = pos["risk_budget"] * float(pos["event"]["r"])
+                cash += pnl
+                closed.append({**pos["event"],"risk_budget":pos["risk_budget"],"realized_pnl":pnl,"entry_equity":pos["entry_equity"]})
+                positions.remove(pos)
         floating = sum(p["risk_budget"] * _r_at_price(p["event"], price_at(p["event"]["asset"], t)) for p in positions)
         equity = cash + floating; peak=max(peak,equity)
         peak_concurrent=max(peak_concurrent,len(positions)); peak_risk=max(peak_risk,sum(p["risk_budget"] for p in positions))
