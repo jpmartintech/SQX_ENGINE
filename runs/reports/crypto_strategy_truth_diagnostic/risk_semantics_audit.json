@@ -1,0 +1,9 @@
+{
+  "normalized_budget": 0.01,
+  "meaning": "one total fixed-fractional risk budget, divided by weights",
+  "individual_weight": 1.0,
+  "per_entry_budget": "current_equity * .01 * weight",
+  "risk_can_accumulate": "yes as gross open risk/heat across concurrent positions; each entry uses current equity and weights",
+  "ruin": "equity <= 0",
+  "lockbox_access": 0
+}

@@ -1,0 +1,14 @@
+{
+  "starting_commit": "6dc5991",
+  "library_count": 63,
+  "strategy_generation": false,
+  "portfolio_optimization": false,
+  "lockbox_access_before": 0,
+  "lockbox_access_after": 0,
+  "segments": [
+    "DEV",
+    "VAL",
+    "OOS"
+  ],
+  "economic_engine": "crypto_exact_portfolio_search._one; total_risk=.01"
+}

@@ -1,0 +1,5 @@
+initial_equity,simultaneous_strategies,equal_weight,per_strategy_stop_dollars,aggregate_stop_dollars,nominal_total_budget
+100000,1,1.0,1000.0,1000,0.01
+100000,5,0.2,200.0,1000,0.01
+100000,10,0.1,100.0,1000,0.01
+100000,30,0.03333333333333333,33.333333333333336,1000,0.01

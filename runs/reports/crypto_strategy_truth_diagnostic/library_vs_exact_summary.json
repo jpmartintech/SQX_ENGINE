@@ -1,0 +1,10 @@
+{
+  "classification": {
+    "MATERIAL_DIFFERENCE": 63
+  },
+  "median_library_pf": 1.1486013707821798,
+  "median_exact_dev_pf": 1.0569913964283246,
+  "median_library_expectancy": 0.037616697905698,
+  "median_exact_dev_expectancy": 0.037616697905698035,
+  "lockbox_access": 0
+}

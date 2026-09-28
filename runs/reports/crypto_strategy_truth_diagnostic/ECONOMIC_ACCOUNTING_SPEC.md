@@ -1,0 +1,3 @@
+# Economic accounting truth
+
+Initial equity is 1.0 for normalized replay. `TOTAL_RISK=0.01` is a single fixed-fractional portfolio budget. For an individual strategy its weight is 1.0, so each entry receives current equity × 0.01. For a portfolio, entry risk is current equity × 0.01 × strategy weight. R is evaluator net R after the frozen spread/slippage cost model. Exits precede entries at equal timestamps; same-timestamp self-exits are realized immediately. Floating PnL is marked from daily closed-bar marks plus event timestamps. Equity is cash plus floating PnL; ruin is equity <= 0. Funding is not fabricated because no valid causal funding stream is present for these replay segments.

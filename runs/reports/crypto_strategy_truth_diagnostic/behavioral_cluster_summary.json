@@ -1,0 +1,295 @@
+{
+  "clusters": 36,
+  "summaries": [
+    {
+      "cluster": 0,
+      "size": 5,
+      "members": "SQX-ADA-M15-0014d401c268|SQX-ADA-M15-4a97d90f9040|SQX-ADA-M15-71b876627aed|SQX-ADA-M15-ccdcd3cff7b4|SQX-ADA-M15-e3098ff41a08",
+      "assets": "ADA",
+      "directions": "LONG",
+      "within_daily_corr": 0.8912258412277323
+    },
+    {
+      "cluster": 1,
+      "size": 2,
+      "members": "SQX-ADA-M15-091ca384c8da|SQX-ADA-M15-8d1405167b75",
+      "assets": "ADA",
+      "directions": "LONG",
+      "within_daily_corr": 0.9667149321142757
+    },
+    {
+      "cluster": 2,
+      "size": 1,
+      "members": "SQX-ADA-M15-2ca887d2332d",
+      "assets": "ADA",
+      "directions": "LONG",
+      "within_daily_corr": 1.0
+    },
+    {
+      "cluster": 5,
+      "size": 1,
+      "members": "SQX-ADA-M15-8658b680b253",
+      "assets": "ADA",
+      "directions": "LONG",
+      "within_daily_corr": 1.0
+    },
+    {
+      "cluster": 8,
+      "size": 1,
+      "members": "SQX-ADA-M15-de9960d4ff3c",
+      "assets": "ADA",
+      "directions": "LONG",
+      "within_daily_corr": 1.0
+    },
+    {
+      "cluster": 10,
+      "size": 1,
+      "members": "SQX-ADA-M15-7bc42dfc4f8e",
+      "assets": "ADA",
+      "directions": "SHORT",
+      "within_daily_corr": 1.0
+    },
+    {
+      "cluster": 11,
+      "size": 1,
+      "members": "SQX-AVAX-M15-5e3f50000ee3",
+      "assets": "AVAX",
+      "directions": "LONG",
+      "within_daily_corr": 1.0
+    },
+    {
+      "cluster": 12,
+      "size": 1,
+      "members": "SQX-AVAX-M15-412fb5d9c90b",
+      "assets": "AVAX",
+      "directions": "SHORT",
+      "within_daily_corr": 1.0
+    },
+    {
+      "cluster": 13,
+      "size": 1,
+      "members": "SQX-AVAX-M15-84d059566292",
+      "assets": "AVAX",
+      "directions": "SHORT",
+      "within_daily_corr": 1.0
+    },
+    {
+      "cluster": 14,
+      "size": 4,
+      "members": "SQX-BTC-M15-2b7c6a211bf4|SQX-BTC-M15-42e85bf642ac|SQX-BTC-M15-48ac8be38346|SQX-BTC-M15-de865b796058",
+      "assets": "BTC",
+      "directions": "LONG",
+      "within_daily_corr": 0.8642773580272868
+    },
+    {
+      "cluster": 15,
+      "size": 2,
+      "members": "SQX-BTC-M15-30e5b9399c1c|SQX-BTC-M15-5d79ef502cb3",
+      "assets": "BTC",
+      "directions": "LONG",
+      "within_daily_corr": 0.9420644286699372
+    },
+    {
+      "cluster": 16,
+      "size": 1,
+      "members": "SQX-BTC-M15-360a61fab74c",
+      "assets": "BTC",
+      "directions": "LONG",
+      "within_daily_corr": 1.0
+    },
+    {
+      "cluster": 20,
+      "size": 1,
+      "members": "SQX-BTC-M15-6a213373b540",
+      "assets": "BTC",
+      "directions": "LONG",
+      "within_daily_corr": 1.0
+    },
+    {
+      "cluster": 22,
+      "size": 5,
+      "members": "SQX-BTC-M15-0b8d9e483c0e|SQX-BTC-M15-45e64e54fe91|SQX-BTC-M15-95d46bccaf48|SQX-BTC-M15-a4ba0f076580|SQX-BTC-M15-d14b39a14932",
+      "assets": "BTC",
+      "directions": "SHORT",
+      "within_daily_corr": 0.7737445437189965
+    },
+    {
+      "cluster": 24,
+      "size": 1,
+      "members": "SQX-BTC-M15-45437cccb9cc",
+      "assets": "BTC",
+      "directions": "SHORT",
+      "within_daily_corr": 1.0
+    },
+    {
+      "cluster": 25,
+      "size": 1,
+      "members": "SQX-BTC-M15-57f32155c9d7",
+      "assets": "BTC",
+      "directions": "SHORT",
+      "within_daily_corr": 1.0
+    },
+    {
+      "cluster": 26,
+      "size": 7,
+      "members": "SQX-BTC-M15-5fafbc53ba0d|SQX-BTC-M15-bd1bcabf40f2|SQX-BTC-M15-c339ed1649d9|SQX-BTC-M15-ca2488123127|SQX-BTC-M15-d8ab5be460e5|SQX-BTC-M15-e3fda452dcf1|SQX-BTC-M15-e4d8832c5ca6",
+      "assets": "BTC",
+      "directions": "SHORT",
+      "within_daily_corr": 0.8121083276765035
+    },
+    {
+      "cluster": 27,
+      "size": 1,
+      "members": "SQX-BTC-M15-86bba3866c32",
+      "assets": "BTC",
+      "directions": "SHORT",
+      "within_daily_corr": 1.0
+    },
+    {
+      "cluster": 30,
+      "size": 1,
+      "members": "SQX-BTC-M15-ab3d17d8f827",
+      "assets": "BTC",
+      "directions": "SHORT",
+      "within_daily_corr": 1.0
+    },
+    {
+      "cluster": 38,
+      "size": 1,
+      "members": "SQX-BTC-M15-ea155703e23e",
+      "assets": "BTC",
+      "directions": "SHORT",
+      "within_daily_corr": 1.0
+    },
+    {
+      "cluster": 39,
+      "size": 1,
+      "members": "SQX-BTC-M15-f5a6c8777011",
+      "assets": "BTC",
+      "directions": "SHORT",
+      "within_daily_corr": 1.0
+    },
+    {
+      "cluster": 40,
+      "size": 5,
+      "members": "SQX-ETH-M15-34f732a77c41|SQX-ETH-M15-4a5464ff1c28|SQX-ETH-M15-a00ab27b542c|SQX-ETH-M15-bce1b0f5e442|SQX-ETH-M15-c4f8a4d9b4f3",
+      "assets": "ETH",
+      "directions": "SHORT",
+      "within_daily_corr": 0.8710312032149821
+    },
+    {
+      "cluster": 42,
+      "size": 1,
+      "members": "SQX-ETH-M15-524fec11b384",
+      "assets": "ETH",
+      "directions": "SHORT",
+      "within_daily_corr": 1.0
+    },
+    {
+      "cluster": 43,
+      "size": 1,
+      "members": "SQX-ETH-M15-7c0f8cba624c",
+      "assets": "ETH",
+      "directions": "SHORT",
+      "within_daily_corr": 1.0
+    },
+    {
+      "cluster": 45,
+      "size": 1,
+      "members": "SQX-ETH-M15-a8332571f440",
+      "assets": "ETH",
+      "directions": "SHORT",
+      "within_daily_corr": 1.0
+    },
+    {
+      "cluster": 48,
+      "size": 1,
+      "members": "SQX-ETH-M15-d4337607e16c",
+      "assets": "ETH",
+      "directions": "SHORT",
+      "within_daily_corr": 1.0
+    },
+    {
+      "cluster": 49,
+      "size": 1,
+      "members": "SQX-ETH-M15-d56a49503fc6",
+      "assets": "ETH",
+      "directions": "SHORT",
+      "within_daily_corr": 1.0
+    },
+    {
+      "cluster": 50,
+      "size": 3,
+      "members": "SQX-TRX-M15-101a1e015323|SQX-TRX-M15-c7202bad5624|SQX-TRX-M15-f028f38ae981",
+      "assets": "TRX",
+      "directions": "SHORT",
+      "within_daily_corr": 0.8726734547319724
+    },
+    {
+      "cluster": 51,
+      "size": 3,
+      "members": "SQX-TRX-M15-4cf9395304d5|SQX-TRX-M15-a1c8b87d4110|SQX-TRX-M15-ecc93f7d5e14",
+      "assets": "TRX",
+      "directions": "SHORT",
+      "within_daily_corr": 0.7943287861918078
+    },
+    {
+      "cluster": 52,
+      "size": 1,
+      "members": "SQX-TRX-M15-56eb71760634",
+      "assets": "TRX",
+      "directions": "SHORT",
+      "within_daily_corr": 1.0
+    },
+    {
+      "cluster": 53,
+      "size": 1,
+      "members": "SQX-TRX-M15-5ce5bfe62a4d",
+      "assets": "TRX",
+      "directions": "SHORT",
+      "within_daily_corr": 1.0
+    },
+    {
+      "cluster": 54,
+      "size": 1,
+      "members": "SQX-TRX-M15-96a24cab8cea",
+      "assets": "TRX",
+      "directions": "SHORT",
+      "within_daily_corr": 1.0
+    },
+    {
+      "cluster": 55,
+      "size": 1,
+      "members": "SQX-TRX-M15-96a53eed5b7b",
+      "assets": "TRX",
+      "directions": "SHORT",
+      "within_daily_corr": 1.0
+    },
+    {
+      "cluster": 58,
+      "size": 1,
+      "members": "SQX-TRX-M15-dbbb0c4352ab",
+      "assets": "TRX",
+      "directions": "SHORT",
+      "within_daily_corr": 1.0
+    },
+    {
+      "cluster": 61,
+      "size": 1,
+      "members": "SQX-TRX-M15-f3fbbdf108a0",
+      "assets": "TRX",
+      "directions": "SHORT",
+      "within_daily_corr": 1.0
+    },
+    {
+      "cluster": 62,
+      "size": 1,
+      "members": "SQX-TRX-M15-f682b0eed0ee",
+      "assets": "TRX",
+      "directions": "SHORT",
+      "within_daily_corr": 1.0
+    }
+  ],
+  "threshold": 0.65,
+  "effective_rank": 16.7418294965529
+}

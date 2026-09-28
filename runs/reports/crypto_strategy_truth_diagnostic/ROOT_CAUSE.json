@@ -1,0 +1,29 @@
+{
+  "classification": "MULTIFACTORIAL",
+  "evidence": {
+    "aggregate_pf_gt1": 37,
+    "aggregate_expectancy_gt0": 40,
+    "aggregate_return_gt0": 37,
+    "aggregate_economically_valid": 0,
+    "DEV_profitable": 35,
+    "VAL_profitable": 34,
+    "OOS_profitable": 10,
+    "DEV_expectancy_positive": 37,
+    "VAL_expectancy_positive": 34,
+    "OOS_expectancy_positive": 10,
+    "DEV_return_positive": 35,
+    "VAL_return_positive": 34,
+    "OOS_return_positive": 10,
+    "positive_3of3": 0,
+    "positive_2of3": 0,
+    "positive_1of3": 6,
+    "positive_0of3": 57,
+    "ruin": 63
+  },
+  "risk_semantics": "risk can accumulate through concurrent positions and current equity can go negative under the frozen 1% per-entry budget",
+  "independence": {
+    "clusters": 36,
+    "effective_rank": 16.74182949655291
+  },
+  "lockbox_access": 0
+}
