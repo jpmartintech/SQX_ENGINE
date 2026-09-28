@@ -1,0 +1,9 @@
+{
+  "one_r_loss": "PASS",
+  "sequential_losses": "PASS",
+  "concurrent_heat_cap": "PASS",
+  "overshoot_loss_honest": "PASS",
+  "fees_slippage": "PASS",
+  "ruin_halt": "PASS",
+  "reference_fast": "PASS"
+}

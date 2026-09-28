@@ -1,0 +1,19 @@
+{
+  "version": "economic_strategy_contract_v1",
+  "risk_fraction": 0.01,
+  "max_open_heat": 0.01,
+  "dev": {
+    "pf_gt": 1,
+    "return_gt": 0,
+    "economic_expectancy_gt": 0,
+    "min_trades": 30
+  },
+  "val": {
+    "pf_gt": 1,
+    "return_gt": 0,
+    "economic_expectancy_gt": 0,
+    "min_trades": 10
+  },
+  "ruin_forbidden": true,
+  "oos_used_for_admission": false
+}

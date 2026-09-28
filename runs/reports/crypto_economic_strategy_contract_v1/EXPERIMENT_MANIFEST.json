@@ -1,0 +1,14 @@
+{
+  "starting_commit": "1666956",
+  "contract": "economic_strategy_contract_v1",
+  "candidate_count": 7017,
+  "old_library_count": 63,
+  "strategy_generation": false,
+  "portfolio_optimization": false,
+  "segments_used": [
+    "DEV",
+    "VAL"
+  ],
+  "oos_admission_access": false,
+  "lockbox_access": 0
+}

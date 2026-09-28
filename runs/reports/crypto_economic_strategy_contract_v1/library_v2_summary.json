@@ -1,0 +1,9 @@
+{
+  "candidates": 7017,
+  "hard_valid": 4373,
+  "dev_valid": 2744,
+  "val_valid": 518,
+  "admitted": 374,
+  "oos_used_for_admission": false,
+  "lockbox_access": 0
+}

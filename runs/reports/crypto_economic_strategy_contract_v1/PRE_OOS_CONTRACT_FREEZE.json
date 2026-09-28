@@ -1,0 +1,10 @@
+{
+  "status": "FROZEN_BEFORE_OOS",
+  "starting_commit": "1666956",
+  "contract_hash": "d0a53fa6a481aa8a1508629109356f14022f4b15e4382d767bb050d4ad333fdd",
+  "economic_contract_hash": "de9a5d69dc6f7b8a749c922a518c686a52577ff4d906fc68874c70911fdc7c66",
+  "candidate_hash": "75c73038c8cc9c5e48fbb8e5baf357677774c71053bdce75276c747abde00c53",
+  "admitted_hash": "17a10e02e89043f8cd02516be4fe8bbb7bdee9ccac8594be85dee1515b145bbf",
+  "oos_accessed": false,
+  "lockbox_access": 0
+}
