@@ -1,0 +1,6 @@
+{
+  "signal_market": "Binance USD-M Futures",
+  "factor": "crypto market beta",
+  "finding": "expansion assets are highly correlated risk assets; portfolio concentration must be monitored",
+  "crash_correlation": "not sufficient to claim independent crisis hedge"
+}

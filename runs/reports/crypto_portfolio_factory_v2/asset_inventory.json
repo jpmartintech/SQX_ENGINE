@@ -1,0 +1,18 @@
+{
+  "Hyperliquid_perpetuals": [
+    "BTC",
+    "ETH",
+    "SOL",
+    "XRP",
+    "DOGE",
+    "BNB",
+    "ADA",
+    "AVAX",
+    "LINK",
+    "SUI",
+    "HYPE"
+  ],
+  "signal_source": "Binance USD-M Futures",
+  "execution_venue": "Hyperliquid",
+  "audited": true
+}

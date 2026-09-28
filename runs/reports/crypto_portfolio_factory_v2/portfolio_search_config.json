@@ -1,0 +1,13 @@
+{
+  "search": 10000,
+  "sizes": [
+    5,
+    10,
+    15,
+    20,
+    30
+  ],
+  "policy": "development geometric growth subject to MaxDD <= 10%, frozen before validation",
+  "normalized_risk": 0.01,
+  "leverage": 1.0
+}

@@ -1,0 +1,24 @@
+{
+  "assets": {
+    "BTC": "baseline",
+    "ETH": "baseline",
+    "SOL": "admitted",
+    "XRP": "admitted",
+    "DOGE": "admitted"
+  },
+  "excluded": {
+    "BNB": "not acquired in bounded V2 campaign",
+    "ADA": "not acquired in bounded V2 campaign",
+    "AVAX": "not acquired in bounded V2 campaign",
+    "LINK": "not acquired in bounded V2 campaign",
+    "SUI": "not acquired in bounded V2 campaign",
+    "HYPE": "not acquired in bounded V2 campaign"
+  },
+  "portfolio_eligible": [
+    "BTC",
+    "ETH",
+    "SOL",
+    "XRP",
+    "DOGE"
+  ]
+}

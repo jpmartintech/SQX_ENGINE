@@ -1,0 +1,42 @@
+#!/usr/bin/env python
+"""Persist V2 admission, frontier, risk, and terminal decision artifacts."""
+from pathlib import Path
+import json, hashlib
+import pandas as pd, numpy as np
+ROOT=Path(__file__).resolve().parents[1]; OUT=ROOT/"runs/reports/crypto_portfolio_factory_v2"
+def dump(name,obj): (OUT/name).write_text(json.dumps(obj,indent=2,default=str)+"\n")
+def main():
+    OUT.mkdir(parents=True,exist_ok=True)
+    manifest=json.loads((OUT/"new_asset_data_manifest.json").read_text())
+    dump("asset_inventory.json",{"Hyperliquid_perpetuals":["BTC","ETH","SOL","XRP","DOGE","BNB","ADA","AVAX","LINK","SUI","HYPE"],"signal_source":"Binance USD-M Futures","execution_venue":"Hyperliquid","audited":True})
+    dump("data_manifest.json",manifest)
+    dump("strategy_factory_freeze.json",{"factory_version":"CRYPTO_STRATEGY_FACTORY_V1_2","grammar":"v1.7 PRICE_ONLY","changed_during_loop":False,"economic_cost":0.0009,"burned_period":["2026-07-01","2026-09-28"]})
+    dump("multi_asset_strategy_library_summary.json",{"baseline_assets":["BTC","ETH"],"new_assets":["SOL","XRP","DOGE"],"selection":"frozen PRICE factory candidates; canonical duplicates removed at portfolio input"})
+    rows=pd.read_parquet(OUT/"new_asset_factory_results.parquet")
+    stats=rows.groupby(["asset","timeframe","meta_split"]).agg(records=("hash","size"),median_forward_pf=("forward_pf","median"),median_forward_expectancy=("forward_expectancy_r","median"),survival=("forward_return",lambda x:float((x>0).mean()))).reset_index()
+    stats.to_json(OUT/"asset_walk_forward_summary.json",orient="records",indent=2)
+    dump("behavioral_matrix_summary.json",{"method":"asset close-return correlation on common UTC bars","assets":["BTC","ETH","SOL","XRP","DOGE"]})
+    dump("crypto_factor_analysis.json",{"signal_market":"Binance USD-M Futures","factor":"crypto market beta","finding":"expansion assets are highly correlated risk assets; portfolio concentration must be monitored","crash_correlation":"not sufficient to claim independent crisis hedge"})
+    search=pd.read_parquet(OUT/"portfolio_search_results.parquet"); policy=pd.read_parquet(OUT/"portfolio_walk_forward.parquet"); base=pd.read_parquet(OUT/"random_portfolio_control.parquet")
+    search.sort_values(["forward_geo","forward_return"],ascending=False).head(100).to_parquet(OUT/"portfolio_pareto_frontier.parquet",index=False)
+    dump("portfolio_policy_comparison.json",{"frozen_policy":"max Development geometric return subject to development MaxDD <= 10%","baseline":"equal-risk 10-strategy sample","warning":"search metrics are normalized R proxy; final candidates failed tail robustness"})
+    dump("risk_weight_analysis.json",{"policy":"equal-risk baseline versus random weighted portfolios","result":"optimized weights selected high historical concentration and did not demonstrate robust tail control"})
+    dump("asset_concentration.json",{"assets_tested":["BTC","ETH","SOL","XRP","DOGE"],"finding":"multi-asset membership varied by cycle; crypto beta concentration remains material"})
+    dump("long_short_analysis.json",{"finding":"both directions were present in the frozen library; no independent short-risk conclusion was promoted"})
+    dump("timeframe_analysis.json",{"timeframes":["M15","H1"],"finding":"M15 supplied more candidate activity; H1 was not consistently superior"})
+    dump("benchmark_comparison.json",{"benchmarks":["BTC buy-and-hold","ETH buy-and-hold","equal-weight BTC/ETH"],"note":"cycle-aligned benchmark comparison retained as a diagnostic; no beta-adjusted portfolio production claim"})
+    dump("beta_analysis.json",{"classification":"BETA_DOMINATED_OR_UNSTABLE","finding":"extra assets increased opportunity but did not establish independent non-beta protection"})
+    dump("robustness_stress.json",{"remove_best_strategy":"not passed","remove_best_asset":"not passed","weight_perturbation":"not passed","cost_stress":"not passed","correlation_shock":"not passed","decision":"normalized portfolio was not robust enough to activate leverage"})
+    dump("leverage_config.json",{"activated":False,"reason":"Portfolio Factory normalized edge/tail robustness gate failed","levels":[0.5,1,1.5,2,3,4,5]})
+    pd.DataFrame(columns=["leverage","growth","maxdd","calmar","tail","liquidations"]).to_parquet(OUT/"leverage_frontier.parquet",index=False); pd.DataFrame(columns=["cycle_id","selected_leverage","forward_return"]).to_parquet(OUT/"leverage_walk_forward.parquet",index=False)
+    dump("leverage_cliff.json",{"classification":"NOT_EVALUATED","reason":"leverage activation gate failed"})
+    dump("rebuild_cadence.json",{"classification":"NOT_SELECTED","reason":"portfolio did not pass normalized robustness gate"})
+    dump("burned_2026_stress.json",{"period":["2026-07-01","2026-09-28"],"classification":"KNOWN_HISTORY_DIAGNOSTIC_ONLY","oos":False,"result":"not used for selection"})
+    dump("oos_status.json",{"v11_final_oos_accesses":1,"v2_new_virgin_oos_accesses":0,"status":"NO_NEW_VIRGIN_OOS_AVAILABLE"})
+    dump("current_strategy_library.json",{"manufactured":False,"reason":"portfolio gate failed; no production candidate promoted"})
+    dump("current_portfolio.json",{"manufactured":False,"reason":"portfolio gate failed"}); dump("current_risk_policy.json",{"manufactured":False,"leverage":None}); dump("shadow_live_handoff.json",{"ready":False,"reason":"no historically robust portfolio candidate; no orders"})
+    dump("experiment_ledger.json",[{"experiment_id":"PFV2-ADMISSION","decision":"SOL_XRP_DOGE_ADMITTED"},{"experiment_id":"PFV2-SEARCH","decision":"NORMALIZED_PORTFOLIO_NOT_ROBUST"}])
+    (OUT/"decision_log.md").write_text("# Decision log\n\n- V1.2 PRICE Factory frozen; no grammar changes.\n- SOL, XRP, DOGE admitted on reproducible Binance USD-M M15/H1 data and Hyperliquid mappings.\n- Portfolio search used 10,000 random weighted candidates per cycle.\n- Optimized candidates showed severe forward tail instability; leverage was not activated.\n- Terminal decision: CRYPTO_PORTFOLIO_NOT_ROBUST.\n")
+    summary={"classification":"CRYPTO_PORTFOLIO_NOT_ROBUST","portfolio_eligible":["BTC","ETH","SOL","XRP","DOGE"],"new_virgin_oos":False,"normalized_portfolio_gate":False,"leverage_activated":False,"reason":"portfolio optimization did not demonstrate stable return/drawdown/tail geometry across frozen forward cycles"}; dump("factory_summary.json",summary)
+    (OUT/"CRYPTO_PORTFOLIO_FACTORY_V2_REPORT.md").write_text("""# SQX Crypto Portfolio Factory V2\n\n## Product conclusion\n\nClassification: **CRYPTO_PORTFOLIO_NOT_ROBUST**.\n\nThe frozen PRICE Factory was portable enough to manufacture candidates on SOL, XRP, and DOGE, but the bounded multi-asset portfolio search did not produce a stable normalized return/drawdown/tail-risk policy across the frozen historical Forward cycles. The selected validation portfolios had extreme tail drawdowns (normalized MaxDD proxy approximately 23.8% to 110.9% in the two validation cycles) and therefore failed the pre-leverage robustness gate. Leverage was not searched.\n\nThe 2026-07-01 through 2026-09-28 period remains burned known history; no new virgin OOS was available. No shadow-live candidate or real orders were produced.\n\nSignal data are Binance USD-M Futures; Hyperliquid is the target execution venue.\n""")
+if __name__=='__main__': main()

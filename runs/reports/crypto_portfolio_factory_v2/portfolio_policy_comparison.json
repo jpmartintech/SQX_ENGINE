@@ -1,0 +1,5 @@
+{
+  "frozen_policy": "max Development geometric return subject to development MaxDD <= 10%",
+  "baseline": "equal-risk 10-strategy sample",
+  "warning": "search metrics are normalized R proxy; final candidates failed tail robustness"
+}

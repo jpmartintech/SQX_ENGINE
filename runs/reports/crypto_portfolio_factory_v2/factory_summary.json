@@ -1,0 +1,14 @@
+{
+  "classification": "CRYPTO_PORTFOLIO_NOT_ROBUST",
+  "portfolio_eligible": [
+    "BTC",
+    "ETH",
+    "SOL",
+    "XRP",
+    "DOGE"
+  ],
+  "new_virgin_oos": false,
+  "normalized_portfolio_gate": false,
+  "leverage_activated": false,
+  "reason": "portfolio optimization did not demonstrate stable return/drawdown/tail geometry across frozen forward cycles"
+}

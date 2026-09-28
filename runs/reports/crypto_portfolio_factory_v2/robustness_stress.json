@@ -1,0 +1,8 @@
+{
+  "remove_best_strategy": "not passed",
+  "remove_best_asset": "not passed",
+  "weight_perturbation": "not passed",
+  "cost_stress": "not passed",
+  "correlation_shock": "not passed",
+  "decision": "normalized portfolio was not robust enough to activate leverage"
+}

@@ -1,0 +1,4 @@
+{
+  "policy": "equal-risk baseline versus random weighted portfolios",
+  "result": "optimized weights selected high historical concentration and did not demonstrate robust tail control"
+}

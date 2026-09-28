@@ -1,0 +1,10 @@
+[
+  {
+    "experiment_id": "PFV2-ADMISSION",
+    "decision": "SOL_XRP_DOGE_ADMITTED"
+  },
+  {
+    "experiment_id": "PFV2-SEARCH",
+    "decision": "NORMALIZED_PORTFOLIO_NOT_ROBUST"
+  }
+]

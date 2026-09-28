@@ -1,0 +1,13 @@
+{
+  "activated": false,
+  "reason": "Portfolio Factory normalized edge/tail robustness gate failed",
+  "levels": [
+    0.5,
+    1,
+    1.5,
+    2,
+    3,
+    4,
+    5
+  ]
+}

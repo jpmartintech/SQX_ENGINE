@@ -1,0 +1,8 @@
+{
+  "benchmarks": [
+    "BTC buy-and-hold",
+    "ETH buy-and-hold",
+    "equal-weight BTC/ETH"
+  ],
+  "note": "cycle-aligned benchmark comparison retained as a diagnostic; no beta-adjusted portfolio production claim"
+}

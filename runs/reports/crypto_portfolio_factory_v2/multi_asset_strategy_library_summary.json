@@ -1,0 +1,12 @@
+{
+  "baseline_assets": [
+    "BTC",
+    "ETH"
+  ],
+  "new_assets": [
+    "SOL",
+    "XRP",
+    "DOGE"
+  ],
+  "selection": "frozen PRICE factory candidates; canonical duplicates removed at portfolio input"
+}

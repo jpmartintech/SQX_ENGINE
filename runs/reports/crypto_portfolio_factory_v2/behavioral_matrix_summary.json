@@ -1,0 +1,10 @@
+{
+  "method": "asset close-return correlation on common UTC bars",
+  "assets": [
+    "BTC",
+    "ETH",
+    "SOL",
+    "XRP",
+    "DOGE"
+  ]
+}

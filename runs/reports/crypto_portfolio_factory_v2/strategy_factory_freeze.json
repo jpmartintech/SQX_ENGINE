@@ -1,0 +1,10 @@
+{
+  "factory_version": "CRYPTO_STRATEGY_FACTORY_V1_2",
+  "grammar": "v1.7 PRICE_ONLY",
+  "changed_during_loop": false,
+  "economic_cost": 0.0009,
+  "burned_period": [
+    "2026-07-01",
+    "2026-09-28"
+  ]
+}

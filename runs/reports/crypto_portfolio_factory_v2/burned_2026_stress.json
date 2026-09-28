@@ -1,0 +1,9 @@
+{
+  "period": [
+    "2026-07-01",
+    "2026-09-28"
+  ],
+  "classification": "KNOWN_HISTORY_DIAGNOSTIC_ONLY",
+  "oos": false,
+  "result": "not used for selection"
+}

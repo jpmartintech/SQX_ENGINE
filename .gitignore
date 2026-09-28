@@ -13,4 +13,5 @@ data/cloud/*.csv
 data/derived/
 data/crypto_v11/
 data/crypto_v12/
+data/crypto_portfolio_v2/
 *.sqlite-*

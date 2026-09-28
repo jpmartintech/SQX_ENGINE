@@ -1,0 +1,10 @@
+{
+  "assets_tested": [
+    "BTC",
+    "ETH",
+    "SOL",
+    "XRP",
+    "DOGE"
+  ],
+  "finding": "multi-asset membership varied by cycle; crypto beta concentration remains material"
+}

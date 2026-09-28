@@ -1,0 +1,7 @@
+{
+  "timeframes": [
+    "M15",
+    "H1"
+  ],
+  "finding": "M15 supplied more candidate activity; H1 was not consistently superior"
+}

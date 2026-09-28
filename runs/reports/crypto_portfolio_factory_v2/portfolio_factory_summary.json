@@ -1,0 +1,18 @@
+[
+  {
+    "split":"META_DEVELOPMENT",
+    "cycles":2,
+    "median_return":-0.0924883914,
+    "positive":0.5,
+    "median_maxdd":0.056075837,
+    "median_pf":1.1726014235
+  },
+  {
+    "split":"META_VALIDATION",
+    "cycles":2,
+    "median_return":1.4894472531,
+    "positive":1.0,
+    "median_maxdd":0.6735545464,
+    "median_pf":14.6303693998
+  }
+]
