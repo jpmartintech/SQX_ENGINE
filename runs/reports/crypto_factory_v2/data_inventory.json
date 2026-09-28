@@ -29,6 +29,35 @@
     "provenance_confidence": "PROBABLE"
   },
   {
+    "dataset_id": "ADAUSDT_1H",
+    "filename": "/mnt/c/Users/xaume/Documents/DATOS SQX 15 MINS/crypto/ADAUSDT_1H.csv",
+    "asset": "ADA",
+    "quote_asset": "USDT",
+    "probable_venue": "Binance-derived (unverified)",
+    "product": "USDT market; product not independently verified",
+    "timeframe": "60M",
+    "rows": 71212,
+    "start": "2018-04-17 04:00:00+00:00",
+    "end": "2026-06-04 23:00:00+00:00",
+    "duration_days": 2970.7916666666665,
+    "sha256": "a8c3e2fb569ee79dffaaea7eb2dbe6cdd9dc9e69d5cd1564e1554afff97c9b84",
+    "columns": [
+      "datetime",
+      "open",
+      "high",
+      "low",
+      "close",
+      "volume"
+    ],
+    "duplicates": 0,
+    "monotonic": true,
+    "invalid_ohlc": 0,
+    "negative_volume": 0,
+    "missing_intervals": 25,
+    "quality_status": "REJECT",
+    "provenance_confidence": "PROBABLE"
+  },
+  {
     "dataset_id": "AVAXUSDT_15M",
     "filename": "/mnt/c/Users/xaume/Documents/DATOS SQX 15 MINS/crypto/AVAXUSDT_15M.csv",
     "asset": "AVAX",
@@ -55,6 +84,35 @@
     "negative_volume": 0,
     "missing_intervals": 10,
     "quality_status": "PASS",
+    "provenance_confidence": "PROBABLE"
+  },
+  {
+    "dataset_id": "AVAXUSDT_1H",
+    "filename": "/mnt/c/Users/xaume/Documents/DATOS SQX 15 MINS/crypto/AVAXUSDT_1H.csv",
+    "asset": "AVAX",
+    "quote_asset": "USDT",
+    "probable_venue": "Binance-derived (unverified)",
+    "product": "USDT market; product not independently verified",
+    "timeframe": "60M",
+    "rows": 49942,
+    "start": "2020-09-22 06:00:00+00:00",
+    "end": "2026-06-04 23:00:00+00:00",
+    "duration_days": 2081.7083333333335,
+    "sha256": "48ce2bced1ff5bdbbe8685dcd7e5b8870bb91b5fa784c210f17181021ff27701",
+    "columns": [
+      "datetime",
+      "open",
+      "high",
+      "low",
+      "close",
+      "volume"
+    ],
+    "duplicates": 0,
+    "monotonic": true,
+    "invalid_ohlc": 0,
+    "negative_volume": 0,
+    "missing_intervals": 10,
+    "quality_status": "REJECT",
     "provenance_confidence": "PROBABLE"
   },
   {
@@ -87,6 +145,35 @@
     "provenance_confidence": "PROBABLE"
   },
   {
+    "dataset_id": "BNBUSDT_1H",
+    "filename": "/mnt/c/Users/xaume/Documents/DATOS SQX 15 MINS/crypto/BNBUSDT_1H.csv",
+    "asset": "BNB",
+    "quote_asset": "USDT",
+    "probable_venue": "Binance-derived (unverified)",
+    "product": "USDT market; product not independently verified",
+    "timeframe": "60M",
+    "rows": 75067,
+    "start": "2017-11-06 03:00:00+00:00",
+    "end": "2026-06-04 23:00:00+00:00",
+    "duration_days": 3132.8333333333335,
+    "sha256": "e2e9f90a0ce9e1fc9e9dfff215161212291a242a6b56b52c00ee427ced88651b",
+    "columns": [
+      "datetime",
+      "open",
+      "high",
+      "low",
+      "close",
+      "volume"
+    ],
+    "duplicates": 0,
+    "monotonic": true,
+    "invalid_ohlc": 0,
+    "negative_volume": 0,
+    "missing_intervals": 27,
+    "quality_status": "REJECT",
+    "provenance_confidence": "PROBABLE"
+  },
+  {
     "dataset_id": "BTCUSDT_15M",
     "filename": "/mnt/c/Users/xaume/Documents/DATOS SQX 15 MINS/crypto/BTCUSDT_15M.csv",
     "asset": "BTC",
@@ -113,6 +200,35 @@
     "negative_volume": 0,
     "missing_intervals": 33,
     "quality_status": "PASS",
+    "provenance_confidence": "PROBABLE"
+  },
+  {
+    "dataset_id": "BTCUSDT_1H",
+    "filename": "/mnt/c/Users/xaume/Documents/DATOS SQX 15 MINS/crypto/BTCUSDT_1H.csv",
+    "asset": "BTC",
+    "quote_asset": "USDT",
+    "probable_venue": "Binance-derived (unverified)",
+    "product": "USDT market; product not independently verified",
+    "timeframe": "60M",
+    "rows": 76203,
+    "start": "2017-08-17 04:00:00+00:00",
+    "end": "2026-05-02 14:00:00+00:00",
+    "duration_days": 3180.4166666666665,
+    "sha256": "20a6be4db8406bb58bfde2e618fe415af7b34958f3525632ed875eb00eacb589",
+    "columns": [
+      "datetime",
+      "open",
+      "high",
+      "low",
+      "close",
+      "volume"
+    ],
+    "duplicates": 0,
+    "monotonic": true,
+    "invalid_ohlc": 0,
+    "negative_volume": 0,
+    "missing_intervals": 28,
+    "quality_status": "REJECT",
     "provenance_confidence": "PROBABLE"
   },
   {
@@ -145,6 +261,35 @@
     "provenance_confidence": "PROBABLE"
   },
   {
+    "dataset_id": "DOGEUSDT_1H",
+    "filename": "/mnt/c/Users/xaume/Documents/DATOS SQX 15 MINS/crypto/DOGEUSDT_1H.csv",
+    "asset": "DOGE",
+    "quote_asset": "USDT",
+    "probable_venue": "Binance-derived (unverified)",
+    "product": "USDT market; product not independently verified",
+    "timeframe": "60M",
+    "rows": 60592,
+    "start": "2019-07-05 12:00:00+00:00",
+    "end": "2026-06-04 23:00:00+00:00",
+    "duration_days": 2526.4583333333335,
+    "sha256": "848967e6bed2b9051cd02474ab4d7355269b02c49d549e39343a62bfb3e47c11",
+    "columns": [
+      "datetime",
+      "open",
+      "high",
+      "low",
+      "close",
+      "volume"
+    ],
+    "duplicates": 0,
+    "monotonic": true,
+    "invalid_ohlc": 0,
+    "negative_volume": 0,
+    "missing_intervals": 18,
+    "quality_status": "REJECT",
+    "provenance_confidence": "PROBABLE"
+  },
+  {
     "dataset_id": "ETHUSDT_15M",
     "filename": "/mnt/c/Users/xaume/Documents/DATOS SQX 15 MINS/crypto/ETHUSDT_15M.csv",
     "asset": "ETH",
@@ -171,6 +316,35 @@
     "negative_volume": 0,
     "missing_intervals": 33,
     "quality_status": "PASS",
+    "provenance_confidence": "PROBABLE"
+  },
+  {
+    "dataset_id": "ETHUSDT_1H",
+    "filename": "/mnt/c/Users/xaume/Documents/DATOS SQX 15 MINS/crypto/ETHUSDT_1H.csv",
+    "asset": "ETH",
+    "quote_asset": "USDT",
+    "probable_venue": "Binance-derived (unverified)",
+    "product": "USDT market; product not independently verified",
+    "timeframe": "60M",
+    "rows": 77004,
+    "start": "2017-08-17 04:00:00+00:00",
+    "end": "2026-06-04 23:00:00+00:00",
+    "duration_days": 3213.7916666666665,
+    "sha256": "891934e3fc9c9e2693b14e9398d0d05b9c18f2fd2e20798634668741195985d0",
+    "columns": [
+      "datetime",
+      "open",
+      "high",
+      "low",
+      "close",
+      "volume"
+    ],
+    "duplicates": 0,
+    "monotonic": true,
+    "invalid_ohlc": 0,
+    "negative_volume": 0,
+    "missing_intervals": 28,
+    "quality_status": "REJECT",
     "provenance_confidence": "PROBABLE"
   },
   {
@@ -203,6 +377,35 @@
     "provenance_confidence": "PROBABLE"
   },
   {
+    "dataset_id": "LINKUSDT_1H",
+    "filename": "/mnt/c/Users/xaume/Documents/DATOS SQX 15 MINS/crypto/LINKUSDT_1H.csv",
+    "asset": "LINK",
+    "quote_asset": "USDT",
+    "probable_venue": "Binance-derived (unverified)",
+    "product": "USDT market; product not independently verified",
+    "timeframe": "60M",
+    "rows": 64656,
+    "start": "2019-01-16 10:00:00+00:00",
+    "end": "2026-06-04 21:00:00+00:00",
+    "duration_days": 2696.4583333333335,
+    "sha256": "b43cb79615fc97da992157a9dd13dfac028b2737699b7771f67d1b989b2be070",
+    "columns": [
+      "datetime",
+      "open",
+      "high",
+      "low",
+      "close",
+      "volume"
+    ],
+    "duplicates": 0,
+    "monotonic": true,
+    "invalid_ohlc": 0,
+    "negative_volume": 0,
+    "missing_intervals": 20,
+    "quality_status": "REJECT",
+    "provenance_confidence": "PROBABLE"
+  },
+  {
     "dataset_id": "SOLUSDT_15M",
     "filename": "/mnt/c/Users/xaume/Documents/DATOS SQX 15 MINS/crypto/SOLUSDT_15M.csv",
     "asset": "SOL",
@@ -232,6 +435,35 @@
     "provenance_confidence": "PROBABLE"
   },
   {
+    "dataset_id": "SOLUSDT_1H",
+    "filename": "/mnt/c/Users/xaume/Documents/DATOS SQX 15 MINS/crypto/SOLUSDT_1H.csv",
+    "asset": "SOL",
+    "quote_asset": "USDT",
+    "probable_venue": "Binance-derived (unverified)",
+    "product": "USDT market; product not independently verified",
+    "timeframe": "60M",
+    "rows": 50948,
+    "start": "2020-08-11 06:00:00+00:00",
+    "end": "2026-06-04 21:00:00+00:00",
+    "duration_days": 2123.625,
+    "sha256": "fd5f02f673aba119a7ff9dbe98e154ac5255af68056785b22bf970068ebc7653",
+    "columns": [
+      "datetime",
+      "open",
+      "high",
+      "low",
+      "close",
+      "volume"
+    ],
+    "duplicates": 0,
+    "monotonic": true,
+    "invalid_ohlc": 0,
+    "negative_volume": 0,
+    "missing_intervals": 10,
+    "quality_status": "REJECT",
+    "provenance_confidence": "PROBABLE"
+  },
+  {
     "dataset_id": "TRXUSDT_15M",
     "filename": "/mnt/c/Users/xaume/Documents/DATOS SQX 15 MINS/crypto/TRXUSDT_15M.csv",
     "asset": "TRX",
@@ -258,6 +490,35 @@
     "negative_volume": 0,
     "missing_intervals": 26,
     "quality_status": "PASS",
+    "provenance_confidence": "PROBABLE"
+  },
+  {
+    "dataset_id": "TRXUSDT_1H",
+    "filename": "/mnt/c/Users/xaume/Documents/DATOS SQX 15 MINS/crypto/TRXUSDT_1H.csv",
+    "asset": "TRX",
+    "quote_asset": "USDT",
+    "probable_venue": "Binance-derived (unverified)",
+    "product": "USDT market; product not independently verified",
+    "timeframe": "60M",
+    "rows": 69885,
+    "start": "2018-06-11 11:00:00+00:00",
+    "end": "2026-06-04 23:00:00+00:00",
+    "duration_days": 2915.5,
+    "sha256": "337c67a6b2ca83bf3bf2027ea7cee8246fe384ebb852d008f196685ce2301079",
+    "columns": [
+      "datetime",
+      "open",
+      "high",
+      "low",
+      "close",
+      "volume"
+    ],
+    "duplicates": 0,
+    "monotonic": true,
+    "invalid_ohlc": 0,
+    "negative_volume": 0,
+    "missing_intervals": 25,
+    "quality_status": "REJECT",
     "provenance_confidence": "PROBABLE"
   }
 ]

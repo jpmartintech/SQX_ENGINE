@@ -15,9 +15,11 @@ FINAL DECISION: `CRYPTO_V2_OOS_FAILED`
 
 ## Datasets
 
-Metadata intake found 9 admitted M15 USDT markets and rejected the short
-EURUSD test file. Admitted assets: ADA, AVAX, BNB, BTC, DOGE, ETH, LINK, SOL,
-TRX. All have 0 duplicate timestamps, monotonic UTC timestamps, valid positive
+Metadata intake found 18 crypto USDT files: 9 M15 and 9 companion 1H files.
+The 9 M15 files were admitted; the 1H files were explicitly deferred from this
+bounded M15 experiment. The short EURUSD test file was rejected. Admitted
+assets: ADA, AVAX, BNB, BTC, DOGE, ETH, LINK, SOL, TRX. All admitted files
+have 0 duplicate timestamps, monotonic UTC timestamps, valid positive
 OHLC, nonnegative volume, and at least four years of history. Source is
 `/mnt/c/Users/xaume/Documents/DATOS SQX 15 MINS/crypto/`; venue/product is
 probable Binance-derived USDT market, not independently verified. Missing-grid
