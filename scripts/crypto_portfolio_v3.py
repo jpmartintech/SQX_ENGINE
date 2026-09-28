@@ -94,7 +94,7 @@ def main():
  dump("strategy_quality_distribution.json",lib[["train_pf","train_expectancy_r","train_trades","tier"]].describe(include="all").to_dict())
  cycles=build_paths(lib); all_search=[]; walk=[]; greedy=[]; baselines=[]; random_control=[]; genetic_rows=[]
  for cid,split,names,train,fwd in cycles:
-  rr=random_search(train,5000,7000+cid); # 20K bounded control across four cycles
+  rr=random_search(train,12500,7000+cid); # 50K control across four cycles
   gg=genetic(train,10000,9000+cid)
   for m,ix,w in rr: all_search.append({"cycle_id":cid,"method":"RANDOM","train":m["return"],"train_geo":m["geo"],"train_dd":m["maxdd"],"forward":portfolio_metrics(fwd[:,ix],w)["return"],"forward_geo":portfolio_metrics(fwd[:,ix],w)["geo"],"forward_dd":portfolio_metrics(fwd[:,ix],w)["maxdd"],"size":len(ix)})
   for m,ix,w in gg: genetic_rows.append({"cycle_id":cid,"method":"GENETIC","train":m["return"],"train_geo":m["geo"],"train_dd":m["maxdd"],"forward":portfolio_metrics(fwd[:,ix],w)["return"],"forward_geo":portfolio_metrics(fwd[:,ix],w)["geo"],"forward_dd":portfolio_metrics(fwd[:,ix],w)["maxdd"],"size":len(ix)})
