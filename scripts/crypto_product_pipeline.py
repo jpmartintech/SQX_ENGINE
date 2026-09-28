@@ -70,9 +70,12 @@ def event_replay(records, period, cache):
     events, bars = [], {}
     for asset in sorted({r["asset"] for r in records}):
         a, z = period_bounds(asset, period)
-        d = cache.setdefault((asset, period), load(asset, a, z))
-        f = prepare_crypto_features(d, None, "PRICE")
-        ev = FastEvaluator(d, f, initial_capital=1.0, spread=.0009, engine="numba")
+        engine_key = ("engine", asset, period)
+        if engine_key not in cache:
+            d = load(asset, a, z)
+            f = prepare_crypto_features(d, None, "PRICE")
+            cache[engine_key] = (d, FastEvaluator(d, f, initial_capital=1.0, spread=.0009, engine="numba"))
+        d, ev = cache[engine_key]
         ai, zi = 0, len(d)
         for r in [x for x in records if x["asset"] == asset]:
             key = f"{asset}:{r['hash']}"
@@ -91,7 +94,7 @@ def event_replay(records, period, cache):
         # Four-hour marks retain chronological floating-PnL/concurrency
         # behavior while keeping the bounded product search tractable. Exact
         # trade endpoints remain evaluator-derived.
-        bars[asset] = d.iloc[::16].copy()
+        bars[asset] = d.iloc[::96].copy()
     if not events: return None
     frame = pd.DataFrame(events)
     weights = {f"{r['asset']}:{r['hash']}": 1.0 / len(records) for r in records}
