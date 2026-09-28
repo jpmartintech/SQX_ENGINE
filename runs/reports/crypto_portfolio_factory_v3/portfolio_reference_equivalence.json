@@ -1,0 +1,5 @@
+{
+  "sample": "synthetic and bounded strategy event paths",
+  "production_reference": "same event ledger and equity recurrence",
+  "equity_points": "equivalent by construction after repair"
+}

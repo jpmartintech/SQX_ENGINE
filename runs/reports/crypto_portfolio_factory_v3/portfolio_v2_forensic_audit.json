@@ -1,0 +1,35 @@
+{
+  "cases": [
+    {
+      "cycle_id": 1,
+      "reported_return": -0.39469289940478075,
+      "reported_maxdd": 0.07142155754527799,
+      "reported_pf": 1.239544811272279,
+      "classification": "ACCOUNTING_DEFECT_WEIGHTED_COMPONENT_METRICS"
+    },
+    {
+      "cycle_id": 2,
+      "reported_return": 0.20971611666198722,
+      "reported_maxdd": 0.04073011638490451,
+      "reported_pf": 1.1056580357109804,
+      "classification": "ACCOUNTING_DEFECT_WEIGHTED_COMPONENT_METRICS"
+    },
+    {
+      "cycle_id": 3,
+      "reported_return": 1.4008419464174742,
+      "reported_maxdd": 1.1088940498862312,
+      "reported_pf": 7.715708845470956,
+      "classification": "ACCOUNTING_DEFECT_WEIGHTED_COMPONENT_METRICS"
+    },
+    {
+      "cycle_id": 4,
+      "reported_return": 1.5780525597368962,
+      "reported_maxdd": 0.23821504284523745,
+      "reported_pf": 21.545029954088918,
+      "classification": "ACCOUNTING_DEFECT_WEIGHTED_COMPONENT_METRICS"
+    }
+  ],
+  "finding": "V2 substituted weighted individual metrics for a chronological portfolio path",
+  "maxdd_domain_violation": true,
+  "repair": "event_path_replay"
+}

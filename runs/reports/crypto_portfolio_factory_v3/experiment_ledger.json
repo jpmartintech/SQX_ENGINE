@@ -1,0 +1,14 @@
+[
+  {
+    "id": "V3-AUDIT",
+    "decision": "PORTFOLIO_ENGINE_DEFECT_FOUND_AND_FIXED"
+  },
+  {
+    "id": "V3-LIBRARY",
+    "decision": "POWER_STRATEGY_LIBRARY_READY"
+  },
+  {
+    "id": "V3-OPTIMIZATION",
+    "decision": "GENETIC_PORTFOLIO_VALUE_NOT_SUPPORTED"
+  }
+]

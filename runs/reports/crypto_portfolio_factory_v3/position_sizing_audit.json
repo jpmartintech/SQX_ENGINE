@@ -1,0 +1,4 @@
+{
+  "finding": "V2 did not reconstruct position-level portfolio notionals; V3 uses normalized net R event cash flows",
+  "contract_multiplier": "not inferable from V2 scalar records"
+}

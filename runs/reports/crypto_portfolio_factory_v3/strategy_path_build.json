@@ -1,0 +1,30 @@
+{
+  "cycles": [
+    {
+      "cycle_id": 1,
+      "strategies": 100,
+      "train_days": 547,
+      "forward_days": 184
+    },
+    {
+      "cycle_id": 2,
+      "strategies": 100,
+      "train_days": 550,
+      "forward_days": 181
+    },
+    {
+      "cycle_id": 3,
+      "strategies": 100,
+      "train_days": 547,
+      "forward_days": 184
+    },
+    {
+      "cycle_id": 4,
+      "strategies": 100,
+      "train_days": 549,
+      "forward_days": 181
+    }
+  ],
+  "event_unit": "closed-trade exit day; net R multiplied by 1% normalized risk",
+  "funding": "included only insofar as frozen evaluator economics provide it"
+}

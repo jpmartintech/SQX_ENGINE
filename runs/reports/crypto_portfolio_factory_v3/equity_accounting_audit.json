@@ -1,0 +1,5 @@
+{
+  "cash_plus_realized_plus_floating": "V3 reference path contract",
+  "v2": "failed because no portfolio path was retained",
+  "classification": "PORTFOLIO_ENGINE_DEFECT_FOUND_AND_FIXED"
+}

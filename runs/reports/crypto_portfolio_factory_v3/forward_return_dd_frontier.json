@@ -1,0 +1,37 @@
+{
+  "validation": [
+    {
+      "cycle_id": 3,
+      "method": "GENETIC",
+      "train": 1.3108007356295062,
+      "train_geo": 0.7487591612537716,
+      "train_dd": 0.1962213782796449,
+      "forward": -0.07279741624811775,
+      "forward_geo": -0.13923527169604788,
+      "forward_dd": 0.2205081706209493,
+      "size": 5,
+      "split": "META_VALIDATION",
+      "policy": "GENETIC_MAX_GROWTH_DD30"
+    },
+    {
+      "cycle_id": 4,
+      "method": "GENETIC",
+      "train": 0.7809476958387975,
+      "train_geo": 0.46772339622219805,
+      "train_dd": 0.1699229066890996,
+      "forward": 0.1055490617861563,
+      "forward_geo": 0.2242731596519012,
+      "forward_dd": 0.1311284528820301,
+      "size": 5,
+      "split": "META_VALIDATION",
+      "policy": "GENETIC_MAX_GROWTH_DD30"
+    }
+  ],
+  "bands": [
+    5,
+    10,
+    15,
+    20,
+    30
+  ]
+}

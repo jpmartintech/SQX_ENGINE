@@ -1,0 +1,18 @@
+{
+  "policies": [
+    "TOP10_EQUAL_RISK",
+    "RANDOM",
+    "GREEDY",
+    "GENETIC_MAX_GROWTH_DD30"
+  ],
+  "genetic_value": {
+    "validation_cycles": 2,
+    "genetic_positive_rate": 0.5,
+    "genetic_median_return": 0.016375822769019277,
+    "baseline_median_return": -0.022436213189477805,
+    "genetic_median_dd": 0.1758183117514897,
+    "baseline_median_dd": 0.07230833260768282,
+    "classification": "GENETIC_PORTFOLIO_VALUE_NOT_SUPPORTED"
+  },
+  "decision": "not robustly supported across Meta-Validation"
+}

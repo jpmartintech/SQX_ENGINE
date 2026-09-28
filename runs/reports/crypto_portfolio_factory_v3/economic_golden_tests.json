@@ -1,0 +1,17 @@
+{
+  "fixed_initial": {
+    "initial": 100000,
+    "events": [
+      -1000,
+      2000
+    ],
+    "final": 101000
+  },
+  "fixed_fractional": {
+    "initial": 100000,
+    "loss_1pct": 99000,
+    "next_2pct": 100980,
+    "final": 100980
+  },
+  "drawdown_nonnegative": true
+}

@@ -1,0 +1,6 @@
+{
+  "v2_pf": "weighted component PF",
+  "required": "sum portfolio winning realized PnL / absolute sum portfolio losing realized PnL",
+  "v2_explanation": "not a valid portfolio PF",
+  "repair": "event PnL ledger"
+}

@@ -1,0 +1,11 @@
+{
+  "remove_best_strategy": "not independently encoded",
+  "remove_top_3": "not promoted",
+  "remove_best_asset": "not promoted",
+  "cost_plus_25": "not promoted",
+  "cost_plus_50": "not promoted",
+  "weights_pm_10": "not promoted",
+  "weights_pm_20": "not promoted",
+  "stress_correlation": "crypto-beta dominated",
+  "classification": "CRYPTO_PORTFOLIO_NOT_ROBUST"
+}

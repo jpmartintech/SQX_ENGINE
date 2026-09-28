@@ -1,0 +1,9 @@
+{
+  "status": "historical benchmark alignment retained from V2; no new OOS",
+  "benchmarks": [
+    "BTC buy-and-hold",
+    "ETH buy-and-hold",
+    "BTC/ETH equal-weight",
+    "admitted basket"
+  ]
+}

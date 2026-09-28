@@ -1,0 +1,16 @@
+{
+  "total": 1659,
+  "eligible": 1659,
+  "by_asset": {
+    "BTC": 373,
+    "DOGE": 354,
+    "ETH": 323,
+    "SOL": 291,
+    "XRP": 318
+  },
+  "by_timeframe": {
+    "H1": 842,
+    "M15": 817
+  },
+  "by_direction": {}
+}

@@ -1,0 +1,6 @@
+{
+  "formula": "(equity - peak_equity) / peak_equity",
+  "valid_domain": "0 <= maxdd <= 1 for nonnegative equity",
+  "v2_violation": true,
+  "cause": "weighted strategy MaxDD, not portfolio equity"
+}

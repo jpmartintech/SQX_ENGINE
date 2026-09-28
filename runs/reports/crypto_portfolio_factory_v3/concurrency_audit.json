@@ -1,0 +1,3 @@
+{
+  "finding": "V2 had no concurrent-position cash ledger; V3 daily event ledger aggregates each strategy's normalized R once at exit"
+}

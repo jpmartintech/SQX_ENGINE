@@ -1,0 +1,11 @@
+{
+  "budget_per_cycle": 10000,
+  "operators": [
+    "selection",
+    "weight mutation",
+    "membership replacement",
+    "weight normalization"
+  ],
+  "cycles": 4,
+  "unique_portfolios": 8000
+}
