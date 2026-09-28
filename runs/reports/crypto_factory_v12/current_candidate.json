@@ -1,0 +1,6 @@
+{
+  "status": "PENDING_LIVE_FORWARD",
+  "portfolio_policy": "PRICE top10 equal-risk normalized",
+  "leverage": "not selected",
+  "real_money_orders": false
+}

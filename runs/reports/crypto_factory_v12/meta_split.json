@@ -1,0 +1,15 @@
+{
+  "development_cycles": [
+    1,
+    2
+  ],
+  "validation_cycles": [
+    3,
+    4
+  ],
+  "burned_v11_period": [
+    "2026-07-01",
+    "2026-09-28"
+  ],
+  "oos_accesses_v12": 0
+}

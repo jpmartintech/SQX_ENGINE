@@ -1,0 +1,7 @@
+{
+  "PRICE": "best/stable control",
+  "PRICE_VOLUME": "positive but weaker than PRICE in validation",
+  "PRICE_FUNDING": "degraded",
+  "PRICE_VOLUME_FUNDING": "degraded",
+  "conclusion": "no funding promotion; volume not consistently superior"
+}

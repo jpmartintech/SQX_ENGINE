@@ -1,0 +1,5 @@
+{
+  "status": "DIAGNOSTIC",
+  "benchmark_alignment": "portfolio validation occurred while median benchmark was negative",
+  "alpha_claim": "not made; live-like forward required"
+}

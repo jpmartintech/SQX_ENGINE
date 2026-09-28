@@ -1,0 +1,6 @@
+{
+  "manufacturing_months": 18,
+  "forward_months": 6,
+  "step_months": 6,
+  "frozen": true
+}

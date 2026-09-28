@@ -1,0 +1,34 @@
+{
+  "status": "READY",
+  "assets": [
+    {
+      "asset": "BTC",
+      "source": "BINANCE_USDM_FUTURES_PUBLIC_REST",
+      "resolution": "15m",
+      "rows": 131176,
+      "first": "2023-01-01 00:00:00+00:00",
+      "last": "2026-09-28 09:45:00+00:00",
+      "raw_bytes": 11624326,
+      "sha256": "78ba99e5be19dd8ab5d2edfcea703d3f76d407fda3e9a460908af7eb9c4358f2",
+      "canonical": "data/crypto_v12/canonical/BTC_M15_signal_market_binance.parquet"
+    },
+    {
+      "asset": "ETH",
+      "source": "BINANCE_USDM_FUTURES_PUBLIC_REST",
+      "resolution": "15m",
+      "rows": 131176,
+      "first": "2023-01-01 00:00:00+00:00",
+      "last": "2026-09-28 09:45:00+00:00",
+      "raw_bytes": 11713317,
+      "sha256": "a63edfd8a20bb446b523ea345c0f1a067defa2d9d64fa231716074c8a0fcae45",
+      "canonical": "data/crypto_v12/canonical/ETH_M15_signal_market_binance.parquet"
+    }
+  ],
+  "signal_source": "BINANCE_USDM_FUTURES",
+  "execution_venue": "HYPERLIQUID",
+  "funding_source": "HYPERLIQUID",
+  "v11_oos_burned": [
+    "2026-07-01",
+    "2026-09-28"
+  ]
+}

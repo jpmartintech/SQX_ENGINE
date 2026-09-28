@@ -1,0 +1,6 @@
+[
+  {"id":"V12_M15_ACQUISITION","result":"BTC/ETH native 15m OHLCV ready","oos_accesses":0},
+  {"id":"V12_ABLATION_10K","result":"volume improved selected development M15 results; funding degraded","oos_accesses":0},
+  {"id":"V12_WALK_FORWARD","result":"PRICE positive in 75% of validation portfolio cycles; PRICE_VOLUME 62.5%","oos_accesses":0},
+  {"id":"V12_BURNED_STRESS","result":"known V1.1 period only","oos_accesses":0}
+]

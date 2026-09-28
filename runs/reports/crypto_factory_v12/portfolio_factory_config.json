@@ -1,0 +1,11 @@
+{
+  "variants": [
+    "PRICE",
+    "PRICE_VOLUME"
+  ],
+  "portfolio_size": 10,
+  "risk_fraction": 0.01,
+  "leverage": 1.0,
+  "methods": "top10 equal risk",
+  "exact_r_normalized": true
+}

@@ -12,4 +12,5 @@ data/cloud/*.parquet
 data/cloud/*.csv
 data/derived/
 data/crypto_v11/
+data/crypto_v12/
 *.sqlite-*

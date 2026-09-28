@@ -1,0 +1,22 @@
+{
+  "variants": [
+    "PRICE",
+    "PRICE_VOLUME",
+    "PRICE_FUNDING",
+    "PRICE_VOLUME_FUNDING"
+  ],
+  "budget": 10000,
+  "random_budget": 2000,
+  "cycle": {
+    "train": [
+      "2023-01-01",
+      "2024-07-01"
+    ],
+    "forward": [
+      "2024-07-01",
+      "2025-01-01"
+    ]
+  },
+  "cost": 0.0009,
+  "oos_accesses": 0
+}

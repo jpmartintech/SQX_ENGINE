@@ -1,0 +1,1 @@
+{"benchmark":"asset buy-and-hold on identical forward windows","portfolio":"normalized top10 equal-risk","meta_validation":{"price_median_return":0.0231362442,"price_median_maxdd":0.0308469098,"benchmark_median_return":-0.2577609875,"price_positive_cycle_rate":0.75},"interpretation":"historical defensive timing evidence; no live alpha claim"}

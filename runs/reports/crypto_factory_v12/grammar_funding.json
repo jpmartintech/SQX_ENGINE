@@ -1,0 +1,1 @@
+{"variant":"PRICE_FUNDING","version":"CRYPTO_GRAMMAR_V1_2_FUNDING","predicates":["crypto.funding.rate","crypto.funding.change.8","crypto.funding.abs"],"availability":"latest settlement at or before bar open"}

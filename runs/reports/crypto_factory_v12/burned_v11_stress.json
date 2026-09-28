@@ -1,0 +1,265 @@
+{
+  "period": [
+    "2026-07-01",
+    "2026-09-28"
+  ],
+  "classification": "KNOWN_HISTORY_DIAGNOSTIC_ONLY",
+  "results": [
+    {
+      "asset": "BTC",
+      "timeframe": "H1",
+      "cycle_id": 4,
+      "meta_split": "META_VALIDATION",
+      "variant": "PRICE",
+      "strategies": 10,
+      "return": -0.01610158646096671,
+      "maxdd": 0.025351356629093713,
+      "worst_bar": -0.006133642473419103,
+      "benchmark": 0.41644647959732684,
+      "members": [
+        {
+          "hash": "764b28eefc84d5b9e650172ed5e72f215f3ea3a00022b05b8403e04ece1c3c28",
+          "forward_pf": 0.2003010641919179,
+          "trades": 8
+        },
+        {
+          "hash": "3bac4f21b1937dee40f2aec2653e2fd2df6a7961f47273f25d9cc6114603d2c8",
+          "forward_pf": 0.4062893923010861,
+          "trades": 8
+        },
+        {
+          "hash": "2d43866eaed0aaf110a3a8f86eee713ca5ebf3dc85cf4b2cc69b3cb16a907355",
+          "forward_pf": 0.5436149443738649,
+          "trades": 8
+        },
+        {
+          "hash": "10e10a8c8f5a9ac5c06081b3c91098aa328c5b840f20c497ab54dd6eb9b43ad9",
+          "forward_pf": 1.8055180590773479,
+          "trades": 6
+        },
+        {
+          "hash": "f3a144d34c31db6ea6dd1aa0449f212882400c4a49d850b75916974bae16d2bd",
+          "forward_pf": 0.978035195001911,
+          "trades": 6
+        },
+        {
+          "hash": "069fcd16c1fdb31a1f852a26885fe359f0c91fb903170a96713b6ae2c8216863",
+          "forward_pf": 2.3092150693211426,
+          "trades": 6
+        },
+        {
+          "hash": "07907bf7f59ed397429535d6d6dae6cbfd52743439a2cdeaf1286bf43e45e0bd",
+          "forward_pf": 0.43603510562855785,
+          "trades": 8
+        },
+        {
+          "hash": "5005542ad853c902e4736dfe9fbafd4c038544e5e2390bedc57c03bf8fbe6117",
+          "forward_pf": 0.5863070720156768,
+          "trades": 8
+        },
+        {
+          "hash": "93be1dff15b9e9d98e2d3f337f64b2dac052f2bacacb88634f9c8d2ce4448a14",
+          "forward_pf": 0.27813678847965445,
+          "trades": 6
+        },
+        {
+          "hash": "e8f3463baccbbcd722efd129317778f4678ec4f94d25449ddce37a9886df5a5b",
+          "forward_pf": 0.4399996014152772,
+          "trades": 15
+        }
+      ]
+    },
+    {
+      "asset": "BTC",
+      "timeframe": "H1",
+      "cycle_id": 4,
+      "meta_split": "META_VALIDATION",
+      "variant": "PRICE_VOLUME",
+      "strategies": 10,
+      "return": -0.0020112356980248602,
+      "maxdd": 0.012122141537716402,
+      "worst_bar": -0.00613215062577667,
+      "benchmark": 0.41644647959732684,
+      "members": [
+        {
+          "hash": "ded8379b94789c245c5eef36e0d37cf25efae343e53f6fcdbd4af4076b5873f3",
+          "forward_pf": 1.4205676794833875,
+          "trades": 6
+        },
+        {
+          "hash": "ae9b696ce26dd358a7c4682435993782ef9ba91bc2f03f81b57fe170dd884d6c",
+          "forward_pf": 0.3503932395427597,
+          "trades": 6
+        },
+        {
+          "hash": "f73a2838fc0d689a031a1854dc0c6dd01fbbc253d6763ace3821d94b1ebc968e",
+          "forward_pf": 0.3503932395427597,
+          "trades": 6
+        },
+        {
+          "hash": "ff3a7036a996f7d47899395c2a7788c213508f72e9dd71aa73423133c5823a7f",
+          "forward_pf": 0.3503932395427597,
+          "trades": 6
+        },
+        {
+          "hash": "cb02d51341e84885a30fbc4bcb5a2aa071d2a5cb54d0a56778e8332b6f25343b",
+          "forward_pf": 0.4821793584609633,
+          "trades": 6
+        },
+        {
+          "hash": "e7a75dbe3c1ef534c23e8ed268e1a2f68c137b6038c02347fb4ba6b6409ec0df",
+          "forward_pf": 0.4821793584609633,
+          "trades": 6
+        },
+        {
+          "hash": "0fac1d7867de0d9d79f5f319d3d57f255b724fbd178e765092c5153f4836f214",
+          "forward_pf": 0.6844209096936487,
+          "trades": 6
+        },
+        {
+          "hash": "895ba884525b4c1bdf01521ab31eebed65b85623112dd91182f728a0dbf9d087",
+          "forward_pf": 0.762417269380566,
+          "trades": 6
+        },
+        {
+          "hash": "05aeb8ca85cbf9b01001eafacd6ae0dd3e1c6ec5fbf135195c99704c8bbccc58",
+          "forward_pf": 0.8362742878755504,
+          "trades": 11
+        },
+        {
+          "hash": "ccfb401d87771d443a2a34a90ca2312503b08bb964a5556690512b3a1d737fae",
+          "forward_pf": 0.6060399525733622,
+          "trades": 12
+        }
+      ]
+    },
+    {
+      "asset": "ETH",
+      "timeframe": "H1",
+      "cycle_id": 4,
+      "meta_split": "META_VALIDATION",
+      "variant": "PRICE",
+      "strategies": 10,
+      "return": 0.014068106607786346,
+      "maxdd": 0.012390135681527144,
+      "worst_bar": -0.0056673545284463426,
+      "benchmark": 0.6829104074697492,
+      "members": [
+        {
+          "hash": "8f4b064723f6d45e6c474b9d170c44414ff4ccc69c458ad195b7244ff68248db",
+          "forward_pf": 5.132448677846611,
+          "trades": 5
+        },
+        {
+          "hash": "154c8987df6f225ffb4f166b3a78e741ea2d7641aa6d45ffc20a1fd37110ef64",
+          "forward_pf": 2.5935293058671105,
+          "trades": 5
+        },
+        {
+          "hash": "889a6e0b83ae47827b7587bef2538ebfa46f7f7914b487ed348d0bda46f5982c",
+          "forward_pf": 1.1147801037315161,
+          "trades": 17
+        },
+        {
+          "hash": "ef7787b01de8120c38017eec214119b7da77523cc6e387f01005434888a71d4f",
+          "forward_pf": 0.0,
+          "trades": 2
+        },
+        {
+          "hash": "e77b9d70138be0a36c50af40f994a2e5fc5e0fc7df1e77efc3ff2b379318ae34",
+          "forward_pf": 4.478154241343909,
+          "trades": 5
+        },
+        {
+          "hash": "7f189e8871d7bb6ec5ce23f2737710cffa3b44d3e02cc0cc3f4d5f98b29217a6",
+          "forward_pf": 0.3583336585196998,
+          "trades": 7
+        },
+        {
+          "hash": "14e96c6347571d8d4b91ec56e10783ea71ee4851603dc4fd886bd2964d702843",
+          "forward_pf": 1.465638489823405,
+          "trades": 6
+        },
+        {
+          "hash": "14e96c6347571d8d4b91ec56e10783ea71ee4851603dc4fd886bd2964d702843",
+          "forward_pf": 1.465638489823405,
+          "trades": 6
+        },
+        {
+          "hash": "1059c40b5e482d8f15a27b189e9d0c1d865c7f43a507d4fcdadfecec84abf7f7",
+          "forward_pf": 1.2209080068290188,
+          "trades": 17
+        },
+        {
+          "hash": "a848b0f278cb97e8781c5ff4bb9fb7ccfd413bbe4ab9d61109c22c247410f445",
+          "forward_pf": 1.4502246772945966,
+          "trades": 16
+        }
+      ]
+    },
+    {
+      "asset": "ETH",
+      "timeframe": "H1",
+      "cycle_id": 4,
+      "meta_split": "META_VALIDATION",
+      "variant": "PRICE_VOLUME",
+      "strategies": 10,
+      "return": -0.006597230959628386,
+      "maxdd": 0.01605750180416532,
+      "worst_bar": -0.0044751228171187474,
+      "benchmark": 0.6829104074697492,
+      "members": [
+        {
+          "hash": "154c8987df6f225ffb4f166b3a78e741ea2d7641aa6d45ffc20a1fd37110ef64",
+          "forward_pf": 2.5935293058671105,
+          "trades": 5
+        },
+        {
+          "hash": "000b3c2342274f822917c15ee209b36860cd531ee0a2f5cf39aa2dc39851b1d8",
+          "forward_pf": 0.9943868484113152,
+          "trades": 7
+        },
+        {
+          "hash": "d411102378c3d0833131c441a01af1355908cac617a52f4dc13eacb7b3a21f54",
+          "forward_pf": 1.3406443517507374,
+          "trades": 7
+        },
+        {
+          "hash": "5df83a100dbca7fd5a41d5e69c24f224119bd2f0f503d555413ffc74a372583e",
+          "forward_pf": 1.54331226433848,
+          "trades": 8
+        },
+        {
+          "hash": "32879f9811008a0b56873dc00bdefd41486e49af3ab098c43245904422444a5c",
+          "forward_pf": 0.5428961618469728,
+          "trades": 8
+        },
+        {
+          "hash": "8e719303f682cd6dad120c24c0cc275c7e071f206e4d4891523a5a0872db2ec3",
+          "forward_pf": 1.54331226433848,
+          "trades": 8
+        },
+        {
+          "hash": "cc2d594a4d8421f74e3e93ebb961d76dc3173365d4072839ff23ba03f08af037",
+          "forward_pf": 1.54331226433848,
+          "trades": 8
+        },
+        {
+          "hash": "69598729a303d21e1de13ae9fb83d44dd9f4ee27a1eaa7fc78193806b2235aa4",
+          "forward_pf": 2.0298274163715675,
+          "trades": 6
+        },
+        {
+          "hash": "454c66c2ffae0767a6f0a04e4d06dcb0dd1542d7a26c0d255bb4a66e1d2711e8",
+          "forward_pf": 0.2726520806339247,
+          "trades": 13
+        },
+        {
+          "hash": "816507c2e0fd3be113a80ad95c6dae0409e8e80def9aacf9076068a8fe3bb4b1",
+          "forward_pf": 2.164755295892052,
+          "trades": 6
+        }
+      ]
+    }
+  ]
+}

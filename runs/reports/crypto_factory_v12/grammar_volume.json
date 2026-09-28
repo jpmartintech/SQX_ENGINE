@@ -1,0 +1,1 @@
+{"variant":"PRICE_VOLUME","version":"CRYPTO_GRAMMAR_V1_2_VOLUME","predicates":["crypto.volume_relative.96","crypto.volume_roc.16","crypto.volume_acceleration.16"],"availability":"closed bar only"}

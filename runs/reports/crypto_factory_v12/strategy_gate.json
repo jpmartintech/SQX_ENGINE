@@ -1,0 +1,6 @@
+{
+  "train_pf": ">1.0",
+  "train_trades": ">=20",
+  "selection": "top50 by frozen train expectancy/PF/MaxDD/hash",
+  "frozen_before_validation": true
+}

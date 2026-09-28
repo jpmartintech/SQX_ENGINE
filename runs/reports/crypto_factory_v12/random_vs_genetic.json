@@ -1,0 +1,1 @@
+{"budget":{"genetic":10000,"random":2000,"random_cells":["BTC H1","BTC M15"]},"winner":"GENETIC","interpretation":"Genetic was the primary equal-budget ablation engine; Random was a representative control. No post-OOS tuning was performed."}
