@@ -1,0 +1,146 @@
+{
+  "schema_version": "CRYPTO_DATA_MANIFEST_V1",
+  "audit_timestamp_utc": "2026-09-28T07:18:43.148156+00:00",
+  "venue": "HYPERLIQUID",
+  "api": "https://api.hyperliquid.xyz/info",
+  "official_sources": {
+    "historical_data": "https://hyperliquid.gitbook.io/hyperliquid-docs/historical-data",
+    "info_endpoint": "https://hyperliquid.gitbook.io/Hyperliquid-docs/for-developers/api/info-endpoint",
+    "funding": "https://hyperliquid.gitbook.io/hyperliquid-docs/trading/funding",
+    "fees": "https://hyperliquid.gitbook.io/hyperliquid-docs/trading/fees",
+    "oracle": "https://hyperliquid.gitbook.io/hyperliquid-docs/hypercore/oracle",
+    "robust_price": "https://hyperliquid.gitbook.io/hyperliquid-docs/trading/robust-price-indices",
+    "contracts": "https://hyperliquid.gitbook.io/hyperliquid-docs/trading/contract-specifications"
+  },
+  "assets_checked": [
+    "BTC",
+    "ETH"
+  ],
+  "local_crypto_files": [],
+  "capabilities": {
+    "candles_live_snapshot": {
+      "status": "AVAILABLE",
+      "observed_rows": 5016,
+      "observed_limit": 5000
+    },
+    "funding_live_history": {
+      "status": "AVAILABLE",
+      "observed_rows": 500,
+      "observed_limit": 500
+    },
+    "asset_context_current": {
+      "status": "AVAILABLE"
+    },
+    "l2_current_snapshot": {
+      "status": "AVAILABLE",
+      "historical": "NOT_ESTABLISHED"
+    },
+    "historical_archive": {
+      "status": "DOCUMENTED_BUT_NOT_LOCALLY_AVAILABLE",
+      "requires": "requester-pays S3 access / archive retrieval"
+    }
+  },
+  "causal_policy": {
+    "timezone": "UTC",
+    "bar_close_is_available_at": "timestamp_close_plus_one_microsecond",
+    "funding": "use realized settlement only at settlement timestamp; predicted values are separate",
+    "no_filling": true
+  },
+  "probes": {
+    "meta": {
+      "status": "AVAILABLE",
+      "response_bytes": 17628,
+      "rows": null,
+      "shape": {
+        "kind": "object",
+        "keys": [
+          "collateralToken",
+          "marginTables",
+          "universe"
+        ]
+      }
+    },
+    "meta_and_asset_context": {
+      "status": "AVAILABLE",
+      "response_bytes": 72244,
+      "rows": 2,
+      "shape": {
+        "kind": "list",
+        "rows": 2,
+        "first_keys": [
+          "collateralToken",
+          "marginTables",
+          "universe"
+        ],
+        "last_keys": []
+      }
+    },
+    "recent_1m_candles": {
+      "status": "AVAILABLE",
+      "response_bytes": 675634,
+      "rows": 5016,
+      "shape": {
+        "kind": "list",
+        "rows": 5016,
+        "first_keys": [
+          "T",
+          "c",
+          "h",
+          "i",
+          "l",
+          "n",
+          "o",
+          "s",
+          "t",
+          "v"
+        ],
+        "last_keys": [
+          "T",
+          "c",
+          "h",
+          "i",
+          "l",
+          "n",
+          "o",
+          "s",
+          "t",
+          "v"
+        ]
+      }
+    },
+    "recent_funding": {
+      "status": "AVAILABLE",
+      "response_bytes": 44817,
+      "rows": 500,
+      "shape": {
+        "kind": "list",
+        "rows": 500,
+        "first_keys": [
+          "coin",
+          "fundingRate",
+          "premium",
+          "time"
+        ],
+        "last_keys": [
+          "coin",
+          "fundingRate",
+          "premium",
+          "time"
+        ]
+      }
+    },
+    "current_l2": {
+      "status": "AVAILABLE",
+      "response_bytes": 1569,
+      "rows": null,
+      "shape": {
+        "kind": "object",
+        "keys": [
+          "coin",
+          "levels",
+          "time"
+        ]
+      }
+    }
+  }
+}

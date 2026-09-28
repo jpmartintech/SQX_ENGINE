@@ -1,0 +1,14 @@
+{
+  "schema_version": "CRYPTO_CANONICAL_DATASET_V1",
+  "status": "NOT_BUILT",
+  "reason": "official API snapshot limits and no local historical archive",
+  "base_resolution": "1m",
+  "derived": [
+    "5m",
+    "15m",
+    "1h",
+    "4h"
+  ],
+  "dataset_hash": null,
+  "source": "HYPERLIQUID_OFFICIAL"
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": "CRYPTO_FACTORY_V1_SUMMARY",
+  "venue": "HYPERLIQUID",
+  "classification": "BLOCKED_ON_DATA",
+  "starting_commit": "d874831",
+  "oos_accesses": 0,
+  "strategy_generation_started": false,
+  "portfolio_factory_started": false,
+  "reason": "No reproducible long historical causal Hyperliquid dataset is locally available; bounded live API snapshots cannot support walk-forward discovery.",
+  "reusable_implementation": [
+    "UTC 24/7 canonical bar contract",
+    "causal availability assertion",
+    "CryptoEconomicSpecV1",
+    "Hyperliquid fee/funding normalization",
+    "explicit liquidation approximation boundary"
+  ],
+  "required_external_boundary": "Authorized retrieval/access to official historical archive or an explicitly approved historical provider covering candles, realized funding, and required market-state fields."
+}

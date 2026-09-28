@@ -1,0 +1,11 @@
+[
+  {
+    "experiment_id": "CRYPTO_V1_DATA_AUDIT_001",
+    "parent": null,
+    "hypothesis": "Official Hyperliquid sources provide sufficient causal history for V1",
+    "result": "bounded live API data confirmed; long historical dataset not locally available",
+    "decision": "BLOCKED_ON_DATA",
+    "oos_accesses": 0,
+    "timestamp_utc": "2026-09-28T07:18:43.148156+00:00"
+  }
+]
