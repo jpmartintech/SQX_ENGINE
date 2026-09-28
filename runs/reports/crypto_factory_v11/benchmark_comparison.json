@@ -1,0 +1,14 @@
+{
+  "signal_benchmarks": ["BTC buy-and-hold", "ETH buy-and-hold"],
+  "validation": {
+    "BTC_strategy_portfolio_return": 0.008945,
+    "BTC_buy_and_hold_return": -0.332647,
+    "ETH_strategy_portfolio_return": 0.039057,
+    "ETH_buy_and_hold_return": -0.474059
+  },
+  "final_oos": {
+    "BTC_strategy_portfolio_return": -0.03449,
+    "ETH_strategy_portfolio_return": 0.004822,
+    "interpretation": "not robustly validated; no alpha claim"
+  }
+}

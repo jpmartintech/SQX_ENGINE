@@ -11,4 +11,5 @@ data/cloud/*.parquet
 *.egg-info/
 data/cloud/*.csv
 data/derived/
+data/crypto_v11/
 *.sqlite-*

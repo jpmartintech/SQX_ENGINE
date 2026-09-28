@@ -1,0 +1,9 @@
+{
+  "random_per_asset_cycle": 500,
+  "genetic_per_asset_cycle": 500,
+  "assets": ["BTC", "ETH"],
+  "cycles": 3,
+  "runtime_seconds": 7.52,
+  "scale_up": false,
+  "reason": "OOS did not support production validation."
+}

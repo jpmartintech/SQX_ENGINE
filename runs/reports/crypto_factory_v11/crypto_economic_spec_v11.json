@@ -1,0 +1,11 @@
+{
+  "version": "CRYPTO_ECONOMIC_SPEC_V1",
+  "venue": "HYPERLIQUID",
+  "contract": "LINEAR_PERPETUAL",
+  "fee_assumption": "0.045% taker plus explicit slippage proxy",
+  "funding": "realized hourly Hyperliquid funding at settlement timestamp",
+  "signal_source": "BINANCE_USDM_FUTURES",
+  "position_sizing": "R-normalized; 1% portfolio-total risk in pilot",
+  "leverage": "1x only in pilot",
+  "liquidation": "not used for production conclusion; exact venue model deferred"
+}

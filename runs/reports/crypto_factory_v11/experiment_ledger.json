@@ -1,0 +1,6 @@
+[
+  {"experiment_id":"V11_ACQUIRE_HL_REST","hypothesis":"Hyperliquid REST can provide reproducible funding and recent candles","result":"funding recovered; old candles unavailable","oos_accesses":0},
+  {"experiment_id":"V11_ACQUIRE_HYBRID_OHLCV","hypothesis":"Public Binance Futures OHLCV can supply explicit signal-market history","result":"3.75 years BTC/ETH 1h history acquired; recent overlap correlated","oos_accesses":0},
+  {"experiment_id":"V11_FACTORY_PILOT","hypothesis":"Genetic causal price strategies produce forward edge","result":"mixed development, positive validation, not sufficient for production","oos_accesses":0},
+  {"experiment_id":"V11_FINAL_OOS","hypothesis":"Frozen pilot portfolio survives partial 2026 OOS","result":"BTC negative, ETH near flat; factory not validated","oos_accesses":1}
+]

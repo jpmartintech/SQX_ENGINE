@@ -1,0 +1,74 @@
+[
+  {
+    "asset": "BTC",
+    "field": "OHLCV",
+    "path": "data/crypto_v11/raw/hyperliquid/BTC_1h.csv",
+    "rows": 5001,
+    "first": "2026-03-04 00:00:00+00:00",
+    "last": "2026-09-28 08:00:00+00:00",
+    "bytes": 375378,
+    "sha256": "febb3dae03ed28ec126d2623f65e2f934b0b7432ef1a2438632f1575ff8d67aa",
+    "source": "HYPERLIQUID_PUBLIC_REST"
+  },
+  {
+    "asset": "BTC",
+    "field": "FUNDING",
+    "path": "data/crypto_v11/raw/hyperliquid/BTC_funding.csv",
+    "rows": 29079,
+    "first": "2023-05-12 00:00:00+00:00",
+    "last": "2026-09-28 08:00:00+00:00",
+    "bytes": 1472227,
+    "sha256": "40fe9ed6dd2e888e17ffa5e0c72de2f5db2371bbb034ba43fe13c6f2a89500ae",
+    "source": "HYPERLIQUID_PUBLIC_REST"
+  },
+  {
+    "asset": "ETH",
+    "field": "OHLCV",
+    "path": "data/crypto_v11/raw/hyperliquid/ETH_1h.csv",
+    "rows": 5001,
+    "first": "2026-03-04 00:00:00+00:00",
+    "last": "2026-09-28 08:00:00+00:00",
+    "bytes": 353478,
+    "sha256": "19ff8117b18cfac3ef82adb6e7214a9172450e77483a2fbea0c1b1a592f6def3",
+    "source": "HYPERLIQUID_PUBLIC_REST"
+  },
+  {
+    "asset": "ETH",
+    "field": "FUNDING",
+    "path": "data/crypto_v11/raw/hyperliquid/ETH_funding.csv",
+    "rows": 29079,
+    "first": "2023-05-12 00:00:00+00:00",
+    "last": "2026-09-28 08:00:00+00:00",
+    "bytes": 1475151,
+    "sha256": "1f303ef19f0947e65f2fe863bf8ab15fc547ef8fd0eb293b923707fbe60be36d",
+    "source": "HYPERLIQUID_PUBLIC_REST"
+  },
+  {
+    "asset": "BTC",
+    "field": "OHLCV",
+    "source": "BINANCE_USDM_FUTURES_PUBLIC_REST",
+    "signal_market": true,
+    "execution_venue": "HYPERLIQUID",
+    "path": "data/crypto_v11/raw/binance_futures/BTC_1h.csv",
+    "canonical_path": "data/crypto_v11/canonical/BTC_H1_signal_market_binance.parquet",
+    "rows": 32793,
+    "first": "2023-01-01 00:00:00+00:00",
+    "last": "2026-09-28 08:00:00+00:00",
+    "bytes": 2968921,
+    "sha256": "0a44f73c0544099999a35e3102eb9f38bc03bd894bb2bfae5c0191cf39a143b0"
+  },
+  {
+    "asset": "ETH",
+    "field": "OHLCV",
+    "source": "BINANCE_USDM_FUTURES_PUBLIC_REST",
+    "signal_market": true,
+    "execution_venue": "HYPERLIQUID",
+    "path": "data/crypto_v11/raw/binance_futures/ETH_1h.csv",
+    "canonical_path": "data/crypto_v11/canonical/ETH_H1_signal_market_binance.parquet",
+    "rows": 32793,
+    "first": "2023-01-01 00:00:00+00:00",
+    "last": "2026-09-28 08:00:00+00:00",
+    "bytes": 2989219,
+    "sha256": "a3c1f66bc525d42f82eb6c92315dcf000c33a2d12bb51f53d3b873c09e390dc2"
+  }
+]

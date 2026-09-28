@@ -1,0 +1,9 @@
+{
+  "OHLCV": "HYPERLIQUID_PUBLIC_REST:candleSnapshot:1h",
+  "FUNDING": "HYPERLIQUID_PUBLIC_REST:fundingHistory:realized",
+  "OI": "NOT_AVAILABLE_FOR_V1",
+  "MARK": "NOT_AVAILABLE_FOR_V1",
+  "ORACLE": "NOT_AVAILABLE_FOR_V1",
+  "PREMIUM": "funding response only",
+  "L2": "DEFERRED_V2"
+}

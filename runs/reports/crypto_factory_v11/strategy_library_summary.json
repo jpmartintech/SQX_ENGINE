@@ -1,0 +1,7 @@
+{
+  "status": "PILOT_ONLY",
+  "library_size": 0,
+  "selected_forward_components": 180,
+  "production_ready": false,
+  "reason": "No final production gate was promoted after failed partial-2026 OOS."
+}

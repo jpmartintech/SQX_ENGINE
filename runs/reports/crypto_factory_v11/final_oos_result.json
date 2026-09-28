@@ -1,0 +1,186 @@
+{
+  "opened": true,
+  "access_count": 1,
+  "window": [
+    "2026-07-01T00:00:00Z",
+    "2026-09-28T09:00:00Z"
+  ],
+  "results": [
+    {
+      "asset": "BTC",
+      "cycle_id": 3,
+      "meta_split": "META_VALIDATION",
+      "strategies": 10,
+      "risk_fraction": 0.01,
+      "portfolio_return": -0.03448975567786916,
+      "max_drawdown": 0.052295110959711635,
+      "worst_period": -0.0030681841118128986,
+      "positive_hours": 0.016317016317016316,
+      "members": [
+        {
+          "hash": "d893057fa7468fe53b4147e50fcfdcea585c5b7ea9a3637dbd41fc8a20b4183b",
+          "return": -0.0294956357129893,
+          "pf": 0.6942921244865958,
+          "trades": 6,
+          "funding_r": 0.07768533012312678
+        },
+        {
+          "hash": "ecf8b58a0684c66114493487b14d37a22ec4d8518eab294bc74a685ded553e73",
+          "return": -0.26550619419305177,
+          "pf": 0.04981899131693995,
+          "trades": 11,
+          "funding_r": 0.11435474146184989
+        },
+        {
+          "hash": "67cea06753bbf8c5785aa2d1332385cc203869d1e384fe3e77793b07d3813ad1",
+          "return": -0.13003656786729934,
+          "pf": 0.0,
+          "trades": 5,
+          "funding_r": 0.03742396115385354
+        },
+        {
+          "hash": "768460e4feef89f31c7012f35026c1617767ce29dfb62dc8bb7ba66e243e3135",
+          "return": -0.27892981009430473,
+          "pf": 0.08047582205119262,
+          "trades": 8,
+          "funding_r": 0.12943547370045436
+        },
+        {
+          "hash": "9dac2668143039c5763721678cf680b025422b48fdc13da44249243cd7d49453",
+          "return": 0.15205996335001526,
+          "pf": 1.162711244748208,
+          "trades": 49,
+          "funding_r": -0.5810531283568503
+        },
+        {
+          "hash": "d0c112706a395ecef3d89a96afea6074f712b0f7237644dd4aa916e97af1f315",
+          "return": -0.29735962191738186,
+          "pf": 0.5320521976400544,
+          "trades": 23,
+          "funding_r": 0.6438085564936147
+        },
+        {
+          "hash": "f0036fac27642224705904d4a589d52aadcaf795e296e98184c09117fcd8cdef",
+          "return": 0.1357240221628695,
+          "pf": 1.1787430881848489,
+          "trades": 36,
+          "funding_r": -0.8427538608785424
+        },
+        {
+          "hash": "322eac7481b39eb26e01ffa3af8564dc3c797e6dbc10bcbcee4c4eecb7dcb60a",
+          "return": 0.05798318422667759,
+          "pf": 1.0820569528033936,
+          "trades": 34,
+          "funding_r": -0.4329599475555997
+        },
+        {
+          "hash": "4fa977998a8463c4e8bdaf4549af6c6b9f2f08fb1241f97b311da901e01b29bd",
+          "return": -0.36544548401317356,
+          "pf": 0.48056229721723476,
+          "trades": 26,
+          "funding_r": 0.8456776395145149
+        },
+        {
+          "hash": "e6682d2ea9fbd89fbf43c214dca500eb03f7fe0129ecc2048c73b0d3db259ed0",
+          "return": -0.3534222882037189,
+          "pf": 0.0,
+          "trades": 11,
+          "funding_r": 0.16054617088950499
+        }
+      ],
+      "benchmark_return": 0.41644647959732684,
+      "forward_start": "2026-07-01",
+      "forward_end": "2026-09-28T09:00:00Z",
+      "oos": true
+    },
+    {
+      "asset": "ETH",
+      "cycle_id": 3,
+      "meta_split": "META_VALIDATION",
+      "strategies": 10,
+      "risk_fraction": 0.01,
+      "portfolio_return": 0.004822174936744972,
+      "max_drawdown": 0.023572564237696828,
+      "worst_period": -0.006280102339911759,
+      "positive_hours": 0.006060606060606061,
+      "members": [
+        {
+          "hash": "4f1b559840363eda28505100ad54dd5d3721ecd1d37cc943ee91a7dceda83e7e",
+          "return": 0.016909306672187263,
+          "pf": 1.573444004665285,
+          "trades": 5,
+          "funding_r": -0.06407625010889306
+        },
+        {
+          "hash": "4f906eb2c6efec72c8e16d2e7e211b30940324e7cf7766a7e4b37d00108a15d3",
+          "return": 0.013132513643875576,
+          "pf": 1.1420765468948175,
+          "trades": 9,
+          "funding_r": -0.06993151534260819
+        },
+        {
+          "hash": "0af1c45b594949163b166905af06c5be684943fbe0a8952932a55eac9e3bfcb8",
+          "return": -0.027597013723446362,
+          "pf": 0.6820149334881531,
+          "trades": 13,
+          "funding_r": -0.18134099918866986
+        },
+        {
+          "hash": "c81c7442e0658e4f37b4128ef25d6989ef6f75a48cd726fa09a9f1b3235f7a7f",
+          "return": 0.04319283602341972,
+          "pf": 3.1693967572460817,
+          "trades": 5,
+          "funding_r": -0.06094754458090157
+        },
+        {
+          "hash": "16af232abd3d6ae875a491bd5f0a3e68e8f9466a20d5491a8efa8c0ca07ae6ee",
+          "return": -0.016478374174217714,
+          "pf": 0.864979558506596,
+          "trades": 9,
+          "funding_r": -0.05756777832249515
+        },
+        {
+          "hash": "8a9f35c9a04aa021b6fcee488d50c9f28a336f2faf5c9c32ff8c496786e96336",
+          "return": -0.016478374174217714,
+          "pf": 0.864979558506596,
+          "trades": 9,
+          "funding_r": -0.05756777832249515
+        },
+        {
+          "hash": "2a6960fb40271bd6eeb355683a3860b7d7bc9dbfd0964d08e30054a738845b8c",
+          "return": 0.09777599001104509,
+          "pf": 2.5564028399529137,
+          "trades": 9,
+          "funding_r": -0.173402538154927
+        },
+        {
+          "hash": "326e49eca0d580323f26dfdc13baee55dd9dd47abbdf9433e1d6f40cf66fa31a",
+          "return": -0.04549821854849012,
+          "pf": 0.5646921043890302,
+          "trades": 11,
+          "funding_r": -0.13116902365814295
+        },
+        {
+          "hash": "177828e6d435c5a12e67afa7f6c4f76f1641daace5169ead91877e5f4fde2560",
+          "return": -0.07793809396175522,
+          "pf": 0.43094058447156985,
+          "trades": 11,
+          "funding_r": -0.09990007691407521
+        },
+        {
+          "hash": "6317515dfc994afb53e7302d732d3b37b93ba53ece556378310a9941854d482c",
+          "return": 0.038554214374859175,
+          "pf": 1.3159053794560158,
+          "trades": 9,
+          "funding_r": -0.11303724307061061
+        }
+      ],
+      "benchmark_return": 0.6829104074697492,
+      "forward_start": "2026-07-01",
+      "forward_end": "2026-09-28T09:00:00Z",
+      "oos": true
+    }
+  ],
+  "selection_after_open": false,
+  "oos_accesses": 1
+}

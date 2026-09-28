@@ -1,0 +1,7 @@
+{
+  "OHLCV_READY": true,
+  "FUNDING_READY": true,
+  "economic_model_ready": true,
+  "gaps_explicit": true,
+  "oos_accesses": 0
+}

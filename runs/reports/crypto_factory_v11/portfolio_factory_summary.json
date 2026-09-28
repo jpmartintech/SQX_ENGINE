@@ -1,0 +1,528 @@
+{
+  "portfolio_method": "top10_genetic_equal_weight_normalized",
+  "leverage": 1.0,
+  "rows": 6,
+  "development": [
+    {
+      "asset": "BTC",
+      "cycle_id": 1,
+      "meta_split": "META_DEVELOPMENT",
+      "strategies": 10,
+      "risk_fraction": 0.01,
+      "portfolio_return": 0.07393628924289652,
+      "max_drawdown": 0.0656302511159057,
+      "worst_period": -0.005219476916857027,
+      "positive_hours": 0.03177527055031085,
+      "members": [
+        {
+          "hash": "832a4644ae3697aee33dcae9e204bcb897ec489be9e471941eaa0e76071ac1d3",
+          "return": 1.411556116830465,
+          "pf": 2.0876265389034225,
+          "trades": 44,
+          "funding_r": -0.7692852027615065
+        },
+        {
+          "hash": "6ee57a7327eba9b5ac1f599d9a1f04791985cce184783cf4ef9f01b0441df7dc",
+          "return": -0.38896607456197074,
+          "pf": 0.7978993086718676,
+          "trades": 62,
+          "funding_r": -1.3957659747556
+        },
+        {
+          "hash": "31234c52aeff1ce43009fe2917212a00516c67385c32b64057477df242249655",
+          "return": -0.04334060195869749,
+          "pf": 0.6417062617275977,
+          "trades": 9,
+          "funding_r": 0.16135557975627324
+        },
+        {
+          "hash": "4cd3af4b3fd752239fba91f16deec30ef822edb95c97bafd0d2e6ff2ba0800c0",
+          "return": -0.06171421137705346,
+          "pf": 0.43052393696399865,
+          "trades": 4,
+          "funding_r": 0.07694722191901479
+        },
+        {
+          "hash": "aff6e5318d90514a0ba81c2d26044c9164f0d9e7a6822da6434d7c5c1e229e95",
+          "return": 0.29344648324387257,
+          "pf": 1.10909608095691,
+          "trades": 98,
+          "funding_r": -2.1712595950360036
+        },
+        {
+          "hash": "aff6e5318d90514a0ba81c2d26044c9164f0d9e7a6822da6434d7c5c1e229e95",
+          "return": 0.29344648324387257,
+          "pf": 1.10909608095691,
+          "trades": 98,
+          "funding_r": -2.1712595950360036
+        },
+        {
+          "hash": "ed4329ce164eee5dd267305133b0fe01c01c3192a44616962d6900e8ef024d6f",
+          "return": -0.05369728582665545,
+          "pf": 0.28884652698893987,
+          "trades": 3,
+          "funding_r": 0.012244888018500676
+        },
+        {
+          "hash": "2323273533edbe799565adb926175cddf3bd659445e1271efe9de32a7cb2c0ef",
+          "return": 1.0769102239625248,
+          "pf": 1.26888081347447,
+          "trades": 131,
+          "funding_r": -2.2869378095362993
+        },
+        {
+          "hash": "495322d67e0da29a97835eebd5c5d29471631f400f75edbb4a0409909f44560f",
+          "return": -0.45210521916517277,
+          "pf": 0.8726824298259758,
+          "trades": 107,
+          "funding_r": -2.333409626045945
+        },
+        {
+          "hash": "88e9ff4b87ce8211a8ef5b6cb0df50e289b5d40782f58cde7a81345ec919d8c8",
+          "return": 0.553026005065304,
+          "pf": 1.083028277285185,
+          "trades": 245,
+          "funding_r": -4.301807240733947
+        }
+      ],
+      "benchmark_return": 0.13445332734232274,
+      "forward_start": "2025-01-01 00:00:00+00:00",
+      "forward_end": "2025-06-30 23:00:00+00:00"
+    },
+    {
+      "asset": "BTC",
+      "cycle_id": 2,
+      "meta_split": "META_DEVELOPMENT",
+      "strategies": 10,
+      "risk_fraction": 0.01,
+      "portfolio_return": -0.04257494338647061,
+      "max_drawdown": 0.06390638998638871,
+      "worst_period": -0.005233491238243565,
+      "positive_hours": 0.022423556058890147,
+      "members": [
+        {
+          "hash": "9c55c4038d01d7f4000018428cf23f0b048d012cd6a72fa75644d95095437cf7",
+          "return": 0.14177406235683732,
+          "pf": 2.609215041191202,
+          "trades": 5,
+          "funding_r": -0.25304406496412124
+        },
+        {
+          "hash": "06e777a39b32539ac56c86b9718f3050fd2aedd88da8893fb36a9b6d323853fe",
+          "return": 0.08959083836838366,
+          "pf": 2.4511086608328414,
+          "trades": 5,
+          "funding_r": -0.07608230941142408
+        },
+        {
+          "hash": "88ee4cac4968cdd9b999057b01522bcb7880caa4c4702d0ae09f2819407fcde3",
+          "return": -0.006648911305310312,
+          "pf": 0.9777250702437478,
+          "trades": 9,
+          "funding_r": -0.058499622664912806
+        },
+        {
+          "hash": "77516feba352fb4e3002a4d951c1f88115d2ac9d296054e1e8128c2fb47f5da7",
+          "return": -0.17730641201842634,
+          "pf": 0.7362875114897909,
+          "trades": 15,
+          "funding_r": -0.3802889049189517
+        },
+        {
+          "hash": "599ed3ac67057c3ec9497f50c60e8a9932c644d9ca2abd0c04be798aea584ebe",
+          "return": -0.9681371288540831,
+          "pf": 0.5134664385950837,
+          "trades": 63,
+          "funding_r": -1.4092623659289019
+        },
+        {
+          "hash": "2059f595c6d9303e2095b4961d294786f8fc3d0e9a9a095e0067dc060b3e0024",
+          "return": 0.03540568247629716,
+          "pf": 1.029702445081051,
+          "trades": 20,
+          "funding_r": -0.4568730283264893
+        },
+        {
+          "hash": "506bdcd9ba6fb7c304481ccfacf7d0ed3dc86696336c241f6b8887919f2adbd8",
+          "return": -0.33812430135967786,
+          "pf": 0.6130184705519348,
+          "trades": 23,
+          "funding_r": 0.3464583437239732
+        },
+        {
+          "hash": "dbe3e06fa7e80c9f3d63f1607ddb36e2d80279dabdfe8c67d47acf860806c4c4",
+          "return": -0.9860913353905771,
+          "pf": 0.8436599758373656,
+          "trades": 205,
+          "funding_r": -5.00068022064869
+        },
+        {
+          "hash": "39dd86cd5759a374db0ecdf3c900e2f48e7199ec6dd0cc0462a940cae64eba1b",
+          "return": 0.32523140488723934,
+          "pf": 1.2207018408561605,
+          "trades": 40,
+          "funding_r": 0.24932617582319055
+        },
+        {
+          "hash": "3cb0e1daa5faf8e48fac4069892e9b89b3412bf92122b54b023ea72b96e1342e",
+          "return": 0.2557729861957463,
+          "pf": 1.1578044249763708,
+          "trades": 40,
+          "funding_r": 0.2922656378886418
+        }
+      ],
+      "benchmark_return": -0.1829171938677585,
+      "forward_start": "2025-07-01 00:00:00+00:00",
+      "forward_end": "2025-12-31 23:00:00+00:00"
+    },
+    {
+      "asset": "ETH",
+      "cycle_id": 1,
+      "meta_split": "META_DEVELOPMENT",
+      "strategies": 10,
+      "risk_fraction": 0.01,
+      "portfolio_return": -0.014269692765194186,
+      "max_drawdown": 0.1425872544773052,
+      "worst_period": -0.00977042772099817,
+      "positive_hours": 0.014045590605572185,
+      "members": [
+        {
+          "hash": "41b6c377ead26f1de5d36eb7583b8e9f5c6dea06bedeb918bf3d4b95e3eb98cc",
+          "return": -0.4489144862592027,
+          "pf": 0.2482873795920678,
+          "trades": 16,
+          "funding_r": 0.04850373269255136
+        },
+        {
+          "hash": "9ca5bdfa3cea73c9a5e80b03c5c1b4eebf60420cebb64a45e941b45c0af61abb",
+          "return": -0.11416644151232014,
+          "pf": 0.8187171541230386,
+          "trades": 30,
+          "funding_r": 0.036507279859048274
+        },
+        {
+          "hash": "8fcfff7335b2ca246f323580b1d3de5fa3529723b78e529ac845c358e8a6edad",
+          "return": 0.019890371809805796,
+          "pf": 1.011597170386657,
+          "trades": 84,
+          "funding_r": 0.04450632610776912
+        },
+        {
+          "hash": "fcf08a28317d52e0b54dc2addfa5c663890e2e7d81508ee29a2e83941731a584",
+          "return": 0.019890371809805796,
+          "pf": 1.011597170386657,
+          "trades": 84,
+          "funding_r": 0.04450632610776912
+        },
+        {
+          "hash": "44fe98325422afe82182948f4a286d905c2491cf7662854b8d266337c6e0c9f9",
+          "return": 0.016917070488673414,
+          "pf": 1.0098986489934914,
+          "trades": 93,
+          "funding_r": 0.038138489883080315
+        },
+        {
+          "hash": "44fe98325422afe82182948f4a286d905c2491cf7662854b8d266337c6e0c9f9",
+          "return": 0.016917070488673414,
+          "pf": 1.0098986489934914,
+          "trades": 93,
+          "funding_r": 0.038138489883080315
+        },
+        {
+          "hash": "d28a71fba8fb730bf6384e30df50f420e30e0dd38ae1f3d5124ad156c3bd965c",
+          "return": -0.024000965391635876,
+          "pf": 0.9862451738290062,
+          "trades": 84,
+          "funding_r": 0.08116646830449459
+        },
+        {
+          "hash": "3a91a247afa8c65ff435da491b6ca2fd059e02a53da4fc56c9edc9648d4a2d16",
+          "return": -0.031176435732885865,
+          "pf": 0.982113727947825,
+          "trades": 92,
+          "funding_r": 0.09154438445666781
+        },
+        {
+          "hash": "4718a6944e5fb151ae05c4d07a74d0731b5fc9e2339d5835ce7756d433711461",
+          "return": 0.021559326595065542,
+          "pf": 1.011949437778798,
+          "trades": 107,
+          "funding_r": 0.043177557361778064
+        },
+        {
+          "hash": "4718a6944e5fb151ae05c4d07a74d0731b5fc9e2339d5835ce7756d433711461",
+          "return": 0.021559326595065542,
+          "pf": 1.011949437778798,
+          "trades": 107,
+          "funding_r": 0.043177557361778064
+        }
+      ],
+      "benchmark_return": -0.25981147224122036,
+      "forward_start": "2025-01-01 00:00:00+00:00",
+      "forward_end": "2025-06-30 23:00:00+00:00"
+    },
+    {
+      "asset": "ETH",
+      "cycle_id": 2,
+      "meta_split": "META_DEVELOPMENT",
+      "strategies": 10,
+      "risk_fraction": 0.01,
+      "portfolio_return": 0.01632466956359635,
+      "max_drawdown": 0.035219298172825216,
+      "worst_period": -0.008290753976079132,
+      "positive_hours": 0.01245753114382786,
+      "members": [
+        {
+          "hash": "1a09624fdb096ea5c84f14b6d627ce0ede1a291de95d89130e06725f274e75f4",
+          "return": 0.37730467104530985,
+          "pf": 2.1817215442202538,
+          "trades": 12,
+          "funding_r": -0.21390320858756534
+        },
+        {
+          "hash": "9f8e6ba6336c5f24d597c406c39218bcd6e00b59cdef275daee3565bd6664fc1",
+          "return": -0.15042654707361425,
+          "pf": 0.8606563718323995,
+          "trades": 36,
+          "funding_r": 0.11815248102069809
+        },
+        {
+          "hash": "82264b1aca48ec1f0bd74746980963033cdeaaa350fe3af0b2a62fadcd1f0ab5",
+          "return": 0.14294220967952143,
+          "pf": 1.4071351533811711,
+          "trades": 11,
+          "funding_r": 0.020983803377041733
+        },
+        {
+          "hash": "5b35139072542ab2c8eff546edb9afda6a3779eb99c1549b5add4832ece0f4ed",
+          "return": -0.042062292410285806,
+          "pf": 0.9616624350380714,
+          "trades": 36,
+          "funding_r": 0.1292711808529528
+        },
+        {
+          "hash": "1b42f5df527ccd8eaf9098c054e29ffa52da389b262dee13f00437a7e0381c83",
+          "return": 0.3616898099011261,
+          "pf": 2.266700772081207,
+          "trades": 10,
+          "funding_r": 0.017708473150353822
+        },
+        {
+          "hash": "a7f2746960d6c08d90c1c2d87d424013d90091fdb40e887d7d48389b68a38576",
+          "return": 0.26135345359646545,
+          "pf": 1.7985830352751315,
+          "trades": 11,
+          "funding_r": 0.014678080556294465
+        },
+        {
+          "hash": "2b7015ca91650fd0a4b2ce2366d1323c6fcae51114e60884cd6b1adbca7f1594",
+          "return": 0.19552791726445395,
+          "pf": 1.198342523151708,
+          "trades": 32,
+          "funding_r": 0.07356974207591302
+        },
+        {
+          "hash": "7f3cbaf2b4407fb692dbe37cc37bd00145d89d3391395adc7bd9f083872613e4",
+          "return": 0.011344700217658099,
+          "pf": 1.0115964386767355,
+          "trades": 33,
+          "funding_r": 0.04277240025310345
+        },
+        {
+          "hash": "50d37d0bf3e54ac1d1e82692caa87b2d57c5ab1ad7fa929d9d86d00992ddac32",
+          "return": 0.3425794263170936,
+          "pf": 1.215727035525249,
+          "trades": 63,
+          "funding_r": 0.32147274575256096
+        },
+        {
+          "hash": "9caf88e6c049e59968e37e0a5a6a46edfb08e1d51b410b1f5531bffa21440563",
+          "return": -0.2609420435957842,
+          "pf": 0.6493295942622237,
+          "trades": 25,
+          "funding_r": 0.15722164359372706
+        }
+      ],
+      "benchmark_return": 0.19435983256881673,
+      "forward_start": "2025-07-01 00:00:00+00:00",
+      "forward_end": "2025-12-31 23:00:00+00:00"
+    }
+  ],
+  "validation": [
+    {
+      "asset": "BTC",
+      "cycle_id": 3,
+      "meta_split": "META_VALIDATION",
+      "strategies": 10,
+      "risk_fraction": 0.01,
+      "portfolio_return": 0.008944659264269905,
+      "max_drawdown": 0.07585103010553455,
+      "worst_period": -0.004106095185493443,
+      "positive_hours": 0.01865070227953028,
+      "members": [
+        {
+          "hash": "d893057fa7468fe53b4147e50fcfdcea585c5b7ea9a3637dbd41fc8a20b4183b",
+          "return": -0.09114142917649959,
+          "pf": 0.6579554392599202,
+          "trades": 8,
+          "funding_r": 0.040971818502906404
+        },
+        {
+          "hash": "ecf8b58a0684c66114493487b14d37a22ec4d8518eab294bc74a685ded553e73",
+          "return": -0.1525297288419828,
+          "pf": 0.7171334309519946,
+          "trades": 18,
+          "funding_r": 0.11217807312702986
+        },
+        {
+          "hash": "67cea06753bbf8c5785aa2d1332385cc203869d1e384fe3e77793b07d3813ad1",
+          "return": -0.26687447985547375,
+          "pf": 0.5102725501266886,
+          "trades": 17,
+          "funding_r": 0.07192656198808847
+        },
+        {
+          "hash": "768460e4feef89f31c7012f35026c1617767ce29dfb62dc8bb7ba66e243e3135",
+          "return": 0.873372546223067,
+          "pf": 1.7638448584467035,
+          "trades": 35,
+          "funding_r": 0.10377991668815649
+        },
+        {
+          "hash": "9dac2668143039c5763721678cf680b025422b48fdc13da44249243cd7d49453",
+          "return": -0.807723446481512,
+          "pf": 0.5493279210850915,
+          "trades": 78,
+          "funding_r": -0.3626986843765572
+        },
+        {
+          "hash": "d0c112706a395ecef3d89a96afea6074f712b0f7237644dd4aa916e97af1f315",
+          "return": 1.056157480832229,
+          "pf": 1.4701173957896965,
+          "trades": 72,
+          "funding_r": 0.5020786304788878
+        },
+        {
+          "hash": "f0036fac27642224705904d4a589d52aadcaf795e296e98184c09117fcd8cdef",
+          "return": 0.5526797750866608,
+          "pf": 1.4435469332842634,
+          "trades": 45,
+          "funding_r": -0.4741461590684977
+        },
+        {
+          "hash": "322eac7481b39eb26e01ffa3af8564dc3c797e6dbc10bcbcee4c4eecb7dcb60a",
+          "return": -0.6726436031083329,
+          "pf": 0.5218279949219625,
+          "trades": 58,
+          "funding_r": -0.24831043207007672
+        },
+        {
+          "hash": "4fa977998a8463c4e8bdaf4549af6c6b9f2f08fb1241f97b311da901e01b29bd",
+          "return": 1.3169399216865836,
+          "pf": 1.5854975434645189,
+          "trades": 74,
+          "funding_r": 0.5014737020292332
+        },
+        {
+          "hash": "e6682d2ea9fbd89fbf43c214dca500eb03f7fe0129ecc2048c73b0d3db259ed0",
+          "return": 0.6178192490210874,
+          "pf": 1.4769748895110795,
+          "trades": 39,
+          "funding_r": 0.13724162819223146
+        }
+      ],
+      "benchmark_return": -0.3326474763424908,
+      "forward_start": "2026-01-01 00:00:00+00:00",
+      "forward_end": "2026-06-30 23:00:00+00:00"
+    },
+    {
+      "asset": "ETH",
+      "cycle_id": 3,
+      "meta_split": "META_VALIDATION",
+      "strategies": 10,
+      "risk_fraction": 0.01,
+      "portfolio_return": 0.03905685210082499,
+      "max_drawdown": 0.014179740801084948,
+      "worst_period": -0.004122957917929374,
+      "positive_hours": 0.00345383375546857,
+      "members": [
+        {
+          "hash": "4f1b559840363eda28505100ad54dd5d3721ecd1d37cc943ee91a7dceda83e7e",
+          "return": 0.020052155917690495,
+          "pf": 1.62727455483613,
+          "trades": 3,
+          "funding_r": -0.006152954240849601
+        },
+        {
+          "hash": "4f906eb2c6efec72c8e16d2e7e211b30940324e7cf7766a7e4b37d00108a15d3",
+          "return": 0.08447576804754742,
+          "pf": 1.7875534633628427,
+          "trades": 11,
+          "funding_r": -0.056441566543348747
+        },
+        {
+          "hash": "0af1c45b594949163b166905af06c5be684943fbe0a8952932a55eac9e3bfcb8",
+          "return": 0.0681442768716447,
+          "pf": 1.8949316126355182,
+          "trades": 15,
+          "funding_r": -0.19451998550086722
+        },
+        {
+          "hash": "c81c7442e0658e4f37b4128ef25d6989ef6f75a48cd726fa09a9f1b3235f7a7f",
+          "return": 0.09254208380049378,
+          "pf": Infinity,
+          "trades": 3,
+          "funding_r": -0.006098044676789498
+        },
+        {
+          "hash": "16af232abd3d6ae875a491bd5f0a3e68e8f9466a20d5491a8efa8c0ca07ae6ee",
+          "return": 0.04474131057778785,
+          "pf": 1.3261728050789705,
+          "trades": 11,
+          "funding_r": -0.0387179672897564
+        },
+        {
+          "hash": "8a9f35c9a04aa021b6fcee488d50c9f28a336f2faf5c9c32ff8c496786e96336",
+          "return": 0.04474131057778785,
+          "pf": 1.3261728050789705,
+          "trades": 11,
+          "funding_r": -0.0387179672897564
+        },
+        {
+          "hash": "2a6960fb40271bd6eeb355683a3860b7d7bc9dbfd0964d08e30054a738845b8c",
+          "return": 0.007470588101560871,
+          "pf": 1.0583394220306566,
+          "trades": 11,
+          "funding_r": -0.09895299452096831
+        },
+        {
+          "hash": "326e49eca0d580323f26dfdc13baee55dd9dd47abbdf9433e1d6f40cf66fa31a",
+          "return": 0.09818359779496477,
+          "pf": 2.316488382388204,
+          "trades": 13,
+          "funding_r": -0.1572650930443804
+        },
+        {
+          "hash": "177828e6d435c5a12e67afa7f6c4f76f1641daace5169ead91877e5f4fde2560",
+          "return": 0.09257216996540873,
+          "pf": 2.1543910017813492,
+          "trades": 12,
+          "funding_r": -0.12293523578962284
+        },
+        {
+          "hash": "6317515dfc994afb53e7302d732d3b37b93ba53ece556378310a9941854d482c",
+          "return": 0.04142400412576941,
+          "pf": 1.2666758493540635,
+          "trades": 10,
+          "funding_r": -0.05870899343657768
+        }
+      ],
+      "benchmark_return": -0.47405897914512474,
+      "forward_start": "2026-01-01 00:00:00+00:00",
+      "forward_end": "2026-06-30 23:00:00+00:00"
+    }
+  ],
+  "development_positive": 2,
+  "validation_positive": 2,
+  "oos_accesses": 0
+}

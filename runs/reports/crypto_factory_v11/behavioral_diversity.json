@@ -1,0 +1,6 @@
+{
+  "status": "DIAGNOSTIC_ONLY",
+  "canonical_deduplication": "strategy hashes retained; duplicate members observed in bounded top slices",
+  "portfolio_correlation": "not promoted to production",
+  "reason": "Pilot ended at OOS validation boundary."
+}

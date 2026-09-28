@@ -1,0 +1,13 @@
+{
+  "manufacturing": "2 years",
+  "forward": "6 months",
+  "step": "6 months",
+  "meta_development_cycles": [
+    1,
+    2
+  ],
+  "meta_validation_cycles": [
+    3
+  ],
+  "final_oos_opened": false
+}

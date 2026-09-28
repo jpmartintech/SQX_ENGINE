@@ -1,0 +1,6 @@
+{
+  "status": "PILOT_ONLY",
+  "train_pf": ">1.0",
+  "train_trades": ">=20",
+  "final_gate_frozen": false
+}

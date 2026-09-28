@@ -1,0 +1,82 @@
+{
+  "factory_version": "CRYPTO_STRATEGY_FACTORY_V1_1_PILOT",
+  "signal_source": "BINANCE_USDM_FUTURES",
+  "execution_venue": "HYPERLIQUID",
+  "funding_source": "HYPERLIQUID_REALIZED_FUNDING",
+  "assets": [
+    "BTC",
+    "ETH"
+  ],
+  "timeframe": "H1",
+  "budget_per_kind_asset_cycle": 500,
+  "cost_proxy_round_trip": 0.0009,
+  "cycles": [
+    {
+      "asset": "BTC",
+      "cycle_id": 1,
+      "meta_split": "META_DEVELOPMENT",
+      "train_start": "2023-01-01",
+      "train_end": "2025-01-01",
+      "forward_start": "2025-01-01",
+      "forward_end": "2025-07-01",
+      "strategies_evaluated": 60
+    },
+    {
+      "asset": "BTC",
+      "cycle_id": 2,
+      "meta_split": "META_DEVELOPMENT",
+      "train_start": "2023-07-01",
+      "train_end": "2025-07-01",
+      "forward_start": "2025-07-01",
+      "forward_end": "2026-01-01",
+      "strategies_evaluated": 60
+    },
+    {
+      "asset": "BTC",
+      "cycle_id": 3,
+      "meta_split": "META_VALIDATION",
+      "train_start": "2024-01-01",
+      "train_end": "2026-01-01",
+      "forward_start": "2026-01-01",
+      "forward_end": "2026-07-01",
+      "strategies_evaluated": 60
+    },
+    {
+      "asset": "ETH",
+      "cycle_id": 1,
+      "meta_split": "META_DEVELOPMENT",
+      "train_start": "2023-01-01",
+      "train_end": "2025-01-01",
+      "forward_start": "2025-01-01",
+      "forward_end": "2025-07-01",
+      "strategies_evaluated": 60
+    },
+    {
+      "asset": "ETH",
+      "cycle_id": 2,
+      "meta_split": "META_DEVELOPMENT",
+      "train_start": "2023-07-01",
+      "train_end": "2025-07-01",
+      "forward_start": "2025-07-01",
+      "forward_end": "2026-01-01",
+      "strategies_evaluated": 60
+    },
+    {
+      "asset": "ETH",
+      "cycle_id": 3,
+      "meta_split": "META_VALIDATION",
+      "train_start": "2024-01-01",
+      "train_end": "2026-01-01",
+      "forward_start": "2026-01-01",
+      "forward_end": "2026-07-01",
+      "strategies_evaluated": 60
+    }
+  ],
+  "rows": 360,
+  "development_positive_forward": 103,
+  "development_forward_count": 240,
+  "validation_positive_forward": 63,
+  "validation_forward_count": 120,
+  "runtime_seconds": 7.52073397199274,
+  "oos_accesses": 0
+}

@@ -1,0 +1,15 @@
+{
+  "official_hyperliquid_rest": {
+    "status": "selected_for_funding_and_recent_overlap"
+  },
+  "binance_usdm_futures": {
+    "status": "selected_for_signal_history",
+    "reason": "Hyperliquid historical candle endpoint returned no pre-2026 windows",
+    "not_hyperliquid_execution": true
+  },
+  "hybrid_contract": {
+    "signal_market_source": "BINANCE_USDM_FUTURES",
+    "execution_venue": "HYPERLIQUID",
+    "funding_source": "HYPERLIQUID_PUBLIC_REST"
+  }
+}

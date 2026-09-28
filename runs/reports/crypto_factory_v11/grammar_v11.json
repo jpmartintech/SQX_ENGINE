@@ -1,0 +1,10 @@
+{
+  "version": "CRYPTO_GRAMMAR_V1_1_PILOT",
+  "families": ["PRICE_TREND", "MOMENTUM", "VOLATILITY", "STRUCTURE"],
+  "source": "existing causal v1.7 feature engine",
+  "volume_predicates": "not yet wired into generator",
+  "funding_predicates": "not yet wired into generator",
+  "timeframes": ["H1"],
+  "directions": ["LONG", "SHORT"],
+  "max_predicates": 2
+}

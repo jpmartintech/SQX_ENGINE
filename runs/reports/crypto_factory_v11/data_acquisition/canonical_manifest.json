@@ -1,0 +1,20 @@
+{
+  "status": "READY",
+  "assets": [
+    "BTC",
+    "ETH"
+  ],
+  "resolutions": [
+    "H1"
+  ],
+  "derived_not_yet_built": [
+    "M5",
+    "M15",
+    "H4"
+  ],
+  "signal_market_source": "BINANCE_USDM_FUTURES_PUBLIC_REST",
+  "execution_venue": "HYPERLIQUID",
+  "funding_source": "HYPERLIQUID_PUBLIC_REST",
+  "hybrid": true,
+  "as_of": "2026-09-28T09:00:00+00:00"
+}

@@ -1,0 +1,9 @@
+{
+  "PRICE": {"status": "PILOT_BASELINE", "evaluated": true},
+  "PRICE+VOLUME": {"status": "NOT_IMPLEMENTED", "reason": "generator used existing price feature bank"},
+  "+FUNDING": {"status": "ECONOMIC_ONLY", "used_in_replay": true, "used_in_signal_generation": false},
+  "+OI": {"status": "NOT_AVAILABLE_FOR_V1"},
+  "+PREMIUM": {"status": "NOT_AVAILABLE_FOR_V1"},
+  "+CROSS_ASSET": {"status": "NOT_IMPLEMENTED"},
+  "conclusion": "No incremental information-family conclusion is claimed from this pilot."
+}

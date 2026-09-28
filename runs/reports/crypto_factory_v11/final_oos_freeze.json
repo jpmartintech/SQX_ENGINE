@@ -1,0 +1,12 @@
+{
+  "factory_version": "CRYPTO_STRATEGY_FACTORY_V1_1_PILOT",
+  "strategy_policy": "cycle3 genetic top10 development selection",
+  "portfolio_policy": "equal-weight R-normalized, 1% total risk fraction",
+  "leverage": 1.0,
+  "dataset_hash": "9c0acb806b2dbeba95a69223c8eda6a16162392e6347a5f66fe0a48c465627a6",
+  "oos_window": [
+    "2026-07-01T00:00:00Z",
+    "2026-09-28T09:00:00Z"
+  ],
+  "final_oos_accesses": 0
+}

@@ -1,0 +1,4 @@
+{
+  "status": "DIAGNOSTIC_ONLY",
+  "conclusion": "Final OOS did not establish robust timing alpha over the benchmark; beta-adjusted attribution was not promoted."
+}
