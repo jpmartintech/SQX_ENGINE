@@ -1,0 +1,6 @@
+{
+  "UP": "BTC daily return > 0",
+  "DOWN": "BTC daily return < 0",
+  "SIDEWAYS": "absolute BTC daily return below rolling median",
+  "volatility": "rolling realized volatility terciles"
+}

@@ -1,0 +1,5 @@
+{
+  "positive_window_ratio_median": 1.0,
+  "active_window_ratio_median": 1.0,
+  "low_sample": 15
+}

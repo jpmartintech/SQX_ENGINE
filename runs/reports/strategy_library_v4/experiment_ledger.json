@@ -1,0 +1,10 @@
+[
+  {
+    "id": "V4-TEMPORAL",
+    "decision": "EDGE_PROFILES_BUILT"
+  },
+  {
+    "id": "V4-COMPARISON",
+    "decision": "EDGE_PERSISTENCE_NOT_PREDICTIVE"
+  }
+]

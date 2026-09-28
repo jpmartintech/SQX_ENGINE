@@ -1,0 +1,10 @@
+{
+  "buckets": [
+    "1.0-1.2",
+    "1.2-1.4",
+    "1.4-1.6",
+    "1.6-2.0",
+    "2.0+"
+  ],
+  "conclusion": "high train PF alone was not a stable Forward predictor"
+}

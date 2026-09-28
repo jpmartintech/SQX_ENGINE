@@ -1,0 +1,4 @@
+{
+  "policy": "PERSISTENT_EDGE",
+  "finding": "causal filtering reduced candidate breadth; turnover measured by cycle snapshots"
+}

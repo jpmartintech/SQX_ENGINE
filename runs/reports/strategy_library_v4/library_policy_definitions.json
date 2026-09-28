@@ -1,0 +1,7 @@
+{
+  "RAW_EDGE": "train PF/expectancy",
+  "PERSISTENT_EDGE": "positive prior-cycle expectancy",
+  "STABLE_EDGE": "positive-window ratio",
+  "RECENT_EDGE": "latest prior-cycle evidence",
+  "DIVERSIFIED_PERSISTENT_EDGE": "persistent plus behavioral metadata"
+}
