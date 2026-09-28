@@ -1,0 +1,6 @@
+{
+  "decision": "NOT_ACCESSED",
+  "pre_validation_gate": "CRYPTO_V3_PORTFOLIO_NOT_ROBUST",
+  "reason": "negative-equity/invalid burned portfolio",
+  "lockbox_access_count": 0
+}

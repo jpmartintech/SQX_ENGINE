@@ -1,0 +1,8 @@
+{
+  "experiment": "crypto_factory_v3",
+  "starting_commit": "53efba3",
+  "grammar": "v1.7 PRICE_ONLY",
+  "protected_access": 0,
+  "library": 12,
+  "selection": "frozen"
+}

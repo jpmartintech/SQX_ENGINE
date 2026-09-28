@@ -1,0 +1,15 @@
+{
+  "count": 12,
+  "assets": {
+    "SOL": 4,
+    "BTC": 4,
+    "LINK": 2,
+    "AVAX": 1,
+    "TRX": 1
+  },
+  "directions": {
+    "SHORT": 8,
+    "LONG": 4
+  },
+  "policy": "robust-score region; max 20/asset and 80/direction"
+}

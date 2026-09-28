@@ -1,0 +1,16 @@
+{
+  "records": 10936,
+  "unique_asset_hash": 7017,
+  "assets": [
+    "ADA",
+    "AVAX",
+    "BNB",
+    "BTC",
+    "DOGE",
+    "ETH",
+    "LINK",
+    "SOL",
+    "TRX"
+  ],
+  "protected_access": 0
+}

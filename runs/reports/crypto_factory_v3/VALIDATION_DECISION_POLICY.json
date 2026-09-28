@@ -1,0 +1,12 @@
+{
+  "pass": {
+    "portfolio_return": ">0",
+    "pf": ">1",
+    "expectancy_r": ">0",
+    "maxdd": "<0.50",
+    "positive_strategy_fraction": ">=0.50"
+  },
+  "mixed": "not eligible for final holdout",
+  "fail": "otherwise",
+  "frozen_before_access": true
+}

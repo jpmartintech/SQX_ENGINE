@@ -1,0 +1,4 @@
+segment,cost_multiplier,status
+DEV,1.0,frozen baseline
+VAL,1.0,frozen baseline
+OOS,1.0,frozen baseline

@@ -1,0 +1,7 @@
+{
+  "library_hash": "21623d7aa146c84dd980313e07be91c4a302d95ce912d710f3ceee7290135714",
+  "engine": "crypto.portfolio_v3.replay_concurrent",
+  "risk": 0.01,
+  "portfolio": "equal-risk frozen library",
+  "protected_access": 0
+}

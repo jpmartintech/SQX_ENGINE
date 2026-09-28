@@ -1,0 +1,132 @@
+{
+  "evidence": [
+    {
+      "asset": "ADA",
+      "timeframe": "M15",
+      "source": "/mnt/c/Users/xaume/Documents/DATOS SQX 15 MINS/crypto/ADAUSDT_15M.csv",
+      "range": {
+        "OOS_END": "2025-08-11 22:00:00+00:00",
+        "END": "2026-06-05 00:00:00+00:00"
+      },
+      "segment": "LOCKBOX",
+      "dataset_hash": "96f45b70520aba212f8f0e18e49775562a89f8e76c2a8ee0b3c23ef31f978238",
+      "previous_strategy_access_count": 0,
+      "current_strategy_access_count": 0,
+      "status": "UNCONSUMED_STRATEGY_PROTECTED"
+    },
+    {
+      "asset": "AVAX",
+      "timeframe": "M15",
+      "source": "/mnt/c/Users/xaume/Documents/DATOS SQX 15 MINS/crypto/AVAXUSDT_15M.csv",
+      "range": {
+        "OOS_END": "2025-11-08 19:51:00+00:00",
+        "END": "2026-06-05 00:00:00+00:00"
+      },
+      "segment": "LOCKBOX",
+      "dataset_hash": "a3932892676bfc5a7d29ee62b355634edfa2929f4c7e0f75d4abcd0317b0d580",
+      "previous_strategy_access_count": 0,
+      "current_strategy_access_count": 0,
+      "status": "UNCONSUMED_STRATEGY_PROTECTED"
+    },
+    {
+      "asset": "BNB",
+      "timeframe": "M15",
+      "source": "/mnt/c/Users/xaume/Documents/DATOS SQX 15 MINS/crypto/BNBUSDT_15M.csv",
+      "range": {
+        "OOS_END": "2025-07-26 17:10:30+00:00",
+        "END": "2026-06-05 00:00:00+00:00"
+      },
+      "segment": "LOCKBOX",
+      "dataset_hash": "04bf24b8fe69645a28ab3b7ae1b41c7360a22553a781726d3506e22d05ce6799",
+      "previous_strategy_access_count": 0,
+      "current_strategy_access_count": 0,
+      "status": "UNCONSUMED_STRATEGY_PROTECTED"
+    },
+    {
+      "asset": "BTC",
+      "timeframe": "M15",
+      "source": "/mnt/c/Users/xaume/Documents/DATOS SQX 15 MINS/crypto/BTCUSDT_15M.csv",
+      "range": {
+        "OOS_END": "2025-06-18 13:54:00+00:00",
+        "END": "2026-05-02 15:00:00+00:00"
+      },
+      "segment": "LOCKBOX",
+      "dataset_hash": "f2ddfd9b85f4e7556474e1ef10f78eebd927a0f0e330785d48b4d08e5b69a20a",
+      "previous_strategy_access_count": 0,
+      "current_strategy_access_count": 0,
+      "status": "UNCONSUMED_STRATEGY_PROTECTED"
+    },
+    {
+      "asset": "DOGE",
+      "timeframe": "M15",
+      "source": "/mnt/c/Users/xaume/Documents/DATOS SQX 15 MINS/crypto/DOGEUSDT_15M.csv",
+      "range": {
+        "OOS_END": "2025-09-25 08:24:00+00:00",
+        "END": "2026-06-05 00:00:00+00:00"
+      },
+      "segment": "LOCKBOX",
+      "dataset_hash": "7183e860004a0f35b631c89f574a732d8db1883eba05be533ae4155fddf38ade",
+      "previous_strategy_access_count": 0,
+      "current_strategy_access_count": 0,
+      "status": "UNCONSUMED_STRATEGY_PROTECTED"
+    },
+    {
+      "asset": "ETH",
+      "timeframe": "M15",
+      "source": "/mnt/c/Users/xaume/Documents/DATOS SQX 15 MINS/crypto/ETHUSDT_15M.csv",
+      "range": {
+        "OOS_END": "2025-07-18 14:48:00+00:00",
+        "END": "2026-06-05 00:00:00+00:00"
+      },
+      "segment": "LOCKBOX",
+      "dataset_hash": "9d171eb4a7c246bc137cbafa48476d76f3b9050c6ce9e4b88ed0014d79a10852",
+      "previous_strategy_access_count": 0,
+      "current_strategy_access_count": 0,
+      "status": "UNCONSUMED_STRATEGY_PROTECTED"
+    },
+    {
+      "asset": "LINK",
+      "timeframe": "M15",
+      "source": "/mnt/c/Users/xaume/Documents/DATOS SQX 15 MINS/crypto/LINKUSDT_15M.csv",
+      "range": {
+        "OOS_END": "2025-09-08 05:57:00+00:00",
+        "END": "2026-06-04 21:30:00+00:00"
+      },
+      "segment": "LOCKBOX",
+      "dataset_hash": "03ab8610945b84615d55c2bebdea4b3fcdb02b119f5c6833c226c9bbd1162e72",
+      "previous_strategy_access_count": 0,
+      "current_strategy_access_count": 0,
+      "status": "UNCONSUMED_STRATEGY_PROTECTED"
+    },
+    {
+      "asset": "SOL",
+      "timeframe": "M15",
+      "source": "/mnt/c/Users/xaume/Documents/DATOS SQX 15 MINS/crypto/SOLUSDT_15M.csv",
+      "range": {
+        "OOS_END": "2025-11-04 12:45:00+00:00",
+        "END": "2026-06-04 21:30:00+00:00"
+      },
+      "segment": "LOCKBOX",
+      "dataset_hash": "838c982acc819fb7c6c42e83a59360c8c60650339fbf08ca96609eea5531395c",
+      "previous_strategy_access_count": 0,
+      "current_strategy_access_count": 0,
+      "status": "UNCONSUMED_STRATEGY_PROTECTED"
+    },
+    {
+      "asset": "TRX",
+      "timeframe": "M15",
+      "source": "/mnt/c/Users/xaume/Documents/DATOS SQX 15 MINS/crypto/TRXUSDT_15M.csv",
+      "range": {
+        "OOS_END": "2025-08-17 10:45:00+00:00",
+        "END": "2026-06-05 00:00:00+00:00"
+      },
+      "segment": "LOCKBOX",
+      "dataset_hash": "6a61bb17e80628de861b5b030b6e6959a44937f83b27f4369b2ea2ac0d53dc94",
+      "previous_strategy_access_count": 0,
+      "current_strategy_access_count": 0,
+      "status": "UNCONSUMED_STRATEGY_PROTECTED"
+    }
+  ],
+  "other_compatible_layer": "none identified from metadata; deferred H1 is not compatible with frozen M15 universe",
+  "lockbox_access_before": 0
+}

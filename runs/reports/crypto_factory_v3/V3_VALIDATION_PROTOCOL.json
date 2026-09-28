@@ -1,0 +1,15 @@
+{
+  "experiment_id": "crypto_factory_v3_20260928",
+  "starting_commit": "53efba3",
+  "grammar": "v1.7 PRICE_ONLY",
+  "burned_development": "V2 DEV+VAL+OOS only",
+  "first_protected_layer": "V2 LOCKBOX per admitted M15 asset",
+  "second_protected_layer": null,
+  "access_once": true,
+  "lockbox_access_before": 0,
+  "no_other_compatible_protected_layer": true,
+  "selection": "uncertainty-aware robust region from burned evidence; deterministic top region with asset/direction caps",
+  "portfolio": "true chronological concurrent replay; 1% total normalized risk; equal-risk library baseline",
+  "validation": "single protected LOCKBOX layer; no automatic final holdout",
+  "lockbox_forbidden_before_freeze": true
+}

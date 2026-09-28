@@ -1,0 +1,20 @@
+{
+  "version": "v3.0",
+  "inputs": "burned V2 DEV+former VAL only",
+  "gates": {
+    "active_windows": 4,
+    "positive_window_ratio": 0.5,
+    "median_window_expectancy": 0,
+    "worst_window_expectancy": -1,
+    "dev_trades": 40,
+    "val_trades": 5,
+    "val_expectancy_floor": -0.25
+  },
+  "score": "median_window_expectancy + .25*positive_window_ratio + .10*log1p(trades)/log1p(200) - .15*window_pf_dispersion - .10*best_window_share",
+  "caps": {
+    "asset": 4,
+    "direction": 8,
+    "library": 12
+  },
+  "selection_intensity": 0.0017101325352714834
+}

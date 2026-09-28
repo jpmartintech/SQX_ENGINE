@@ -1,0 +1,10 @@
+{
+  "single_strategy": "PASS",
+  "overlap": "PASS",
+  "same_asset": "PASS",
+  "long_short": "PASS",
+  "fees": "PASS",
+  "floating_equity": "PASS",
+  "drawdown": "PASS",
+  "same_timestamp_order": "PASS"
+}

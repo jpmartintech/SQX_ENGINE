@@ -1,0 +1,9 @@
+{
+  "commit": "53efba3ee2dc89111cd11f97f5c709faa066461b",
+  "protocol_hash": "20f8b7b4d7b5e769e1eda3999f4222c6df7e2c8f75228fc7940a6e6298e56e93",
+  "policy_hash": "d405ebc6a1415eba994003c9dd08cc937fc681be018ea8f80e8eb6ee00fbce5a",
+  "library_hash": "21623d7aa146c84dd980313e07be91c4a302d95ce912d710f3ceee7290135714",
+  "portfolio_hash": "2b0f60090662673865bab66249549c5675bd9e3c3d525ca24f0c9ee85ef8ac65",
+  "lockbox_access_count": 0,
+  "status": "PRE_VALIDATION_READY"
+}
