@@ -1,0 +1,11 @@
+{
+  "path": "data/crypto_v12/canonical/BTC_M15_signal_market_binance.parquet",
+  "sha256": "991290261794eec793f8db1ea6ba74046ff2ba5c21875430bdea64fe76f7b66b",
+  "raw_path": "data/crypto_v11/raw/binance_futures/BTC_15m.csv",
+  "raw_sha256": "78ba99e5be19dd8ab5d2edfcea703d3f76d407fda3e9a460908af7eb9c4358f2",
+  "source": "BINANCE_USDM_FUTURES_PUBLIC_REST",
+  "product": "USD-M perpetual futures signal market",
+  "rows": 131176,
+  "first": "2023-01-01 00:00:00+00:00",
+  "last": "2026-09-28 09:45:00+00:00"
+}

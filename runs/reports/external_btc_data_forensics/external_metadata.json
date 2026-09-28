@@ -1,0 +1,9 @@
+{
+  "path": "data/external_candidate/BTCUSDT_15M_EXTERNAL.csv",
+  "sha256": "f2ddfd9b85f4e7556474e1ef10f78eebd927a0f0e330785d48b4d08e5b69a20a",
+  "rows": 304759,
+  "first": "2017-08-17 04:00:00+00:00",
+  "last": "2026-05-02 14:45:00+00:00",
+  "source": "unknown; no embedded venue metadata",
+  "product": "unknown"
+}

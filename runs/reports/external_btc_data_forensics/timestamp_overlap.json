@@ -1,0 +1,17 @@
+{
+  "matched_timestamps": 116887,
+  "external_only_timestamps": 187872,
+  "canonical_only_timestamps": 14289,
+  "common_range": [
+    "2023-01-01 00:00:00+00:00",
+    "2026-05-02 14:45:00+00:00"
+  ],
+  "external_only_early_history": [
+    "2017-08-17T04:00:00Z",
+    "2022-12-31T23:45:00Z"
+  ],
+  "sqx_only_late_history": [
+    "2026-09-28T10:00:00Z",
+    "2026-09-28T10:30:00Z"
+  ]
+}

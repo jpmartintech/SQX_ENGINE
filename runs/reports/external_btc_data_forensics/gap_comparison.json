@@ -1,0 +1,32 @@
+{
+  "external": {
+    "rows": 304759,
+    "first": "2017-08-17 04:00:00+00:00",
+    "last": "2026-05-02 14:45:00+00:00",
+    "duplicate_timestamps": 0,
+    "monotonic": true,
+    "missing_grid_intervals": 33,
+    "gap_count": 33,
+    "largest_gap_minutes": 2025.0,
+    "ohlc_valid": true,
+    "nonpositive_prices": 0,
+    "negative_volume": 0,
+    "zero_volume": 56,
+    "timezone": "UTC; external naive timestamps interpreted as UTC"
+  },
+  "canonical": {
+    "rows": 131176,
+    "first": "2023-01-01 00:00:00+00:00",
+    "last": "2026-09-28 09:45:00+00:00",
+    "duplicate_timestamps": 0,
+    "monotonic": true,
+    "missing_grid_intervals": 0,
+    "gap_count": 0,
+    "largest_gap_minutes": 0,
+    "ohlc_valid": true,
+    "nonpositive_prices": 0,
+    "negative_volume": 0,
+    "zero_volume": 0,
+    "timezone": "UTC; external naive timestamps interpreted as UTC"
+  }
+}

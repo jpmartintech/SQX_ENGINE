@@ -1,0 +1,9 @@
+{
+  "correlation": {
+    "pearson": 0.9983978282220963,
+    "spearman": 0.9978672037513251
+  },
+  "mean_absolute_return_difference": 8.316606317027874e-05,
+  "p95_return_difference": 0.0002081750998658427,
+  "maximum_return_difference": 0.015970600069718843
+}

@@ -1,0 +1,13 @@
+{
+  "repository_evidence": [
+    "SQX canonical metadata identifies Binance USD-M Futures",
+    "external begins 2017-08-17, before SQX USD-M history",
+    "no repository Binance Spot BTC M15 dataset found"
+  ],
+  "numerical_evidence": {
+    "matched_bars": 116887,
+    "close_correlation": 0.9999996064014256,
+    "exact_ohlc_fraction": 0.0
+  },
+  "classification_basis": "same underlying BTC market with likely different product"
+}
