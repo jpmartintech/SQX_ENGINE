@@ -1,0 +1,21 @@
+{
+  "admitted": 374,
+  "assets": {
+    "LINK": 152,
+    "SOL": 68,
+    "AVAX": 57,
+    "DOGE": 28,
+    "BTC": 21,
+    "BNB": 19,
+    "ETH": 18,
+    "ADA": 9,
+    "TRX": 2
+  },
+  "directions": {
+    "LONG": 188,
+    "SHORT": 186
+  },
+  "behavioral_clustering": "deferred to portfolio/library independence loop",
+  "oos_used_for_admission": false,
+  "lockbox_access": 0
+}

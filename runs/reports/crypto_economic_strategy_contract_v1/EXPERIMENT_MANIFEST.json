@@ -10,5 +10,9 @@
     "VAL"
   ],
   "oos_admission_access": false,
-  "lockbox_access": 0
+  "lockbox_access": 0,
+  "pre_oos_freeze_commit": "146b585",
+  "oos_diagnostic_accessed": true,
+  "oos_full_universe_rows": 7017,
+  "lockbox_access_after": 0
 }

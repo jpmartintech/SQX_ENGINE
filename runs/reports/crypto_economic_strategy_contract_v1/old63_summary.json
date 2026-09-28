@@ -1,0 +1,37 @@
+{
+  "strategies": 63,
+  "old_exact_ruined": 63,
+  "bounded_ruined_by_period": {
+    "DEV": 1,
+    "OOS": 0,
+    "VAL": 0
+  },
+  "bounded_non_ruined_by_period": {
+    "DEV": 62,
+    "OOS": 63,
+    "VAL": 63
+  },
+  "bounded_positive_pf_by_period": {
+    "DEV": 35,
+    "OOS": 10,
+    "VAL": 34
+  },
+  "bounded_positive_return_by_period": {
+    "DEV": 35,
+    "OOS": 10,
+    "VAL": 34
+  },
+  "bounded_positive_economic_expectancy_by_period": {
+    "DEV": 35,
+    "OOS": 10,
+    "VAL": 34
+  },
+  "previous_old_semantics_aggregate_pf_gt1": 37,
+  "previous_old_semantics_aggregate_expectancy_gt0": 40,
+  "previous_old_semantics_aggregate_return_gt0": 37,
+  "lockbox_access": 0,
+  "bounded_aggregate_non_ruined": 62,
+  "bounded_aggregate_return_positive": 37,
+  "bounded_aggregate_pf_positive": 2,
+  "bounded_aggregate_expectancy_positive": 2
+}

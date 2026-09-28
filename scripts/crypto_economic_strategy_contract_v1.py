@@ -198,15 +198,15 @@ def main():
         print(json.dumps({"phase":"pre_oos","candidates":len(cand),"admitted":len(admitted),"old63_dev_ruin":int(d_old.ruin.sum()),"old63_val_ruin":int(v_old.ruin.sum())}))
     else:
         freeze=json.load(open(OUT/"PRE_OOS_CONTRACT_FREEZE.json")); assert freeze["status"]=="FROZEN_BEFORE_OOS"
-        admitted=pd.read_csv(OUT/"library_v2_candidate.csv"); cache={}; old_oos=replay_frame(old,"OOS",cache); new_oos=replay_frame(admitted,"OOS",cache) if len(admitted) else pd.DataFrame()
-        old_oos.to_csv(OUT/"old63_old_vs_new_economics.csv",mode="a",header=False,index=False); new_oos.to_csv(OUT/"candidate_exact_OOS_diagnostic.csv",index=False); new_oos.to_csv(OUT/"library_v2_OOS_diagnostic.csv",index=False)
-        allc=pd.read_csv(OUT/"library_v2_admission_reasons.csv"); allc=allc.merge(new_oos[["hash","pf","expectancy_r","economic_expectancy","return","maxdd","ruin"]].add_prefix("oos_"),left_on="hash",right_on="oos_hash",how="left"); allc["group"]=np.where(allc.admitted,"ADMITTED","REJECTED"); allc.to_csv(OUT/"admitted_vs_rejected_OOS.csv",index=False)
+        admitted=pd.read_csv(OUT/"library_v2_candidate.csv"); cand=pd.read_csv(V2/"validation_strategy_results.csv").drop_duplicates("hash",keep="first").reset_index(drop=True); cache={}; old_oos=replay_frame(old,"OOS",cache); all_oos=replay_frame(cand,"OOS",cache,parallel=True)
+        old_oos.to_csv(OUT/"old63_old_vs_new_economics.csv",mode="a",header=False,index=False); all_oos.to_csv(OUT/"candidate_exact_OOS_diagnostic.csv",index=False); all_oos[all_oos.hash.isin(admitted.hash)].to_csv(OUT/"library_v2_OOS_diagnostic.csv",index=False)
+        allc=pd.read_csv(OUT/"library_v2_admission_reasons.csv"); allc=allc.merge(all_oos[["hash","pf","expectancy_r","economic_expectancy","return","maxdd","ruin"]].add_prefix("oos_"),left_on="hash",right_on="oos_hash",how="left"); allc["group"]=np.where(allc.admitted,"ADMITTED","REJECTED"); allc.to_csv(OUT/"admitted_vs_rejected_OOS.csv",index=False)
         old_summary={"strategies":len(old),"old_oos_positive":int((old_oos.pf>1).sum()),"old_oos_ruin":int(old_oos.ruin.sum()),"bounded_old_dev_ruin":int(pd.read_csv(OUT/"old63_bounded_replay.csv").ruin.sum())}; write_json("old63_summary.json",old_summary)
         groups=[]
         for name,g in allc.groupby("group"):
             groups.append({"group":name,"count":len(g),"oos_positive_rate":float((g.oos_pf>1).mean()) if len(g) else 0.,"median_oos_pf":float(g.oos_pf.median()) if len(g) else 0.,"median_oos_expectancy":float(g.oos_economic_expectancy.median()) if len(g) else 0.,"median_oos_return":float(g.oos_return.median()) if len(g) else 0.,"ruin_rate":float(g.oos_ruin.mean()) if len(g) else 0.})
         write_json("library_v2_behavioral_summary.json",{"note":"No portfolio optimization; behavioral reuse is metadata-only in this loop.","lockbox_access":0})
         (OUT/"FINAL_REPORT.md").write_text("# SQX CRYPTO ECONOMIC STRATEGY CONTRACT V1 — FINAL STATUS\n\nThe bounded economic contract was frozen before this one-shot burned OOS diagnostic. See `library_v2_summary.json`, `admitted_vs_rejected_OOS.csv`, and `old63_summary.json`. No portfolio, Risk, Execution, or LOCKBOX access occurred.\n\n"+json.dumps({"admitted_vs_rejected":groups,"lockbox_access_before_after":[0,0]},indent=2)+"\n")
-        print(json.dumps({"phase":"oos_diagnostic","admitted":len(admitted),"oos_rows":len(new_oos),"groups":groups,"lockbox_access":0}))
+        print(json.dumps({"phase":"oos_diagnostic","admitted":len(admitted),"oos_rows":len(all_oos),"groups":groups,"lockbox_access":0}))
 
 if __name__=="__main__": main()
