@@ -1,0 +1,9 @@
+{
+  "E0": {"start": "2017-08-17T04:00:00Z", "end": "2018-12-31T23:45:00Z", "role": "EXTERNAL_CONTEXT"},
+  "E1": {"start": "2019-01-01T00:00:00Z", "end": "2020-12-31T23:45:00Z", "role": "BACKWARD_HOLDOUT_A"},
+  "E2": {"start": "2021-01-01T00:00:00Z", "end": "2022-12-31T23:45:00Z", "role": "BACKWARD_HOLDOUT_B"},
+  "X1": {"start": "2023-01-01T00:00:00Z", "end": "2025-12-31T23:45:00Z", "role": "CROSS_PRODUCT_VALIDATION"},
+  "X2": {"start": "2026-01-01T00:00:00Z", "end": "2026-05-02T14:45:00Z", "role": "KNOWN_HISTORY_DIAGNOSTIC_ONLY"},
+  "frozen_before_strategy_evaluation": true,
+  "external_result_tuning_allowed": false
+}
