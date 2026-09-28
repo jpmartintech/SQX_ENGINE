@@ -1,0 +1,7 @@
+portfolio_size,total_allocated_risk,weight_sum,status
+1,0.01,1.0,PASS
+5,0.01,1.0,PASS
+10,0.01,1.0,PASS
+20,0.01,1.0,PASS
+30,0.01,1.0,PASS
+63,0.01,1.0,PASS

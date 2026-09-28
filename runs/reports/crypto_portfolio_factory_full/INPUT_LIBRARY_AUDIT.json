@@ -1,0 +1,10 @@
+{
+  "expected": 63,
+  "loaded": 63,
+  "unique_hashes": 63,
+  "composite_unique": 63,
+  "all_active": true,
+  "definitions_complete": true,
+  "valid": true,
+  "protected_lockbox_access": 0
+}

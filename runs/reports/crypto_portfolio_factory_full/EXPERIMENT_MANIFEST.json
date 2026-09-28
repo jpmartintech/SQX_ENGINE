@@ -1,0 +1,12 @@
+{
+  "starting_commit": "9f29b77",
+  "library_count": 63,
+  "random_requested": 50000,
+  "random_unique": 50000,
+  "genetic_requested": 25000,
+  "genetic_unique": 25000,
+  "exact_finalists": 26,
+  "risk_budget": 0.01,
+  "protected_lockbox_access": 0,
+  "terminal": "CRYPTO_PRODUCT_PORTFOLIO_NOT_FOUND"
+}

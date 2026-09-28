@@ -1,0 +1,12 @@
+{
+  "paths": 180,
+  "starting_metrics": [
+    "return",
+    "val_return",
+    "oos_return",
+    "expectancy_r",
+    "val_expectancy_r",
+    "oos_expectancy"
+  ],
+  "completed": true
+}

@@ -1,0 +1,14 @@
+{
+  "requested": 25000,
+  "evaluated": 25000,
+  "unique": 25000,
+  "seed": 20260928,
+  "operators": [
+    "membership_mutation",
+    "weight_mutation",
+    "add",
+    "remove",
+    "replace"
+  ],
+  "screen": "standalone pre-screen; exact replay finalists"
+}

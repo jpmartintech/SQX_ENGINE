@@ -1,0 +1,12 @@
+{
+  "requested": 50000,
+  "evaluated": 50000,
+  "unique": 50000,
+  "seed": 20260928,
+  "weight_geometries": [
+    "equalish",
+    "moderate",
+    "sparse"
+  ],
+  "screen": "standalone pre-screen; exact replay finalists"
+}

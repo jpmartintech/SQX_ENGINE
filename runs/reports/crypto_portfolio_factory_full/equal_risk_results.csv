@@ -1,0 +1,2 @@
+method,size,weight_sum,screen_dev_return,screen_val_return,screen_oos_return
+equal_risk,63,0.9999999999999996,0.2515763423114832,0.14683601311997432,0.02475477210127366
