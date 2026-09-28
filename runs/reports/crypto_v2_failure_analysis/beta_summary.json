@@ -1,0 +1,5 @@
+{
+  "status": "diagnostic-only",
+  "classification": "BETA_UNRESOLVED",
+  "reason": "No beta decomposition was used for selection; burned-price replay retained"
+}

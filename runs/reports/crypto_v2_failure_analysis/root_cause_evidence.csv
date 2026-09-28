@@ -1,0 +1,15 @@
+hypothesis,evidence_for,evidence_against,confidence
+TEMPORAL_EDGE_DECAY,OOS median expectancy -0.301R after positive VAL; negative/unstable period transition,VAL→OOS degradation,HIGH
+VAL_SELECTION_OVERFIT,100/10936 then 20/100 extreme selection; selected OOS poor,OOS records only selected 20,HIGH
+REGIME_SHIFT,Not quantified with a new signal; possible but not proven,No regime feature analysis used,LOW
+BETA_DEPENDENCE,Direction/market exposure not decomposed in V2 artifacts,No beta diagnostic replay completed,LOW
+COST_SENSITIVITY,Baseline costs worsen already-negative OOS,Gross diagnostic retained,MEDIUM
+ASSET_CONCENTRATION,Selected set spans assets but selected counts can be uneven,Broad failure sample small,MEDIUM
+DIRECTION_CONCENTRATION,Frozen price factory direction mix may be uneven,No causal direction hedge proof,MEDIUM
+INSUFFICIENT_TRADE_SUPPORT,OOS selected-strategy trade samples are sparse,Selection/support artifacts,HIGH
+SIGNAL_FREQUENCY_DRIFT,Frequency changes are visible in period matrix,Not a predeclared selector,MEDIUM
+EDGE_CONCENTRATION,Window shares and worst windows are diagnostic,Some strategies have sparse active windows,MEDIUM
+PORTFOLIO_AGGREGATION,"Recorded portfolio is mean of standalone returns, not concurrent replay",Reproduces recorded result exactly,HIGH
+ENGINE_DEFECT,No evaluator discrepancy found in stored result reproduction,Reference replay not independently re-run here,LOW
+INFORMATION_LEAK,No direct or global-stat leak identified,Protected access ledger clean,HIGH
+RANDOM_VARIANCE,N=20 and sparse OOS trades permit variance,Cannot explain all deterioration alone,MEDIUM

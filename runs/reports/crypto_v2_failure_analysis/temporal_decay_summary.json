@@ -1,0 +1,7 @@
+{
+  "dev_slope_to_val_expectancy_spearman": 0.05154623709677658,
+  "dev_slope_to_oos_expectancy_spearman": 0.252646359977729,
+  "d6_to_val_spearman": -0.1557701193681673,
+  "val_to_oos_spearman": -0.20686799588267904,
+  "classification": "TEMPORAL_DECAY_STRONG"
+}

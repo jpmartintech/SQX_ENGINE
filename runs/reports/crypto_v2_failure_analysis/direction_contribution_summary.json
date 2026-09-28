@@ -1,0 +1,23 @@
+{
+  "table": [
+    {
+      "direction": "LONG",
+      "strategy_count": 13,
+      "dev_netR": 72.94479392192666,
+      "val_netR": -0.041862117103384104,
+      "oos_return": -92.44456762459566,
+      "oos_expectancy": -0.20431107146675248,
+      "oos_trades": 1216
+    },
+    {
+      "direction": "SHORT",
+      "strategy_count": 7,
+      "dev_netR": 5.432782787208003,
+      "val_netR": 0.1263296296296299,
+      "oos_return": -14.381533492578479,
+      "oos_expectancy": -0.45509863467522443,
+      "oos_trades": 752
+    }
+  ],
+  "classification": "DIRECTION_CONCENTRATION_MODERATE"
+}

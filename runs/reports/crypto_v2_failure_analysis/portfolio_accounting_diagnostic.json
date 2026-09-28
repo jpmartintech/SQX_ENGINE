@@ -1,0 +1,13 @@
+{
+  "selected": 20,
+  "recorded_return": -0.6676631319823384,
+  "reproduced_mean_strategy_return": -0.6676631319823384,
+  "recorded_pf": 0.5218958442937616,
+  "reproduced_median_strategy_pf": 0.5218958442937616,
+  "recorded_expectancy": -0.3012891020356641,
+  "reproduced_mean_strategy_expectancy": -0.2920867185897177,
+  "recorded_maxdd": 0.6884568875825031,
+  "reproduced_median_strategy_maxdd": 0.6884568875825031,
+  "portfolio_method": "mean of independent strategy returns; not concurrent replay",
+  "return_equivalence": true
+}

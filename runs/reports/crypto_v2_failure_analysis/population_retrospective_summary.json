@@ -1,0 +1,9 @@
+{
+  "strategies_with_oos_records": 10936,
+  "population": 10936,
+  "dev_fitness_to_val": 0.16226194662909188,
+  "dev_fitness_to_oos": 0.21541100206242905,
+  "val_to_oos": 0.25101956685586513,
+  "oos_positive_fraction": 0.5381309436722751,
+  "note": "Full DEV-eligible population was replayed on burned OOS for diagnosis only"
+}

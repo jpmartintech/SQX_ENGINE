@@ -1,0 +1,8 @@
+{
+  "val_expectancy_to_oos_expectancy_spearman": 0.25101956685586513,
+  "val_pf_to_oos_pf_spearman": 0.1428931041317922,
+  "selected_fraction": 0.009144111192392099,
+  "portfolio_fraction": 0.2,
+  "top100_oos_observed": -0.3012891020356641,
+  "classification": "VAL_SELECTION_OVERFIT_STRONG"
+}

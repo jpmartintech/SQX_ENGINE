@@ -1,0 +1,4 @@
+{
+  "classification": "SIGNAL_FREQUENCY_DRIFT",
+  "note": "frequency is represented by trades per fixed chronological segment; exact annualization is not used for selection"
+}

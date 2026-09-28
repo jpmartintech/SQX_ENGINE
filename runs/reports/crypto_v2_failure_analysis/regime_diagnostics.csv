@@ -1,0 +1,4 @@
+period,status
+DEV,diagnostic-only
+VAL,diagnostic-only
+OOS,diagnostic-only

@@ -1,0 +1,107 @@
+{
+  "EXPERIMENT_MANIFEST.json": {
+    "exists": true,
+    "sha256": "9d62ecf9ca96438f198cdc9e2d552c6869413aad782fe8425c6dbbf1a0a5db62",
+    "bytes": 8607
+  },
+  "temporal_splits.json": {
+    "exists": true,
+    "sha256": "167e767c1465a511fe90f5b1016a5f1f1113140af22dddaadaab2adfb935fdff",
+    "bytes": 3717
+  },
+  "dev_internal_windows.csv": {
+    "exists": true,
+    "sha256": "47f32e23748f7009a1d87ccc796d512637433d9b47dc41855e4f8c95e7f50f8e",
+    "bytes": 3227
+  },
+  "strategy_factory_v2_fitness.json": {
+    "exists": true,
+    "sha256": "a4d264153d69e51b3a5718e09d4afbd5d677b880568086fc09740d07016ff8b2",
+    "bytes": 380
+  },
+  "dev_strategy_results.csv": {
+    "exists": true,
+    "sha256": "47bf21bc6a192bf86b5671c2825be2cd368a047c0a3dd7d48cf7d5497fa48e17",
+    "bytes": 66583355
+  },
+  "dev_strategy_gate_summary.json": {
+    "exists": true,
+    "sha256": "8c34e4398fe02d399cab32e6bd54c3e10827bb2849c00b42038d791cef2d03bd",
+    "bytes": 236
+  },
+  "STRATEGY_FACTORY_FREEZE.json": {
+    "exists": true,
+    "sha256": "60d7e89072aaf2f3824a398481ade7014308890164bf570da7318d1123e6c26c",
+    "bytes": 1290
+  },
+  "validation_strategy_results.csv": {
+    "exists": true,
+    "sha256": "659e1a53e7de17ce76f30f7736032c7d9c49b2b06374455e3800500049dac0c9",
+    "bytes": 9193818
+  },
+  "validation_summary.json": {
+    "exists": true,
+    "sha256": "f39453043754cf4e3fcce93067aa937fbe2d8524f570448c66f61bd95e3a9b9f",
+    "bytes": 125
+  },
+  "strategy_library_v2.csv": {
+    "exists": true,
+    "sha256": "c80c47f6dc1b427584519a440d324d82ae9be3005aac87c4566d4111e2819fc3",
+    "bytes": 86408
+  },
+  "strategy_library_v2.json": {
+    "exists": true,
+    "sha256": "78c65b64db954c9ed149abc060a0a3db99a1a7c5c26f3752854d636cc8a82dd3",
+    "bytes": 224
+  },
+  "portfolio_baselines.csv": {
+    "exists": true,
+    "sha256": "9e4effe7e12feb1229305f566ed64e73df44253f8917c4c404fae545757fc287",
+    "bytes": 150
+  },
+  "PORTFOLIO_FACTORY_FREEZE.json": {
+    "exists": true,
+    "sha256": "c4b9b09770e44a28b781ddc99be251d2e1ce825f50fcc4087ac4befdd18dd2a8",
+    "bytes": 2979
+  },
+  "PRE_OOS_TOTAL_FREEZE.json": {
+    "exists": true,
+    "sha256": "d3b30c4bc15bf28fae5cc82b2db73ae700ee111e78f5ffc3597a9f059e1f9cfc",
+    "bytes": 277
+  },
+  "oos_strategy_results.csv": {
+    "exists": true,
+    "sha256": "919839d18fb6246be87564246ca60e9219b8a6afdd869a3634314610ff635677",
+    "bytes": 2983
+  },
+  "oos_portfolio_result.json": {
+    "exists": true,
+    "sha256": "444ee644447064e64916001398cfeb5b51702fce56106d34c071cf143e45192f",
+    "bytes": 179
+  },
+  "oos_summary.json": {
+    "exists": true,
+    "sha256": "444ee644447064e64916001398cfeb5b51702fce56106d34c071cf143e45192f",
+    "bytes": 179
+  },
+  "OOS_DECISION.json": {
+    "exists": true,
+    "sha256": "ade170d0a026dae2bc65092a5080fe4bf056f477d7f361c0f1447da7675d11bf",
+    "bytes": 287
+  },
+  "data_access_ledger.csv": {
+    "exists": true,
+    "sha256": "168c8ad42a6cdbb453a500efe68f4523d662ad016903d2521ae2e79c27c6aaf9",
+    "bytes": 3634
+  },
+  "data_access_summary.json": {
+    "exists": true,
+    "sha256": "6fe5a3cb753e4db5bec82af160c66d0811349fe56a8cec125fc93d03508d8576",
+    "bytes": 156
+  },
+  "cost_model.json": {
+    "exists": true,
+    "sha256": "12fc4989439ed396196cbe466e100ea480ddd3b05924b247c6713a73c7f846ae",
+    "bytes": 118
+  }
+}

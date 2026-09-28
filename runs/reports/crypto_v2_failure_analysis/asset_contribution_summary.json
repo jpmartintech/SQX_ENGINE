@@ -1,0 +1,77 @@
+{
+  "table": [
+    {
+      "asset": "ADA",
+      "strategy_count": 3,
+      "dev_netR": 0.21451076951053133,
+      "val_netR": -0.041862117103384104,
+      "oos_return": -1.1083947390660127,
+      "oos_expectancy": -0.14709690065980954,
+      "oos_trades": 168
+    },
+    {
+      "asset": "AVAX",
+      "strategy_count": 3,
+      "dev_netR": 6.519934920634921,
+      "val_netR": 0.16105251322751363,
+      "oos_return": -0.17223280423276088,
+      "oos_expectancy": -0.36961005630373717,
+      "oos_trades": 320
+    },
+    {
+      "asset": "BNB",
+      "strategy_count": 1,
+      "dev_netR": 3.0319630252100103,
+      "val_netR": 0.3063109243697497,
+      "oos_return": -41.148853781513004,
+      "oos_expectancy": -1.0003844097079466,
+      "oos_trades": 16
+    },
+    {
+      "asset": "BTC",
+      "strategy_count": 5,
+      "dev_netR": 3.3031478692177947,
+      "val_netR": 0.15522503690870598,
+      "oos_return": 8.065773947884086,
+      "oos_expectancy": -0.3388254185628382,
+      "oos_trades": 344
+    },
+    {
+      "asset": "DOGE",
+      "strategy_count": 2,
+      "dev_netR": 31.397660243632423,
+      "val_netR": -0.03827231450719845,
+      "oos_return": -54.955376596530044,
+      "oos_expectancy": -0.5197031641994254,
+      "oos_trades": 192
+    },
+    {
+      "asset": "ETH",
+      "strategy_count": 1,
+      "dev_netR": -0.4123563279002838,
+      "val_netR": 0.014544199424737097,
+      "oos_return": -1.3665737296260785,
+      "oos_expectancy": -0.1461014261733496,
+      "oos_trades": 72
+    },
+    {
+      "asset": "LINK",
+      "strategy_count": 3,
+      "dev_netR": 17.663313198697747,
+      "val_netR": -0.17170011587485573,
+      "oos_return": -13.49748734756954,
+      "oos_expectancy": -0.06228071051183668,
+      "oos_trades": 576
+    },
+    {
+      "asset": "SOL",
+      "strategy_count": 2,
+      "dev_netR": 16.659403010131516,
+      "val_netR": -0.10264989507412535,
+      "oos_return": -2.642956066520778,
+      "oos_expectancy": -0.11237605613693245,
+      "oos_trades": 280
+    }
+  ],
+  "classification": "ASSET_CONCENTRATION_MODERATE"
+}
