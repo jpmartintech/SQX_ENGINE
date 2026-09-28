@@ -1,0 +1,86 @@
+{
+  "sample_size": 10,
+  "all_equivalent": true,
+  "rows": [
+    {
+      "hash": "44ffb42ce797e94893820080dd9e0f7bb3c9ecea41944f0620d6c73c8293eea8",
+      "trade_count_equal": true,
+      "entries_equal": true,
+      "exits_equal": true,
+      "r_equal": true,
+      "equity_equal": true
+    },
+    {
+      "hash": "f4df84a272b90efd599646ca799a94677ad7b7dcd576f97fca3595d85341f143",
+      "trade_count_equal": true,
+      "entries_equal": true,
+      "exits_equal": true,
+      "r_equal": true,
+      "equity_equal": true
+    },
+    {
+      "hash": "3e3dadcc2bdd0d581482ab608a78e906398a9e5da78efc9d76dbff0abc92c9de",
+      "trade_count_equal": true,
+      "entries_equal": true,
+      "exits_equal": true,
+      "r_equal": true,
+      "equity_equal": true
+    },
+    {
+      "hash": "8647b461c800dcbc627953e08dc6e755f210455c9aee9d6e6cdfe8f49f3b7040",
+      "trade_count_equal": true,
+      "entries_equal": true,
+      "exits_equal": true,
+      "r_equal": true,
+      "equity_equal": true
+    },
+    {
+      "hash": "af5478111f507904396680281f8b56b61127f1ca9015b1627531af5e59e77d65",
+      "trade_count_equal": true,
+      "entries_equal": true,
+      "exits_equal": true,
+      "r_equal": true,
+      "equity_equal": true
+    },
+    {
+      "hash": "3dd4b50552e5a77cb8ae7d8f926a4bb2c154aedb245e823f8bae917bdaf7c88f",
+      "trade_count_equal": true,
+      "entries_equal": true,
+      "exits_equal": true,
+      "r_equal": true,
+      "equity_equal": true
+    },
+    {
+      "hash": "4dc2c9635e71e8472eae2a68f58c52a4099de626cdc5c4c2e019fe65ffb059d0",
+      "trade_count_equal": true,
+      "entries_equal": true,
+      "exits_equal": true,
+      "r_equal": true,
+      "equity_equal": true
+    },
+    {
+      "hash": "4b8a022ad9a764d0ee0c3f2287c314b3dc92d379f4957469c1e4504e5226462c",
+      "trade_count_equal": true,
+      "entries_equal": true,
+      "exits_equal": true,
+      "r_equal": true,
+      "equity_equal": true
+    },
+    {
+      "hash": "77af3296b205b97f6e9757cb0831888c28ef60e676faa541c25148d3bab5f651",
+      "trade_count_equal": true,
+      "entries_equal": true,
+      "exits_equal": true,
+      "r_equal": true,
+      "equity_equal": true
+    },
+    {
+      "hash": "fbecbb86b9e3a8f7e592b4b0bbb7b9d5a64057ea4ce9cf3059ce334f8c78729c",
+      "trade_count_equal": true,
+      "entries_equal": true,
+      "exits_equal": true,
+      "r_equal": true,
+      "equity_equal": true
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "signal_median": {
+    "entry_agreement": 0.4074074074074074,
+    "trade_jaccard": 0.4074074074074074
+  },
+  "economic_medians": {
+    "external_net_r": 9.764799432401137,
+    "futures_net_r": 4.6132031077891,
+    "external_pf": 1.1564673850918976,
+    "futures_pf": 1.158770780121576,
+    "external_expectancy_r": 0.08630075755801485,
+    "futures_expectancy_r": 0.0214547243443279
+  },
+  "positive_on_both": 105,
+  "external_positive_futures_negative": 46,
+  "futures_positive_external_negative": 3
+}

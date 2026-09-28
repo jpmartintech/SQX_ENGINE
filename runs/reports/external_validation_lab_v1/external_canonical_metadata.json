@@ -1,0 +1,11 @@
+{
+  "source_path": "data/external_candidate/BTCUSDT_15M_EXTERNAL.csv",
+  "source_sha256": "f2ddfd9b85f4e7556474e1ef10f78eebd927a0f0e330785d48b4d08e5b69a20a",
+  "canonical_path": "runs/reports/external_validation_lab_v1/external_canonical.parquet",
+  "canonical_sha256": "be1a4e8e5878c8794aff65e1e02ffdf6d07421bf3c4d589c0000e84042e8b63c",
+  "rows": 304759,
+  "first": "2017-08-17 04:00:00+00:00",
+  "last": "2026-05-02 14:45:00+00:00",
+  "volume_used_as_signal": false,
+  "gaps_not_filled": true
+}

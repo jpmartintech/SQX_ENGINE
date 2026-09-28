@@ -1,0 +1,165 @@
+{
+  "policy": "fixed descriptive controls; N=10 predeclared",
+  "controls": [
+    {
+      "region": "E1",
+      "control": "ALL_EQUAL",
+      "strategies": 183,
+      "return": -0.17413256163473323,
+      "pf": 0.674775062704054,
+      "maxdd": 0.19324664099324104,
+      "expectancy": -0.0002597257559582803,
+      "days": 731
+    },
+    {
+      "region": "E1",
+      "control": "TOP_N",
+      "strategies": 10,
+      "return": -0.09017910905798909,
+      "pf": 0.9057204259005907,
+      "maxdd": 0.21296789066926666,
+      "expectancy": -0.0005312379281928605,
+      "days": 156
+    },
+    {
+      "region": "E1",
+      "control": "LONG_ONLY",
+      "strategies": 116,
+      "return": -0.2031251728780865,
+      "pf": 0.7722352727710039,
+      "maxdd": 0.24490344575674658,
+      "expectancy": -0.00030389517686737317,
+      "days": 731
+    },
+    {
+      "region": "E1",
+      "control": "SHORT_ONLY",
+      "strategies": 67,
+      "return": -0.12776486526734288,
+      "pf": 0.7821287546758252,
+      "maxdd": 0.1405000392443524,
+      "expectancy": -0.00019728745376566186,
+      "days": 679
+    },
+    {
+      "region": "E2",
+      "control": "ALL_EQUAL",
+      "strategies": 183,
+      "return": -0.04665182252709488,
+      "pf": 0.8840664798986205,
+      "maxdd": 0.05947042529847248,
+      "expectancy": -6.426621324876543e-05,
+      "days": 730
+    },
+    {
+      "region": "E2",
+      "control": "TOP_N",
+      "strategies": 10,
+      "return": 0.03522122533610883,
+      "pf": 1.0996225577229797,
+      "maxdd": 0.06812060772015592,
+      "expectancy": 0.00045929156924837664,
+      "days": 88
+    },
+    {
+      "region": "E2",
+      "control": "LONG_ONLY",
+      "strategies": 116,
+      "return": -0.0999746053426076,
+      "pf": 0.859496952112072,
+      "maxdd": 0.12817670635170925,
+      "expectancy": -0.00014002636244547022,
+      "days": 730
+    },
+    {
+      "region": "E2",
+      "control": "SHORT_ONLY",
+      "strategies": 67,
+      "return": 0.047942952318830834,
+      "pf": 1.124022121738208,
+      "maxdd": 0.03078015892576825,
+      "expectancy": 7.098466122830282e-05,
+      "days": 688
+    },
+    {
+      "region": "X1_EXTERNAL",
+      "control": "ALL_EQUAL",
+      "strategies": 183,
+      "return": 0.14142929604138876,
+      "pf": 1.3019029185863895,
+      "maxdd": 0.02636482134067274,
+      "expectancy": 0.00012163493730246428,
+      "days": 1096
+    },
+    {
+      "region": "X1_EXTERNAL",
+      "control": "TOP_N",
+      "strategies": 10,
+      "return": 0.1742167150665057,
+      "pf": 1.560498170300244,
+      "maxdd": 0.05665317271444281,
+      "expectancy": 0.0019054222266076386,
+      "days": 87
+    },
+    {
+      "region": "X1_EXTERNAL",
+      "control": "LONG_ONLY",
+      "strategies": 116,
+      "return": 0.2061933488211427,
+      "pf": 1.2690917314533998,
+      "maxdd": 0.050251977202579144,
+      "expectancy": 0.00017369748470973714,
+      "days": 1096
+    },
+    {
+      "region": "X1_EXTERNAL",
+      "control": "SHORT_ONLY",
+      "strategies": 67,
+      "return": 0.03335174701307486,
+      "pf": 1.0798130388417326,
+      "maxdd": 0.07118696282765043,
+      "expectancy": 3.483399383742513e-05,
+      "days": 991
+    },
+    {
+      "region": "X1_FUTURES",
+      "control": "ALL_EQUAL",
+      "strategies": 183,
+      "return": 0.01273528167792115,
+      "pf": 1.0248834099086643,
+      "maxdd": 0.07434563640928014,
+      "expectancy": 1.2717067385355575e-05,
+      "days": 1096
+    },
+    {
+      "region": "X1_FUTURES",
+      "control": "TOP_N",
+      "strategies": 10,
+      "return": 0.05673580059150374,
+      "pf": 1.111108803141847,
+      "maxdd": 0.12240503338469566,
+      "expectancy": 0.0005113795271519568,
+      "days": 125
+    },
+    {
+      "region": "X1_FUTURES",
+      "control": "LONG_ONLY",
+      "strategies": 116,
+      "return": 0.05989479230208894,
+      "pf": 1.0694541349906668,
+      "maxdd": 0.07808993923618761,
+      "expectancy": 5.6542554725851607e-05,
+      "days": 1096
+    },
+    {
+      "region": "X1_FUTURES",
+      "control": "SHORT_ONLY",
+      "strategies": 67,
+      "return": -0.06909280024279252,
+      "pf": 0.8820155160816491,
+      "maxdd": 0.1549325285733002,
+      "expectancy": -6.978149774735003e-05,
+      "days": 992
+    }
+  ]
+}

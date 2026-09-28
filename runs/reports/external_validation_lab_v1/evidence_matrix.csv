@@ -1,0 +1,9 @@
+dimension,status
+Cross-product signal portability,PARTIAL
+Cross-product economic portability,PARTIAL
+E1 temporal portability,NOT_SUPPORTED
+E2 temporal portability,NOT_SUPPORTED
+Rank portability,PARTIAL
+Aggregate edge,PARTIAL
+Beta independence,INSUFFICIENT_DATA
+Regime robustness,PARTIAL
