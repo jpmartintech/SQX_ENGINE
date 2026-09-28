@@ -1,0 +1,107 @@
+{
+  "method": "TOP_VAL_EXPECTANCY_EQUAL_RISK",
+  "size": 20,
+  "strategies": [
+    {
+      "hash": "1500fd432f3cd5db93a655b7d39959eb1f4d9f970733857485d2b2d2761a57cc",
+      "asset": "DOGE",
+      "direction": "LONG"
+    },
+    {
+      "hash": "0014d401c268e53271e2875c0d2e2f4ca5fc669f6817d7e1f2eb48f25caae564",
+      "asset": "ADA",
+      "direction": "LONG"
+    },
+    {
+      "hash": "346bf7620baf50a15a618577916af987c001df4739332f99b00c47b6699f233f",
+      "asset": "SOL",
+      "direction": "LONG"
+    },
+    {
+      "hash": "45e64e54fe91888b7671fce0892b38e9fe8926624f0babc79fa780f8fefebbf4",
+      "asset": "BTC",
+      "direction": "SHORT"
+    },
+    {
+      "hash": "fbb05c77f62586635fc7f54f5be09c63a8584842d612897d7b2be1953f51df2e",
+      "asset": "LINK",
+      "direction": "SHORT"
+    },
+    {
+      "hash": "ee6fb8c7d7cd813bdcc7040e6e599c48723d946afa3a0839e7a0222821c9ecfa",
+      "asset": "BTC",
+      "direction": "SHORT"
+    },
+    {
+      "hash": "1de87d885f2f5f466523ac120130649510cc99968267fa3cf9f65b74a8b3529f",
+      "asset": "BNB",
+      "direction": "LONG"
+    },
+    {
+      "hash": "d00b5a8a77747f5024304edf97b235f60b5df9f33f324f6b8a5e17640fbc3751",
+      "asset": "AVAX",
+      "direction": "LONG"
+    },
+    {
+      "hash": "6b54752da6882480d978233e9310c1e993817d5b8de6c9e13f975c29854fae43",
+      "asset": "LINK",
+      "direction": "LONG"
+    },
+    {
+      "hash": "84d0595662928b026f35512f5968f86207fd828abb4eb3fa65cd1f3ed64645dc",
+      "asset": "AVAX",
+      "direction": "SHORT"
+    },
+    {
+      "hash": "a4ba0f0765801fc0c6fcb74d668316773579bc93ad648afcf69389153fb600cd",
+      "asset": "BTC",
+      "direction": "SHORT"
+    },
+    {
+      "hash": "9f582373539131d2caced4c6f061abafcaa94df0b6d6159795ec05b35d6a6c9b",
+      "asset": "LINK",
+      "direction": "LONG"
+    },
+    {
+      "hash": "e3098ff41a080c146f6618678aff9b8449f5b703fec33cc2c0153c35cace79f1",
+      "asset": "ADA",
+      "direction": "LONG"
+    },
+    {
+      "hash": "4a97d90f904017698344f8e44d0188e2ac8d54065b71c4329edec88f2f436a72",
+      "asset": "ADA",
+      "direction": "LONG"
+    },
+    {
+      "hash": "9d884cbe93974e91677b1a3993e623825ac2a581cece49475c585d4f7c460557",
+      "asset": "ETH",
+      "direction": "SHORT"
+    },
+    {
+      "hash": "6a213373b540b5ec9daacea2c37329788106e118cb1955c3d521c769d36198fb",
+      "asset": "BTC",
+      "direction": "LONG"
+    },
+    {
+      "hash": "d14b39a1493201a6dfbbccd0a14d591aa1f4007efc014ab5ca076495620f8271",
+      "asset": "BTC",
+      "direction": "SHORT"
+    },
+    {
+      "hash": "4d5503c1c13592902c04dd29c704d5b958233190bfd327bd83c7131c239de093",
+      "asset": "AVAX",
+      "direction": "LONG"
+    },
+    {
+      "hash": "b8e2e89f9048feb367f142aa6965b9b8de9a74c049c7de9985d7003b7d1e0b44",
+      "asset": "DOGE",
+      "direction": "LONG"
+    },
+    {
+      "hash": "2b6d8f7a8da8571dc959345757c1988f327ea90efed72caaf60c309c233391ed",
+      "asset": "SOL",
+      "direction": "LONG"
+    }
+  ],
+  "risk_unit": 1.0
+}

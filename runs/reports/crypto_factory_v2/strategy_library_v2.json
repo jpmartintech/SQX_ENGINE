@@ -1,0 +1,18 @@
+{
+  "count": 100,
+  "assets": {
+    "LINK": 33,
+    "BTC": 14,
+    "DOGE": 12,
+    "BNB": 12,
+    "AVAX": 10,
+    "SOL": 9,
+    "ADA": 7,
+    "ETH": 3
+  },
+  "timeframes": {
+    "M15": 100
+  },
+  "long": 69,
+  "short": 31
+}

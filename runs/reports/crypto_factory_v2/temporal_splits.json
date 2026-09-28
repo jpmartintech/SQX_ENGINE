@@ -1,0 +1,101 @@
+{
+  "ADA": {
+    "bounds": {
+      "START": "2018-04-17 04:00:00+00:00",
+      "DEV_END": "2023-03-04 16:00:00+00:00",
+      "VAL_END": "2024-05-23 07:00:00+00:00",
+      "OOS_END": "2025-08-11 22:00:00+00:00",
+      "END": "2026-06-05 00:00:00+00:00"
+    },
+    "path": "/home/xaume/SQX_ENGINE/data/crypto_v2/ADA_M15.parquet",
+    "sha256": "eaaf8658ddaccf0c5aec03b0468b9349bd461a46f1a90873829e966e200f191d"
+  },
+  "AVAX": {
+    "bounds": {
+      "START": "2020-09-22 06:30:00+00:00",
+      "DEV_END": "2024-02-23 07:24:00+00:00",
+      "VAL_END": "2024-12-31 13:37:30+00:00",
+      "OOS_END": "2025-11-08 19:51:00+00:00",
+      "END": "2026-06-05 00:00:00+00:00"
+    },
+    "path": "/home/xaume/SQX_ENGINE/data/crypto_v2/AVAX_M15.parquet",
+    "sha256": "69c6294025645690e1330bf72c20c25bfde91fb16bf146c79a4c47a0a294104d"
+  },
+  "BNB": {
+    "bounds": {
+      "START": "2017-11-06 03:45:00+00:00",
+      "DEV_END": "2022-12-29 20:42:00+00:00",
+      "VAL_END": "2024-04-12 18:56:15+00:00",
+      "OOS_END": "2025-07-26 17:10:30+00:00",
+      "END": "2026-06-05 00:00:00+00:00"
+    },
+    "path": "/home/xaume/SQX_ENGINE/data/crypto_v2/BNB_M15.parquet",
+    "sha256": "fddcdeb90b3b6fc812fa0e94396030e55b2d261243646a3b55c9f18ec29581a9"
+  },
+  "BTC": {
+    "bounds": {
+      "START": "2017-08-17 04:00:00+00:00",
+      "DEV_END": "2022-11-07 10:36:00+00:00",
+      "VAL_END": "2024-02-27 12:15:00+00:00",
+      "OOS_END": "2025-06-18 13:54:00+00:00",
+      "END": "2026-05-02 15:00:00+00:00"
+    },
+    "path": "/home/xaume/SQX_ENGINE/data/crypto_v2/BTC_M15.parquet",
+    "sha256": "721c9a8d86f44c9a594e9b2660bd809ac0a57c8ff26c35965e77a6f20e3f030c"
+  },
+  "DOGE": {
+    "bounds": {
+      "START": "2019-07-05 12:00:00+00:00",
+      "DEV_END": "2023-08-29 09:36:00+00:00",
+      "VAL_END": "2024-09-11 09:00:00+00:00",
+      "OOS_END": "2025-09-25 08:24:00+00:00",
+      "END": "2026-06-05 00:00:00+00:00"
+    },
+    "path": "/home/xaume/SQX_ENGINE/data/crypto_v2/DOGE_M15.parquet",
+    "sha256": "5c896ea3a064b3d07be3dee544efdfc48f8a1dc110f63024035c44714f308735"
+  },
+  "ETH": {
+    "bounds": {
+      "START": "2017-08-17 04:00:00+00:00",
+      "DEV_END": "2022-11-27 11:12:00+00:00",
+      "VAL_END": "2024-03-23 13:00:00+00:00",
+      "OOS_END": "2025-07-18 14:48:00+00:00",
+      "END": "2026-06-05 00:00:00+00:00"
+    },
+    "path": "/home/xaume/SQX_ENGINE/data/crypto_v2/ETH_M15.parquet",
+    "sha256": "51eabea2e0f4658b45d499b2610c1cd2594214d77324e3fd4d6bd7880c43a7c9"
+  },
+  "LINK": {
+    "bounds": {
+      "START": "2019-01-16 10:00:00+00:00",
+      "DEV_END": "2023-06-22 07:18:00+00:00",
+      "VAL_END": "2024-07-30 18:37:30+00:00",
+      "OOS_END": "2025-09-08 05:57:00+00:00",
+      "END": "2026-06-04 21:30:00+00:00"
+    },
+    "path": "/home/xaume/SQX_ENGINE/data/crypto_v2/LINK_M15.parquet",
+    "sha256": "53e44c46e712daac5776b439ebdc528250627961d91399b05fd0b4dd1a890067"
+  },
+  "SOL": {
+    "bounds": {
+      "START": "2020-08-11 06:00:00+00:00",
+      "DEV_END": "2024-02-06 10:30:00+00:00",
+      "VAL_END": "2024-12-20 23:37:30+00:00",
+      "OOS_END": "2025-11-04 12:45:00+00:00",
+      "END": "2026-06-04 21:30:00+00:00"
+    },
+    "path": "/home/xaume/SQX_ENGINE/data/crypto_v2/SOL_M15.parquet",
+    "sha256": "c033527a21220af193a132d7bb399fbd2ac6a513f90234945eab6ff506995554"
+  },
+  "TRX": {
+    "bounds": {
+      "START": "2018-06-11 11:30:00+00:00",
+      "DEV_END": "2023-03-26 19:00:00+00:00",
+      "VAL_END": "2024-06-06 02:52:30+00:00",
+      "OOS_END": "2025-08-17 10:45:00+00:00",
+      "END": "2026-06-05 00:00:00+00:00"
+    },
+    "path": "/home/xaume/SQX_ENGINE/data/crypto_v2/TRX_M15.parquet",
+    "sha256": "b0bccdcebee61c21675eaeff66bbdc7518a16973f3e071201aa163579b877076"
+  }
+}

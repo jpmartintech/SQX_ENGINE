@@ -1,0 +1,29 @@
+{
+  "git_commit": "5725c4d8ec25085e958d6d7680e339f444413124",
+  "grammar": "v1.7 PRICE_ONLY",
+  "fitness": {
+    "version": "v2.0",
+    "formula": "median_window_expectancy + 0.25*positive_window_ratio + 0.001*min(total_dev_trades,500) - 0.25*max(0,-worst_window_expectancy)",
+    "gates": {
+      "min_dev_trades": 20,
+      "min_active_windows": 4,
+      "positive_window_ratio": 0.5,
+      "median_expectancy": 0.0,
+      "worst_window_expectancy": -1.0
+    },
+    "protected_segments": "not accessed"
+  },
+  "data_hashes": {
+    "ADA": "eaaf8658ddaccf0c5aec03b0468b9349bd461a46f1a90873829e966e200f191d",
+    "AVAX": "69c6294025645690e1330bf72c20c25bfde91fb16bf146c79a4c47a0a294104d",
+    "BNB": "fddcdeb90b3b6fc812fa0e94396030e55b2d261243646a3b55c9f18ec29581a9",
+    "BTC": "721c9a8d86f44c9a594e9b2660bd809ac0a57c8ff26c35965e77a6f20e3f030c",
+    "DOGE": "5c896ea3a064b3d07be3dee544efdfc48f8a1dc110f63024035c44714f308735",
+    "ETH": "51eabea2e0f4658b45d499b2610c1cd2594214d77324e3fd4d6bd7880c43a7c9",
+    "LINK": "53e44c46e712daac5776b439ebdc528250627961d91399b05fd0b4dd1a890067",
+    "SOL": "c033527a21220af193a132d7bb399fbd2ac6a513f90234945eab6ff506995554",
+    "TRX": "b0bccdcebee61c21675eaeff66bbdc7518a16973f3e071201aa163579b877076"
+  },
+  "dev_rows": 90000,
+  "eligible": 10936
+}

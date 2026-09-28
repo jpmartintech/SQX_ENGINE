@@ -1,0 +1,7 @@
+{
+  "activated": true,
+  "method": "TOP_VAL_EXPECTANCY_EQUAL_RISK",
+  "search_evaluations": 0,
+  "reason": "Only deterministic frozen baseline was used before OOS; no optimizer was run.",
+  "oos_gate": "failed"
+}

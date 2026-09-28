@@ -1,0 +1,12 @@
+{
+  "version": "v2.0",
+  "formula": "median_window_expectancy + 0.25*positive_window_ratio + 0.001*min(total_dev_trades,500) - 0.25*max(0,-worst_window_expectancy)",
+  "gates": {
+    "min_dev_trades": 20,
+    "min_active_windows": 4,
+    "positive_window_ratio": 0.5,
+    "median_expectancy": 0.0,
+    "worst_window_expectancy": -1.0
+  },
+  "protected_segments": "not accessed"
+}

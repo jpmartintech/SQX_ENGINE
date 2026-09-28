@@ -1,0 +1,59 @@
+{
+  "budget": 1000,
+  "cells": [
+    {
+      "asset": "ADA",
+      "evaluated": 1000,
+      "median_fitness": 0.21167391480969072,
+      "median_pf": 0.9307313243868989
+    },
+    {
+      "asset": "AVAX",
+      "evaluated": 1000,
+      "median_fitness": 0.49463251652385665,
+      "median_pf": 0.9811982657351397
+    },
+    {
+      "asset": "BNB",
+      "evaluated": 1000,
+      "median_fitness": 0.57051186192474,
+      "median_pf": 1.008358250327555
+    },
+    {
+      "asset": "BTC",
+      "evaluated": 1000,
+      "median_fitness": 0.43868572612020873,
+      "median_pf": 0.9459510408102092
+    },
+    {
+      "asset": "DOGE",
+      "evaluated": 1000,
+      "median_fitness": 0.48124945408768055,
+      "median_pf": 0.9913271288896479
+    },
+    {
+      "asset": "ETH",
+      "evaluated": 1000,
+      "median_fitness": 0.3964551838859294,
+      "median_pf": 0.9621882716945054
+    },
+    {
+      "asset": "LINK",
+      "evaluated": 1000,
+      "median_fitness": 0.5626714300624134,
+      "median_pf": 0.9948901754243584
+    },
+    {
+      "asset": "SOL",
+      "evaluated": 1000,
+      "median_fitness": 0.5514730457853322,
+      "median_pf": 0.9897773621023441
+    },
+    {
+      "asset": "TRX",
+      "evaluated": 1000,
+      "median_fitness": 0.2900066597762509,
+      "median_pf": 0.8719992081408326
+    }
+  ]
+}

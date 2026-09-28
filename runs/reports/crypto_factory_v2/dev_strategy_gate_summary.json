@@ -1,0 +1,16 @@
+{
+  "generated": 90000,
+  "unique": 51786,
+  "eligible": 10936,
+  "by_asset": {
+    "ADA": 24,
+    "AVAX": 1011,
+    "BNB": 2500,
+    "BTC": 405,
+    "DOGE": 2031,
+    "ETH": 176,
+    "LINK": 3101,
+    "SOL": 1457,
+    "TRX": 231
+  }
+}
