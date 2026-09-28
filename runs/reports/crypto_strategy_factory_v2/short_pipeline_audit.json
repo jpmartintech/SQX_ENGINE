@@ -1,0 +1,8 @@
+{
+  "source_universe": 4575,
+  "hard_valid": 2607,
+  "dev_valid": 1615,
+  "val_valid": 265,
+  "admitted": 186,
+  "finding": "economic attrition in frozen candidate records; no asymmetry fix applied"
+}

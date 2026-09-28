@@ -1,0 +1,5 @@
+rule,threshold,selected,oos_positive_rate,research_only
+positive_window_fraction,0.4,368,0.22010869565217392,True
+positive_window_fraction,0.5,368,0.22010869565217392,True
+positive_window_fraction,0.6,262,0.2366412213740458,True
+positive_window_fraction,0.7,93,0.26881720430107525,True

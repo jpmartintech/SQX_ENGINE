@@ -1,0 +1,15 @@
+{
+  "experiment": "crypto_strategy_factory_v2",
+  "starting_commit": "bf2c9c1",
+  "economic_contract": "/home/xaume/SQX_ENGINE/runs/reports/crypto_economic_strategy_contract_v1/STRATEGY_ECONOMIC_CONTRACT.md",
+  "candidate_universe": 7017,
+  "old_library_v2": 374,
+  "grammar": "v1.7 PRICE_ONLY",
+  "segments": {
+    "manufacturing": "DEV only",
+    "admission": "DEV+VAL",
+    "OOS": "burned research label only",
+    "LOCKBOX": "untouched"
+  },
+  "lockbox_access": 0
+}

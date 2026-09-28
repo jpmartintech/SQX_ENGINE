@@ -1,0 +1,61 @@
+{
+  "method": "descriptive DEV/VAL-only feature effects; OOS label used after feature construction",
+  "top_features": [
+    {
+      "feature": "dev_pf",
+      "survivor_median": 1.1479888527737097,
+      "failure_median": 1.076734585327673,
+      "median_difference": 0.07125426744603658,
+      "standardized_effect": 0.5133221109882727
+    },
+    {
+      "feature": "val_maxdd",
+      "survivor_median": -0.07919967125741255,
+      "failure_median": -0.1493999588614831,
+      "median_difference": 0.07020028760407056,
+      "standardized_effect": 0.45313366389232196
+    },
+    {
+      "feature": "dev_maxdd",
+      "survivor_median": -0.2008617810746125,
+      "failure_median": -0.2896326268150215,
+      "median_difference": 0.088770845740409,
+      "standardized_effect": 0.4434634345840162
+    },
+    {
+      "feature": "dev_economic_expectancy",
+      "survivor_median": 0.0008914049539272501,
+      "failure_median": 0.00049915495394515,
+      "median_difference": 0.00039224999998210006,
+      "standardized_effect": 0.4391668480962397
+    },
+    {
+      "feature": "val_economic_expectancy",
+      "survivor_median": 0.0008819921334197499,
+      "failure_median": 0.00054839665466845,
+      "median_difference": 0.0003335954787512999,
+      "standardized_effect": 0.27974395043976563
+    },
+    {
+      "feature": "val_minimum_equity",
+      "survivor_median": 0.960274716079084,
+      "failure_median": 0.9360263162865226,
+      "median_difference": 0.024248399792561437,
+      "standardized_effect": 0.2096364421744518
+    },
+    {
+      "feature": "val_pf",
+      "survivor_median": 1.1634503955273496,
+      "failure_median": 1.0961569881425812,
+      "median_difference": 0.06729340738476841,
+      "standardized_effect": 0.19845412671843526
+    },
+    {
+      "feature": "dev_trades",
+      "survivor_median": 188.5,
+      "failure_median": 336.0,
+      "median_difference": -147.5,
+      "standardized_effect": -0.17632934099936848
+    }
+  ]
+}
