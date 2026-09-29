@@ -205,11 +205,11 @@ def candidate_score(z, window_rows):
 
 def manufacture():
     """Bounded exact smoke/manufacturing run; budgets are explicit in output."""
-    random_budget = int(os.getenv("SQX_V2_RANDOM_BUDGET", "100")); genetic_budget = int(os.getenv("SQX_V2_GENETIC_BUDGET", "300"))
+    random_budget = int(os.getenv("SQX_V2_RANDOM_BUDGET", "20")); genetic_budget = int(os.getenv("SQX_V2_GENETIC_BUDGET", "40"))
     rows=[]; started=time.time()
     for ai, asset in enumerate(ASSETS):
         d, f = prepare_period(asset, "DEV"); bars={asset:d[["timestamp","close"]].copy()}; ev=FastEvaluator(d,f,initial_capital=1.,spread=.0009,engine="numba")
-        cuts=np.linspace(0, len(d), 7, dtype=int); windows=[(int(cuts[i]), int(cuts[i+1])) for i in range(6)]
+        cuts=np.linspace(0, len(d), 5, dtype=int); windows=[(int(cuts[i]), int(cuts[i+1])) for i in range(4)]
         rg=CryptoRandomGenerator(asset,"M15",seed=9100+ai,min_predicates=1,max_predicates=2,grammar_version="v1.7",information_variant="PRICE")
         gg=CryptoGeneticGenerator(asset,"M15",seed=8100+ai,min_predicates=1,max_predicates=2,grammar_version="v1.7",information_variant="PRICE",population_size=40,mode="scale")
         seen=set()
