@@ -1,0 +1,4 @@
+stage,requested_random,requested_genetic,evaluated,status,projected_hours
+manufacturing,50000.0,200000.0,0.0,BLOCKED_ON_COMPUTE,144.0
+VAL,,,,NOT_REACHED,
+OOS,,,,NOT_ACCESSED,

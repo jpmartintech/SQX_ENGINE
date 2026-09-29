@@ -1,0 +1,7 @@
+{
+  "status": "NOT_REACHED_BLOCKED_ON_COMPUTE",
+  "manufacturing_evaluations": 0,
+  "val_accessed": false,
+  "oos_accessed": false,
+  "lockbox_access": 0
+}
