@@ -1,0 +1,10 @@
+{
+  "random_requested_per_asset": 2,
+  "genetic_requested_per_asset": 4,
+  "random_evaluations": 18,
+  "genetic_evaluations": 36,
+  "unique": 54,
+  "economic_evaluator": "bounded exact replay",
+  "segments": "DEV only",
+  "elapsed_seconds": 145.36101746559143
+}

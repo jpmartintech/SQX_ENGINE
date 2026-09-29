@@ -1,0 +1,11 @@
+{
+  "status": "PRE_VAL_FACTORY_FREEZE",
+  "commit": "6be0f2cd938483e0aa824619d1001250a9aa8c48",
+  "grammar": "v1.7 PRICE_ONLY",
+  "economic_contract_hash": "de9a5d69dc6f7b8a749c922a518c686a52577ff4d906fc68874c70911fdc7c66",
+  "fitness_hash": "886e5879fe88cc6fd1b3073aaa5e71ecf38859353e95ae1d455dc1abf1056bce",
+  "manufactured_hash": "39cba8546b606c9ddbbc6a91621bf581e64a95a7c606896d49d9226752c5e1c7",
+  "val_accessed": false,
+  "oos_accessed": false,
+  "lockbox_access": 0
+}
