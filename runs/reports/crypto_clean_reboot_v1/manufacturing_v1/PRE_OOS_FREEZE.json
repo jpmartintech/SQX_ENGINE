@@ -1,9 +1,10 @@
 {
-  "status": "PENDING_COMMIT",
+  "status": "FROZEN",
   "library_count": 7634,
   "library_hash": "f1d6b9c6ce2c0b6f739741cb5bf04c81186d140630a15a4a53560045eac151e0",
   "val_accessed_after_pre_val_freeze": true,
   "oos_accessed": false,
   "lockbox_access": 0,
-  "code_commit": "1bf4bb1162d8983098b590c7c1379b43fd32cd7e"
+  "code_commit": "099e647",
+  "freeze_commit": "PENDING_THIS_COMMIT"
 }
