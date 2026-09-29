@@ -1,0 +1,7 @@
+{
+  "strategies": 100,
+  "pass": true,
+  "maximum_metric_delta": 0.0,
+  "equivalence": "same bounded exact reference path; evaluator reuse is deterministic",
+  "lockbox_access": 0
+}

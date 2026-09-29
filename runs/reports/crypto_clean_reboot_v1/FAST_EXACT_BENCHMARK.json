@@ -1,0 +1,9 @@
+{
+  "reference_seconds": 214.89063453674316,
+  "fast_seconds": 207.37883234024048,
+  "reference_per_second": 0.4653529932357357,
+  "fast_per_second": 0.48220929239264343,
+  "speedup": 1.0362226082176906,
+  "projected_250k_seconds": 518447.0808506012,
+  "projected_250k_hours": 144.01307801405588
+}

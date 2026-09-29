@@ -1,0 +1,8 @@
+{
+  "source": "runs/reports/crypto_economic_strategy_contract_v1/STRATEGY_ECONOMIC_CONTRACT.md",
+  "risk_fraction": 0.01,
+  "maximum_standalone_heat": 0.01,
+  "compounding": "current equity fixed fractional",
+  "funding": "FUNDING_NOT_MODELED",
+  "lockbox_access": 0
+}
