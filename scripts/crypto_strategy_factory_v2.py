@@ -58,8 +58,9 @@ def strategy_complexity(s):
     except Exception:
         return {"predicate_count": np.nan, "entry_count": np.nan, "exit_count": np.nan, "json_length": np.nan, "has_stop": np.nan, "has_target": np.nan}
 
-def extract_window_events(d, definition, features, start, end):
-    result = FastEvaluator(d, features, initial_capital=1.0, spread=.0009, engine="numba").evaluate(definition, start=start, end=end, rich=True)
+def extract_window_events(d, definition, features, start, end, evaluator=None):
+    evaluator = evaluator or FastEvaluator(d, features, initial_capital=1.0, spread=.0009, engine="numba")
+    result = evaluator.evaluate(definition, start=start, end=end, rich=True)
     out = []
     for tr in result.trades:
         et, xt = pd.Timestamp(tr["entry_time"]), pd.Timestamp(tr["exit_time"])
@@ -216,9 +217,9 @@ def manufacture():
         def one(s, kind):
             if s.canonical_hash in seen: return None
             seen.add(s.canonical_hash); full=ev.evaluate(s,start=0,end=len(d),rich=True)
-            events=extract_window_events(d,s,f,0,len(d)); z=bounded_replay(events,bars); wr=[]
+            events=extract_window_events(d,s,f,0,len(d),ev); z=bounded_replay(events,bars); wr=[]
             for st,en in windows:
-                we=extract_window_events(d,s,f,st,en); wr.append(bounded_replay(we,bars))
+                we=extract_window_events(d,s,f,st,en,ev); wr.append(bounded_replay(we,bars))
             return {"asset":asset,"timeframe":"M15","kind":kind,"strategy_id":s.readable_id,"hash":s.canonical_hash,"strategy":s.to_json(),"direction":s.direction,"trades":z["trades"],"pf":z["pf"],"economic_expectancy":z["economic_expectancy"],"return":z["return"],"maxdd":z["maxdd"],"minimum_equity":z["minimum_equity"],"ruin":z["ruin"],"positive_window_fraction":float(np.mean([x["economic_expectancy"]>0 for x in wr])),"active_windows":int(sum(x["trades"]>=3 for x in wr)),"best_window_share":float(max([max(x["realized_pnl"],0) for x in wr],default=0)/max(sum(max(x["realized_pnl"],0) for x in wr),1e-12)),"fitness":candidate_score(z,wr)}
         for i in range(random_budget):
             x=one(rg.ask(),"RANDOM");
@@ -246,7 +247,7 @@ def val_and_oos():
     for asset,g in r.groupby("asset"):
         d,f=prepare_period(asset,"VAL"); ev=FastEvaluator(d,f,initial_capital=1.,spread=.0009,engine="numba")
         for rec in g.to_dict("records"):
-            x=ev.evaluate(StrategyDefinition.from_json(rec["strategy"]),start=0,end=len(d),rich=True); events=extract_window_events(d,StrategyDefinition.from_json(rec["strategy"]),f,0,len(d)); z=bounded_replay(events,{asset:d[["timestamp","close"]].copy()})
+            definition=StrategyDefinition.from_json(rec["strategy"]); events=extract_window_events(d,definition,f,0,len(d),ev); z=bounded_replay(events,{asset:d[["timestamp","close"]].copy()})
             vals.append({**rec,"val_trades":z["trades"],"val_pf":z["pf"],"val_expectancy":z["economic_expectancy"],"val_return":z["return"],"val_ruin":z["ruin"]})
     v=pd.DataFrame(vals); v.to_parquet(OUT/"library_v3_manufactured_val.parquet",index=False)
     good=v[(v.trades>=20)&(v.val_trades>=10)&(v.economic_expectancy>0)&(v.val_expectancy>0)&(v.val_pf>1)&(~v.ruin)&(~v.val_ruin)&(v.positive_window_fraction>=.5)&(v.active_windows>=4)].copy()
