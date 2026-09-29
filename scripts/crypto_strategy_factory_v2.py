@@ -20,6 +20,7 @@ sys.path[:0] = [str(ROOT), str(ROOT / "scripts")]
 from crypto_economic_strategy_contract_v1 import prepare_period, bounded_replay, RISK_FRACTION
 from sqx_engine.backtest.fast import FastEvaluator
 from sqx_engine.strategy import StrategyDefinition
+from sqx_engine.crypto.generator import CryptoRandomGenerator, CryptoGeneticGenerator
 
 ASSETS = ("ADA", "AVAX", "BNB", "BTC", "DOGE", "ETH", "LINK", "SOL", "TRX")
 
@@ -189,9 +190,76 @@ def write_specs():
     (OUT/"STRATEGY_FACTORY_V2_SPEC.md").write_text("# Strategy Factory V2\n\nFactory V2 retains the v1.7 PRICE_ONLY grammar and frozen bounded economic contract. Manufacturing uses DEV-only causal internal windows; VAL is a single post-manufacturing admission gate. OOS is never used in fitness or admission.\n\nThe factory objective is temporal persistence: positive exact economics across multiple DEV windows, adequate support, limited profit concentration, and a live late-DEV/VAL edge.\n")
     (OUT/"PERSISTENCE_FITNESS_SPEC.md").write_text("# Persistence fitness\n\nFrozen before manufacturing: invalid/ruined candidates are rejected; among valid DEV candidates prefer positive economic expectancy, at least four active windows, positive-window fraction, median/worst-window expectancy, trade support, low best-window concentration, and a live late-DEV edge. No VAL or OOS statistic enters manufacturing fitness.\n")
 
+def candidate_score(z, window_rows):
+    ex = np.array([r["economic_expectancy"] for r in window_rows], float)
+    active = np.array([r["trades"] >= 3 for r in window_rows])
+    exa = ex[active] if active.any() else np.array([-1.0])
+    positive = float(np.mean(exa > 0))
+    pnl = np.maximum(np.array([r["realized_pnl"] for r in window_rows], float), 0)
+    concentration = float(pnl.max() / pnl.sum()) if pnl.sum() > 0 else 1.0
+    # Small transparent DEV-only score.  Invalidity is hard, persistence is
+    # rewarded, and extreme aggregate PF is deliberately absent.
+    if z["ruin"] or z["trades"] < 20 or z["economic_expectancy"] <= 0:
+        return -1e9
+    return float(z["economic_expectancy"] + .002 * positive + .0001 * min(z["trades"], 500) - .002 * concentration + .001 * max(0, exa[-1]))
+
+def manufacture():
+    """Bounded exact smoke/manufacturing run; budgets are explicit in output."""
+    random_budget = int(os.getenv("SQX_V2_RANDOM_BUDGET", "100")); genetic_budget = int(os.getenv("SQX_V2_GENETIC_BUDGET", "300"))
+    rows=[]; started=time.time()
+    for ai, asset in enumerate(ASSETS):
+        d, f = prepare_period(asset, "DEV"); bars={asset:d[["timestamp","close"]].copy()}; ev=FastEvaluator(d,f,initial_capital=1.,spread=.0009,engine="numba")
+        cuts=np.linspace(0, len(d), 7, dtype=int); windows=[(int(cuts[i]), int(cuts[i+1])) for i in range(6)]
+        rg=CryptoRandomGenerator(asset,"M15",seed=9100+ai,min_predicates=1,max_predicates=2,grammar_version="v1.7",information_variant="PRICE")
+        gg=CryptoGeneticGenerator(asset,"M15",seed=8100+ai,min_predicates=1,max_predicates=2,grammar_version="v1.7",information_variant="PRICE",population_size=40,mode="scale")
+        seen=set()
+        def one(s, kind):
+            if s.canonical_hash in seen: return None
+            seen.add(s.canonical_hash); full=ev.evaluate(s,start=0,end=len(d),rich=True)
+            events=extract_window_events(d,s,f,0,len(d)); z=bounded_replay(events,bars); wr=[]
+            for st,en in windows:
+                we=extract_window_events(d,s,f,st,en); wr.append(bounded_replay(we,bars))
+            return {"asset":asset,"timeframe":"M15","kind":kind,"strategy_id":s.readable_id,"hash":s.canonical_hash,"strategy":s.to_json(),"direction":s.direction,"trades":z["trades"],"pf":z["pf"],"economic_expectancy":z["economic_expectancy"],"return":z["return"],"maxdd":z["maxdd"],"minimum_equity":z["minimum_equity"],"ruin":z["ruin"],"positive_window_fraction":float(np.mean([x["economic_expectancy"]>0 for x in wr])),"active_windows":int(sum(x["trades"]>=3 for x in wr)),"best_window_share":float(max([max(x["realized_pnl"],0) for x in wr],default=0)/max(sum(max(x["realized_pnl"],0) for x in wr),1e-12)),"fitness":candidate_score(z,wr)}
+        for i in range(random_budget):
+            x=one(rg.ask(),"RANDOM");
+            if x: rows.append(x)
+        for i in range(genetic_budget):
+            s=gg.ask(known_hashes=seen); x=one(s,"GENETIC")
+            if x: rows.append(x)
+            if x:
+                class R: pass
+                rr=R(); rr.expectancy_r=x["economic_expectancy"]; rr.sharpe=0.; rr.max_drawdown=-x["maxdd"]; gg.tell(s,rr)
+        print(f"manufactured {asset}: {len([x for x in rows if x['asset']==asset])}",flush=True)
+    r=pd.DataFrame(rows); r.to_parquet(OUT/"factory_v2_random_results.parquet",index=False); r.to_parquet(OUT/"factory_v2_genetic_results.parquet",index=False)
+    r.to_csv(OUT/"random_vs_genetic.csv",index=False)
+    dump("manufacturing_summary.json",{"random_requested_per_asset":random_budget,"genetic_requested_per_asset":genetic_budget,"random_evaluations":int((r.kind=="RANDOM").sum()),"genetic_evaluations":int((r.kind=="GENETIC").sum()),"unique":int(r.hash.nunique()),"economic_evaluator":"bounded exact replay","segments":"DEV only","elapsed_seconds":time.time()-started})
+    # This is the mandatory freeze before any VAL access.
+    freeze={"status":"PRE_VAL_FACTORY_FREEZE","commit":git_commit(),"grammar":"v1.7 PRICE_ONLY","economic_contract_hash":sha(BASE/"STRATEGY_ECONOMIC_CONTRACT.md"),"fitness_hash":sha(OUT/"PERSISTENCE_FITNESS_SPEC.md"),"manufactured_hash":sha(OUT/"random_vs_genetic.csv"),"val_accessed":False,"oos_accessed":False,"lockbox_access":0}
+    (OUT/"PRE_VAL_FACTORY_FREEZE.json").write_text(json.dumps(freeze,indent=2)+"\n")
+    return r
+
+def val_and_oos():
+    freeze=json.loads((OUT/"PRE_VAL_FACTORY_FREEZE.json").read_text())
+    if freeze.get("status")!="PRE_VAL_FACTORY_FREEZE": raise RuntimeError("VAL requires frozen Factory V2")
+    r=pd.read_csv(OUT/"random_vs_genetic.csv") if (OUT/"random_vs_genetic.csv").exists() else pd.read_parquet(OUT/"factory_v2_random_results.parquet")
+    vals=[]
+    for asset,g in r.groupby("asset"):
+        d,f=prepare_period(asset,"VAL"); ev=FastEvaluator(d,f,initial_capital=1.,spread=.0009,engine="numba")
+        for rec in g.to_dict("records"):
+            x=ev.evaluate(StrategyDefinition.from_json(rec["strategy"]),start=0,end=len(d),rich=True); events=extract_window_events(d,StrategyDefinition.from_json(rec["strategy"]),f,0,len(d)); z=bounded_replay(events,{asset:d[["timestamp","close"]].copy()})
+            vals.append({**rec,"val_trades":z["trades"],"val_pf":z["pf"],"val_expectancy":z["economic_expectancy"],"val_return":z["return"],"val_ruin":z["ruin"]})
+    v=pd.DataFrame(vals); v.to_parquet(OUT/"library_v3_manufactured_val.parquet",index=False)
+    good=v[(v.trades>=20)&(v.val_trades>=10)&(v.economic_expectancy>0)&(v.val_expectancy>0)&(v.val_pf>1)&(~v.ruin)&(~v.val_ruin)&(v.positive_window_fraction>=.5)&(v.active_windows>=4)].copy()
+    good=good.drop_duplicates("hash").sort_values(["fitness","hash"],ascending=[False,True]); good.to_csv(OUT/"library_v3_candidate.csv",index=False); good.to_csv(OUT/"library_v3_admission_reasons.csv",index=False)
+    dump("library_v3_summary.json",{"manufactured":len(v),"val_evaluated":len(v),"admitted":len(good),"oos_used_for_admission":False,"lockbox_access":0})
+    return good
+
 def main():
-    ap=argparse.ArgumentParser(); ap.add_argument("--phase",choices=["diagnostics","spec"],default="diagnostics"); args=ap.parse_args()
+    ap=argparse.ArgumentParser(); ap.add_argument("--phase",choices=["diagnostics","spec","manufacture","val"],default="diagnostics"); args=ap.parse_args()
     if args.phase=="spec": write_specs(); print("spec written"); return
-    write_specs(); diagnostics(); print(json.dumps({"status":"diagnostics_complete","lockbox_access":0}))
+    write_specs()
+    if args.phase=="diagnostics": diagnostics(); print(json.dumps({"status":"diagnostics_complete","lockbox_access":0}))
+    elif args.phase=="manufacture": manufacture(); print(json.dumps({"status":"pre_val_frozen","lockbox_access":0}))
+    else: val_and_oos(); print(json.dumps({"status":"val_complete","lockbox_access":0}))
 
 if __name__=="__main__": main()
