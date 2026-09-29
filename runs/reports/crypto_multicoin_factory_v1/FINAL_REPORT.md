@@ -1,7 +1,7 @@
 # SQX MULTI-COIN STRATEGY FACTORY V1 — FINAL STATUS
 
 Starting commit: `a1a4da7`
-Current assembly commit: `0d6312af86950d69f23bc5879524cdd0362d213d`
+Current assembly commit: `640d176dada32b1d1814542ae4a068e091764f93`
 
 ## Decision
 Raw material: **MULTI_COIN_RAW_MATERIAL_STRONG**

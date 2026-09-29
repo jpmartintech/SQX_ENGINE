@@ -1,7 +1,7 @@
 {
   "experiment": "crypto_multicoin_factory_v1",
   "starting_commit": "a1a4da7",
-  "finalization_commit": "0d6312af86950d69f23bc5879524cdd0362d213d",
+  "finalization_commit": "640d176dada32b1d1814542ae4a068e091764f93",
   "assets": [
     "ADA",
     "AVAX",

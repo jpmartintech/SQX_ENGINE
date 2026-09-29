@@ -2,7 +2,7 @@
 
 REPOSITORY: `/home/xaume/SQX_ENGINE`  
 CURRENT BRANCH: `main`  
-CURRENT COMMIT: update from `git rev-parse HEAD`  
+CURRENT COMMIT: `640d176dada32b1d1814542ae4a068e091764f93`  
 PRODUCT OBJECTIVE: maximum real compounded capital growth from multiple bounded PnL engines.  
 CURRENT PHASE: ready for Multi-Coin Portfolio Factory.  
 LATEST DECISION: `MULTI_COIN_RAW_MATERIAL_STRONG`.
