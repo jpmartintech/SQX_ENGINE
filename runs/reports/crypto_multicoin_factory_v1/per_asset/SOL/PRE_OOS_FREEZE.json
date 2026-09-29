@@ -1,0 +1,9 @@
+{
+  "status": "FROZEN",
+  "asset": "SOL",
+  "library": 23847,
+  "library_sha256": "4ceeacdf4ec3ad2d0b42bf9cb55b971851b40e6d72cf261b5aeedd6834116d44",
+  "val_accessed_after_pre_val": true,
+  "oos_accessed": false,
+  "lockbox_access": 0
+}

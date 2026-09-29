@@ -1,0 +1,9 @@
+{
+  "status": "FROZEN",
+  "asset": "DOGE",
+  "library": 0,
+  "library_sha256": "a6c5916e45e7e3159d104bfb1b617fe61a47c8352282c8d44e87e4df965d4df3",
+  "val_accessed_after_pre_val": true,
+  "oos_accessed": false,
+  "lockbox_access": 0
+}

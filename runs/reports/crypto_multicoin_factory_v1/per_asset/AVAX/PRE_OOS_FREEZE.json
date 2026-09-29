@@ -1,0 +1,9 @@
+{
+  "status": "FROZEN",
+  "asset": "AVAX",
+  "library": 46424,
+  "library_sha256": "9df0cc084241cabeecf0233045bf3508b1c63982964ea5a77f00cbce99ebe670",
+  "val_accessed_after_pre_val": true,
+  "oos_accessed": false,
+  "lockbox_access": 0
+}

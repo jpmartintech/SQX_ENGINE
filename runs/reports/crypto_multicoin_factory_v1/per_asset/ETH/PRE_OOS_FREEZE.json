@@ -1,0 +1,9 @@
+{
+  "status": "FROZEN",
+  "asset": "ETH",
+  "library": 7837,
+  "library_sha256": "8bab4ce8033e9450966496ccab5e48b0f90859168a6540435152b0a61771110d",
+  "val_accessed_after_pre_val": true,
+  "oos_accessed": false,
+  "lockbox_access": 0
+}

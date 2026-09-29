@@ -1,0 +1,9 @@
+{
+  "status": "FROZEN",
+  "asset": "LINK",
+  "library": 6651,
+  "library_sha256": "0a82c6f391b226b614b5dfeccb3b96ee1714d35fb8209840e0e6d783c92e2733",
+  "val_accessed_after_pre_val": true,
+  "oos_accessed": false,
+  "lockbox_access": 0
+}

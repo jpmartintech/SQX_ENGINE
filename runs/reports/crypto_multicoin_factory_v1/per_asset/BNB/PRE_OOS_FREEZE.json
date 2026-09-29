@@ -1,0 +1,9 @@
+{
+  "status": "FROZEN",
+  "asset": "BNB",
+  "library": 10978,
+  "library_sha256": "205fca2da9adfae8e02bc8c9cade2852815802792d7cda3813b87297ee7f78c6",
+  "val_accessed_after_pre_val": true,
+  "oos_accessed": false,
+  "lockbox_access": 0
+}
