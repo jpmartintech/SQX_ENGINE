@@ -1,0 +1,11 @@
+{
+  "input_records": 7634,
+  "unique_hashes": 7350,
+  "duplicates_removed": 284,
+  "random_only": 799,
+  "genetic_only": 6267,
+  "cross_lineage_duplicates": 284,
+  "hash_unique": true,
+  "source_library_sha256": "f1d6b9c6ce2c0b6f739741cb5bf04c81186d140630a15a4a53560045eac151e0",
+  "protected_lockbox_access": 0
+}

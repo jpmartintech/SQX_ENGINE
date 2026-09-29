@@ -1,0 +1,3 @@
+# Portfolio economic contract v1
+
+A candidate is replayed chronologically from its frozen strategy trade events. One shared equity curve is used. Each strategy weight is non-negative and weights sum to one. Every entry receives current portfolio equity × 0.01 × strategy weight, so total intended open heat is bounded by 1% of current equity. Exits precede entries at equal timestamps; same-timestamp entries/exits are deterministic. Fees/slippage are already embedded in evaluator R; funding is not modeled. Floating PnL is marked on closed-bar daily marks plus all event timestamps. Equity <= 0 is ruin. Metrics are computed from the combined equity/trade stream, never averaged standalone metrics.

@@ -1,0 +1,10 @@
+{
+  "status": "FROZEN",
+  "commit": "8ba401873a68d3423a9761e43445c263da0515bc",
+  "library_records": 7634,
+  "unique_hashes": 7350,
+  "search_pool": 120,
+  "frontier": 44,
+  "oos_accessed": false,
+  "lockbox_access": 0
+}

@@ -1,0 +1,17 @@
+{
+  "experiment": "crypto_clean_reboot_portfolio_factory_v1",
+  "starting_commit": "2e1aabd",
+  "library_records": 7634,
+  "unique_hashes": 7350,
+  "search_pool": 120,
+  "random_unique": 50000,
+  "genetic_unique": 100000,
+  "greedy_evaluations": 27,
+  "periods_used_for_selection": [
+    "DEV",
+    "VAL"
+  ],
+  "oos_before_freeze": 0,
+  "lockbox_access": 0,
+  "risk": 0.01
+}

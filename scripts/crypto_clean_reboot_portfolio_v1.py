@@ -140,7 +140,10 @@ class ExactReplay:
         out=_portfolio_kernel(p,np.arange(nt,dtype=np.int64),entries,exits,rs,eps,xps,dirs,sids,weights,len(ids),entry_order,entry_offsets,exit_order,exit_offsets); self.cache[key]=out; return out
 
 def pool_select(lib):
-    x=lib.copy(); x['sig']=x.apply(signature,axis=1); x['growth_score']=np.log1p(np.maximum(x.return_dev,-.99))+np.log1p(np.maximum(x.return_val,-.99)); x['quality']=x.growth_score+10*x.economic_expectancy_dev+10*x.economic_expectancy_val+0.1*x.positive_window_fraction_dev
+    x=lib.copy(); x['sig']=x.apply(signature,axis=1)
+    bounded=x[(x.trades_dev<=1500)&(x.trades_val<=500)].copy()
+    if len(bounded)>=80: x=bounded
+    x['growth_score']=np.log1p(np.maximum(x.return_dev,-.99))+np.log1p(np.maximum(x.return_val,-.99)); x['quality']=x.growth_score+10*x.economic_expectancy_dev+10*x.economic_expectancy_val+0.1*x.positive_window_fraction_dev
     # Keep every direction and a broad set of pre-OOS behavioral signatures.
     parts=[]
     for (direction,sig),g in x.groupby(['direction','sig'],sort=True): parts.append(g.nlargest(3,'quality'))
@@ -184,10 +187,10 @@ def search():
         if (q+1)%5000==0: print('random',q+1,'rate', (q+1)/(time.time()-t0),flush=True)
     random_df=pd.DataFrame(rrows); random_df.to_parquet(OUT/'random_portfolios.parquet',index=False); dump('random_portfolio_summary.json',{'requested':len(rrows),'unique':int(random_df.portfolio_hash.nunique()),'valid':int(random_df.product_valid.sum()),'seconds':time.time()-t0,'protected_lockbox_access':0})
     # Greedy exact paths from several DEV+VAL-only starts.
-    grows=[]; starts=np.argsort(-pool.quality.to_numpy())[:4]; shortlist=np.argsort(-pool.quality.to_numpy())[:min(16,len(pool))]
+    grows=[]; starts=np.argsort(-pool.quality.to_numpy())[:3]; shortlist=np.argsort(-pool.quality.to_numpy())[:min(10,len(pool))]
     for seed in starts:
         ids=[int(seed)]
-        for step in range(1,min(16,len(pool))):
+        for step in range(1,min(10,len(pool))):
             best=None
             for j in shortlist:
                 j=int(j)

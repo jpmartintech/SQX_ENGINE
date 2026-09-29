@@ -1,0 +1,5 @@
+{
+  "status": "PENDING_OOS_DIAGNOSTIC",
+  "known_common_risk": "single BTC underlying and shared volatility regimes",
+  "protected_lockbox_access": 0
+}

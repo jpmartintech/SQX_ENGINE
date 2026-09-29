@@ -1,0 +1,11 @@
+{
+  "pool": 120,
+  "periods": [
+    "DEV",
+    "VAL"
+  ],
+  "risk": 0.01,
+  "engine": "numba chronological shared-equity replay",
+  "funding": "NOT_MODELED",
+  "protected_lockbox_access": 0
+}
