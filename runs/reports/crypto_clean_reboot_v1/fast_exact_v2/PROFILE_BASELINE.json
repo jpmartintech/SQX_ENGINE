@@ -1,0 +1,10 @@
+{
+  "cpu_count": 12,
+  "python": "3.12.3",
+  "dev_rows": 182635,
+  "measured_components": "FastEvaluator signal/trade generation plus reference bounded replay",
+  "reference_seconds_500": 237.47297763824463,
+  "reference_strategies_per_second": 2.1055027185521586,
+  "dominant_bottleneck": "signal/trade generation and timestamp/event object conversion",
+  "lockbox_access": 0
+}

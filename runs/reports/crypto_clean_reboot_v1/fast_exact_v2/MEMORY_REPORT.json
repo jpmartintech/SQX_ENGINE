@@ -1,0 +1,13 @@
+{
+  "status": "measured process RSS not instrumented in this harness",
+  "market_rows": 304759,
+  "worker_count_tested": [
+    1,
+    2,
+    4,
+    6,
+    8,
+    10,
+    12
+  ]
+}

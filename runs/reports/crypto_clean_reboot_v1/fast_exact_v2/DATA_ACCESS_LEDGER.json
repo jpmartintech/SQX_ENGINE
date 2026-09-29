@@ -1,0 +1,8 @@
+{
+  "experiment_id": "crypto_clean_reboot_v1_fast_exact_v2",
+  "DEV_accesses": "benchmark only",
+  "VAL_access_count": 0,
+  "OOS_access_count": 0,
+  "LOCKBOX_access_count": 0,
+  "manufacturing_started": false
+}

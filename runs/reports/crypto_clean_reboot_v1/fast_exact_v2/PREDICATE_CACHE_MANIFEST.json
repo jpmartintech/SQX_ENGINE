@@ -1,0 +1,5 @@
+{
+  "status": "not introduced; profiling showed strategy signal generation remains the measured bottleneck",
+  "dataset": "DEV only",
+  "lockbox_access": 0
+}

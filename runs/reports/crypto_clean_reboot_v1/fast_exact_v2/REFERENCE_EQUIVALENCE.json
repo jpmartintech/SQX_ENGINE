@@ -1,0 +1,15 @@
+{
+  "strategies": 500,
+  "pass": true,
+  "maximum_metric_delta": {
+    "trades": 0.0,
+    "return": 0.0,
+    "pf": 1.432187701766452e-14,
+    "economic_expectancy": 4.980553729855286e-18,
+    "maxdd": 0.0,
+    "minimum_equity": 0.0,
+    "ruin": 0
+  },
+  "entry_exit_source": "same FastEvaluator rich trade result; reference and fast economic kernels compared",
+  "lockbox_access": 0
+}

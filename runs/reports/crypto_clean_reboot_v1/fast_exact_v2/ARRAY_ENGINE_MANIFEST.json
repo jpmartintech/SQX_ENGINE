@@ -1,0 +1,5 @@
+{
+  "status": "numeric arrays used in exact economic kernel and timestamp lookup",
+  "pandas_hot_path": "reference only; fast event conversion uses contiguous arrays",
+  "lockbox_access": 0
+}
