@@ -1,0 +1,10 @@
+{
+  "per_asset_factory": "each asset uses elapsed-time 60/15/15/10 split of its own valid M15 interval",
+  "common_portfolio_intersection": {
+    "start": "2020-09-22 06:30:00+00:00",
+    "end": "2026-05-02 14:45:00+00:00",
+    "split": "same elapsed 60/15/15/10 applied to common intersection"
+  },
+  "lockbox_reserved": true,
+  "selection_uses_oos": false
+}

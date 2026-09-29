@@ -1,5 +1,12 @@
 # SQX_ENGINE
 
+## Current project state
+
+For the current crypto product status and safe continuation instructions, read
+[PROJECT_STATE.md](PROJECT_STATE.md), [FRESH_SESSION_HANDOFF.md](FRESH_SESSION_HANDOFF.md),
+and [NEXT_STEPS.md](NEXT_STEPS.md). The active multi-coin experiment artifacts
+are under `runs/reports/crypto_multicoin_factory_v1/`.
+
 Standalone practical strategy-generation engine. V1.4 supports EURUSD H1
 data, portable strategy definitions, causal array evaluation, Random and
 Genetic generation, a staged quality funnel, persistent storage and simple

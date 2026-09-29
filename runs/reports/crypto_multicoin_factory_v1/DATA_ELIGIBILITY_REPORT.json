@@ -1,0 +1,21 @@
+{
+  "long_history_eligible": [
+    "ADA",
+    "AVAX",
+    "BNB",
+    "BTC",
+    "DOGE",
+    "ETH",
+    "LINK",
+    "SOL",
+    "TRX"
+  ],
+  "partial_history_eligible": [],
+  "insufficient_history": [],
+  "data_quality_blocked": [],
+  "criteria": "M15 quality PASS and >=3 years elapsed history",
+  "common_intersection": {
+    "start": "2020-09-22 06:30:00+00:00",
+    "end": "2026-05-02 14:45:00+00:00"
+  }
+}
