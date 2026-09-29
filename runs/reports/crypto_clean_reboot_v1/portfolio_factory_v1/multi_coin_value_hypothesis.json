@@ -1,6 +1,6 @@
 {
   "classification": "MULTI_COIN_EXPANSION_POTENTIALLY_USEFUL",
-  "basis": "BTC-only diagnostic pending; additional underlyings could reduce common-regime exposure",
+  "basis": "BTC-only portfolios retain common-underlying drawdown dependence; multi-coin history is a plausible next diversification experiment, not yet tested",
   "tested": false,
-  "protected_lockbox_access": 0
+  "lockbox_access": 0
 }

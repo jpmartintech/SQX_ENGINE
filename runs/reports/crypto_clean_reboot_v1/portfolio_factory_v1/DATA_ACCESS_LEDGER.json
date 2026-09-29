@@ -1,7 +1,7 @@
 {
   "DEV_accesses": 1,
   "VAL_accesses": 1,
-  "OOS_accesses": 0,
+  "OOS_accesses": 1,
   "LOCKBOX_accesses": 0,
-  "oos_before_freeze": 0
+  "oos_after_portfolio_freeze": true
 }

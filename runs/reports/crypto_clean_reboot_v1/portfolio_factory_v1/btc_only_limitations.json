@@ -1,5 +1,8 @@
 {
-  "status": "PENDING_OOS_DIAGNOSTIC",
-  "known_common_risk": "single BTC underlying and shared volatility regimes",
-  "protected_lockbox_access": 0
+  "primary_shared_risk": "single BTC underlying / common volatility regimes",
+  "largest_diversification_limitation": "cross-strategy drawdown overlap remains common BTC exposure",
+  "frontier_oos_profitable": 28,
+  "frontier_count": 44,
+  "research_only": true,
+  "lockbox_access": 0
 }

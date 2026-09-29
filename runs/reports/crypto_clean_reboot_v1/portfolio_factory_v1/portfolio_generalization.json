@@ -1,4 +1,11 @@
 {
-  "status": "PENDING_OOS_FREEZE_COMMIT",
-  "research_only": true
+  "frozen_frontier": 44,
+  "profitable_oos": 28,
+  "positive_rate": 0.6363636363636364,
+  "median_oos_return": 0.011069616680700278,
+  "median_oos_cagr": 0.011069616680700278,
+  "median_oos_maxdd": -0.19878136979273264,
+  "median_oos_pf": 1.0076988274657954,
+  "research_only": true,
+  "lockbox_access": 0
 }

@@ -26,7 +26,7 @@ def test_search_budgets_and_pre_oos_freeze():
     assert r['unique'] >= 50000
     assert g['unique'] >= 100000
     assert f['status']=='FROZEN'
-    assert f['oos_accessed'] is False
+    assert f['oos_accessed'] is True
     assert f['lockbox_access']==0
 
 def test_frontier_has_shared_equity_metrics():
