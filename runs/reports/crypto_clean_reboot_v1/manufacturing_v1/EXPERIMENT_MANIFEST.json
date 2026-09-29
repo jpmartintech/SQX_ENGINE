@@ -1,0 +1,15 @@
+{
+  "experiment": "crypto_clean_reboot_v1_manufacturing_v1",
+  "starting_commit": "e2f6311",
+  "dataset_sha256": "f2ddfd9b85f4e7556474e1ef10f78eebd927a0f0e330785d48b4d08e5b69a20a",
+  "temporal_protocol": "60% DEV / 15% VAL / 15% OOS / 10% LOCKBOX elapsed time",
+  "grammar": "v1.7 PRICE_ONLY",
+  "random_target": 50000,
+  "genetic_target": 200000,
+  "random_unique": 50000,
+  "genetic_unique": 200000,
+  "economic_contract": "bounded 1% current-equity standalone heat",
+  "oos": "accessed once after PRE_OOS_FREEZE; burned research only",
+  "lockbox_access": 0,
+  "portfolio_factory": "not opened"
+}
