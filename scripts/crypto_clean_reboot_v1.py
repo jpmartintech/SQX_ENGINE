@@ -40,6 +40,29 @@ def _fast_nonoverlap(entry_idx, exit_idx, direction, rvals, entry_price, exit_pr
     pf=gross_win/gross_loss if gross_loss>0 else (1e30 if gross_win>0 else 0.)
     return cash-1., pf, pnl_sum/n if n else 0., r_sum/n if n else 0., min_eq, maxdd, n, intended, max_risk, overshoot
 
+@njit(cache=True)
+def _event_kernel(open_, high, low, close, atr, signal, start, end, direction, stop_atr, target_atr, time_exit, spread, slippage):
+    n=max(0,end-start); ei=np.full(n,-1,np.int64); xi=np.full(n,-1,np.int64); ds=np.zeros(n,np.int8); pn=np.zeros(n); rs=np.zeros(n); helds=np.zeros(n,np.int64); reasons=np.zeros(n,np.int8); count=0; pos=0; entry=-1; entry_price=0.; risk=0.
+    for i in range(start,max(start,end-1)):
+        if pos==0 and signal[i]:
+            candidate=i+1
+            if candidate>=end: break
+            entry=candidate; entry_price=open_[candidate]; risk=atr[i]*stop_atr
+            if not np.isfinite(risk) or risk<=0.: continue
+            pos=direction; continue
+        if pos==0: continue
+        held=i-entry+1; stop=entry_price-risk if pos==1 else entry_price+risk; target=entry_price+risk*target_atr/stop_atr if pos==1 else entry_price-risk*target_atr/stop_atr; reason=0; exit_price=0.
+        if pos==1 and low[i]<=stop: exit_price=stop; reason=1
+        elif pos==-1 and high[i]>=stop: exit_price=stop; reason=1
+        elif pos==1 and high[i]>=target: exit_price=target; reason=2
+        elif pos==-1 and low[i]<=target: exit_price=target; reason=2
+        elif held>=time_exit: exit_price=close[i]; reason=3
+        if reason:
+            gross=exit_price-entry_price if pos==1 else entry_price-exit_price; pnl=gross-(spread+slippage); slot=count; ei[slot]=entry; xi[slot]=i; ds[slot]=pos; pn[slot]=pnl; rs[slot]=pnl/max(risk,1e-12); helds[slot]=held; reasons[slot]=reason; count+=1; pos=0
+    if pos!=0 and entry<end:
+        gross=(close[end-1]-entry_price) if pos==1 else (entry_price-close[end-1]); pnl=gross-(spread+slippage); slot=count; ei[slot]=entry; xi[slot]=end-1; ds[slot]=pos; pn[slot]=pnl; rs[slot]=pnl/max(risk,1e-12); helds[slot]=end-entry; reasons[slot]=4; count+=1
+    return ei[:count],xi[:count],ds[:count],pn[:count],rs[:count],helds[:count],reasons[:count]
+
 def fast_bounded(events, bars):
     if not events: return {'final_equity':1.,'return':0.,'pf':0.,'expectancy_r':0.,'economic_expectancy':0.,'maxdd':0.,'minimum_equity':1.,'trades':0,'peak_concurrent':0,'peak_open_risk':0.,'intended_risk_sum':0.,'realized_pnl':0.,'overshoot_loss':0.,'skipped_entries':0,'resized_entries':0,'ruin':False,'ruin_timestamp':''}
     ev=sorted(events,key=lambda x:(x['entry_time'],x['exit_time']))
@@ -135,11 +158,14 @@ def overlap():
 def bounds(d):
     b=json.loads((OUT/'TEMPORAL_SPLIT.json').read_text()); return {k:pd.Timestamp(v) for k,v in b.items()}
 def event_extract(d,definition,features,ev,start,end):
-    res=ev.evaluate(definition,start=start,end=end,rich=True); out=[]
+    signal=ev._signal(definition); a=ev._arrays; atr=np.asarray(features['atr_14'],dtype=float); direction=1 if definition.direction=='LONG' else -1
+    eis,xis,dirs,pn,rs,helds,reasons=_event_kernel(a['open'],a['high'],a['low'],a['close'],atr,signal,int(start),int(end),direction,float(definition.stop_atr),float(definition.target_atr),int(definition.time_exit),float(ev.spread),float(ev.slippage)); out=[]
     ts=d.timestamp.astype('int64').to_numpy(); op=d.open.to_numpy(float); cl=d.close.to_numpy(float)
-    for tr in res.trades:
-        et,xt=pd.Timestamp(tr['entry_time']),pd.Timestamp(tr['exit_time']); ei=min(max(int(np.searchsorted(ts,et.value)),0),len(d)-1); xi=min(max(int(np.searchsorted(ts,xt.value)),0),len(d)-1)
-        out.append({'entry_time':et,'exit_time':xt,'direction':tr['direction'],'r':float(tr['r']),'entry_price':op[ei],'exit_price':cl[xi],'entry_index':ei,'exit_index':xi,'asset':'BTC'})
+    for k in range(len(eis)):
+        ei=int(eis[k]); xi=int(xis[k]); out.append({'entry_time':pd.Timestamp(ts[ei],unit='ns',tz='UTC'),'exit_time':pd.Timestamp(ts[xi],unit='ns',tz='UTC'),'direction':'LONG' if dirs[k]>0 else 'SHORT','r':float(rs[k]),'entry_price':op[ei],'exit_price':cl[xi],'entry_index':ei,'exit_index':xi,'asset':'BTC'})
+    # Manufacturing evaluators use a bounded predicate cache but must not
+    # retain per-strategy signal arrays or rich result ledgers.
+    ev._signal_cache.clear(); ev._evaluation_cache.clear()
     return out
 def result_row(s,z,kind):
     return {'strategy_id':s.readable_id,'hash':s.canonical_hash,'strategy':s.to_json(),'direction':s.direction,'kind':kind,**{k:z[k] for k in ('trades','pf','economic_expectancy','return','maxdd','minimum_equity','ruin','peak_concurrent','peak_open_risk','skipped_entries','resized_entries')}}
