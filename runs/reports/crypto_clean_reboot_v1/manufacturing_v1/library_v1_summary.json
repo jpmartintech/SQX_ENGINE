@@ -1,6 +1,7 @@
 {
   "status": "FROZEN_BEFORE_OOS",
   "strategies": 7634,
+  "unique_strategy_hashes": 7350,
   "random": 1083,
   "genetic": 6551,
   "long": 5502,

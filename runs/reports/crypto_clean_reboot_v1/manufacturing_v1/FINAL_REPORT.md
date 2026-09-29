@@ -20,14 +20,14 @@ Frozen DEV candidates: 17,922 (Random 3,051; Genetic 14,871). The exact funnel i
 
 ## VAL / Library
 
-VAL-admitted Library: 7634 strategies (5502 LONG, 2132 SHORT).
+VAL-admitted Library: 7634 records, representing 7350 unique strategy hashes (5502 LONG / 2132 SHORT records). Cross-lineage duplicate hashes are retained diagnostically and must be deduplicated before Portfolio Factory.
 
 ## OOS (burned research evidence only)
 
 Admitted OOS: {'count': 7634, 'positive_return': 4156, 'positive_rate': 0.5444066020434897, 'positive_expectancy': 4156, 'median_return': 0.017644266949178977, 'median_expectancy': 6.118532106351195e-05, 'median_pf': 1.0118489080010185, 'p75_return': 0.10134777134320111, 'p90_return': 0.24368399035504157, 'p95_return': 0.35164630788075746, 'p99_return': 0.6113334522757244, 'ruin_rate': 0.08606235263295782}
 Rejected-but-valid OOS: {'count': 43904, 'positive_return': 18339, 'positive_rate': 0.4177068148688047, 'positive_expectancy': 18339, 'median_return': -0.031432571413141985, 'median_expectancy': -6.940523006925328e-05, 'median_pf': 0.9850793654015877, 'p75_return': 0.08890030840562557, 'p90_return': 0.256211195774066, 'p95_return': 0.38779228102173713, 'p99_return': 0.688025929420845, 'ruin_rate': 0.14857416180758018}
 
-Admission increased positive-return rate by 0.127 and median return by 0.0491.
+Admission increased positive-return rate by 0.127 and median return by 0.0491. Among unique frozen Library hashes, aligned OOS daily normalized-R correlation has median 0.018, downside correlation median 0.013, and drawdown-overlap median 0.887; these are descriptive and not portfolio optimization.
 
 ## Decision
 
