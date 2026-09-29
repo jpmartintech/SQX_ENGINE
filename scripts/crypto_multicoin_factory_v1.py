@@ -56,17 +56,21 @@ def campaign(asset):
     def score(s,kind):
         if s.canonical_hash in seen:return None
         seen.add(s.canonical_hash); r=eval_one(s,d,f,ev,ix['START'],ix['DEV_END'],wb); r['kind']=kind; return r
-    for i in range(rb):
+    i=0
+    while len(rows_r)<rb:
+        i+=1
         r=score(rg.ask(),'RANDOM');
         if r:rows_r.append(r)
-        if (i+1)%5000==0:print(asset,'random',i+1,flush=True)
-    for i in range(gb):
+        if len(rows_r)%5000==0:print(asset,'random unique',len(rows_r),'attempts',i,flush=True)
+    i=0
+    while len(rows_g)<gb:
+        i+=1
         s=gg.ask(known_hashes=seen); r=score(s,'GENETIC')
         if r:
             rows_g.append(r)
             class Q:pass
             q=Q(); q.expectancy_r=r['economic_expectancy']; q.sharpe=0.; q.max_drawdown=r['maxdd']; gg.tell(s,q)
-        if (i+1)%5000==0:print(asset,'genetic',i+1,flush=True)
+        if len(rows_g)%5000==0:print(asset,'genetic unique',len(rows_g),'attempts',i,flush=True)
     random=pd.DataFrame(rows_r); genetic=pd.DataFrame(rows_g); random.to_parquet(ao/'random_results.parquet',index=False); genetic.to_parquet(ao/'genetic_results.parquet',index=False); allx=pd.concat([random,genetic],ignore_index=True); allx.to_parquet(ao/'all_dev_results.parquet',index=False)
     gate=(~allx.ruin)&(allx.trades>=20)&(allx.active_windows>=4)&(allx.positive_window_fraction>=.5)&(allx.economic_expectancy>0)&(allx['return']>0)&(allx.pf>1)&(allx.best_window_share<=.7); funnel=[('total_unique',len(allx)),('economically_valid',int((~allx.ruin).sum())),('positive_expectancy',int((allx.economic_expectancy>0).sum())),('positive_return',int((allx['return']>0).sum())),('pf_gt_1',int((allx.pf>1).sum())),('trade_support',int((allx.trades>=20).sum())),('temporal_support',int((allx.active_windows>=4).sum())),('profit_concentration',int((allx.best_window_share<=.7).sum())),('final_dev_candidates',int(gate.sum()))]; pd.DataFrame(funnel,columns=['stage','count']).to_csv(ao/'dev_funnel.csv',index=False); dump(ao/'random_summary.json',{'unique':len(random),'long':int((random.direction=='LONG').sum()),'short':int((random.direction=='SHORT').sum()),'positive_return':int((random['return']>0).sum()),'positive_expectancy':int((random.economic_expectancy>0).sum()),'pf_gt_1':int((random.pf>1).sum())}); dump(ao/'genetic_summary.json',{'unique':len(genetic),'long':int((genetic.direction=='LONG').sum()),'short':int((genetic.direction=='SHORT').sum()),'positive_return':int((genetic['return']>0).sum()),'positive_expectancy':int((genetic.economic_expectancy>0).sum()),'pf_gt_1':int((genetic.pf>1).sum())});
     cand=allx[gate].copy(); cand.to_parquet(ao/'dev_candidates_frozen.parquet',index=False); dump(ao/'PRE_VAL_FREEZE.json',{'status':'FROZEN','asset':asset,'candidates':len(cand),'campaign_commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'val_accessed':False,'oos_accessed':False,'lockbox_access':0}); dump(ao/'campaign_manifest.json',{'asset':asset,'source_sha256':sha(RAW/f'{asset}USDT_15M.csv'),'split':{k:str(v) for k,v in split(d).items()},'random_unique':len(random),'genetic_unique':len(genetic),'elapsed_seconds':time.time()-start,'economic_contract':'frozen BTC bounded contract','grammar':'v1.7 PRICE_ONLY','lockbox_access':0})

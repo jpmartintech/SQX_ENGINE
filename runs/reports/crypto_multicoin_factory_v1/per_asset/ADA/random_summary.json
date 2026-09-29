@@ -1,8 +1,8 @@
 {
-  "unique": 38329,
-  "long": 19250,
-  "short": 19079,
-  "positive_return": 25,
-  "positive_expectancy": 25,
-  "pf_gt_1": 25
+  "unique": 50000,
+  "long": 25073,
+  "short": 24927,
+  "positive_return": 28,
+  "positive_expectancy": 28,
+  "pf_gt_1": 28
 }

@@ -8,9 +8,9 @@
     "OOS_END": "2025-07-26 17:10:30+00:00",
     "END": "2026-06-05 00:00:00+00:00"
   },
-  "random_unique": 38297,
-  "genetic_unique": 198981,
-  "elapsed_seconds": 439.3765456676483,
+  "random_unique": 50000,
+  "genetic_unique": 200000,
+  "elapsed_seconds": 452.68892550468445,
   "economic_contract": "frozen BTC bounded contract",
   "grammar": "v1.7 PRICE_ONLY",
   "lockbox_access": 0
