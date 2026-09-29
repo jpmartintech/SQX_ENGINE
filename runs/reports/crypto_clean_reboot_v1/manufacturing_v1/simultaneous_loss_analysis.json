@@ -1,0 +1,5 @@
+{
+  "status": "NOT_ESTIMATED_FROM_AGGREGATE_RESULTS",
+  "reason": "campaign summary stores exact per-strategy economics, not aligned daily PnL ledgers; no fabricated cross-strategy loss statistic",
+  "lockbox_access": 0
+}

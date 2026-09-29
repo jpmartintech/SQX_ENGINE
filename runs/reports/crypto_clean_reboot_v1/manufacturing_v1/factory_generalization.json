@@ -1,0 +1,35 @@
+{
+  "admitted": {
+    "count": 7634,
+    "positive_return": 4156,
+    "positive_rate": 0.5444066020434897,
+    "positive_expectancy": 4156,
+    "median_return": 0.017644266949178977,
+    "median_expectancy": 6.118532106351195e-05,
+    "median_pf": 1.0118489080010185,
+    "p75_return": 0.10134777134320111,
+    "p90_return": 0.24368399035504157,
+    "p95_return": 0.35164630788075746,
+    "p99_return": 0.6113334522757244,
+    "ruin_rate": 0.08606235263295782
+  },
+  "rejected_valid": {
+    "count": 43904,
+    "positive_return": 18339,
+    "positive_rate": 0.4177068148688047,
+    "positive_expectancy": 18339,
+    "median_return": -0.031432571413141985,
+    "median_expectancy": -6.940523006925328e-05,
+    "median_pf": 0.9850793654015877,
+    "p75_return": 0.08890030840562557,
+    "p90_return": 0.256211195774066,
+    "p95_return": 0.38779228102173713,
+    "p99_return": 0.688025929420845,
+    "ruin_rate": 0.14857416180758018
+  },
+  "enrichment_positive_return_rate": 0.126699787174685,
+  "enrichment_median_return": 0.04907683836232096,
+  "oos_accessed_once_after_pre_oos_freeze": true,
+  "research_only": true,
+  "lockbox_access": 0
+}

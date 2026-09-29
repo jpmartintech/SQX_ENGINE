@@ -1,0 +1,7 @@
+{
+  "oos_profitable": 4450,
+  "profitable_clusters": 72,
+  "profitable_long": 2959,
+  "profitable_short": 1491,
+  "method": "rule-family descriptive grouping; no post-OOS selection"
+}

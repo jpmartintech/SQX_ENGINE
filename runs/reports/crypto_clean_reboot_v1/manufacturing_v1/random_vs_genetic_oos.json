@@ -1,0 +1,23 @@
+{
+  "admitted_random": {
+    "count": 1083,
+    "positive_return": 596,
+    "positive_rate": 0.5503231763619575,
+    "positive_expectancy": 596,
+    "median_return": 0.02419238566454407,
+    "median_expectancy": 7.917342422613118e-05,
+    "median_pf": 1.0153487680583861,
+    "ruin_rate": 0.07479224376731301
+  },
+  "admitted_genetic": {
+    "count": 6551,
+    "positive_return": 3560,
+    "positive_rate": 0.5434284842008854,
+    "positive_expectancy": 3560,
+    "median_return": 0.01639768209071102,
+    "median_expectancy": 5.938002519172642e-05,
+    "median_pf": 1.0110704755421698,
+    "ruin_rate": 0.0879255075560983
+  },
+  "research_only": true
+}

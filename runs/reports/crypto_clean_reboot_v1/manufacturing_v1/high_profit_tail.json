@@ -1,0 +1,73 @@
+{
+  "oos_admitted": {
+    "count": 7634,
+    "positive_return": 4156,
+    "positive_rate": 0.5444066020434897,
+    "positive_expectancy": 4156,
+    "median_return": 0.017644266949178977,
+    "median_expectancy": 6.118532106351195e-05,
+    "median_pf": 1.0118489080010185,
+    "p75_return": 0.10134777134320111,
+    "p90_return": 0.24368399035504157,
+    "p95_return": 0.35164630788075746,
+    "p99_return": 0.6113334522757244,
+    "ruin_rate": 0.08606235263295782
+  },
+  "tails": {
+    "top_9pct": {
+      "cutoff": 0.24368399035504157,
+      "count": 764,
+      "stats": {
+        "count": 764,
+        "positive_return": 764,
+        "positive_rate": 1.0,
+        "positive_expectancy": 764,
+        "median_return": 0.3517613040244473,
+        "median_expectancy": 0.0007372012002629599,
+        "median_pf": 1.1217867801345376,
+        "p75_return": 0.4652392477646823,
+        "p90_return": 0.6113532388741377,
+        "p95_return": 0.7613542874325572,
+        "p99_return": 1.175163678069652,
+        "ruin_rate": 0.10602094240837696
+      }
+    },
+    "top_5pct": {
+      "cutoff": 0.35164630788075746,
+      "count": 382,
+      "stats": {
+        "count": 382,
+        "positive_return": 382,
+        "positive_rate": 1.0,
+        "positive_expectancy": 382,
+        "median_return": 0.4652392477646823,
+        "median_expectancy": 0.0008761929950841051,
+        "median_pf": 1.1382927628750306,
+        "p75_return": 0.5643971866069688,
+        "p90_return": 0.7613666453797705,
+        "p95_return": 0.9153880053257085,
+        "p99_return": 1.2738205273845211,
+        "ruin_rate": 0.12303664921465969
+      }
+    },
+    "top_1pct": {
+      "cutoff": 0.6113334522757244,
+      "count": 77,
+      "stats": {
+        "count": 77,
+        "positive_return": 77,
+        "positive_rate": 1.0,
+        "positive_expectancy": 77,
+        "median_return": 0.7613913612741969,
+        "median_expectancy": 0.0010440935560081413,
+        "median_pf": 1.1259289196495361,
+        "p75_return": 0.9160764241309349,
+        "p90_return": 1.175355352438481,
+        "p95_return": 1.2739653132538715,
+        "p99_return": 1.585264455091341,
+        "ruin_rate": 0.14285714285714285
+      }
+    }
+  },
+  "research_only": true
+}

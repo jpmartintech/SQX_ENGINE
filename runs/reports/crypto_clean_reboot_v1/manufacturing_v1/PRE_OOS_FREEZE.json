@@ -2,9 +2,7 @@
   "status": "FROZEN",
   "library_count": 7634,
   "library_hash": "f1d6b9c6ce2c0b6f739741cb5bf04c81186d140630a15a4a53560045eac151e0",
-  "val_accessed_after_pre_val_freeze": true,
-  "oos_accessed": false,
+  "oos_accessed_after_freeze": true,
   "lockbox_access": 0,
-  "code_commit": "099e647",
-  "freeze_commit": "PENDING_THIS_COMMIT"
+  "code_commit": "0fe11c6e32de40be04b23818e34a1a25b934f1b6"
 }

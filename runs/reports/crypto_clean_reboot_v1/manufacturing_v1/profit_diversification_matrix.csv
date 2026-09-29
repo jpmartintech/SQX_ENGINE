@@ -1,0 +1,4 @@
+axis,group,count,median_return
+profitability,OOS_positive_admitted,4450,0.0898689209716983
+profitability,all_admitted,7634,0.017644266949178977
+distinctness,deterministic_rule_clusters,76,

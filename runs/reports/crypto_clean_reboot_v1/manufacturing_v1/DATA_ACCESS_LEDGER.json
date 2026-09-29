@@ -2,8 +2,7 @@
   "experiment_id": "crypto_clean_reboot_v1",
   "DEV_accesses": 1,
   "VAL_accesses": 1,
-  "OOS_accesses": 0,
+  "OOS_accesses": 1,
   "LOCKBOX_accesses": 0,
-  "VAL_after_pre_val_freeze": true,
-  "OOS_after_pre_oos_freeze": false
+  "OOS_after_pre_oos_freeze": true
 }
