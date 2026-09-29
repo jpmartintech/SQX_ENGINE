@@ -1,0 +1,13 @@
+{
+  "starting_commit": "e2f6311",
+  "dataset_sha256": "f2ddfd9b85f4e7556474e1ef10f78eebd927a0f0e330785d48b4d08e5b69a20a",
+  "split": "60/15/15/10 elapsed time",
+  "economic_contract": "frozen bounded 1% heat",
+  "grammar": "v1.7 PRICE_ONLY",
+  "fitness": "frozen profit-first",
+  "random_target": 50000,
+  "genetic_target": 200000,
+  "val_access_before": 0,
+  "oos_access_before": 0,
+  "lockbox_access_before": 0
+}

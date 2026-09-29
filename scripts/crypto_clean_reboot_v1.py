@@ -50,6 +50,54 @@ def fast_bounded(events, bars):
     ret,pf,ee,er,mineq,dd,n,intended,mrisk,over=out
     return {'final_equity':1.+ret,'return':ret,'pf':pf,'expectancy_r':er,'economic_expectancy':ee,'maxdd':dd,'minimum_equity':mineq,'trades':int(n),'peak_concurrent':1,'peak_open_risk':mrisk,'intended_risk_sum':intended,'realized_pnl':ret,'overshoot_loss':over,'skipped_entries':0,'resized_entries':0,'ruin':bool(mineq<=0),'ruin_timestamp':''}
 
+@njit(cache=True)
+def _fast_window_kernel(entry_idx, exit_idx, window_id, direction, rvals, entry_price, exit_price, close, risk_fraction, n_windows):
+    cash=np.ones(n_windows); peaks=np.ones(n_windows); mins=np.ones(n_windows); dd=np.zeros(n_windows); pnl=np.zeros(n_windows); rsum=np.zeros(n_windows); counts=np.zeros(n_windows,np.int64)
+    for k in range(len(rvals)):
+        w=window_id[k]
+        if w < 0 or w >= n_windows: continue
+        risk=cash[w]*risk_fraction; den=abs(exit_price[k]-entry_price[k]); lo=max(0,entry_idx[k]); hi=min(len(close)-1,exit_idx[k]); trade_max=peaks[w]
+        for j in range(lo,hi+1):
+            prog=0.0 if den<=1e-15 else (1.0 if direction[k]>0 else -1.0)*(close[j]-entry_price[k])/den
+            trade_max=max(trade_max,cash[w]+risk*rvals[k]*prog)
+        peaks[w]=max(peaks[w],trade_max)
+        for j in range(lo,hi+1):
+            prog=0.0 if den<=1e-15 else (1.0 if direction[k]>0 else -1.0)*(close[j]-entry_price[k])/den
+            eq=cash[w]+risk*rvals[k]*prog; mins[w]=min(mins[w],eq); dd[w]=min(dd[w],(eq-peaks[w])/peaks[w] if peaks[w] else -1.0)
+        pnl[w]+=risk*rvals[k]; rsum[w]+=rvals[k]; counts[w]+=1; cash[w]+=risk*rvals[k]
+    ex=np.zeros(n_windows)
+    for w in range(n_windows):
+        ex[w]=pnl[w]/counts[w] if counts[w] else 0.0
+    return ex,pnl,counts,mins,dd
+
+@njit(cache=True)
+def _fast_window_close_kernel(window_id, rvals, risk_fraction, n_windows):
+    cash=np.ones(n_windows); pnl=np.zeros(n_windows); rsum=np.zeros(n_windows); counts=np.zeros(n_windows,np.int64)
+    for k in range(len(rvals)):
+        w=window_id[k]
+        if w < 0 or w >= n_windows: continue
+        risk=cash[w]*risk_fraction; gain=risk*rvals[k]; cash[w]+=gain; pnl[w]+=gain; rsum[w]+=rvals[k]; counts[w]+=1
+    ex=np.zeros(n_windows)
+    for w in range(n_windows): ex[w]=pnl[w]/counts[w] if counts[w] else 0.0
+    return ex,pnl,counts
+
+def fast_window_replays(events,bars,win_bounds):
+    if not events: return [{'economic_expectancy':0.,'realized_pnl':0.,'trades':0,'minimum_equity':1.,'maxdd':0.} for _ in win_bounds]
+    ev=sorted(events,key=lambda x:(x['entry_time'],x['exit_time']))
+    if not all(ev[i]['entry_time']>=ev[i-1]['exit_time'] for i in range(1,len(ev))):
+        out=[]
+        for a,b in win_bounds: out.append(fast_bounded([x for x in ev if int(x['entry_index'])>=a and int(x['exit_index'])<=b],bars))
+        return out
+    ids=[]
+    for x in ev:
+        w=-1
+        for i,(a,b) in enumerate(win_bounds):
+            if int(x['entry_index'])>=a and int(x['exit_index'])<=b: w=i; break
+        ids.append(w)
+    arr=lambda key: np.asarray([x[key] for x in ev])
+    ex,pnl,counts=_fast_window_close_kernel(np.asarray(ids,np.int64),arr('r').astype(float),RISK,len(win_bounds))
+    return [{'economic_expectancy':float(ex[i]),'realized_pnl':float(pnl[i]),'trades':int(counts[i]),'minimum_equity':1.,'maxdd':0.} for i in range(len(win_bounds))]
+
 def sha(p):
     h=hashlib.sha256(); h.update(Path(p).read_bytes()); return h.hexdigest()
 def dump(name,obj):
@@ -88,9 +136,10 @@ def bounds(d):
     b=json.loads((OUT/'TEMPORAL_SPLIT.json').read_text()); return {k:pd.Timestamp(v) for k,v in b.items()}
 def event_extract(d,definition,features,ev,start,end):
     res=ev.evaluate(definition,start=start,end=end,rich=True); out=[]
+    ts=d.timestamp.astype('int64').to_numpy(); op=d.open.to_numpy(float); cl=d.close.to_numpy(float)
     for tr in res.trades:
-        et,xt=pd.Timestamp(tr['entry_time']),pd.Timestamp(tr['exit_time']); ei=min(max(int(d.timestamp.searchsorted(et)),0),len(d)-1); xi=min(max(int(d.timestamp.searchsorted(xt)),0),len(d)-1)
-        out.append({'entry_time':et,'exit_time':xt,'direction':tr['direction'],'r':float(tr['r']),'entry_price':float(d.open.iloc[ei]),'exit_price':float(d.close.iloc[xi]),'entry_index':ei,'exit_index':xi,'asset':'BTC'})
+        et,xt=pd.Timestamp(tr['entry_time']),pd.Timestamp(tr['exit_time']); ei=min(max(int(np.searchsorted(ts,et.value)),0),len(d)-1); xi=min(max(int(np.searchsorted(ts,xt.value)),0),len(d)-1)
+        out.append({'entry_time':et,'exit_time':xt,'direction':tr['direction'],'r':float(tr['r']),'entry_price':op[ei],'exit_price':cl[xi],'entry_index':ei,'exit_index':xi,'asset':'BTC'})
     return out
 def result_row(s,z,kind):
     return {'strategy_id':s.readable_id,'hash':s.canonical_hash,'strategy':s.to_json(),'direction':s.direction,'kind':kind,**{k:z[k] for k in ('trades','pf','economic_expectancy','return','maxdd','minimum_equity','ruin','peak_concurrent','peak_open_risk','skipped_entries','resized_entries')}}
@@ -99,7 +148,10 @@ def exact_score(z,windows):
     pos=float((ex>0).mean()); return -1e9 if z['ruin'] or z['trades']<20 else float(z['economic_expectancy']+0.002*pos+0.0001*min(z['trades'],500)-0.001*max(0,-ex.min()))
 def evaluate_strategy(s,d,f,ev,st,en,win_bounds):
     bars={'BTC':d[['timestamp','close']].copy()}; events=event_extract(d,s,f,ev,st,en); z=fast_bounded(events,bars); ws=[]
-    for a,b in win_bounds: ws.append(fast_bounded(event_extract(d,s,f,ev,a,b),bars))
+    # One causal signal/trade pass. Window replay uses only complete trades
+    # whose entry and exit lie inside the window, matching the frozen
+    # no-cross-boundary accounting rule while avoiding six evaluator passes.
+    ws=fast_window_replays(events,bars,win_bounds)
     row=result_row(s,z,''); row.update({'positive_window_fraction':float(np.mean([x['economic_expectancy']>0 for x in ws])),'active_windows':int(sum(x['trades']>=3 for x in ws)),'best_window_share':float(max([max(x['realized_pnl'],0) for x in ws],default=0)/max(sum(max(x['realized_pnl'],0) for x in ws),1e-12)),'fitness':exact_score(z,ws)})
     return row
 def benchmark():
