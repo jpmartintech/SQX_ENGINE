@@ -121,6 +121,20 @@ def fast_window_replays(events,bars,win_bounds):
     ex,pnl,counts=_fast_window_close_kernel(np.asarray(ids,np.int64),arr('r').astype(float),RISK,len(win_bounds))
     return [{'economic_expectancy':float(ex[i]),'realized_pnl':float(pnl[i]),'trades':int(counts[i]),'minimum_equity':1.,'maxdd':0.} for i in range(len(win_bounds))]
 
+def array_metrics(entry_idx, exit_idx, directions, rvals, entry_prices, exit_prices, close, win_bounds):
+    """Exact summary/window economics without constructing Python trade objects."""
+    n=len(rvals)
+    if n==0:
+        z={'final_equity':1.,'return':0.,'pf':0.,'expectancy_r':0.,'economic_expectancy':0.,'maxdd':0.,'minimum_equity':1.,'trades':0,'peak_concurrent':0,'peak_open_risk':0.,'intended_risk_sum':0.,'realized_pnl':0.,'overshoot_loss':0.,'skipped_entries':0,'resized_entries':0,'ruin':False,'ruin_timestamp':''}
+        return z,[{'economic_expectancy':0.,'realized_pnl':0.,'trades':0,'minimum_equity':1.,'maxdd':0.} for _ in win_bounds]
+    ret,pf,ee,er,mineq,dd,count,intended,mrisk,over=_fast_nonoverlap(entry_idx,exit_idx,directions,rvals,entry_prices,exit_prices,close,RISK)
+    z={'final_equity':1.+float(ret),'return':float(ret),'pf':float(pf),'expectancy_r':float(er),'economic_expectancy':float(ee),'maxdd':float(dd),'minimum_equity':float(mineq),'trades':int(count),'peak_concurrent':1,'peak_open_risk':float(mrisk),'intended_risk_sum':float(intended),'realized_pnl':float(ret),'overshoot_loss':float(over),'skipped_entries':0,'resized_entries':0,'ruin':bool(mineq<=0),'ruin_timestamp':''}
+    ids=np.full(n,-1,np.int64)
+    for i,(a,b) in enumerate(win_bounds): ids[(entry_idx>=a)&(exit_idx<=b)]=i
+    ex,pnl,counts=_fast_window_close_kernel(ids,rvals,RISK,len(win_bounds))
+    ws=[{'economic_expectancy':float(ex[i]),'realized_pnl':float(pnl[i]),'trades':int(counts[i]),'minimum_equity':1.,'maxdd':0.} for i in range(len(win_bounds))]
+    return z,ws
+
 def sha(p):
     h=hashlib.sha256(); h.update(Path(p).read_bytes()); return h.hexdigest()
 def dump(name,obj):
@@ -173,11 +187,10 @@ def exact_score(z,windows):
     ex=np.array([x['economic_expectancy'] for x in windows]); active=np.array([x['trades']>=3 for x in windows]); ex=ex[active] if active.any() else np.array([-1.])
     pos=float((ex>0).mean()); return -1e9 if z['ruin'] or z['trades']<20 else float(z['economic_expectancy']+0.002*pos+0.0001*min(z['trades'],500)-0.001*max(0,-ex.min()))
 def evaluate_strategy(s,d,f,ev,st,en,win_bounds):
-    bars={'BTC':d[['timestamp','close']].copy()}; events=event_extract(d,s,f,ev,st,en); z=fast_bounded(events,bars); ws=[]
-    # One causal signal/trade pass. Window replay uses only complete trades
-    # whose entry and exit lie inside the window, matching the frozen
-    # no-cross-boundary accounting rule while avoiding six evaluator passes.
-    ws=fast_window_replays(events,bars,win_bounds)
+    signal=ev._signal(s); a=ev._arrays; atr=np.asarray(f['atr_14'],dtype=float); direction=1 if s.direction=='LONG' else -1
+    eis,xis,dirs,rvals,rs,helds,reasons=_event_kernel(a['open'],a['high'],a['low'],a['close'],atr,signal,int(st),int(en),direction,float(s.stop_atr),float(s.target_atr),int(s.time_exit),float(ev.spread),float(ev.slippage))
+    z,ws=array_metrics(eis,xis,dirs,rs,a['open'][eis] if len(eis) else np.empty(0),a['close'][xis] if len(xis) else np.empty(0),a['close'],win_bounds)
+    ev._signal_cache.clear(); ev._evaluation_cache.clear()
     row=result_row(s,z,''); row.update({'positive_window_fraction':float(np.mean([x['economic_expectancy']>0 for x in ws])),'active_windows':int(sum(x['trades']>=3 for x in ws)),'best_window_share':float(max([max(x['realized_pnl'],0) for x in ws],default=0)/max(sum(max(x['realized_pnl'],0) for x in ws),1e-12)),'fitness':exact_score(z,ws)})
     return row
 def benchmark():

@@ -1,0 +1,9 @@
+{
+  "random_unique": 50000,
+  "genetic_unique": 200000,
+  "total_unique": 231544,
+  "status": "DEV_MANUFACTURING_COMPLETE",
+  "val_accessed": false,
+  "oos_accessed": false,
+  "lockbox_access": 0
+}

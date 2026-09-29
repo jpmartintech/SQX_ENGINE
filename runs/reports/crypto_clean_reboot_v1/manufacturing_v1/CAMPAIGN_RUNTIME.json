@@ -1,5 +1,11 @@
 {
-  "phase": "dry-run",
-  "evaluated": 100,
+  "random_unique": 50000,
+  "genetic_unique": 200000,
+  "total_unique": 231544,
+  "random_strategies_per_second": null,
+  "genetic_strategies_per_second": null,
+  "status": "DEV_MANUFACTURING_COMPLETE",
+  "val_accessed": false,
+  "oos_accessed": false,
   "lockbox_access": 0
 }

@@ -1,0 +1,17 @@
+{
+  "status": "FROZEN",
+  "starting_commit": "e2f6311",
+  "code_commit": "55e3b328f9ea8bd03cc58d8dc84b6e40c6a8ff40",
+  "dataset_sha256": "f2ddfd9b85f4e7556474e1ef10f78eebd927a0f0e330785d48b4d08e5b69a20a",
+  "grammar": "v1.7 PRICE_ONLY",
+  "economic_contract": "bounded 1% current-equity heat",
+  "fitness": "profit-first frozen DEV contract",
+  "random_unique": 50000,
+  "genetic_unique": 200000,
+  "candidate_count": 17922,
+  "candidate_hash": "5442a424a3b54982fc9ae01d5a7eec8f3e9687358443d5407156650c8a9dbe0e",
+  "val_accessed": false,
+  "oos_accessed": false,
+  "lockbox_access": 0,
+  "frozen_at_utc": "2026-09-29 16:32:04.111542+00:00"
+}

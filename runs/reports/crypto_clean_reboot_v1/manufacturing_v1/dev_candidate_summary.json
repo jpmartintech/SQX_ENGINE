@@ -1,0 +1,99 @@
+{
+  "total": 250000,
+  "random": {
+    "target": 50000,
+    "unique_evaluated": 50000,
+    "long": 24853,
+    "short": 25147,
+    "economically_valid": 10307,
+    "positive_return": 11707,
+    "positive_expectancy": 11707,
+    "pf_gt_1": 11707,
+    "non_ruined": 10917,
+    "return_percentiles": {
+      "P50": -0.5376935591802048,
+      "P75": -0.009661425668058332,
+      "P90": 0.7351177687526208,
+      "P95": 1.600289439800649,
+      "P99": 4.874405205450879
+    },
+    "expectancy_percentiles": {
+      "P50": -6.058059989635979e-05,
+      "P75": -1.8686784793110626e-06,
+      "P90": 0.0001605146403586092,
+      "P95": 0.0004280036548921213,
+      "P99": 0.0016160304788794978
+    },
+    "pf_percentiles": {
+      "P50": 0.9812627219404675,
+      "P75": 0.9985772359255825,
+      "P90": 1.021023277650464,
+      "P95": 1.0443020100071456,
+      "P99": 1.1502204297950374
+    },
+    "maxdd_percentiles": {
+      "P50": -1.5912879723885993,
+      "P75": -1.024835348116716,
+      "P90": -0.790649539876074,
+      "P95": -0.5277068382277695,
+      "P99": 0.0
+    },
+    "lockbox_access": 0
+  },
+  "genetic": {
+    "target": 200000,
+    "unique_evaluated": 200000,
+    "long": 113737,
+    "short": 86263,
+    "economically_valid": 42673,
+    "positive_return": 59563,
+    "positive_expectancy": 59563,
+    "pf_gt_1": 59563,
+    "non_ruined": 46144,
+    "return_percentiles": {
+      "P50": -0.44019137003619124,
+      "P75": 0.15677676049511619,
+      "P90": 1.484615692454427,
+      "P95": 3.004429126508944,
+      "P99": 7.654068676602233
+    },
+    "expectancy_percentiles": {
+      "P50": -5.537886217783364e-05,
+      "P75": 3.4904076042523735e-05,
+      "P90": 0.0004880231837646261,
+      "P95": 0.0009823192874195018,
+      "P99": 0.002648748866224466
+    },
+    "pf_percentiles": {
+      "P50": 0.9844652811068759,
+      "P75": 1.0051375573307597,
+      "P90": 1.0368123648267409,
+      "P95": 1.0654193573766602,
+      "P99": 1.2299511602824085
+    },
+    "maxdd_percentiles": {
+      "P50": -1.6795789072369682,
+      "P75": -1.0140013631947131,
+      "P90": -0.7094155934049581,
+      "P95": -0.38371542799369607,
+      "P99": 0.0
+    },
+    "lockbox_access": 0
+  },
+  "final_dev_candidates": 17922,
+  "final_random": 3051,
+  "final_genetic": 14871,
+  "gates": {
+    "ruin": false,
+    "trades_min": 20,
+    "active_windows_min": 4,
+    "positive_window_fraction_min": 0.5,
+    "expectancy_positive": true,
+    "return_positive": true,
+    "pf_gt_1": true,
+    "best_window_share_max": 0.7
+  },
+  "val_accessed": false,
+  "oos_accessed": false,
+  "lockbox_access": 0
+}
