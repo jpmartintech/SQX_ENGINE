@@ -1,0 +1,1 @@
+asset,timeframe,kind,strategy_id,hash,strategy,direction,trades,pf,economic_expectancy,return,maxdd,minimum_equity,ruin,positive_window_fraction,active_windows,best_window_share,fitness,val_trades,val_pf,val_expectancy,val_return,val_ruin

@@ -11,5 +11,7 @@
     "OOS": "burned research label only",
     "LOCKBOX": "untouched"
   },
-  "lockbox_access": 0
+  "lockbox_access": 0,
+  "final_decision": "PERSISTENCE_SIGNAL_WEAK",
+  "fresh_manufacturing_candidates": 54
 }
