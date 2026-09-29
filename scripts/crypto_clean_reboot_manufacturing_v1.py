@@ -13,7 +13,7 @@ from sqx_engine.backtest.fast import FastEvaluator
 
 def dump(n,x): (OUT/n).write_text(json.dumps(x,indent=2,default=str)+'\n')
 def setup():
-    d=load_source(); f=prepare_crypto_features(d,None,'PRICE'); ev=FastEvaluator(d,f,initial_capital=1.,spread=.0009,engine='numba'); b=bounds(d); st=int(d.timestamp.searchsorted(b['START'])); en=int(d.timestamp.searchsorted(b['DEV_END'])); cuts=np.linspace(st,en,7,dtype=int); wb=[(int(cuts[i]),int(cuts[i+1])) for i in range(6)]; return d,f,ev,st,en,wb
+    d=load_source(); f=prepare_crypto_features(d,None,'PRICE'); ev=FastEvaluator(d,f,initial_capital=1.,spread=.0009,engine='numba',cache_size=0); b=bounds(d); st=int(d.timestamp.searchsorted(b['START'])); en=int(d.timestamp.searchsorted(b['DEV_END'])); cuts=np.linspace(st,en,7,dtype=int); wb=[(int(cuts[i]),int(cuts[i+1])) for i in range(6)]; return d,f,ev,st,en,wb
 def persist(kind,rows,seq):
     if rows: pd.DataFrame(rows).to_parquet(PART/f'{kind}_{seq:06d}.parquet',index=False)
 def load_parts(kind):
