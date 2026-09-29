@@ -1,0 +1,27 @@
+{
+  "asset": "BNB",
+  "admitted": {
+    "count": 10978,
+    "positive_return": 5211,
+    "positive_rate": 0.4746766259792312,
+    "positive_expectancy": 5211,
+    "positive_expectancy_rate": 0.4746766259792312,
+    "median_return": -0.01000103822123094,
+    "median_expectancy": -1.6595401277375934e-05,
+    "median_pf": 0.996399702709093,
+    "ruin_rate": 0.07533248314811442
+  },
+  "rejected_valid": {
+    "count": 66909,
+    "positive_return": 29911,
+    "positive_rate": 0.4470400095652304,
+    "positive_expectancy": 29911,
+    "positive_expectancy_rate": 0.4470400095652304,
+    "median_return": -0.01421428702984373,
+    "median_expectancy": -2.913408033938895e-05,
+    "median_pf": 0.9933440472654967,
+    "ruin_rate": 0.12159799130161862
+  },
+  "research_only": true,
+  "lockbox_access": 0
+}

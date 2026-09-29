@@ -1,0 +1,27 @@
+{
+  "asset": "SOL",
+  "admitted": {
+    "count": 23847,
+    "positive_return": 18679,
+    "positive_rate": 0.7832851092380593,
+    "positive_expectancy": 18679,
+    "positive_expectancy_rate": 0.7832851092380593,
+    "median_return": 0.21307213639051126,
+    "median_expectancy": 0.00032729300078986783,
+    "median_pf": 1.0601683509878919,
+    "ruin_rate": 0.027508701304147273
+  },
+  "rejected_valid": {
+    "count": 108550,
+    "positive_return": 44011,
+    "positive_rate": 0.40544449562413637,
+    "positive_expectancy": 44011,
+    "positive_expectancy_rate": 0.40544449562413637,
+    "median_return": -0.07916925217928977,
+    "median_expectancy": -0.00020987880272444866,
+    "median_pf": 0.9555068330192773,
+    "ruin_rate": 0.013146015660985721
+  },
+  "research_only": true,
+  "lockbox_access": 0
+}

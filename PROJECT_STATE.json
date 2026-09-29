@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-09-29",
+  "commit": "PENDING_FINAL_COMMIT",
+  "branch": "main",
+  "product_objective": "maximum real compounded capital growth",
+  "current_phase": "ready_for_multi_coin_portfolio_factory",
+  "latest_decision": "MULTI_COIN_RAW_MATERIAL_STRONG",
+  "datasets": "data/crypto_external/*.csv",
+  "dataset_hashes": "runs/reports/crypto_multicoin_factory_v1/MULTICOIN_DATA_CATALOG.json",
+  "eligible_assets": ["ADA", "AVAX", "BNB", "BTC", "DOGE", "ETH", "LINK", "SOL", "TRX"],
+  "factory_status_by_asset": {"ADA": "WEAK", "AVAX": "SUPPORTED", "BNB": "WEAK", "BTC": "SUPPORTED_PREVIOUSLY", "DOGE": "FAILED", "ETH": "SUPPORTED", "LINK": "SUPPORTED", "SOL": "SUPPORTED", "TRX": "FAILED"},
+  "burned_periods": {"BTC": "OOS previously burned", "new_assets": "OOS burned research diagnostic"},
+  "protected_periods": {"BTC": "LOCKBOX 0 access", "new_assets": "per-asset LOCKBOX 0 access"},
+  "frozen_contracts": ["bounded economic contract", "PRICE_ONLY v1.7", "elapsed-time per-asset 60/15/15/10", "per-asset DEV/VAL/OOS freeze protocol"],
+  "latest_artifacts": ["runs/reports/crypto_multicoin_factory_v1/FINAL_REPORT.md", "runs/reports/crypto_multicoin_factory_v1/MULTICOIN_RAW_MATERIAL.json", "FRESH_SESSION_HANDOFF.md"],
+  "next_product_action": "open Multi-Coin Portfolio Factory using frozen per-asset libraries",
+  "known_blockers": ["cross-asset event-aligned behavioral map must be built before portfolio optimization"]
+}

@@ -1,0 +1,27 @@
+{
+  "asset": "ADA",
+  "admitted": {
+    "count": 2,
+    "positive_return": 0,
+    "positive_rate": 0.0,
+    "positive_expectancy": 0,
+    "positive_expectancy_rate": 0.0,
+    "median_return": -0.06476389025778628,
+    "median_expectancy": -0.010793981709631051,
+    "median_pf": 0.0,
+    "ruin_rate": 0.0
+  },
+  "rejected_valid": {
+    "count": 95522,
+    "positive_return": 759,
+    "positive_rate": 0.007945813529867465,
+    "positive_expectancy": 759,
+    "positive_expectancy_rate": 0.007945813529867465,
+    "median_return": -0.9005365787939692,
+    "median_expectancy": -0.0008147068687849122,
+    "median_pf": 0.6752635489015271,
+    "ruin_rate": 0.0011515671782416617
+  },
+  "research_only": true,
+  "lockbox_access": 0
+}

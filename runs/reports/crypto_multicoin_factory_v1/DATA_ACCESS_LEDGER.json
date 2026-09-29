@@ -1,69 +1,71 @@
 {
   "assets": {
     "ADA": {
-      "DEV": 0,
+      "DEV": 1,
       "VAL_before_PRE_VAL": 0,
+      "VAL_after_PRE_VAL": 1,
       "OOS_before_PRE_OOS": 0,
-      "OOS_after_PRE_OOS": 0,
+      "OOS_after_PRE_OOS": 1,
       "LOCKBOX": 0
     },
     "AVAX": {
-      "DEV": 0,
+      "DEV": 1,
       "VAL_before_PRE_VAL": 0,
+      "VAL_after_PRE_VAL": 1,
       "OOS_before_PRE_OOS": 0,
-      "OOS_after_PRE_OOS": 0,
+      "OOS_after_PRE_OOS": 1,
       "LOCKBOX": 0
     },
     "BNB": {
-      "DEV": 0,
+      "DEV": 1,
       "VAL_before_PRE_VAL": 0,
+      "VAL_after_PRE_VAL": 1,
       "OOS_before_PRE_OOS": 0,
-      "OOS_after_PRE_OOS": 0,
-      "LOCKBOX": 0
-    },
-    "BTC": {
-      "DEV": 0,
-      "VAL_before_PRE_VAL": 0,
-      "OOS_before_PRE_OOS": 0,
-      "OOS_after_PRE_OOS": 0,
+      "OOS_after_PRE_OOS": 1,
       "LOCKBOX": 0
     },
     "DOGE": {
-      "DEV": 0,
+      "DEV": 1,
       "VAL_before_PRE_VAL": 0,
+      "VAL_after_PRE_VAL": 1,
       "OOS_before_PRE_OOS": 0,
-      "OOS_after_PRE_OOS": 0,
+      "OOS_after_PRE_OOS": 1,
       "LOCKBOX": 0
     },
     "ETH": {
-      "DEV": 0,
+      "DEV": 1,
       "VAL_before_PRE_VAL": 0,
+      "VAL_after_PRE_VAL": 1,
       "OOS_before_PRE_OOS": 0,
-      "OOS_after_PRE_OOS": 0,
+      "OOS_after_PRE_OOS": 1,
       "LOCKBOX": 0
     },
     "LINK": {
-      "DEV": 0,
+      "DEV": 1,
       "VAL_before_PRE_VAL": 0,
+      "VAL_after_PRE_VAL": 1,
       "OOS_before_PRE_OOS": 0,
-      "OOS_after_PRE_OOS": 0,
+      "OOS_after_PRE_OOS": 1,
       "LOCKBOX": 0
     },
     "SOL": {
-      "DEV": 0,
+      "DEV": 1,
       "VAL_before_PRE_VAL": 0,
+      "VAL_after_PRE_VAL": 1,
       "OOS_before_PRE_OOS": 0,
-      "OOS_after_PRE_OOS": 0,
+      "OOS_after_PRE_OOS": 1,
       "LOCKBOX": 0
     },
     "TRX": {
-      "DEV": 0,
+      "DEV": 1,
       "VAL_before_PRE_VAL": 0,
+      "VAL_after_PRE_VAL": 1,
       "OOS_before_PRE_OOS": 0,
-      "OOS_after_PRE_OOS": 0,
+      "OOS_after_PRE_OOS": 1,
       "LOCKBOX": 0
     }
   },
   "BTC_OOS": "PREVIOUSLY_BURNED",
-  "BTC_LOCKBOX": 0
+  "BTC_LOCKBOX": 0,
+  "lockbox_total": 0
 }

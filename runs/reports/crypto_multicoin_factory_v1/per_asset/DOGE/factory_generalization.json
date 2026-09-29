@@ -1,0 +1,27 @@
+{
+  "asset": "DOGE",
+  "admitted": {
+    "count": 0,
+    "positive_return": 0,
+    "positive_rate": 0.0,
+    "positive_expectancy": 0,
+    "positive_expectancy_rate": 0.0,
+    "median_return": null,
+    "median_expectancy": null,
+    "median_pf": null,
+    "ruin_rate": 0.0
+  },
+  "rejected_valid": {
+    "count": 422,
+    "positive_return": 26,
+    "positive_rate": 0.061611374407582936,
+    "positive_expectancy": 26,
+    "positive_expectancy_rate": 0.061611374407582936,
+    "median_return": -0.04476474180899237,
+    "median_expectancy": -0.006125678208006387,
+    "median_pf": 0.16057193908814346,
+    "ruin_rate": 0.002369668246445498
+  },
+  "research_only": true,
+  "lockbox_access": 0
+}

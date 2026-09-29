@@ -1,0 +1,27 @@
+{
+  "asset": "AVAX",
+  "admitted": {
+    "count": 46424,
+    "positive_return": 40972,
+    "positive_rate": 0.8825607444425297,
+    "positive_expectancy": 40972,
+    "positive_expectancy_rate": 0.8825607444425297,
+    "median_return": 0.3557792949351426,
+    "median_expectancy": 0.0005340335011231859,
+    "median_pf": 1.083512405758615,
+    "ruin_rate": 0.0
+  },
+  "rejected_valid": {
+    "count": 113411,
+    "positive_return": 42510,
+    "positive_rate": 0.3748313655641869,
+    "positive_expectancy": 42510,
+    "positive_expectancy_rate": 0.3748313655641869,
+    "median_return": -0.13337087681049342,
+    "median_expectancy": -0.0003173845759226563,
+    "median_pf": 0.9262945001887518,
+    "ruin_rate": 0.0
+  },
+  "research_only": true,
+  "lockbox_access": 0
+}

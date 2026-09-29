@@ -4,6 +4,6 @@
   "library": 2,
   "library_sha256": "ab2bdeb720e3457409a69cfe81ef0d5f2de5915976c1fd426521dd73cdc02e8c",
   "val_accessed_after_pre_val": true,
-  "oos_accessed": false,
+  "oos_accessed": true,
   "lockbox_access": 0
 }

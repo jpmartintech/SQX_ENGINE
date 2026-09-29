@@ -1,0 +1,27 @@
+{
+  "asset": "TRX",
+  "admitted": {
+    "count": 0,
+    "positive_return": 0,
+    "positive_rate": 0.0,
+    "positive_expectancy": 0,
+    "positive_expectancy_rate": 0.0,
+    "median_return": null,
+    "median_expectancy": null,
+    "median_pf": null,
+    "ruin_rate": 0.0
+  },
+  "rejected_valid": {
+    "count": 79998,
+    "positive_return": 117,
+    "positive_rate": 0.0014625365634140853,
+    "positive_expectancy": 117,
+    "positive_expectancy_rate": 0.0014625365634140853,
+    "median_return": -0.9998974558166154,
+    "median_expectancy": -0.0009275090795106797,
+    "median_pf": 0.10977320144592165,
+    "ruin_rate": 0.0
+  },
+  "research_only": true,
+  "lockbox_access": 0
+}

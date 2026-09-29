@@ -1,0 +1,425 @@
+{
+  "assets": [
+    "ADA",
+    "AVAX",
+    "BNB",
+    "DOGE",
+    "ETH",
+    "LINK",
+    "SOL",
+    "TRX"
+  ],
+  "admitted_instances": 95739,
+  "asset_summary": [
+    {
+      "asset": "ADA",
+      "random_unique": 50000,
+      "genetic_unique": 200000,
+      "total_unique": 250000,
+      "dev_candidates": 5,
+      "library_unique": 2,
+      "library_records": 2,
+      "long": 0,
+      "short": 2,
+      "oos": {
+        "count": 2,
+        "positive_return": 0,
+        "positive_rate": 0.0,
+        "positive_expectancy": 0,
+        "positive_expectancy_rate": 0.0,
+        "median_return": -0.06476389025778628,
+        "median_expectancy": -0.010793981709631051,
+        "median_pf": 0.0,
+        "ruin_rate": 0.0
+      },
+      "rejected_valid_oos": {
+        "count": 95522,
+        "positive_return": 759,
+        "positive_rate": 0.007945813529867465,
+        "positive_expectancy": 759,
+        "positive_expectancy_rate": 0.007945813529867465,
+        "median_return": -0.9005365787939692,
+        "median_expectancy": -0.0008147068687849122,
+        "median_pf": 0.6752635489015271,
+        "ruin_rate": 0.0011515671782416617
+      },
+      "random": {
+        "unique": 50000,
+        "long": 25073,
+        "short": 24927,
+        "positive_return": 28,
+        "positive_expectancy": 28,
+        "pf_gt_1": 28
+      },
+      "genetic": {
+        "unique": 200000,
+        "long": 83361,
+        "short": 116639,
+        "positive_return": 159,
+        "positive_expectancy": 159,
+        "pf_gt_1": 159
+      },
+      "elapsed_seconds": 453.7100439071655
+    },
+    {
+      "asset": "AVAX",
+      "random_unique": 50000,
+      "genetic_unique": 200000,
+      "total_unique": 250000,
+      "dev_candidates": 55751,
+      "library_unique": 46424,
+      "library_records": 46424,
+      "long": 1442,
+      "short": 44982,
+      "oos": {
+        "count": 46424,
+        "positive_return": 40972,
+        "positive_rate": 0.8825607444425297,
+        "positive_expectancy": 40972,
+        "positive_expectancy_rate": 0.8825607444425297,
+        "median_return": 0.3557792949351426,
+        "median_expectancy": 0.0005340335011231859,
+        "median_pf": 1.083512405758615,
+        "ruin_rate": 0.0
+      },
+      "rejected_valid_oos": {
+        "count": 113411,
+        "positive_return": 42510,
+        "positive_rate": 0.3748313655641869,
+        "positive_expectancy": 42510,
+        "positive_expectancy_rate": 0.3748313655641869,
+        "median_return": -0.13337087681049342,
+        "median_expectancy": -0.0003173845759226563,
+        "median_pf": 0.9262945001887518,
+        "ruin_rate": 0.0
+      },
+      "random": {
+        "unique": 50000,
+        "long": 25054,
+        "short": 24946,
+        "positive_return": 18668,
+        "positive_expectancy": 18668,
+        "pf_gt_1": 18668
+      },
+      "genetic": {
+        "unique": 200000,
+        "long": 86003,
+        "short": 113997,
+        "positive_return": 83092,
+        "positive_expectancy": 83092,
+        "pf_gt_1": 83092
+      },
+      "elapsed_seconds": 335.9350514411926
+    },
+    {
+      "asset": "BNB",
+      "random_unique": 50000,
+      "genetic_unique": 200000,
+      "total_unique": 250000,
+      "dev_candidates": 21288,
+      "library_unique": 10978,
+      "library_records": 10978,
+      "long": 1727,
+      "short": 9251,
+      "oos": {
+        "count": 10978,
+        "positive_return": 5211,
+        "positive_rate": 0.4746766259792312,
+        "positive_expectancy": 5211,
+        "positive_expectancy_rate": 0.4746766259792312,
+        "median_return": -0.01000103822123094,
+        "median_expectancy": -1.6595401277375934e-05,
+        "median_pf": 0.996399702709093,
+        "ruin_rate": 0.07533248314811442
+      },
+      "rejected_valid_oos": {
+        "count": 66909,
+        "positive_return": 29911,
+        "positive_rate": 0.4470400095652304,
+        "positive_expectancy": 29911,
+        "positive_expectancy_rate": 0.4470400095652304,
+        "median_return": -0.01421428702984373,
+        "median_expectancy": -2.913408033938895e-05,
+        "median_pf": 0.9933440472654967,
+        "ruin_rate": 0.12159799130161862
+      },
+      "random": {
+        "unique": 50000,
+        "long": 25023,
+        "short": 24977,
+        "positive_return": 12816,
+        "positive_expectancy": 12816,
+        "pf_gt_1": 12816
+      },
+      "genetic": {
+        "unique": 200000,
+        "long": 83282,
+        "short": 116718,
+        "positive_return": 59080,
+        "positive_expectancy": 59080,
+        "pf_gt_1": 59080
+      },
+      "elapsed_seconds": 452.68892550468445
+    },
+    {
+      "asset": "DOGE",
+      "random_unique": 50000,
+      "genetic_unique": 200000,
+      "total_unique": 250000,
+      "dev_candidates": 0,
+      "library_unique": 0,
+      "library_records": 0,
+      "long": 0,
+      "short": 0,
+      "oos": {
+        "count": 0,
+        "positive_return": 0,
+        "positive_rate": 0.0,
+        "positive_expectancy": 0,
+        "positive_expectancy_rate": 0.0,
+        "median_return": null,
+        "median_expectancy": null,
+        "median_pf": null,
+        "ruin_rate": 0.0
+      },
+      "rejected_valid_oos": {
+        "count": 422,
+        "positive_return": 26,
+        "positive_rate": 0.061611374407582936,
+        "positive_expectancy": 26,
+        "positive_expectancy_rate": 0.061611374407582936,
+        "median_return": -0.04476474180899237,
+        "median_expectancy": -0.006125678208006387,
+        "median_pf": 0.16057193908814346,
+        "ruin_rate": 0.002369668246445498
+      },
+      "random": {
+        "unique": 50000,
+        "long": 24987,
+        "short": 25013,
+        "positive_return": 7,
+        "positive_expectancy": 7,
+        "pf_gt_1": 7
+      },
+      "genetic": {
+        "unique": 200000,
+        "long": 92824,
+        "short": 107176,
+        "positive_return": 64,
+        "positive_expectancy": 64,
+        "pf_gt_1": 64
+      },
+      "elapsed_seconds": 386.66564869880676
+    },
+    {
+      "asset": "ETH",
+      "random_unique": 50000,
+      "genetic_unique": 200000,
+      "total_unique": 250000,
+      "dev_candidates": 24850,
+      "library_unique": 7837,
+      "library_records": 7837,
+      "long": 1839,
+      "short": 5998,
+      "oos": {
+        "count": 7837,
+        "positive_return": 5422,
+        "positive_rate": 0.6918463697843562,
+        "positive_expectancy": 5422,
+        "positive_expectancy_rate": 0.6918463697843562,
+        "median_return": 0.1060734760962585,
+        "median_expectancy": 0.0002639746132698942,
+        "median_pf": 1.0494794182124179,
+        "ruin_rate": 0.10450427459487048
+      },
+      "rejected_valid_oos": {
+        "count": 63806,
+        "positive_return": 34088,
+        "positive_rate": 0.5342444284236593,
+        "positive_expectancy": 34088,
+        "positive_expectancy_rate": 0.5342444284236593,
+        "median_return": 0.02090190587096763,
+        "median_expectancy": 4.48384357801758e-05,
+        "median_pf": 1.009443148948478,
+        "ruin_rate": 0.17076763940695233
+      },
+      "random": {
+        "unique": 50000,
+        "long": 25109,
+        "short": 24891,
+        "positive_return": 17954,
+        "positive_expectancy": 17954,
+        "pf_gt_1": 17954
+      },
+      "genetic": {
+        "unique": 200000,
+        "long": 85222,
+        "short": 114778,
+        "positive_return": 84094,
+        "positive_expectancy": 84094,
+        "pf_gt_1": 84094
+      },
+      "elapsed_seconds": 459.17194747924805
+    },
+    {
+      "asset": "LINK",
+      "random_unique": 50000,
+      "genetic_unique": 200000,
+      "total_unique": 250000,
+      "dev_candidates": 12156,
+      "library_unique": 6651,
+      "library_records": 6651,
+      "long": 1755,
+      "short": 4896,
+      "oos": {
+        "count": 6651,
+        "positive_return": 4169,
+        "positive_rate": 0.626823034130206,
+        "positive_expectancy": 4169,
+        "positive_expectancy_rate": 0.626823034130206,
+        "median_return": 0.06446689143419482,
+        "median_expectancy": 0.00020900901705140542,
+        "median_pf": 1.0373424368906219,
+        "ruin_rate": 0.0
+      },
+      "rejected_valid_oos": {
+        "count": 123060,
+        "positive_return": 50478,
+        "positive_rate": 0.41019015114578256,
+        "positive_expectancy": 50478,
+        "positive_expectancy_rate": 0.41019015114578256,
+        "median_return": -0.10388601091923494,
+        "median_expectancy": -0.000222349150422826,
+        "median_pf": 0.9479561977900905,
+        "ruin_rate": 0.0
+      },
+      "random": {
+        "unique": 50000,
+        "long": 25008,
+        "short": 24992,
+        "positive_return": 3421,
+        "positive_expectancy": 3421,
+        "pf_gt_1": 3421
+      },
+      "genetic": {
+        "unique": 200000,
+        "long": 112934,
+        "short": 87066,
+        "positive_return": 16166,
+        "positive_expectancy": 16166,
+        "pf_gt_1": 16166
+      },
+      "elapsed_seconds": 397.12478733062744
+    },
+    {
+      "asset": "SOL",
+      "random_unique": 50000,
+      "genetic_unique": 200000,
+      "total_unique": 250000,
+      "dev_candidates": 48505,
+      "library_unique": 23847,
+      "library_records": 23847,
+      "long": 2491,
+      "short": 21356,
+      "oos": {
+        "count": 23847,
+        "positive_return": 18679,
+        "positive_rate": 0.7832851092380593,
+        "positive_expectancy": 18679,
+        "positive_expectancy_rate": 0.7832851092380593,
+        "median_return": 0.21307213639051126,
+        "median_expectancy": 0.00032729300078986783,
+        "median_pf": 1.0601683509878919,
+        "ruin_rate": 0.027508701304147273
+      },
+      "rejected_valid_oos": {
+        "count": 108550,
+        "positive_return": 44011,
+        "positive_rate": 0.40544449562413637,
+        "positive_expectancy": 44011,
+        "positive_expectancy_rate": 0.40544449562413637,
+        "median_return": -0.07916925217928977,
+        "median_expectancy": -0.00020987880272444866,
+        "median_pf": 0.9555068330192773,
+        "ruin_rate": 0.013146015660985721
+      },
+      "random": {
+        "unique": 50000,
+        "long": 24908,
+        "short": 25092,
+        "positive_return": 19528,
+        "positive_expectancy": 19528,
+        "pf_gt_1": 19528
+      },
+      "genetic": {
+        "unique": 200000,
+        "long": 101426,
+        "short": 98574,
+        "positive_return": 80731,
+        "positive_expectancy": 80731,
+        "pf_gt_1": 80731
+      },
+      "elapsed_seconds": 347.42037081718445
+    },
+    {
+      "asset": "TRX",
+      "random_unique": 50000,
+      "genetic_unique": 200000,
+      "total_unique": 250000,
+      "dev_candidates": 0,
+      "library_unique": 0,
+      "library_records": 0,
+      "long": 0,
+      "short": 0,
+      "oos": {
+        "count": 0,
+        "positive_return": 0,
+        "positive_rate": 0.0,
+        "positive_expectancy": 0,
+        "positive_expectancy_rate": 0.0,
+        "median_return": null,
+        "median_expectancy": null,
+        "median_pf": null,
+        "ruin_rate": 0.0
+      },
+      "rejected_valid_oos": {
+        "count": 79998,
+        "positive_return": 117,
+        "positive_rate": 0.0014625365634140853,
+        "positive_expectancy": 117,
+        "positive_expectancy_rate": 0.0014625365634140853,
+        "median_return": -0.9998974558166154,
+        "median_expectancy": -0.0009275090795106797,
+        "median_pf": 0.10977320144592165,
+        "ruin_rate": 0.0
+      },
+      "random": {
+        "unique": 50000,
+        "long": 24857,
+        "short": 25143,
+        "positive_return": 4,
+        "positive_expectancy": 4,
+        "pf_gt_1": 4
+      },
+      "genetic": {
+        "unique": 200000,
+        "long": 109692,
+        "short": 90308,
+        "positive_return": 14,
+        "positive_expectancy": 14,
+        "pf_gt_1": 14
+      },
+      "elapsed_seconds": 418.39566588401794
+    }
+  ],
+  "within_asset_daily_correlation": {
+    "status": "not_claimed",
+    "reason": "full event fingerprints are preserved per strategy in the frozen engine outputs; scalar OOS summaries are not substituted for aligned PnL"
+  },
+  "cross_asset_daily_correlation": {
+    "status": "not_claimed",
+    "reason": "portfolio construction is explicitly deferred"
+  },
+  "research_only": true,
+  "lockbox_access": 0
+}

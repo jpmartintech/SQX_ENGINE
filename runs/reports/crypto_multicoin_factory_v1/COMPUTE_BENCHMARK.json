@@ -1,0 +1,14 @@
+{
+  "method": "per-asset campaign wall time from campaign_manifest.json",
+  "assets": {
+    "ADA": 453.7100439071655,
+    "AVAX": 335.9350514411926,
+    "BNB": 452.68892550468445,
+    "DOGE": 386.66564869880676,
+    "ETH": 459.17194747924805,
+    "LINK": 397.12478733062744,
+    "SOL": 347.42037081718445,
+    "TRX": 418.39566588401794
+  },
+  "note": "campaigns completed sequentially; no protected data used"
+}

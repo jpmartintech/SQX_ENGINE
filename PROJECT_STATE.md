@@ -1,50 +1,42 @@
 # SQX ENGINE — PROJECT STATE
 
-LAST UPDATED COMMIT: `a1a4da7`  
-CURRENT PHASE: Multi-coin Strategy Factory V1  
-CURRENT DECISION: BTC portfolio factory supported; multi-coin factory expansion beginning.
+LAST UPDATED COMMIT: `PENDING FINAL COMMIT`  
+LAST UPDATED DATE: 2026-09-29  
+CURRENT PHASE: Multi-Coin Strategy Factory V1 complete; Multi-Coin Portfolio Factory next.  
+CURRENT DECISION: `MULTI_COIN_RAW_MATERIAL_STRONG`
 
 ## Product objective
 
-Manufacture multiple profitable, persistent strategy engines, combine them with bounded shared risk, and maximize real compounded capital growth.
+Manufacture multiple profitable, persistent PnL engines, combine them under bounded shared risk, and maximize real compounded capital growth.
 
-## Frozen economic contract
+## Frozen architecture and contracts
 
-Initial equity is normalized to 1.0. Strategy risk is 1% of current equity, with maximum standalone open heat of 1%; remaining heat controls new entries. Fees and slippage are modeled, funding is not fabricated, and equity <= 0 is ruin.
+`DATA → PRICE_ONLY Strategy Factory → exact economic validation → Library → Portfolio Factory → Risk Engine → Execution`. Frozen economics: normalized equity 1.0, 1% current-equity risk, maximum standalone open heat 1%, remaining heat for new entries, fees and slippage, no fabricated funding, and ruin at equity <= 0. Execution is causal next-bar. Strategy definitions are hashed deterministically.
 
-## Research method
+## Proven history
 
-PRICE_ONLY v1.7, causal next-bar execution, deterministic hashes, exact reference/fast equivalence, elapsed-time DEV/VAL/OOS/LOCKBOX firewalls, and Random/Genetic manufacturing.
+The Forex/FTMO branch was closed after insufficient stable forward persistence. Early crypto work found and repaired portfolio aggregation and unbounded per-entry risk defects. The long BTC M15 reboot manufactured 50k Random + 200k Genetic strategies, admitted 7,350 unique definitions, and produced a supported BTC portfolio frontier. BTC OOS is burned research; BTC LOCKBOX remains protected.
 
-## Completed phases
+## Data and temporal policy
 
-- Forex/FTMO branches were frozen after insufficient stable forward persistence.
-- Early crypto work exposed and fixed portfolio aggregation and unbounded-risk defects.
-- BTC long-history reboot manufactured 50k Random + 200k Genetic strategies.
-- BTC Strategy Factory: `PRICE_ONLY_FACTORY_SUPPORTED`; 7,350 unique admitted definitions.
-- BTC Portfolio Factory: `BTC_PORTFOLIO_FACTORY_SUPPORTED`; exact 50k Random + 100k Genetic portfolio search and 28/44 profitable burned-OOS diagnostics.
+BTC canonical source is `data/external_candidate/BTCUSDT_15M_EXTERNAL.csv` with SHA256 `f2ddfd9b85f4e7556474e1ef10f78eebd927a0f0e330785d48b4d08e5b69a20a`. New local signal data is under ignored `data/crypto_external/`; hashes and manifests are committed. All nine M15 assets pass the mechanical audit and are long-history eligible. Each asset uses its own elapsed-time 60/15/15/10 split; the common intersection is recorded in `TEMPORAL_PROTOCOL.json`.
 
-## Data status
+## This loop result
 
-BTC canonical signal dataset is `data/external_candidate/BTCUSDT_15M_EXTERNAL.csv`, SHA256 `f2ddfd9b85f4e7556474e1ef10f78eebd927a0f0e330785d48b4d08e5b69a20a`.
-Additional local signal datasets are discovered under `data/crypto_external/`; raw data is ignored by Git and only hashes/manifests are committed.
+Eight non-BTC assets completed 50,000 unique Random + 200,000 unique Genetic DEV evaluations. AVAX, BNB, ETH, LINK and SOL produced frozen DEV+VAL libraries; ADA produced two admitted instances; DOGE and TRX produced none. New-asset OOS was opened once after per-asset PRE-OOS freezes as burned research only. `MULTI_COIN_RAW_MATERIAL_STRONG` is based on multiple supported assets, not protected data.
 
 ## Burned and protected data
 
-BTC OOS (2024-02-27 → 2025-06-18) is burned research evidence. BTC LOCKBOX (2025-06-18 → 2026-05-02) remains protected with zero access. New-asset OOS and LOCKBOX status is controlled per asset by the current experiment ledger.
-
-## Current experiment
-
-Discover and audit additional M15 datasets, freeze a common temporal policy, reuse the BTC factory without semantic changes, manufacture 50k Random + 200k Genetic per eligible asset, freeze before VAL and OOS, and measure multi-underlying raw material. Do not build the multi-coin portfolio in this phase.
+BTC OOS is previously burned. New-asset OOS periods are now burned research diagnostics. Every BTC and new-asset LOCKBOX remains protected with zero access. No OOS result may be used to retune this experiment.
 
 ## Do not reopen casually
 
-Do not change the economic contract, BTC split, PRICE_ONLY grammar, burned BTC conclusions, or protected LOCKBOX. Do not use OOS to select strategies, clusters, weights, or fitness. Do not reopen FTMO or old Hyperliquid branches.
+Do not alter the economic contract, PRICE_ONLY grammar, BTC conclusions, frozen per-asset DEV/VAL memberships, or LOCKBOX firewall. Do not reopen FTMO or old Hyperliquid branches. Do not build weights or leverage from burned OOS.
 
-## Expected next steps
+## Next product action
 
-Complete this multi-coin factory. If raw material is supported, freeze per-asset libraries and open Multi-Coin Portfolio Factory, then validate combined economics, activate Risk Engine, and define execution.
+Open Multi-Coin Portfolio Factory using the frozen per-asset libraries, with event-aligned cross-asset behavioral maps built before optimization. Do not activate Risk Engine or Execution until combined portfolio economics are frozen.
 
 ## Fresh-session resume
 
-Read `FRESH_SESSION_HANDOFF.md`, `PROJECT_STATE.json`, `NEXT_STEPS.md`, and the latest `runs/reports/crypto_multicoin_factory_v1/FINAL_REPORT.md`. Verify `git status`, the data catalog, and the access ledger before taking action.
+Read `FRESH_SESSION_HANDOFF.md`, this file, `PROJECT_STATE.json`, `NEXT_STEPS.md`, and `runs/reports/crypto_multicoin_factory_v1/FINAL_REPORT.md`; verify `git status`, hashes, and `DATA_ACCESS_LEDGER.json` before continuing.

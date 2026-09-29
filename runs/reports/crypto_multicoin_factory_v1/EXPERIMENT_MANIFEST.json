@@ -1,0 +1,21 @@
+{
+  "experiment": "crypto_multicoin_factory_v1",
+  "starting_commit": "a1a4da7",
+  "finalization_commit": "0d6312af86950d69f23bc5879524cdd0362d213d",
+  "assets": [
+    "ADA",
+    "AVAX",
+    "BNB",
+    "DOGE",
+    "ETH",
+    "LINK",
+    "SOL",
+    "TRX"
+  ],
+  "factory": "PRICE_ONLY v1.7",
+  "economic_contract": "BTC bounded 1% standalone heat contract",
+  "manufacturing": "50000 unique random + 200000 unique genetic per eligible M15 asset",
+  "oos": "burned diagnostic only",
+  "lockbox_access": 0,
+  "btc_oos": "previously burned"
+}

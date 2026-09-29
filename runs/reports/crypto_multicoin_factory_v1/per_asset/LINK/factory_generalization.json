@@ -1,0 +1,27 @@
+{
+  "asset": "LINK",
+  "admitted": {
+    "count": 6651,
+    "positive_return": 4169,
+    "positive_rate": 0.626823034130206,
+    "positive_expectancy": 4169,
+    "positive_expectancy_rate": 0.626823034130206,
+    "median_return": 0.06446689143419482,
+    "median_expectancy": 0.00020900901705140542,
+    "median_pf": 1.0373424368906219,
+    "ruin_rate": 0.0
+  },
+  "rejected_valid": {
+    "count": 123060,
+    "positive_return": 50478,
+    "positive_rate": 0.41019015114578256,
+    "positive_expectancy": 50478,
+    "positive_expectancy_rate": 0.41019015114578256,
+    "median_return": -0.10388601091923494,
+    "median_expectancy": -0.000222349150422826,
+    "median_pf": 0.9479561977900905,
+    "ruin_rate": 0.0
+  },
+  "research_only": true,
+  "lockbox_access": 0
+}

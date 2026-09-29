@@ -1,0 +1,27 @@
+{
+  "asset": "ETH",
+  "admitted": {
+    "count": 7837,
+    "positive_return": 5422,
+    "positive_rate": 0.6918463697843562,
+    "positive_expectancy": 5422,
+    "positive_expectancy_rate": 0.6918463697843562,
+    "median_return": 0.1060734760962585,
+    "median_expectancy": 0.0002639746132698942,
+    "median_pf": 1.0494794182124179,
+    "ruin_rate": 0.10450427459487048
+  },
+  "rejected_valid": {
+    "count": 63806,
+    "positive_return": 34088,
+    "positive_rate": 0.5342444284236593,
+    "positive_expectancy": 34088,
+    "positive_expectancy_rate": 0.5342444284236593,
+    "median_return": 0.02090190587096763,
+    "median_expectancy": 4.48384357801758e-05,
+    "median_pf": 1.009443148948478,
+    "ruin_rate": 0.17076763940695233
+  },
+  "research_only": true,
+  "lockbox_access": 0
+}

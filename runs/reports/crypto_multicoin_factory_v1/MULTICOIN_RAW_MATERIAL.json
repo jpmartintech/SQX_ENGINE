@@ -1,0 +1,19 @@
+{
+  "decision": "MULTI_COIN_RAW_MATERIAL_STRONG",
+  "supported_assets": [
+    "AVAX",
+    "ETH",
+    "LINK",
+    "SOL"
+  ],
+  "weak_assets": [
+    "ADA",
+    "BNB"
+  ],
+  "failed_assets": [
+    "DOGE",
+    "TRX"
+  ],
+  "reason": "multiple assets have frozen DEV+VAL libraries and positive burned-OOS research rates; cross-asset portfolio optimization is not performed",
+  "research_only_oos": true
+}
