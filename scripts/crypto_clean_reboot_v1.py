@@ -160,9 +160,9 @@ def bounds(d):
 def event_extract(d,definition,features,ev,start,end):
     signal=ev._signal(definition); a=ev._arrays; atr=np.asarray(features['atr_14'],dtype=float); direction=1 if definition.direction=='LONG' else -1
     eis,xis,dirs,pn,rs,helds,reasons=_event_kernel(a['open'],a['high'],a['low'],a['close'],atr,signal,int(start),int(end),direction,float(definition.stop_atr),float(definition.target_atr),int(definition.time_exit),float(ev.spread),float(ev.slippage)); out=[]
-    ts=d.timestamp.astype('int64').to_numpy(); op=d.open.to_numpy(float); cl=d.close.to_numpy(float)
+    op=d.open.to_numpy(float); cl=d.close.to_numpy(float)
     for k in range(len(eis)):
-        ei=int(eis[k]); xi=int(xis[k]); out.append({'entry_time':pd.Timestamp(ts[ei],unit='ns',tz='UTC'),'exit_time':pd.Timestamp(ts[xi],unit='ns',tz='UTC'),'direction':'LONG' if dirs[k]>0 else 'SHORT','r':float(rs[k]),'entry_price':op[ei],'exit_price':cl[xi],'entry_index':ei,'exit_index':xi,'asset':'BTC'})
+        ei=int(eis[k]); xi=int(xis[k]); out.append({'entry_time':pd.Timestamp(d.timestamp.iloc[ei]),'exit_time':pd.Timestamp(d.timestamp.iloc[xi]),'direction':'LONG' if dirs[k]>0 else 'SHORT','r':float(rs[k]),'entry_price':op[ei],'exit_price':cl[xi],'entry_index':ei,'exit_index':xi,'asset':'BTC'})
     # Manufacturing evaluators use a bounded predicate cache but must not
     # retain per-strategy signal arrays or rich result ledgers.
     ev._signal_cache.clear(); ev._evaluation_cache.clear()
