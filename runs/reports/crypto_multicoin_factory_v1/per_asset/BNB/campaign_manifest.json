@@ -1,0 +1,17 @@
+{
+  "asset": "BNB",
+  "source_sha256": "04bf24b8fe69645a28ab3b7ae1b41c7360a22553a781726d3506e22d05ce6799",
+  "split": {
+    "START": "2017-11-06 03:45:00+00:00",
+    "DEV_END": "2022-12-29 20:42:00+00:00",
+    "VAL_END": "2024-04-12 18:56:15+00:00",
+    "OOS_END": "2025-07-26 17:10:30+00:00",
+    "END": "2026-06-05 00:00:00+00:00"
+  },
+  "random_unique": 38297,
+  "genetic_unique": 198981,
+  "elapsed_seconds": 439.3765456676483,
+  "economic_contract": "frozen BTC bounded contract",
+  "grammar": "v1.7 PRICE_ONLY",
+  "lockbox_access": 0
+}

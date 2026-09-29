@@ -1,0 +1,17 @@
+{
+  "asset": "ETH",
+  "source_sha256": "9d171eb4a7c246bc137cbafa48476d76f3b9050c6ce9e4b88ed0014d79a10852",
+  "split": {
+    "START": "2017-08-17 04:00:00+00:00",
+    "DEV_END": "2022-11-27 11:12:00+00:00",
+    "VAL_END": "2024-03-23 13:00:00+00:00",
+    "OOS_END": "2025-07-18 14:48:00+00:00",
+    "END": "2026-06-05 00:00:00+00:00"
+  },
+  "random_unique": 38497,
+  "genetic_unique": 198874,
+  "elapsed_seconds": 440.12195110321045,
+  "economic_contract": "frozen BTC bounded contract",
+  "grammar": "v1.7 PRICE_ONLY",
+  "lockbox_access": 0
+}

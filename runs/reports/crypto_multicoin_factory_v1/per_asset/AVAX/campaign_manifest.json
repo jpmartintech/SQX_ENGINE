@@ -1,0 +1,17 @@
+{
+  "asset": "AVAX",
+  "source_sha256": "a3932892676bfc5a7d29ee62b355634edfa2929f4c7e0f75d4abcd0317b0d580",
+  "split": {
+    "START": "2020-09-22 06:30:00+00:00",
+    "DEV_END": "2024-02-23 07:24:00+00:00",
+    "VAL_END": "2024-12-31 13:37:30+00:00",
+    "OOS_END": "2025-11-08 19:51:00+00:00",
+    "END": "2026-06-05 00:00:00+00:00"
+  },
+  "random_unique": 38388,
+  "genetic_unique": 198991,
+  "elapsed_seconds": 330.1759424209595,
+  "economic_contract": "frozen BTC bounded contract",
+  "grammar": "v1.7 PRICE_ONLY",
+  "lockbox_access": 0
+}

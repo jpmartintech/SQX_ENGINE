@@ -1,0 +1,17 @@
+{
+  "asset": "SOL",
+  "source_sha256": "838c982acc819fb7c6c42e83a59360c8c60650339fbf08ca96609eea5531395c",
+  "split": {
+    "START": "2020-08-11 06:00:00+00:00",
+    "DEV_END": "2024-02-06 10:30:00+00:00",
+    "VAL_END": "2024-12-20 23:37:30+00:00",
+    "OOS_END": "2025-11-04 12:45:00+00:00",
+    "END": "2026-06-04 21:30:00+00:00"
+  },
+  "random_unique": 38386,
+  "genetic_unique": 199101,
+  "elapsed_seconds": 330.84126353263855,
+  "economic_contract": "frozen BTC bounded contract",
+  "grammar": "v1.7 PRICE_ONLY",
+  "lockbox_access": 0
+}

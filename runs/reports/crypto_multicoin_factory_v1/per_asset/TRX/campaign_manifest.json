@@ -1,0 +1,17 @@
+{
+  "asset": "TRX",
+  "source_sha256": "6a61bb17e80628de861b5b030b6e6959a44937f83b27f4369b2ea2ac0d53dc94",
+  "split": {
+    "START": "2018-06-11 11:30:00+00:00",
+    "DEV_END": "2023-03-26 19:00:00+00:00",
+    "VAL_END": "2024-06-06 02:52:30+00:00",
+    "OOS_END": "2025-08-17 10:45:00+00:00",
+    "END": "2026-06-05 00:00:00+00:00"
+  },
+  "random_unique": 38478,
+  "genetic_unique": 198990,
+  "elapsed_seconds": 402.751501083374,
+  "economic_contract": "frozen BTC bounded contract",
+  "grammar": "v1.7 PRICE_ONLY",
+  "lockbox_access": 0
+}

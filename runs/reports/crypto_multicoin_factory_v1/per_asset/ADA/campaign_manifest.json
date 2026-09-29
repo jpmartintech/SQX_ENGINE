@@ -1,0 +1,17 @@
+{
+  "asset": "ADA",
+  "source_sha256": "96f45b70520aba212f8f0e18e49775562a89f8e76c2a8ee0b3c23ef31f978238",
+  "split": {
+    "START": "2018-04-17 04:00:00+00:00",
+    "DEV_END": "2023-03-04 16:00:00+00:00",
+    "VAL_END": "2024-05-23 07:00:00+00:00",
+    "OOS_END": "2025-08-11 22:00:00+00:00",
+    "END": "2026-06-05 00:00:00+00:00"
+  },
+  "random_unique": 38329,
+  "genetic_unique": 199059,
+  "elapsed_seconds": 424.3147692680359,
+  "economic_contract": "frozen BTC bounded contract",
+  "grammar": "v1.7 PRICE_ONLY",
+  "lockbox_access": 0
+}

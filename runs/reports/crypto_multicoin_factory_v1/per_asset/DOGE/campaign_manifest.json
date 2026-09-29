@@ -1,0 +1,17 @@
+{
+  "asset": "DOGE",
+  "source_sha256": "7183e860004a0f35b631c89f574a732d8db1883eba05be533ae4155fddf38ade",
+  "split": {
+    "START": "2019-07-05 12:00:00+00:00",
+    "DEV_END": "2023-08-29 09:36:00+00:00",
+    "VAL_END": "2024-09-11 09:00:00+00:00",
+    "OOS_END": "2025-09-25 08:24:00+00:00",
+    "END": "2026-06-05 00:00:00+00:00"
+  },
+  "random_unique": 38393,
+  "genetic_unique": 199132,
+  "elapsed_seconds": 385.6617968082428,
+  "economic_contract": "frozen BTC bounded contract",
+  "grammar": "v1.7 PRICE_ONLY",
+  "lockbox_access": 0
+}
