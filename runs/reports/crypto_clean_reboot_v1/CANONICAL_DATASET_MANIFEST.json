@@ -1,0 +1,16 @@
+{
+  "path": "/home/xaume/SQX_ENGINE/data/crypto_clean_reboot_v1/BTC_M15.parquet",
+  "source_sha256": "f2ddfd9b85f4e7556474e1ef10f78eebd927a0f0e330785d48b4d08e5b69a20a",
+  "canonical_sha256": "721c9a8d86f44c9a594e9b2660bd809ac0a57c8ff26c35965e77a6f20e3f030c",
+  "rows": 304759,
+  "first": "2017-08-17 04:00:00+00:00",
+  "last": "2026-05-02 14:45:00+00:00",
+  "interval": "15M",
+  "timezone": "UTC",
+  "transformations": [
+    "datetime->UTC timestamp",
+    "available_at=timestamp+15m",
+    "no interpolation",
+    "no gap filling"
+  ]
+}

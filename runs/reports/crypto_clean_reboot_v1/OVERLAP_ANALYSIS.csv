@@ -1,0 +1,2 @@
+matched_bars,source_range,close_correlation,log_return_correlation,daily_return_correlation,median_abs_return_difference,p95_return_difference,p99_return_difference,max_return_difference,ohlc_relationship,volume_relationship,classification
+116887,"['2023-01-01 00:00:00+00:00', '2026-05-02 14:45:00+00:00']",0.9999996064014256,0.9983887070931788,0.9999735626339592,6.629883906911216e-05,0.0002081750998658427,0.0003000659453907759,0.015970600069718843,same columns compared on common timestamps,0.7186644917208209,LONG_DATA_ACCEPTED_FOR_SIGNAL_RESEARCH

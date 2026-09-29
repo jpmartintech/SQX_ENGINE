@@ -1,0 +1,26 @@
+{
+  "source": "/home/xaume/SQX_ENGINE/data/external_candidate/BTCUSDT_15M_EXTERNAL.csv",
+  "sha256": "f2ddfd9b85f4e7556474e1ef10f78eebd927a0f0e330785d48b4d08e5b69a20a",
+  "rows": 304759,
+  "columns": [
+    "timestamp",
+    "available_at",
+    "open",
+    "high",
+    "low",
+    "close",
+    "volume"
+  ],
+  "first": "2017-08-17 04:00:00+00:00",
+  "last": "2026-05-02 14:45:00+00:00",
+  "interval_minutes_median": 15.0,
+  "interval_minutes_max": 2025.0,
+  "duplicates": 0,
+  "non_monotonic": false,
+  "nan_cells": 0,
+  "nonpositive_ohlc": 0,
+  "zero_volume": 56,
+  "gaps": 33,
+  "sha256_verified": true,
+  "quality": "ACCEPT"
+}

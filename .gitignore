@@ -16,6 +16,7 @@ data/crypto_v12/
 data/crypto_portfolio_v2/
 data/external_candidate/*.csv
 data/crypto_v2/
+data/crypto_clean_reboot_v1/
 runs/reports/crypto_factory_v2/*.csv
 runs/reports/crypto_factory_v2/*.parquet
 *.sqlite-*

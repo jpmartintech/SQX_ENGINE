@@ -1,0 +1,10 @@
+{
+  "experiment": "crypto_clean_reboot_v1",
+  "starting_commit": "55c49ab",
+  "canonical_source": "/home/xaume/SQX_ENGINE/data/external_candidate/BTCUSDT_15M_EXTERNAL.csv",
+  "signal_market": "BTCUSDT long-history source; venue/product not assumed identical to execution venue",
+  "execution_market": "Hyperliquid future execution only",
+  "grammar": "v1.7 PRICE_ONLY",
+  "segments": "elapsed time 60/15/15/10",
+  "lockbox_access": 0
+}

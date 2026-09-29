@@ -1,0 +1,17 @@
+{
+  "matched_bars": 116887,
+  "source_range": [
+    "2023-01-01 00:00:00+00:00",
+    "2026-05-02 14:45:00+00:00"
+  ],
+  "close_correlation": 0.9999996064014256,
+  "log_return_correlation": 0.9983887070931788,
+  "daily_return_correlation": 0.9999735626339592,
+  "median_abs_return_difference": 6.629883906911216e-05,
+  "p95_return_difference": 0.0002081750998658427,
+  "p99_return_difference": 0.0003000659453907759,
+  "max_return_difference": 0.015970600069718843,
+  "ohlc_relationship": "same columns compared on common timestamps",
+  "volume_relationship": 0.7186644917208209,
+  "classification": "LONG_DATA_ACCEPTED_FOR_SIGNAL_RESEARCH"
+}
