@@ -14,7 +14,7 @@ Exact chronological multi-asset shared-equity replay passed the 20 independent P
 
 ## DEV+VAL
 
-Frozen frontier records: 673. The search contained 78596 DEV+VAL-valid candidates. The final frontier is dominated by single-asset candidates: 41; multi-asset candidates: 632.
+Frozen frontier records: 673. The search contained 78596 DEV+VAL-valid candidates. The final frontier contains 41 single-asset candidates and 632 multi-asset candidates, but this structural diversity did not persist economically in the burned OOS diagnostic.
 
 ## Burned OOS diagnostic
 
