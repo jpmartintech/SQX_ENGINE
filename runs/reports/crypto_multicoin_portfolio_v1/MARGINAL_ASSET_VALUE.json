@@ -1,4 +1,11 @@
 {
-  "status": "DEV+VAL leave-one-asset-out analysis pending finalizer",
+  "frontier_frequency": {
+    "BTC": 673,
+    "AVAX": 548,
+    "ETH": 289,
+    "LINK": 225,
+    "SOL": 229
+  },
+  "method": "presence on frozen DEV+VAL frontier, not a causal marginal attribution",
   "oos_used": false
 }

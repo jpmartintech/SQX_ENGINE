@@ -1,0 +1,17 @@
+{
+  "btc_only_control": {
+    "frozen_frontier_count": 44,
+    "positive_rate": 0.636,
+    "median_return": 0.0111,
+    "status": "previously burned BTC portfolio diagnostic"
+  },
+  "multicoin": {
+    "frontier_count": 673,
+    "positive_rate": 0.19465081723625557,
+    "median_return": -0.4317548771593295,
+    "median_pf": 0.2829501206862997,
+    "median_maxdd": -0.7729061693889919
+  },
+  "comparison": "multi-coin did not improve burned OOS research result under this search",
+  "research_only": true
+}

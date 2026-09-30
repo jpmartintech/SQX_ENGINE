@@ -1,4 +1,13 @@
 {
-  "status": "DEV_VAL deterministic control summaries pending finalizer",
-  "method": "same pool and replay, no OOS"
+  "method": "descriptive frozen-frontier asset presence; no OOS selection",
+  "frontier_asset_presence": {
+    "BTC": 673,
+    "AVAX": 548,
+    "ETH": 289,
+    "LINK": 225,
+    "SOL": 229
+  },
+  "multi_asset_frontier_count": 632,
+  "btc_only_frontier_count": 41,
+  "oos_used_for_selection": false
 }

@@ -1,0 +1,14 @@
+{
+  "dev_val_frontier": 673,
+  "oos_frontier": 673,
+  "positive_oos": 131,
+  "positive_rate": 0.19465081723625557,
+  "median_oos_return": -0.4317548771593295,
+  "median_oos_pf": 0.2829501206862997,
+  "median_oos_maxdd": -0.7729061693889919,
+  "multi_asset_positive_oos": 125,
+  "multi_asset_oos_count": 632,
+  "btc_control_positive_rate": 0.636,
+  "research_only": true,
+  "lockbox_access": 0
+}

@@ -1,5 +1,7 @@
 {
-  "status": "frontier contribution analysis pending OOS-independent finalizer",
-  "method": "DEV+VAL event contribution; no OOS",
-  "lockbox_access": 0
+  "multi_asset_frontier_count": 632,
+  "single_asset_frontier_count": 41,
+  "oos_median_return": -0.4317548771593295,
+  "method": "frontier asset-count concentration diagnostic",
+  "research_only": true
 }

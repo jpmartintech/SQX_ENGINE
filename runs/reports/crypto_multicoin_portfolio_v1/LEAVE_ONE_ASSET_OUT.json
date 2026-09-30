@@ -1,4 +1,4 @@
 {
-  "status": "DEV+VAL exact replay required on frozen frontier; no OOS",
-  "oos_used": false
+  "status": "not used to select portfolios; no OOS retuning",
+  "note": "frozen frontier candidates retain member identities for next exact risk-stage audit"
 }

@@ -1,9 +1,8 @@
 # SQX ENGINE — NEXT STEPS
 
-1. Open Multi-Coin Portfolio Factory on the frozen per-asset libraries.
-2. Build event-aligned within-asset and cross-asset behavioral fingerprints using DEV+VAL only.
-3. Search exact shared-equity portfolios and freeze a growth/risk frontier before any OOS diagnostic.
-4. Only after a valid combined portfolio is frozen, design Risk Engine sizing and then the execution contract.
-5. Reserve protected LOCKBOX periods for a later product-level validation; never use them in research optimization.
+1. Redesign the Multi-Coin Portfolio Factory search/persistence layer using event-aligned DEV+VAL PnL, downside, drawdown, and trade-timing fingerprints.
+2. Preserve the exact shared-equity 1% heat contract and complete the 500-portfolio independent reference-equivalence audit.
+3. Rerun the BTC+AVAX+ETH+LINK+SOL portfolio factory with a frozen DEV+VAL-only pool and compare fairly to the BTC-only control.
+4. Do not activate Risk Engine or open any LOCKBOX until a materially stronger frozen portfolio frontier exists.
 
-The current loop did not optimize multi-coin weights, leverage, Risk Engine, or execution.
+The prior multi-coin OOS diagnostic is burned research only and must not be used for retuning.

@@ -1,8 +1,5 @@
 {
-  "status": "frontier daily stress analysis pending finalizer",
-  "periods": [
-    "DEV",
-    "VAL"
-  ],
+  "status": "not claimed from standalone summaries",
+  "reason": "aligned strategy PnL correlation and drawdown overlap must be implemented before any risk decision",
   "oos_used": false
 }
