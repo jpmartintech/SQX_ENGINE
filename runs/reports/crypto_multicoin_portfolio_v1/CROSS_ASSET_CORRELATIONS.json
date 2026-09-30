@@ -1,0 +1,11 @@
+{
+  "status": "event maps built for exact replay; aggregate correlation diagnostics deferred to finalizer",
+  "assets": [
+    "BTC",
+    "AVAX",
+    "ETH",
+    "LINK",
+    "SOL"
+  ],
+  "oos_used": false
+}

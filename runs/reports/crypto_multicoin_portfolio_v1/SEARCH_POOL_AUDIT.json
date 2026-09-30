@@ -1,0 +1,18 @@
+{
+  "full_universe": 92109,
+  "pool": 200,
+  "per_asset": {
+    "AVAX": 40,
+    "BTC": 40,
+    "ETH": 40,
+    "LINK": 40,
+    "SOL": 40
+  },
+  "directions": {
+    "SHORT": 100,
+    "LONG": 100
+  },
+  "signatures": 200,
+  "policy": "40 per asset; deterministic top/middle quality tiers within LONG/SHORT; DEV+VAL only; no OOS",
+  "oos_used": false
+}

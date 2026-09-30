@@ -1,0 +1,13 @@
+{
+  "assets": [
+    "BTC",
+    "AVAX",
+    "ETH",
+    "LINK",
+    "SOL"
+  ],
+  "risk_total": 0.01,
+  "engine": "Numba exact shared-equity multi-asset replay",
+  "reference": "Python identical event ordering",
+  "lockbox_access": 0
+}

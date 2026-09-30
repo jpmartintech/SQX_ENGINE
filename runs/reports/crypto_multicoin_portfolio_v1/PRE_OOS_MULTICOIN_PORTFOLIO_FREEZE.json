@@ -1,0 +1,12 @@
+{
+  "status": "FROZEN",
+  "commit": "7e5bc9e273a710229a402a6869ca65ee583df61d",
+  "pool": 200,
+  "random": 50000,
+  "genetic": 100000,
+  "frontier": 673,
+  "oos_accessed": false,
+  "lockbox_access": 0,
+  "frontier_sha256": "6317eb0d72b1ff6603812214740ddc79ccb045fc005e2bdbb0b2fc298c39b9be",
+  "search_commit": "7e5bc9e273a710229a402a6869ca65ee583df61d"
+}

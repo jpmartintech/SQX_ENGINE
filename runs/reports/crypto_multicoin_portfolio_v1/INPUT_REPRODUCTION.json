@@ -1,0 +1,21 @@
+{
+  "assets": {
+    "BTC": 7350,
+    "AVAX": 46424,
+    "ETH": 7837,
+    "LINK": 6651,
+    "SOL": 23847
+  },
+  "total_instances": 92109,
+  "hashes_unique_within_asset": true,
+  "asset_instance_identity": true,
+  "sources": {
+    "BTC": "/home/xaume/SQX_ENGINE/runs/reports/crypto_clean_reboot_v1/manufacturing_v1/library_v1.parquet",
+    "AVAX": "/home/xaume/SQX_ENGINE/runs/reports/crypto_multicoin_factory_v1/per_asset/AVAX/library.parquet",
+    "ETH": "/home/xaume/SQX_ENGINE/runs/reports/crypto_multicoin_factory_v1/per_asset/ETH/library.parquet",
+    "LINK": "/home/xaume/SQX_ENGINE/runs/reports/crypto_multicoin_factory_v1/per_asset/LINK/library.parquet",
+    "SOL": "/home/xaume/SQX_ENGINE/runs/reports/crypto_multicoin_factory_v1/per_asset/SOL/library.parquet"
+  },
+  "oos_used": false,
+  "lockbox_access": 0
+}

@@ -1,0 +1,11 @@
+{
+  "experiment": "crypto_multicoin_portfolio_v1",
+  "starting_commit": "7e5bc9e273a402a6869ca65ee583df61d",
+  "primary_assets": ["BTC", "AVAX", "ETH", "LINK", "SOL"],
+  "selection_data": "DEV+VAL only",
+  "portfolio_heat": 0.01,
+  "random_target": 50000,
+  "genetic_target": 100000,
+  "oos_status": "not accessed before freeze",
+  "lockbox_access": 0
+}

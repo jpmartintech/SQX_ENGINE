@@ -1,0 +1,18 @@
+{
+  "total_instances": 92109,
+  "assets": {
+    "AVAX": 46424,
+    "BTC": 7350,
+    "ETH": 7837,
+    "LINK": 6651,
+    "SOL": 23847
+  },
+  "primary_assets": [
+    "BTC",
+    "AVAX",
+    "ETH",
+    "LINK",
+    "SOL"
+  ],
+  "oos_used": false
+}

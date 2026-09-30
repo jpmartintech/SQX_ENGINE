@@ -1,0 +1,9 @@
+{
+  "same_timestamp_cross_asset": "PASS by exits-before-entries event ordering",
+  "shared_heat": "PASS; sum active intended risk <= 1%",
+  "asset_ownership": "PASS; events carry asset index",
+  "floating_pnl": "PASS; marked on event/daily timestamps",
+  "ruin_halt": "PASS; no new entries after non-positive equity",
+  "status": "synthetic engine contract checks recorded before OOS",
+  "lockbox_access": 0
+}
