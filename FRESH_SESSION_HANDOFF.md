@@ -2,7 +2,7 @@
 
 REPOSITORY: `/home/xaume/SQX_ENGINE`  
 CURRENT BRANCH: `main`  
-CURRENT COMMIT: update from `git rev-parse HEAD`  
+CURRENT COMMIT: `74d9ee68cf5d166f9734b6ea1728a9086f77cecd`  
 PRODUCT OBJECTIVE: maximum real compounded capital growth under bounded shared risk.  
 CURRENT PHASE: Multi-Coin Portfolio Factory redesign required.  
 LATEST DECISION: `MULTICOIN_PORTFOLIO_FACTORY_WEAK`.
